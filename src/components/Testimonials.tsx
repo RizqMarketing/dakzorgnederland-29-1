@@ -12,42 +12,30 @@ const Testimonials = () => {
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center justify-center mb-6">
-            <div className="bg-gradient-to-br from-brand-500 to-brand-600 rounded-full p-4 shadow-2xl shadow-brand-500/30">
-              <MessageSquare className="w-8 h-8 text-white" />
-            </div>
+        <div className="text-center mb-12">
+          <div className="inline-flex items-center bg-slate-100 text-slate-600 px-4 py-2 rounded-full text-sm font-medium mb-4">
+            <svg className="w-4 h-4 mr-2 text-slate-500" fill="currentColor" viewBox="0 0 20 20">
+              <path fillRule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"/>
+            </svg>
+            310+ tevreden klanten
           </div>
-          <h2 className="text-4xl lg:text-5xl font-bold text-slate-900 mb-6">
+          <h2 className="text-4xl lg:text-5xl font-bold text-slate-900">
             Wat <span className="bg-gradient-to-r from-brand-500 to-brand-600 bg-clip-text text-transparent">Onze Klanten</span> Zeggen
           </h2>
-          <p className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
-            Al meer dan 7 jaar zorgen wij voor tevreden klanten in Nederland.
-            Hieronder vindt u een selectie van onze klantbeoordelingen.
-          </p>
         </div>
 
         {/* Customer Reviews */}
-        <div className="max-w-5xl mx-auto">
-          {/* Featured Reviews Header */}
-          <div className="text-center mb-12">
-            <div className="inline-flex items-center justify-center bg-gradient-to-r from-yellow-400 to-orange-400 text-white px-6 py-2 rounded-full font-semibold mb-4">
-              <Star className="w-5 h-5 mr-2 fill-current" />
-              Recentste 5 Sterren Reviews
-            </div>
-            <p className="text-slate-600 text-lg">
-              Onze klanten delen hun ervaringen met Dakzorg Nederland
-            </p>
-          </div>
+        <div className="max-w-5xl mx-auto mt-12">
 
           {/* Two Featured Reviews */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-8"/>
             {/* Review 1 - Lucienne Gringhuis */}
-            <div className="relative bg-white rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 border border-slate-100">
+            <div className="relative bg-gradient-to-br from-white to-blue-50/50 rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 border border-blue-100/50">
               {/* Quote decoration */}
               <div className="absolute -top-4 -left-4 w-12 h-12 bg-gradient-to-br from-brand-500 to-brand-600 rounded-full flex items-center justify-center shadow-lg">
                 <MessageSquare className="w-6 h-6 text-white" />
               </div>
+
 
               <div className="mb-6">
                 <div className="flex items-center mb-4">
@@ -72,17 +60,16 @@ const Testimonials = () => {
                 </div>
               </div>
 
-              <div className="flex items-center justify-between pt-4 border-t border-slate-100">
+              <div className="flex items-center justify-start pt-4 border-t border-slate-100">
                 <span className="inline-flex items-center text-sm text-green-600 font-semibold">
                   <CheckCircle className="w-4 h-4 mr-1" />
                   Lekkage snel verholpen
                 </span>
-                <span className="text-sm text-slate-500">Wat klanten zeggen</span>
               </div>
             </div>
 
             {/* Review 2 - Jennety Vangulik */}
-            <div className="relative bg-white rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 border border-slate-100">
+            <div className="relative bg-gradient-to-br from-white to-slate-50 rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 border border-slate-200/80">
               {/* Quote decoration */}
               <div className="absolute -top-4 -left-4 w-12 h-12 bg-gradient-to-br from-brand-500 to-brand-600 rounded-full flex items-center justify-center shadow-lg">
                 <MessageSquare className="w-6 h-6 text-white" />
@@ -112,33 +99,15 @@ const Testimonials = () => {
                 </div>
               </div>
 
-              <div className="flex items-center justify-between pt-4 border-t border-slate-100">
+              <div className="flex items-center justify-start pt-4 border-t border-slate-100">
                 <span className="inline-flex items-center text-sm text-green-600 font-semibold">
                   <Award className="w-4 h-4 mr-1" />
                   Uitstekende service
                 </span>
-                <span className="text-sm text-slate-500">Klanten ervaring</span>
-              </div>
-            </div>
-          </div>
-
-          {/* Trust statistics */}
-          <div className="mt-12 text-center">
-            <div className="inline-flex items-center space-x-8 bg-white rounded-full px-8 py-4 shadow-lg">
-              <div className="text-center">
-                <div className="text-2xl font-bold text-slate-900">4.9/5</div>
-                <div className="text-sm text-slate-600">Gemiddelde beoordeling</div>
-              </div>
-              <div className="h-8 w-px bg-slate-200"></div>
-              <div className="text-center">
-                <div className="text-2xl font-bold text-slate-900">500+</div>
-                <div className="text-sm text-slate-600">Tevreden klanten</div>
               </div>
             </div>
           </div>
         </div>
-
-
       </div>
     </section>
   );
