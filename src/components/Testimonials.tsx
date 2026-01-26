@@ -1,106 +1,144 @@
 import React from 'react';
-import { Users, Shield, Award, Clock } from 'lucide-react';
+import { MessageSquare, Star, Phone, Shield, Clock, Award, CheckCircle } from 'lucide-react';
 
 const Testimonials = () => {
-
   return (
-    <section id="testimonials" className="py-20 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 relative">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-brand-600/20"></div>
-        <div className="absolute top-0 left-0 w-full h-full" style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-        }}></div>
+    <section id="testimonials" className="py-20 bg-gradient-to-br from-slate-50 to-white relative overflow-hidden">
+      {/* Background decoration */}
+      <div className="absolute inset-0 opacity-30">
+        <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-brand-100/30 to-transparent rounded-full filter blur-3xl"></div>
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-tr from-blue-100/30 to-transparent rounded-full filter blur-3xl"></div>
       </div>
-      
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Header with Icon */}
+
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Header */}
         <div className="text-center mb-16">
-          <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-500/20 backdrop-blur-sm border border-blue-400/30 rounded-full mb-6">
-            <Users className="w-8 h-8 text-blue-400" />
+          <div className="inline-flex items-center justify-center mb-6">
+            <div className="bg-gradient-to-br from-brand-500 to-brand-600 rounded-full p-4 shadow-2xl shadow-brand-500/30">
+              <MessageSquare className="w-8 h-8 text-white" />
+            </div>
           </div>
-          <h2 className="text-4xl font-bold text-white mb-6">
-            Wat Onze <span className="bg-gradient-to-r from-blue-400 to-brand-400 bg-clip-text text-transparent">Klanten</span> Zeggen
+          <h2 className="text-4xl lg:text-5xl font-bold text-slate-900 mb-6">
+            Wat <span className="bg-gradient-to-r from-brand-500 to-brand-600 bg-clip-text text-transparent">Onze Klanten</span> Zeggen
           </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-            Al meer dan 25 jaar zorgen wij voor vakkundig dakwerk. Onze klanten waarderen onze 
-            betrouwbaarheid, kwaliteit en persoonlijke service.
+          <p className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
+            Al meer dan 7 jaar zorgen wij voor tevreden klanten in Nederland.
+            Hieronder vindt u een selectie van onze klantbeoordelingen.
           </p>
         </div>
-        
-        {/* Enhanced Widget Container */}
-        <div className="relative w-full max-w-none mx-auto">
-          {/* Subtle background pattern */}
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-700/30 to-slate-600/30 rounded-2xl transform rotate-1"></div>
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-600/30 to-slate-700/30 rounded-2xl transform -rotate-1"></div>
-          
-          {/* Main container */}
-          <div className="relative bg-white rounded-2xl shadow-xl border border-gray-200 p-4 sm:p-6 mx-2 sm:mx-4">
-            {/* Top accent */}
-            <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-20 h-1 bg-gradient-to-r from-blue-400 to-brand-400 rounded-b-full"></div>
-            
-            
-            {/* Widget */}
-            <div 
-              className="overflow-hidden rounded-xl"
-              style={{ 
-                minHeight: '400px',
-                paddingBottom: '10px'
-              }}
-              dangerouslySetInnerHTML={{
-                __html: `
-                  <style>
-                    /* Mobile styling - keep it simple like ChimneyPage */
-                    @media screen and (max-width: 768px) {
-                      .lc_reviews_widget iframe {
-                        height: 350px !important;
-                        border-radius: 12px !important;
-                      }
-                    }
-                  </style>
-                  <script type='text/javascript' src='https://reputationhub.site/reputation/assets/review-widget.js'></script>
-                  <iframe class='lc_reviews_widget' src='https://reputationhub.site/reputation/widgets/review_widget/bGV3Pxr7SBGEoFWh6kb3' frameborder='0' scrolling='no' style='min-width: 100%; width: 100%; height: 350px; border-radius: 12px; display: block; margin: 0; padding: 0; box-sizing: border-box;'></iframe>
-                `
-              }}
-            />
+
+        {/* Customer Reviews */}
+        <div className="max-w-5xl mx-auto">
+          {/* Featured Reviews Header */}
+          <div className="text-center mb-12">
+            <div className="inline-flex items-center justify-center bg-gradient-to-r from-yellow-400 to-orange-400 text-white px-6 py-2 rounded-full font-semibold mb-4">
+              <Star className="w-5 h-5 mr-2 fill-current" />
+              Recentste 5 Sterren Reviews
+            </div>
+            <p className="text-slate-600 text-lg">
+              Onze klanten delen hun ervaringen met Dakzorg Nederland
+            </p>
+          </div>
+
+          {/* Two Featured Reviews */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            {/* Review 1 - Lucienne Gringhuis */}
+            <div className="relative bg-white rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 border border-slate-100">
+              {/* Quote decoration */}
+              <div className="absolute -top-4 -left-4 w-12 h-12 bg-gradient-to-br from-brand-500 to-brand-600 rounded-full flex items-center justify-center shadow-lg">
+                <MessageSquare className="w-6 h-6 text-white" />
+              </div>
+
+              <div className="mb-6">
+                <div className="flex items-center mb-4">
+                  {[1, 2, 3, 4, 5].map((star) => (
+                    <Star key={star} className="w-6 h-6 text-yellow-400 fill-current" />
+                  ))}
+                </div>
+
+                <p className="text-slate-700 text-lg leading-relaxed mb-6 italic">
+                  "Ik had een kleine lekkage omdat de sneeuw aan het smelten was. Er kwamen vandaag 2 aardige mannen
+                  en ze hebben het meteen gemaakt voor een correcte prijs. Superblij mee. Aanrader."
+                </p>
+
+                <div className="flex items-center">
+                  <div className="w-14 h-14 bg-gradient-to-br from-pink-400 to-rose-500 rounded-full flex items-center justify-center text-white font-bold shadow-md">
+                    LG
+                  </div>
+                  <div className="ml-4">
+                    <h4 className="text-xl font-bold text-slate-900">Lucienne Gringhuis</h4>
+                    <p className="text-slate-500">Recente klant</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="flex items-center justify-between pt-4 border-t border-slate-100">
+                <span className="inline-flex items-center text-sm text-green-600 font-semibold">
+                  <CheckCircle className="w-4 h-4 mr-1" />
+                  Lekkage snel verholpen
+                </span>
+                <span className="text-sm text-slate-500">Wat klanten zeggen</span>
+              </div>
+            </div>
+
+            {/* Review 2 - Jennety Vangulik */}
+            <div className="relative bg-white rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 border border-slate-100">
+              {/* Quote decoration */}
+              <div className="absolute -top-4 -left-4 w-12 h-12 bg-gradient-to-br from-brand-500 to-brand-600 rounded-full flex items-center justify-center shadow-lg">
+                <MessageSquare className="w-6 h-6 text-white" />
+              </div>
+
+              <div className="mb-6">
+                <div className="flex items-center mb-4">
+                  {[1, 2, 3, 4, 5].map((star) => (
+                    <Star key={star} className="w-6 h-6 text-yellow-400 fill-current" />
+                  ))}
+                </div>
+
+                <p className="text-slate-700 text-lg leading-relaxed mb-6 italic">
+                  "Lang opzoek geweest naar een betrouwbare dakdekker. Toen hebben ze mij Dakzorg Nederland aanbevolen.
+                  Heb een contact moment ingepland, reageerde snel en dachten echt met mij mee! Alles netjes afgewerkt
+                  tot in de details. Vakmannen zijn het!"
+                </p>
+
+                <div className="flex items-center">
+                  <div className="w-14 h-14 bg-gradient-to-br from-emerald-400 to-teal-500 rounded-full flex items-center justify-center text-white font-bold shadow-md">
+                    JV
+                  </div>
+                  <div className="ml-4">
+                    <h4 className="text-xl font-bold text-slate-900">Jennety Vangulik</h4>
+                    <p className="text-slate-500">Tevreden klant</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="flex items-center justify-between pt-4 border-t border-slate-100">
+                <span className="inline-flex items-center text-sm text-green-600 font-semibold">
+                  <Award className="w-4 h-4 mr-1" />
+                  Uitstekende service
+                </span>
+                <span className="text-sm text-slate-500">Klanten ervaring</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Trust statistics */}
+          <div className="mt-12 text-center">
+            <div className="inline-flex items-center space-x-8 bg-white rounded-full px-8 py-4 shadow-lg">
+              <div className="text-center">
+                <div className="text-2xl font-bold text-slate-900">4.9/5</div>
+                <div className="text-sm text-slate-600">Gemiddelde beoordeling</div>
+              </div>
+              <div className="h-8 w-px bg-slate-200"></div>
+              <div className="text-center">
+                <div className="text-2xl font-bold text-slate-900">500+</div>
+                <div className="text-sm text-slate-600">Tevreden klanten</div>
+              </div>
+            </div>
           </div>
         </div>
 
-        {/* Clean Trust Footer */}
-        <div className="mt-12">
-          <div className="text-center space-y-6">
-            <div className="inline-flex items-center space-x-6 text-xs text-gray-400 font-medium tracking-wide">
-              <span className="flex items-center space-x-2">
-                <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                <span>VOLLEDIG VERZEKERD</span>
-              </span>
-              <span className="flex items-center space-x-2">
-                <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
-                <span>GECERTIFICEERD</span>
-              </span>
-              <span className="flex items-center space-x-2">
-                <div className="w-2 h-2 bg-yellow-500 rounded-full"></div>
-                <span>25+ JAAR ERVARING</span>
-              </span>
-            </div>
-            
-            {/* Trustpilot Logo */}
-            <div className="pt-2">
-              <a 
-                href="https://nl.trustpilot.com/review/www.compleetdakonderhoudnederland.nl"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block hover:scale-105 transition-transform duration-200"
-              >
-                <img 
-                  src="https://imgur.com/C39BM5j.png" 
-                  alt="Trustpilot Reviews - Bekijk onze beoordelingen" 
-                  className="h-16 w-auto opacity-80 hover:opacity-100 transition-opacity"
-                />
-              </a>
-            </div>
-          </div>
-        </div>
+
       </div>
     </section>
   );

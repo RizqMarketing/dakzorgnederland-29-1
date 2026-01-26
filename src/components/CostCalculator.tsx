@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Calculator, Home, Building2, Wrench, ChevronRight, DollarSign } from 'lucide-react';
+import { Calculator, Home, Building2, Wrench, Check, ArrowRight } from 'lucide-react';
 
 const CostCalculator = () => {
   const [formData, setFormData] = useState({
@@ -16,14 +16,14 @@ const CostCalculator = () => {
     location: '',
     timeline: ''
   });
-  
-  const [currentStep, setCurrentStep] = useState(1);
+
   const [estimate, setEstimate] = useState(null);
+  const [activeTab, setActiveTab] = useState('project');
 
   const projectTypes = [
-    { id: 'new', label: 'Nieuwbouw', icon: Building2 },
-    { id: 'renovation', label: 'Renovatie', icon: Wrench },
-    { id: 'extension', label: 'Uitbouw', icon: Home }
+    { id: 'new', label: 'Nieuwbouw', icon: Building2, desc: 'Volledig nieuw gebouw' },
+    { id: 'renovation', label: 'Renovatie', icon: Wrench, desc: 'Bestaand pand vernieuwen' },
+    { id: 'extension', label: 'Uitbouw', icon: Home, desc: 'Aanbouw of uitbreiding' }
   ];
 
   const buildingTypes = [
@@ -35,30 +35,38 @@ const CostCalculator = () => {
 
   const specifications = {
     flooring: [
-      { id: 'basic', label: 'Standaard (Laminaat)', multiplier: 1.0 },
-      { id: 'mid', label: 'Midden (Parket)', multiplier: 1.2 },
-      { id: 'high', label: 'Luxe (Natuursteen)', multiplier: 1.5 }
+      { id: 'basic', label: 'Standaard', sublabel: 'Laminaat', multiplier: 1.0 },
+      { id: 'mid', label: 'Midden', sublabel: 'Parket', multiplier: 1.2 },
+      { id: 'high', label: 'Luxe', sublabel: 'Natuursteen', multiplier: 1.5 }
     ],
     kitchen: [
-      { id: 'basic', label: 'Standaard', multiplier: 1.0 },
-      { id: 'mid', label: 'Midden', multiplier: 1.3 },
-      { id: 'high', label: 'Luxe', multiplier: 1.8 }
+      { id: 'basic', label: 'Standaard', sublabel: 'Basis keuken', multiplier: 1.0 },
+      { id: 'mid', label: 'Midden', sublabel: 'Design keuken', multiplier: 1.3 },
+      { id: 'high', label: 'Luxe', sublabel: 'Maatwerk', multiplier: 1.8 }
     ],
     bathroom: [
-      { id: 'basic', label: 'Standaard', multiplier: 1.0 },
-      { id: 'mid', label: 'Midden', multiplier: 1.25 },
-      { id: 'high', label: 'Luxe', multiplier: 1.6 }
+      { id: 'basic', label: 'Standaard', sublabel: 'Basis sanitair', multiplier: 1.0 },
+      { id: 'mid', label: 'Midden', sublabel: 'Design sanitair', multiplier: 1.25 },
+      { id: 'high', label: 'Luxe', sublabel: 'Wellness', multiplier: 1.6 }
     ],
     heating: [
-      { id: 'basic', label: 'CV Ketel', multiplier: 1.0 },
-      { id: 'mid', label: 'Vloerverwarming', multiplier: 1.15 },
-      { id: 'high', label: 'Warmtepomp', multiplier: 1.3 }
+      { id: 'basic', label: 'CV Ketel', sublabel: 'Traditioneel', multiplier: 1.0 },
+      { id: 'mid', label: 'Vloerverwarming', sublabel: 'Comfort', multiplier: 1.15 },
+      { id: 'high', label: 'Warmtepomp', sublabel: 'Duurzaam', multiplier: 1.3 }
     ],
     insulation: [
-      { id: 'basic', label: 'Standaard', multiplier: 1.0 },
-      { id: 'mid', label: 'Verbeterd', multiplier: 1.1 },
-      { id: 'high', label: 'Passief Huis', multiplier: 1.4 }
+      { id: 'basic', label: 'Standaard', sublabel: 'Bouwbesluit', multiplier: 1.0 },
+      { id: 'mid', label: 'Verbeterd', sublabel: 'Energielabel A', multiplier: 1.1 },
+      { id: 'high', label: 'Passief', sublabel: 'Energieneutraal', multiplier: 1.4 }
     ]
+  };
+
+  const specLabels = {
+    flooring: 'Vloeren',
+    kitchen: 'Keuken',
+    bathroom: 'Badkamer',
+    heating: 'Verwarming',
+    insulation: 'Isolatie'
   };
 
   const calculateEstimate = () => {
@@ -67,14 +75,12 @@ const CostCalculator = () => {
     const buildingType = buildingTypes.find(bt => bt.id === formData.buildingType);
     const basePrice = buildingType.basePrice;
     const size = parseInt(formData.size) || 0;
-    
+
     let multiplier = 1.0;
-    
-    // Project type adjustment
+
     if (formData.projectType === 'renovation') multiplier *= 0.8;
     if (formData.projectType === 'extension') multiplier *= 0.9;
-    
-    // Specifications multipliers
+
     Object.keys(formData.specifications).forEach(spec => {
       const specValue = formData.specifications[spec];
       if (specValue && specifications[spec]) {
@@ -116,242 +122,255 @@ const CostCalculator = () => {
     }
   };
 
-  const nextStep = () => {
-    if (currentStep < 4) setCurrentStep(currentStep + 1);
-  };
-
-  const prevStep = () => {
-    if (currentStep > 1) setCurrentStep(currentStep - 1);
-  };
-
   const handleRequestQuote = () => {
-    // Scroll to contact section
     const contactSection = document.getElementById('contact');
     if (contactSection) {
       contactSection.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
+  const tabs = [
+    { id: 'project', label: 'Project' },
+    { id: 'gebouw', label: 'Gebouw' },
+    { id: 'afwerking', label: 'Afwerking' }
+  ];
+
+  const getCompletionStatus = () => {
+    let completed = 0;
+    if (formData.projectType) completed++;
+    if (formData.buildingType) completed++;
+    if (formData.size) completed++;
+    const specCount = Object.values(formData.specifications).filter(v => v).length;
+    completed += specCount;
+    return { completed, total: 8 };
+  };
+
+  const status = getCompletionStatus();
+
   return (
-    <section id="cost-calculator" className="py-20 bg-white">
+    <section id="cost-calculator" className="py-20 bg-gradient-to-br from-stone-100 via-stone-50 to-amber-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="text-center mb-16">
-          <span className="text-brand-500 font-semibold text-lg tracking-wide uppercase">
-            Kostencalculator
-          </span>
-          <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mt-4 mb-6 leading-tight">
-            Bereken Uw
-            <span className="bg-gradient-to-r from-blue-500 to-brand-600 bg-clip-text text-transparent"> Projectkosten</span>
+        <div className="text-center mb-12">
+          <div className="inline-flex items-center gap-2 bg-brand-500/20 text-brand-600 px-4 py-2 rounded-full mb-6">
+            <Calculator className="w-5 h-5" />
+            <span className="font-medium">Kostencalculator</span>
+          </div>
+          <h2 className="text-4xl md:text-5xl font-bold text-stone-800 mb-4">
+            Bereken Uw Projectkosten
           </h2>
-          <p className="text-gray-600 text-lg max-w-3xl mx-auto leading-relaxed">
-            Krijg een indicatieve kostenraming voor uw bouwproject met onze geavanceerde calculator.
+          <p className="text-stone-600 text-lg max-w-2xl mx-auto">
+            Configureer uw project en ontvang direct een indicatieve kostenraming
           </p>
         </div>
 
-        <div className="max-w-4xl mx-auto">
-          {/* Progress Bar */}
-          <div className="mb-12">
-            <div className="flex justify-between mb-4">
-              {[1, 2, 3, 4].map((step) => (
-                <div
-                  key={step}
-                  className={`flex items-center justify-center w-10 h-10 rounded-full font-bold ${
-                    step <= currentStep
-                      ? 'bg-brand-500 text-white'
-                      : 'bg-gray-200 text-gray-500'
+        <div className="grid lg:grid-cols-2 gap-8 items-start">
+          {/* Left Panel - Configuration */}
+          <div className="space-y-6">
+            {/* Tabs */}
+            <div className="bg-white rounded-2xl p-2 inline-flex gap-2 shadow-md">
+              {tabs.map((tab) => (
+                <button
+                  key={tab.id}
+                  onClick={() => setActiveTab(tab.id)}
+                  className={`px-6 py-3 rounded-xl font-medium transition-all duration-300 ${
+                    activeTab === tab.id
+                      ? 'bg-brand-500 text-stone-900'
+                      : 'text-stone-500 hover:text-stone-800 hover:bg-stone-100'
                   }`}
                 >
-                  {step}
-                </div>
+                  {tab.label}
+                </button>
               ))}
             </div>
-            <div className="w-full bg-gray-200 rounded-full h-2">
-              <div
-                className="bg-brand-500 h-2 rounded-full transition-all duration-300"
-                style={{ width: `${(currentStep / 4) * 100}%` }}
-              ></div>
-            </div>
-          </div>
 
-          <div className="bg-gray-50 rounded-2xl p-8">
-            {/* Step 1: Project Type */}
-            {currentStep === 1 && (
-              <div>
-                <h3 className="text-2xl font-bold text-slate-900 mb-6">Wat voor project heeft u?</h3>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-                  {projectTypes.map((type) => (
-                    <button
-                      key={type.id}
-                      onClick={() => handleInputChange('projectType', type.id)}
-                      className={`p-6 rounded-xl border-2 text-center transition-all duration-300 ${
-                        formData.projectType === type.id
-                          ? 'border-brand-500 bg-brand-50'
-                          : 'border-gray-200 hover:border-gray-300'
-                      }`}
-                    >
-                      <type.icon className="w-12 h-12 mx-auto mb-4 text-brand-500" />
-                      <div className="font-semibold text-slate-900">{type.label}</div>
-                    </button>
-                  ))}
+            {/* Tab Content */}
+            <div className="bg-white border border-stone-200 rounded-2xl p-6 md:p-8 shadow-lg">
+              {/* Project Tab */}
+              {activeTab === 'project' && (
+                <div className="space-y-6">
+                  <h3 className="text-xl font-semibold text-stone-800 mb-6">Kies uw projecttype</h3>
+                  <div className="grid gap-4">
+                    {projectTypes.map((type) => (
+                      <button
+                        key={type.id}
+                        onClick={() => handleInputChange('projectType', type.id)}
+                        className={`flex items-center gap-4 p-5 rounded-xl border-2 text-left transition-all duration-300 group ${
+                          formData.projectType === type.id
+                            ? 'border-brand-500 bg-brand-50'
+                            : 'border-stone-200 hover:border-stone-300 bg-stone-50'
+                        }`}
+                      >
+                        <div className={`w-14 h-14 rounded-xl flex items-center justify-center transition-colors ${
+                          formData.projectType === type.id
+                            ? 'bg-brand-500 text-stone-900'
+                            : 'bg-stone-200 text-stone-500 group-hover:bg-stone-300'
+                        }`}>
+                          <type.icon className="w-7 h-7" />
+                        </div>
+                        <div className="flex-1">
+                          <div className="font-semibold text-stone-800 text-lg">{type.label}</div>
+                          <div className="text-stone-500 text-sm">{type.desc}</div>
+                        </div>
+                        {formData.projectType === type.id && (
+                          <div className="w-8 h-8 rounded-full bg-brand-500 flex items-center justify-center">
+                            <Check className="w-5 h-5 text-stone-900" />
+                          </div>
+                        )}
+                      </button>
+                    ))}
+                  </div>
                 </div>
-              </div>
-            )}
+              )}
 
-            {/* Step 2: Building Type & Size */}
-            {currentStep === 2 && (
-              <div>
-                <h3 className="text-2xl font-bold text-slate-900 mb-6">Type gebouw en grootte</h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+              {/* Gebouw Tab */}
+              {activeTab === 'gebouw' && (
+                <div className="space-y-8">
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-4">
-                      Type Gebouw
-                    </label>
-                    <div className="space-y-3">
+                    <h3 className="text-xl font-semibold text-stone-800 mb-6">Type gebouw</h3>
+                    <div className="grid grid-cols-2 gap-4">
                       {buildingTypes.map((type) => (
                         <button
                           key={type.id}
                           onClick={() => handleInputChange('buildingType', type.id)}
-                          className={`w-full p-4 text-left rounded-lg border-2 transition-all duration-300 ${
+                          className={`p-5 rounded-xl border-2 text-center transition-all duration-300 ${
                             formData.buildingType === type.id
                               ? 'border-brand-500 bg-brand-50'
-                              : 'border-gray-200 hover:border-gray-300'
+                              : 'border-stone-200 hover:border-stone-300 bg-stone-50'
                           }`}
                         >
-                          <div className="font-semibold text-slate-900">{type.label}</div>
-                          <div className="text-sm text-gray-600">vanaf €{type.basePrice}/m²</div>
+                          <div className="font-semibold text-stone-800">{type.label}</div>
+                          <div className="text-brand-600 text-sm mt-1">€{type.basePrice}/m²</div>
                         </button>
                       ))}
                     </div>
                   </div>
+
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-4">
-                      Oppervlakte (m²)
-                    </label>
-                    <input
-                      type="number"
-                      value={formData.size}
-                      onChange={(e) => handleInputChange('size', e.target.value)}
-                      placeholder="Bijv. 150"
-                      className="w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-gray-900"
-                    />
+                    <h3 className="text-xl font-semibold text-stone-800 mb-4">Oppervlakte</h3>
+                    <div className="relative">
+                      <input
+                        type="number"
+                        value={formData.size}
+                        onChange={(e) => handleInputChange('size', e.target.value)}
+                        placeholder="Voer oppervlakte in"
+                        className="w-full p-4 pr-16 bg-stone-50 border border-stone-200 rounded-xl text-stone-800 placeholder-stone-400 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition-all"
+                      />
+                      <span className="absolute right-4 top-1/2 -translate-y-1/2 text-stone-500 font-medium">m²</span>
+                    </div>
                   </div>
                 </div>
-              </div>
-            )}
+              )}
 
-            {/* Step 3: Specifications */}
-            {currentStep === 3 && (
-              <div>
-                <h3 className="text-2xl font-bold text-slate-900 mb-6">Specificaties</h3>
+              {/* Afwerking Tab */}
+              {activeTab === 'afwerking' && (
                 <div className="space-y-6">
+                  <h3 className="text-xl font-semibold text-stone-800 mb-6">Kies uw afwerkingsniveau</h3>
                   {Object.keys(specifications).map((specKey) => (
-                    <div key={specKey}>
-                      <label className="block text-sm font-medium text-gray-700 mb-3 capitalize">
-                        {specKey === 'flooring' && 'Vloeren'}
-                        {specKey === 'kitchen' && 'Keuken'}
-                        {specKey === 'bathroom' && 'Badkamer'}
-                        {specKey === 'heating' && 'Verwarming'}
-                        {specKey === 'insulation' && 'Isolatie'}
+                    <div key={specKey} className="space-y-3">
+                      <label className="text-sm font-medium text-stone-600">
+                        {specLabels[specKey]}
                       </label>
-                      <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+                      <div className="grid grid-cols-3 gap-3">
                         {specifications[specKey].map((option) => (
                           <button
                             key={option.id}
                             onClick={() => handleInputChange(`specifications.${specKey}`, option.id)}
-                            className={`p-4 text-center rounded-lg border-2 transition-all duration-300 ${
+                            className={`p-3 rounded-xl border-2 text-center transition-all duration-300 ${
                               formData.specifications[specKey] === option.id
                                 ? 'border-brand-500 bg-brand-50'
-                                : 'border-gray-200 hover:border-gray-300'
+                                : 'border-stone-200 hover:border-stone-300 bg-stone-50'
                             }`}
                           >
-                            <div className="font-semibold text-slate-900">{option.label}</div>
-                            <div className="text-sm text-gray-600">+{Math.round((option.multiplier - 1) * 100)}%</div>
+                            <div className="font-medium text-stone-800 text-sm">{option.label}</div>
+                            <div className="text-stone-400 text-xs mt-0.5">{option.sublabel}</div>
                           </button>
                         ))}
                       </div>
                     </div>
                   ))}
                 </div>
+              )}
+            </div>
+          </div>
+
+          {/* Right Panel - Live Estimate */}
+          <div className="flex justify-center">
+            <div className="bg-gradient-to-br from-stone-800 to-stone-900 rounded-2xl p-8 md:p-10 sticky top-8 shadow-xl w-full max-w-md">
+              {/* Progress */}
+              <div className="mb-10 text-center">
+                <span className="text-stone-300 font-semibold text-base block mb-3">Configuratie voortgang</span>
+                <div className="w-full bg-stone-700 rounded-full h-3 mb-2">
+                  <div
+                    className="bg-gradient-to-r from-brand-400 to-brand-500 h-3 rounded-full transition-all duration-500"
+                    style={{ width: `${(status.completed / status.total) * 100}%` }}
+                  />
+                </div>
+                <span className="text-brand-400 font-bold text-lg">{status.completed}/{status.total} voltooid</span>
               </div>
-            )}
 
-            {/* Step 4: Results */}
-            {currentStep === 4 && (
-              <div>
-                <h3 className="text-2xl font-bold text-slate-900 mb-6">Uw Kostenraming</h3>
-                {estimate && (
-                  <div className="bg-white rounded-xl p-8 shadow-lg">
-                    <div className="text-center mb-8">
-                      <div className="text-4xl font-bold text-brand-500 mb-2">
-                        €{estimate.min.toLocaleString()} - €{estimate.max.toLocaleString()}
-                      </div>
-                      <div className="text-gray-600">Indicatieve kostenraming</div>
+              {/* Estimate Display */}
+              {estimate ? (
+                <div className="space-y-6">
+                  <div className="text-center">
+                    <div className="text-stone-400 text-sm font-medium mb-2">Geschatte kosten</div>
+                    <div className="text-4xl md:text-5xl font-bold text-brand-400 mb-1">
+                      €{estimate.average.toLocaleString()}
                     </div>
-                    
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-                      <div className="text-center p-4 bg-gray-50 rounded-lg">
-                        <div className="text-2xl font-bold text-green-600 mb-1">€{estimate.min.toLocaleString()}</div>
-                        <div className="text-sm text-gray-600">Minimum</div>
-                      </div>
-                      <div className="text-center p-4 bg-brand-50 rounded-lg">
-                        <div className="text-2xl font-bold text-brand-600 mb-1">€{estimate.average.toLocaleString()}</div>
-                        <div className="text-sm text-gray-600">Gemiddeld</div>
-                      </div>
-                      <div className="text-center p-4 bg-gray-50 rounded-lg">
-                        <div className="text-2xl font-bold text-red-600 mb-1">€{estimate.max.toLocaleString()}</div>
-                        <div className="text-sm text-gray-600">Maximum</div>
-                      </div>
-                    </div>
-
-                    <div className="bg-blue-50 border border-blue-200 rounded-lg p-6 mb-6">
-                      <h4 className="font-bold text-blue-900 mb-2">Belangrijk om te weten:</h4>
-                      <ul className="text-blue-800 text-sm space-y-1">
-                        <li>• Dit is een indicatieve raming gebaseerd op gemiddelde marktprijzen</li>
-                        <li>• Werkelijke kosten kunnen variëren door specifieke omstandigheden</li>
-                        <li>• Prijzen zijn exclusief BTW en onvoorziene kosten</li>
-                        <li>• Voor een exacte offerte nemen wij graag contact met u op</li>
-                      </ul>
-                    </div>
-
-                    <div className="text-center">
-                      <button 
-                        onClick={handleRequestQuote}
-                        className="bg-brand-500 hover:bg-brand-600 text-slate-900 font-semibold px-8 py-4 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg"
-                      >
-                        Vraag Exacte Offerte Aan
-                      </button>
+                    <div className="text-stone-400 text-sm">
+                      Range: €{estimate.min.toLocaleString()} - €{estimate.max.toLocaleString()}
                     </div>
                   </div>
-                )}
-              </div>
-            )}
 
-            {/* Navigation Buttons */}
-            <div className="flex justify-between mt-8">
-              <button
-                onClick={prevStep}
-                disabled={currentStep === 1}
-                className={`px-6 py-3 rounded-lg font-medium transition-all duration-300 ${
-                  currentStep === 1
-                    ? 'bg-gray-200 text-gray-400 cursor-not-allowed'
-                    : 'bg-gray-200 hover:bg-gray-300 text-slate-900'
-                }`}
-              >
-                Vorige
-              </button>
-              <button
-                onClick={nextStep}
-                disabled={currentStep === 4}
-                className={`px-6 py-3 rounded-lg font-medium transition-all duration-300 flex items-center space-x-2 ${
-                  currentStep === 4
-                    ? 'bg-gray-200 text-gray-400 cursor-not-allowed'
-                    : 'bg-brand-500 hover:bg-brand-600 text-slate-900'
-                }`}
-              >
-                <span>{currentStep === 4 ? 'Voltooid' : 'Volgende'}</span>
-                {currentStep !== 4 && <ChevronRight className="w-4 h-4" />}
-              </button>
+                  {/* Breakdown */}
+                  <div className="bg-stone-700/50 rounded-xl p-4 space-y-3">
+                    <div className="flex justify-between text-sm">
+                      <span className="text-stone-400">Projecttype</span>
+                      <span className="text-white font-medium">
+                        {projectTypes.find(p => p.id === formData.projectType)?.label || '-'}
+                      </span>
+                    </div>
+                    <div className="flex justify-between text-sm">
+                      <span className="text-stone-400">Gebouwtype</span>
+                      <span className="text-white font-medium">
+                        {buildingTypes.find(b => b.id === formData.buildingType)?.label || '-'}
+                      </span>
+                    </div>
+                    <div className="flex justify-between text-sm">
+                      <span className="text-stone-400">Oppervlakte</span>
+                      <span className="text-white font-medium">
+                        {formData.size ? `${formData.size} m²` : '-'}
+                      </span>
+                    </div>
+                  </div>
+
+                  <button
+                    onClick={handleRequestQuote}
+                    className="w-full bg-brand-500 hover:bg-brand-600 text-stone-900 font-semibold py-4 rounded-xl transition-all duration-300 flex items-center justify-center gap-2 group shadow-lg"
+                  >
+                    <span>Vraag Exacte Offerte Aan</span>
+                    <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                  </button>
+                </div>
+              ) : (
+                <div className="text-center py-12">
+                  <div className="w-16 h-16 bg-stone-700 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Calculator className="w-8 h-8 text-stone-500" />
+                  </div>
+                  <div className="text-white font-medium mb-2">Vul de configuratie in</div>
+                  <div className="text-stone-400 text-sm">
+                    Selecteer projecttype, gebouwtype en oppervlakte voor een kostenraming
+                  </div>
+                </div>
+              )}
+
+              {/* Disclaimer */}
+              <div className="mt-6 pt-6 border-t border-stone-700">
+                <p className="text-stone-500 text-xs leading-relaxed">
+                  Dit is een indicatieve raming. Werkelijke kosten kunnen variëren. Prijzen excl. BTW.
+                  Neem contact op voor een exacte offerte.
+                </p>
+              </div>
             </div>
           </div>
         </div>

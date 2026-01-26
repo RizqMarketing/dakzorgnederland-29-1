@@ -174,7 +174,7 @@ export const sendEmail = async (formData: FormData): Promise<boolean> => {
       budget: formData.budget ? translatedBudget : 'Niet gespecificeerd',
       timeline: translatedTimeline,
       service: formData.service || 'Algemene aanvraag',
-      to_email: 'info@compleetdakonderhoudnederland.nl'
+      to_email: 'info@dakzorgnederland.nl'
     };
 
     // Send to both EmailJS and GoHighLevel in parallel

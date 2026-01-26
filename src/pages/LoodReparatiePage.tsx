@@ -46,7 +46,7 @@ const LoodReparatiePage = () => {
 
   const features = [
     {
-      title: "25+ Jaar Ervaring",
+      title: "7+ Jaar Ervaring",
       description: "Specialist in traditioneel en modern loodwerk",
       icon: Award
     },
@@ -103,7 +103,7 @@ const LoodReparatiePage = () => {
       <Header />
       
       {/* Hero Section */}
-      <section className="relative pt-32 lg:pt-48 pb-20 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
+      <section className="relative pt-32 lg:pt-48 pb-20 bg-gradient-to-br from-stone-900 via-stone-800 to-stone-900">
         <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=1920')] bg-cover bg-center opacity-20"></div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
@@ -121,9 +121,9 @@ const LoodReparatiePage = () => {
             <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">
               Professionele <span className="text-brand-400">Lood Reparatie</span>
               <br />
-              <span className="bg-gradient-to-r from-blue-500 to-brand-600 bg-clip-text text-transparent">100% Waterdicht Gegarandeerd!</span>
+              <span className="bg-gradient-to-r from-brand-400 to-brand-600 bg-clip-text text-transparent">100% Waterdicht Gegarandeerd!</span>
             </h1>
-            <p className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xl text-stone-300 mb-8 max-w-3xl mx-auto leading-relaxed">
               Lekkage door defect loodwerk? Wij lossen het definitief op!
               <span className="text-brand-400 font-bold"> Gratis inspectie en 10 jaar garantie!</span>
               Specialist in loodslabben, aansluitingen en dakgoten.
@@ -137,8 +137,8 @@ const LoodReparatiePage = () => {
                 GRATIS OFFERTE AANVRAGEN
               </button>
               <a
-                href="tel:0488234625"
-                className="bg-blue-600 hover:bg-blue-700 text-white font-bold px-10 py-5 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-2xl flex items-center justify-center text-lg"
+                href="tel:0657010861"
+                className="bg-brand-600 hover:bg-brand-700 text-white font-bold px-10 py-5 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-2xl flex items-center justify-center text-lg"
               >
                 <Phone className="w-6 h-6 mr-3" />
                 DIRECT BELLEN
@@ -189,21 +189,21 @@ const LoodReparatiePage = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-slate-900 mb-4">
-              Onze <span className="bg-gradient-to-r from-blue-500 to-brand-600 bg-clip-text text-transparent">Loodwerk</span> Specialiteiten
+              Onze <span className="bg-gradient-to-r from-brand-400 to-brand-600 bg-clip-text text-transparent">Loodwerk</span> Specialiteiten
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-stone-600 max-w-3xl mx-auto">
               Van kleine reparaties tot complete loodwerk renovatie
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {loodReparatieTypes.map((type, index) => (
-              <div key={index} className="bg-gray-50 rounded-xl p-8 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+              <div key={index} className="bg-stone-50 rounded-xl p-8 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
                 <div className="w-16 h-16 bg-brand-100 rounded-lg flex items-center justify-center mb-6">
                   <type.icon className="w-8 h-8 text-brand-600" />
                 </div>
                 <h3 className="text-2xl font-bold text-slate-900 mb-4">{type.title}</h3>
-                <p className="text-gray-600 mb-4">{type.description}</p>
-                <p className="text-gray-700">{type.details}</p>
+                <p className="text-stone-600 mb-4">{type.description}</p>
+                <p className="text-stone-700">{type.details}</p>
               </div>
             ))}
           </div>
@@ -211,7 +211,7 @@ const LoodReparatiePage = () => {
       </section>
 
       {/* Features Section */}
-      <section className="py-20 bg-slate-900">
+      <section className="py-20 bg-stone-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-white mb-4">
@@ -225,7 +225,7 @@ const LoodReparatiePage = () => {
                   <feature.icon className="w-10 h-10 text-white" />
                 </div>
                 <h3 className="text-xl font-bold text-white mb-2">{feature.title}</h3>
-                <p className="text-gray-300">{feature.description}</p>
+                <p className="text-stone-300">{feature.description}</p>
               </div>
             ))}
           </div>
@@ -233,7 +233,7 @@ const LoodReparatiePage = () => {
       </section>
 
       {/* Services List */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-stone-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
@@ -244,7 +244,7 @@ const LoodReparatiePage = () => {
                 {loodReparatieServices.map((service, index) => (
                   <div key={index} className="flex items-start space-x-3">
                     <CheckCircle className="w-6 h-6 text-brand-500 flex-shrink-0 mt-0.5" />
-                    <span className="text-gray-700 text-lg">{service}</span>
+                    <span className="text-stone-700 text-lg">{service}</span>
                   </div>
                 ))}
               </div>
@@ -256,7 +256,7 @@ const LoodReparatiePage = () => {
                 className="rounded-xl shadow-2xl"
               />
               <div className="absolute -bottom-6 -right-6 bg-brand-500 text-white p-6 rounded-lg shadow-xl">
-                <div className="text-3xl font-bold">25+</div>
+                <div className="text-3xl font-bold">7+</div>
                 <div className="text-sm">Jaar Expertise</div>
               </div>
             </div>
@@ -269,9 +269,9 @@ const LoodReparatiePage = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-slate-900 mb-4">
-              Ons <span className="bg-gradient-to-r from-blue-500 to-brand-600 bg-clip-text text-transparent">Werkproces</span>
+              Ons <span className="bg-gradient-to-r from-brand-400 to-brand-600 bg-clip-text text-transparent">Werkproces</span>
             </h2>
-            <p className="text-xl text-gray-600">Van inspectie tot waterdichte afwerking</p>
+            <p className="text-xl text-stone-600">Van inspectie tot waterdichte afwerking</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             {loodReparatieProcess.map((item, index) => (
@@ -281,10 +281,10 @@ const LoodReparatiePage = () => {
                     {item.step}
                   </div>
                   <h3 className="text-xl font-bold text-slate-900 mb-2">{item.title}</h3>
-                  <p className="text-gray-600">{item.description}</p>
+                  <p className="text-stone-600">{item.description}</p>
                 </div>
                 {index < loodReparatieProcess.length - 1 && (
-                  <ArrowRight className="hidden md:block absolute top-8 -right-4 w-8 h-8 text-gray-300" />
+                  <ArrowRight className="hidden md:block absolute top-8 -right-4 w-8 h-8 text-stone-300" />
                 )}
               </div>
             ))}
@@ -293,17 +293,17 @@ const LoodReparatiePage = () => {
       </section>
 
       {/* Professional Testimonials */}
-      <section className="py-20 bg-gradient-to-br from-slate-50 to-gray-100">
+      <section className="py-20 bg-gradient-to-br from-slate-50 to-stone-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Header with Icon */}
           <div className="text-center mb-16">
-            <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-100 rounded-full mb-6">
-              <Users className="w-8 h-8 text-blue-600" />
+            <div className="inline-flex items-center justify-center w-16 h-16 bg-brand-100 rounded-full mb-6">
+              <Users className="w-8 h-8 text-brand-600" />
             </div>
             <h2 className="text-4xl font-bold text-slate-900 mb-6">
-              Wat Onze <span className="bg-gradient-to-r from-blue-500 to-brand-600 bg-clip-text text-transparent">Klanten</span> Zeggen
+              Wat Onze <span className="bg-gradient-to-r from-brand-400 to-brand-600 bg-clip-text text-transparent">Klanten</span> Zeggen
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xl text-stone-600 max-w-3xl mx-auto leading-relaxed">
               Al meer dan 25 jaar zorgen wij voor vakkundig dakwerk. Onze klanten waarderen onze 
               betrouwbaarheid, kwaliteit en persoonlijke service.
             </p>
@@ -312,13 +312,13 @@ const LoodReparatiePage = () => {
           {/* Enhanced Widget Container */}
           <div className="relative w-full max-w-none mx-auto">
             {/* Subtle background pattern */}
-            <div className="absolute inset-0 bg-gradient-to-r from-blue-50 to-slate-50 rounded-2xl transform rotate-1"></div>
-            <div className="absolute inset-0 bg-gradient-to-r from-slate-50 to-blue-50 rounded-2xl transform -rotate-1"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-brand-50 to-slate-50 rounded-2xl transform rotate-1"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-slate-50 to-brand-50 rounded-2xl transform -rotate-1"></div>
             
             {/* Main container */}
-            <div className="relative bg-white rounded-2xl shadow-xl border border-gray-200 p-4 sm:p-6 mx-2 sm:mx-4">
+            <div className="relative bg-white rounded-2xl shadow-xl border border-stone-200 p-4 sm:p-6 mx-2 sm:mx-4">
               {/* Top accent */}
-              <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-20 h-1 bg-gradient-to-r from-blue-500 to-brand-600 rounded-b-full"></div>
+              <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-20 h-1 bg-gradient-to-r from-brand-400 to-brand-600 rounded-b-full"></div>
               
               {/* Widget */}
               <div 
@@ -340,7 +340,7 @@ const LoodReparatiePage = () => {
           {/* Clean Trust Footer */}
           <div className="mt-12">
             <div className="text-center space-y-6">
-              <div className="inline-flex items-center space-x-1 text-xs text-gray-400 font-medium tracking-wide">
+              <div className="inline-flex items-center space-x-1 text-xs text-stone-400 font-medium tracking-wide">
                 <Shield className="w-3 h-3" />
                 <span>VOLLEDIG VERZEKERD</span>
                 <span className="mx-3">•</span>
@@ -348,13 +348,12 @@ const LoodReparatiePage = () => {
                 <span>GECERTIFICEERD</span>
                 <span className="mx-3">•</span>
                 <Clock className="w-3 h-3" />
-                <span>25+ JAAR ERVARING</span>
+                <span>7+ JAAR ERVARING</span>
               </div>
               
               {/* Trustpilot Logo */}
               <div className="pt-2">
                 <a 
-                  href="https://nl.trustpilot.com/review/www.compleetdakonderhoudnederland.nl"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-block hover:scale-105 transition-transform duration-200"

@@ -11,9 +11,9 @@ interface SEOHeadProps {
 }
 
 const SEOHead: React.FC<SEOHeadProps> = ({
-  title = "Compleet Dakonderhoud Nederland - Specialist in Dakwerk & Bouw | 25+ Jaar Ervaring",
-  description = "Compleet Dakonderhoud Nederland uit Andelst: uw specialist voor dakwerk, renovatie, nieuwbouw en verbouwingen. 25+ jaar ervaring, volledig verzekerd. Gratis offerte!",
-  keywords = "dakonderhoud, dakwerk, dakdekker, aannemer, bouw, nieuwbouw, renovatie, verbouwing, Andelst, Gelderland, daklekkage, dakgoot",
+  title = "DakZorg Nederland - Specialist in Dakwerk & Bouw | 7+ Jaar Ervaring",
+  description = "DakZorg Nederland uit Waalwijk: uw specialist voor dakwerk, renovatie, nieuwbouw en verbouwingen. 7+ jaar ervaring, volledig verzekerd. Gratis offerte!",
+  keywords = "dakonderhoud, dakwerk, dakdekker, aannemer, bouw, nieuwbouw, renovatie, verbouwing, Waalwijk, Gelderland, daklekkage, dakgoot",
   canonicalUrl = "https://compleetdakonderhoudnederland.nl/",
   ogImage = "https://compleetdakonderhoudnederland.nl/og-image.jpg",
   structuredData

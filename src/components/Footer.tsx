@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { 
-  Mail, Phone, MapPin, Facebook, Instagram, Linkedin, 
-  Youtube, Clock, Award, Shield, CheckCircle, ExternalLink, Star, Euro, Timer, FileText 
+import {
+  Mail, Phone, MapPin, Facebook, Instagram, Linkedin,
+  Youtube, Clock, Award, Shield, CheckCircle, Star, Euro, Timer, FileText
 } from 'lucide-react';
 
 interface FooterProps {
@@ -14,27 +14,15 @@ const Footer = ({ children }: FooterProps) => {
   const currentYear = new Date().getFullYear();
 
   const services = [
-    { name: "Nieuwbouw Woningen", href: "/nieuwbouw-woningen" },
-    { name: "Commerciële Bouw", href: "/commerciele-bouw" },
-    { name: "Renovatie & Verbouwing", href: "/renovatie-verbouwing" },
-    { name: "Projectmanagement", href: "/projectmanagement" },
-    { name: "Duurzame Bouw", href: "/duurzame-bouw" },
-    { name: "Onderhoud & Reparatie", href: "/onderhoud-reparatie" },
     { name: "Dakwerk & Dakdekken", href: "/dakwerk-dakdekken" },
-    { name: "Schilderwerk & Stukadoor", href: "/schilderwerk-stukadoor" },
-    { name: "Tegelwerk", href: "/tegelwerk" },
-    { name: "Schoorsteenwerk", href: "/schoorsteenwerk" },
-    { name: "Aanbouw & Uitbouw", href: "/aanbouw-uitbouw" },
-    { name: "Airco's Monteren", href: "/aircos-monteren" },
-    { name: "Zonnepanelen", href: "/zonnepanelen" },
+    { name: "Schoorsteen Verwijderen", href: "/schoorsteen-verwijderen" },
+    { name: "Schoorsteen Renovatie", href: "/schoorsteen-renovatie" },
     { name: "Nokvorsten", href: "/nokvorsten" },
     { name: "Loodreparaties", href: "/loodreparaties" },
     { name: "Spoed Service", href: "/spoed" },
     { name: "Dakinspectie", href: "/dakinspectie" },
     { name: "Daklekkage", href: "/daklekkage" },
     { name: "Dakgoot Reiniging", href: "/dakgootreiniging" },
-    { name: "Gevel Voegen", href: "/gevel-voegen" },
-    { name: "Gevel Reinigen", href: "/gevel-reinigen" },
   ];
 
   const quickLinks = [
@@ -44,9 +32,9 @@ const Footer = ({ children }: FooterProps) => {
   ];
 
   const certifications = [
-    "KvK Geregistreerd (94106819)",
+    "KvK Geregistreerd (96885904)",
     "Verzekerd & Gebonden",
-    "25+ Jaar Ervaring",
+    "7+ Jaar Ervaring",
     "Kwaliteitsgarantie",
     "Veilig Werken",
     "Milieubewust Bouwen"
@@ -62,12 +50,10 @@ const Footer = ({ children }: FooterProps) => {
   const handleAnchorClick = (href) => {
     if (href.startsWith('/#')) {
       const sectionId = href.substring(2);
-      
+
       if (window.location.pathname !== '/') {
-        // If not on home page, navigate to home with state to scroll
         navigate('/', { state: { scrollToId: sectionId } });
       } else {
-        // If on home page, just scroll to section
         const element = document.getElementById(sectionId);
         if (element) {
           element.scrollIntoView({ behavior: 'smooth' });
@@ -77,228 +63,222 @@ const Footer = ({ children }: FooterProps) => {
   };
 
   return (
-    <footer className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white">
+    <footer className="bg-gradient-to-b from-stone-900 via-stone-950 to-black text-white relative overflow-hidden">
+      {/* Subtle background texture */}
+      <div className="absolute inset-0 opacity-5">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_80%,_rgba(59,130,246,0.1),transparent_40%),radial-gradient(circle_at_80%_20%,_rgba(59,130,246,0.1),transparent_40%)]"></div>
+      </div>
+
       {/* Contact Content (if provided) */}
       {children && (
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
           {children}
         </div>
       )}
-      
-      {/* Main Footer Content */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+
+      {/* Main Footer Content - Elegant Design */}
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
           {/* Company Info */}
-          <div className="lg:col-span-1">
-            <Link to="/" className="block mb-6">
-              <div className="w-48 h-40 flex items-center justify-center mb-4">
-                <img 
-                  src="https://imgur.com/vsRdlGh.png" 
-                  alt="Compleet Dakonderhoud Nederland Logo" 
+          <div className="lg:col-span-2 space-y-8">
+            {/* Logo */}
+            <Link to="/" className="block max-w-xs">
+              <div className="w-44 h-20 flex items-center justify-center">
+                <img
+                  src="https://imgur.com/kocXYo5.png"
+                  alt="DakZorg Nederland Logo"
                   className="w-full h-full object-contain"
                 />
               </div>
             </Link>
-            
-            <p className="text-gray-300 mb-6 leading-relaxed">
-              Al meer dan 25 jaar uw betrouwbare partner voor hoogwaardig dakonderhoud en 
-              dakrenovatieprojecten in Nederland.
+
+            {/* Description */}
+            <p className="text-stone-400 leading-relaxed text-base max-w-prose">
+              Al meer dan 7 jaar uw betrouwbare partner voor hoogwaardig dakonderhoud en renovatieprojecten in Nederland.
             </p>
 
-            {/* Contact Info */}
-            <div className="space-y-3">
-              <div className="flex items-center space-x-3">
-                <Phone className="w-5 h-5 text-brand-400 flex-shrink-0" />
-                <div>
-                  <a href="tel:0488234625" className="text-gray-300 hover:text-brand-400 transition-colors">
-                    0488 234 625
-                  </a>
-                  <div className="text-xs text-gray-400">24/7 Bereikbaar</div>
+            {/* Contact cards */}
+            <div className="space-y-4">
+              {/* Phone */}
+              <a href="tel:0657010861" className="group flex items-center space-x-4 p-4 bg-stone-800/20 rounded-lg hover:bg-stone-800/30 transition-all duration-200">
+                <div className="w-10 h-10 flex items-center justify-center rounded-lg bg-blue-500/10 text-blue-400 group-hover:bg-blue-500/20 transition-colors">
+                  <Phone className="w-5 h-5" />
                 </div>
-              </div>
-              <div className="flex items-start space-x-3">
-                <Mail className="w-5 h-5 text-brand-400 flex-shrink-0 mt-0.5" />
-                <div className="min-w-0 flex-1">
-                  <a href="mailto:info@compleetdakonderhoudnederland.nl" className="text-gray-300 hover:text-brand-400 transition-colors break-words text-sm">
-                    info@compleetdakonderhoud<wbr/>nederland.nl
-                  </a>
+                <div className="flex-1 min-w-0">
+                  <div className="text-white font-medium">06 57 01 08 61</div>
+                  <div className="text-sm text-stone-500">24/7 bereikbaar</div>
                 </div>
-              </div>
-              <div className="flex items-start space-x-3">
-                <MapPin className="w-5 h-5 text-brand-400 flex-shrink-0 mt-0.5" />
-                <div className="text-gray-300">
-                  <div>Geurdeland 17G</div>
-                  <div>6673 DR Andelst</div>
+                <div className="text-stone-600 group-hover:translate-x-1 transition-transform">→</div>
+              </a>
+
+              {/* Email */}
+              <a href="mailto:info@dakzorgnederland.nl" className="group flex items-center space-x-4 p-4 bg-stone-800/20 rounded-lg hover:bg-stone-800/30 transition-all duration-200">
+                <div className="w-10 h-10 flex items-center justify-center rounded-lg bg-blue-500/10 text-blue-400 group-hover:bg-blue-500/20 transition-colors">
+                  <Mail className="w-5 h-5" />
                 </div>
-              </div>
-              <div className="flex items-center space-x-3">
-                <Clock className="w-5 h-5 text-brand-400 flex-shrink-0" />
-                <div className="text-gray-300">
-                  <div className="font-medium text-brand-400">24/7 Bereikbaar</div>
-                  <div className="text-sm">Voor al uw bouwprojecten</div>
+                <div className="flex-1 min-w-0">
+                  <div className="text-white font-medium">info@dakzorgnederland.nl</div>
+                  <div className="text-sm text-stone-500">Binnen 24 uur reactie</div>
                 </div>
-              </div>
+                <div className="text-stone-600 group-hover:translate-x-1 transition-transform">→</div>
+              </a>
             </div>
 
-            {/* Social Links */}
-            <div className="flex space-x-4 mt-6">
-              {socialLinks.map((social, index) => (
-                <a
-                  key={index}
-                  href={social.href}
-                  className="w-10 h-10 bg-gray-800 hover:bg-brand-600 rounded-lg flex items-center justify-center transition-all duration-300 hover:scale-110"
-                  aria-label={social.name}
-                >
-                  <social.icon className="w-5 h-5 text-gray-300 group-hover:text-slate-900 transition-colors" />
-                </a>
-              ))}
+            {/* Location */}
+            <div className="flex items-start space-x-4 p-4 bg-stone-800/10 rounded-lg">
+              <div className="w-10 h-10 flex items-center justify-center">
+                <MapPin className="w-5 h-5 text-blue-400" />
+              </div>
+              <div className="flex-1">
+                <div className="text-white font-medium">Waalwijk</div>
+                <div className="text-stone-400 text-sm">Villa Gagel 9, 5146AC</div>
+              </div>
             </div>
           </div>
 
-          {/* Services - First Column */}
-          <div>
-            <h4 className="text-lg font-bold mb-6">Onze Diensten</h4>
-            <ul className="space-y-3 mb-8">
-              {services.slice(0, Math.ceil(services.length / 2)).map((service, index) => (
+          {/* Services */}
+          <div className="space-y-4">
+            <h4 className="text-lg font-semibold text-white">Diensten</h4>
+            <ul className="space-y-2">
+              {services.map((service, index) => (
                 <li key={index}>
-                  <Link 
-                    to={service.href} 
-                    className="text-gray-300 hover:text-brand-400 transition-colors flex items-center space-x-2"
+                  <Link
+                    to={service.href}
+                    className="group flex items-center space-x-2 py-2 text-stone-400 hover:text-white transition-colors"
                   >
-                    <CheckCircle className="w-4 h-4 text-brand-400" />
+                    <div className="w-1.5 h-1.5 rounded-full bg-stone-600 group-hover:bg-blue-400 transition-colors"></div>
                     <span>{service.name}</span>
                   </Link>
                 </li>
               ))}
             </ul>
-            
-            {/* Trustpilot Reviews */}
-            <div className="mt-8 p-5 pb-7 bg-green-900/20 border border-green-500/30 rounded-lg">
-              <div className="flex items-center justify-center h-full">
-                <a 
-                  href="https://nl.trustpilot.com/review/www.compleetdakonderhoudnederland.nl"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-block hover:scale-105 transition-transform duration-200"
-                >
-                  <img 
-                    src="https://imgur.com/C39BM5j.png" 
-                    alt="Trustpilot Reviews" 
-                    className="h-14 w-auto mx-auto opacity-90 hover:opacity-100 transition-opacity"
-                  />
-                </a>
-              </div>
-            </div>
-          </div>
 
-          {/* Services - Second Column */}
-          <div>
-            <h4 className="text-lg font-bold mb-6">Onze Diensten</h4>
-            <ul className="space-y-3">
-              {services.slice(Math.ceil(services.length / 2)).map((service, index) => (
-                <li key={index + Math.ceil(services.length / 2)}>
-                  <Link 
-                    to={service.href} 
-                    className="text-gray-300 hover:text-brand-400 transition-colors flex items-center space-x-2"
-                  >
-                    <CheckCircle className="w-4 h-4 text-brand-400" />
-                    <span>{service.name}</span>
-                  </Link>
-                </li>
-              ))}
-            </ul>
-            
-            {/* Extra spacing to align with right column */}
-            <div className="mt-8 mb-16"></div>
-            
-            {/* Emergency Contact moved here - positioned to align with blue box */}
-            <div className="p-4 bg-red-900/20 border border-red-900/50 rounded-lg">
-              <h5 className="font-bold text-red-400 mb-2">24/7 Spoedservice</h5>
-              <p className="text-gray-300 text-sm mb-2">Voor urgente zaken</p>
-              <a 
-                href="tel:0488234625" 
-                className="text-red-400 hover:text-red-300 font-semibold transition-colors"
-              >
-                0488 234 625
+            <Link
+              to="/diensten"
+              className="inline-flex items-center space-x-2 mt-2 text-blue-400 hover:text-blue-300 transition-colors text-sm font-medium group"
+            >
+              <span>Alle diensten</span>
+              <span className="group-hover:translate-x-1 transition-transform">→</span>
+            </Link>
+
+            {/* Emergency */}
+            <div className="mt-8 p-4 bg-red-900/10 border border-red-800/20 rounded-lg">
+              <div className="flex items-center space-x-2 mb-2">
+                <Clock className="w-4 h-4 text-red-400" />
+                <span className="text-red-400 font-medium text-sm">24/7 Spoedservice</span>
+              </div>
+              <a href="tel:0657010861" className="text-red-300 hover:text-red-200 text-sm font-medium block">
+                06 57 01 08 61
               </a>
             </div>
           </div>
 
-          {/* Certifications & Trust */}
-          <div>
-            <h4 className="text-lg font-bold mb-6">Kwaliteit & Vertrouwen</h4>
-            <ul className="space-y-3 mb-8">
-              {certifications.map((cert, index) => (
-                <li key={index} className="flex items-center space-x-2">
-                  <Award className="w-4 h-4 text-brand-400 flex-shrink-0" />
-                  <span className="text-gray-300 text-sm">{cert}</span>
-                </li>
+          {/* Quick Links */}
+          <div className="space-y-4">
+            <h4 className="text-lg font-semibold text-white">Snel naar</h4>
+            <nav className="space-y-2">
+              {quickLinks.map((link, index) => (
+                <Link
+                  key={index}
+                  to={link.href}
+                  onClick={(e) => {
+                    if (link.href.startsWith('/#')) {
+                      e.preventDefault();
+                      handleAnchorClick(link.href);
+                    }
+                  }}
+                  className="block py-2 text-stone-400 hover:text-white transition-colors"
+                >
+                  {link.name}
+                </Link>
               ))}
-            </ul>
+            </nav>
 
-            {/* Professional Certifications */}
-            <div className="space-y-3 mb-6">
-              <div className="flex items-center space-x-2 text-green-400">
-                <Euro className="w-4 h-4" />
-                <span className="text-sm font-medium">Scherpe Prijzen</span>
-              </div>
-              <div className="flex items-center space-x-2 text-blue-400">
-                <Timer className="w-4 h-4" />
-                <span className="text-sm font-medium">Binnen 3 Uur Op Locatie</span>
-              </div>
-              <div className="flex items-center space-x-2 text-yellow-400">
-                <FileText className="w-4 h-4" />
-                <span className="text-sm font-medium">Gratis Offertes</span>
-              </div>
+            {/* Certifications */}
+            <div className="mt-8 space-y-3">
+              <h5 className="text-sm font-semibold text-stone-300 mb-2">Certificeringen</h5>
+              {/* Only show first 3 certs */}
+              {certifications.slice(0, 3).map((cert, index) => (
+                <div key={index} className="flex items-center space-x-2 text-xs text-stone-500">
+                  <Award className="w-3 h-3 text-blue-400" />
+                  <span>{cert}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Guarantees */}
+          <div className="space-y-4">
+            <h4 className="text-lg font-semibold text-white">Garanties</h4>
+            <div className="space-y-4">
+              {[
+                { icon: Shield, text: "100% Verzekerd", color: "green-400" },
+                { icon: Timer, text: "Binnen 3 uur ter pleatse", color: "blue-400" },
+                { icon: Euro, text: "Gratis offertes", color: "yellow-400" },
+                { icon: Star, text: "7+ jaar ervaring", color: "yellow-400" }
+              ].map((item, index) => (
+                <div key={index} className="flex items-center space-x-3">
+                  <div className={`w-6 h-6 flex items-center justify-center text-${item.color}`}>
+                    <item.icon className="w-4 h-4" />
+                  </div>
+                  <span className="text-stone-300 text-sm">{item.text}</span>
+                </div>
+              ))}
             </div>
 
-            {/* Trust Badges */}
-            <div className="space-y-4">
-              <div className="flex items-center space-x-2 p-3 bg-gray-800 rounded-lg">
-                <Shield className="w-6 h-6 text-green-400" />
-                <div>
-                  <div className="text-sm font-semibold">100% Verzekerd</div>
-                  <div className="text-xs text-gray-400">Volledig gedekt</div>
-                </div>
-              </div>
-              <div className="flex items-center space-x-2 p-3 bg-gray-800 rounded-lg">
-                <Award className="w-6 h-6 text-brand-400" />
-                <div>
-                  <div className="text-sm font-semibold">Kwaliteitsgarantie</div>
-                  <div className="text-xs text-gray-400">Op al ons werk</div>
-                </div>
-              </div>
-              <div className="flex items-center space-x-2 p-3 bg-gray-800 rounded-lg">
-                <Clock className="w-6 h-6 text-blue-400" />
-                <div>
-                  <div className="text-sm font-semibold">24/7 Bereikbaar</div>
-                  <div className="text-xs text-gray-400">Altijd voor u klaar</div>
-                </div>
+            {/* Social */}
+            <div className="mt-8">
+              <p className="text-sm text-stone-400 mb-3">Volg ons</p>
+              <div className="flex space-x-2">
+                {[Facebook, Instagram, Linkedin].map((Icon, index) => (
+                  <a
+                    key={index}
+                    href="#"
+                    className="w-8 h-8 bg-stone-800/20 hover:bg-stone-800/40 rounded flex items-center justify-center transition-colors group"
+                  >
+                    <Icon className="w-4 h-4 text-stone-500 group-hover:text-white transition-colors" />
+                  </a>
+                ))}
               </div>
             </div>
           </div>
         </div>
-      </div>
 
-      {/* Bottom Bar */}
-      <div className="border-t border-gray-800">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-          <div className="flex flex-col md:flex-row items-center justify-between">
-            <div className="text-gray-400 text-sm mb-4 md:mb-0">
-              © {currentYear} Compleet Dakonderhoud Nederland. Alle rechten voorbehouden. KvK: 94106819
+        {/* Separator */}
+        <div className="mt-16 pt-8 border-t border-stone-800">
+          {/* Bottom navigation */}
+          <div className="flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0">
+            <div className="flex items-center space-x-6 text-sm text-stone-500">
+              <span>© {currentYear} DakZorg Nederland</span>
+              <span className="hidden md:block">•</span>
+              <span>KvK: 96885904</span>
+              <span className="hidden md:block">•</span>
+              <span>Waalwijk, Nederland</span>
             </div>
-            <div className="flex space-x-6 text-sm">
-              <Link to="/privacybeleid" className="text-gray-400 hover:text-brand-400 transition-colors">
-                Privacybeleid
-              </Link>
-              <Link to="/algemene-voorwaarden" className="text-gray-400 hover:text-brand-400 transition-colors">
-                Algemene Voorwaarden
-              </Link>
-              <Link to="/cookiebeleid" className="text-gray-400 hover:text-brand-400 transition-colors">
-                Cookie Beleid
-              </Link>
+
+            <div className="flex items-center space-x-6">
+              <div className="flex items-center space-x-2 text-xs text-green-400">
+                <Shield className="w-3 h-3" />
+                <span>SSL Secured</span>
+              </div>
+
+              <div className="flex items-center space-x-4 text-sm">
+                <Link to="/privacybeleid" className="text-stone-500 hover:text-white transition-colors">
+                  Privacy
+                </Link>
+                <Link to="/algemene-voorwaarden" className="text-stone-500 hover:text-white transition-colors">
+                  Voorwaarden
+                </Link>
+                <Link to="/cookiebeleid" className="text-stone-500 hover:text-white transition-colors">
+                  Cookies
+                </Link>
+              </div>
             </div>
           </div>
+
+          <p className="mt-4 text-center text-xs text-stone-600">
+            Laatst bijgewerkt: {new Date().toLocaleDateString('nl-NL')}
+          </p>
         </div>
       </div>
     </footer>

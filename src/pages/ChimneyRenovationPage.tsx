@@ -172,19 +172,19 @@ const ChimneyRenovationPage = () => {
     {
       icon: Phone,
       title: "Telefoon",
-      details: ["0488 234 625", "24/7 Bereikbaar"],
-      action: "tel:0488234625"
+      details: ["06 57 01 08 61", "24/7 Bereikbaar"],
+      action: "tel:0657010861"
     },
     {
       icon: Mail,
       title: "Email",
-      details: ["info@compleetdakonderhoudnederland.nl", "Reactie vaak binnen 2 uur"],
-      action: "mailto:info@compleetdakonderhoudnederland.nl"
+      details: ["info@dakzorgnederland.nl", "Reactie vaak binnen 2 uur"],
+      action: "mailto:info@dakzorgnederland.nl"
     },
     {
       icon: MapPin,
       title: "Adres",
-      details: ["Geurdeland 17G", "6673 DR Andelst"],
+      details: ["Villa gagel 9", "5146AC Waalwijk"],
       action: "https://maps.google.com"
     },
     {
@@ -196,11 +196,11 @@ const ChimneyRenovationPage = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-stone-50">
       <Header />
 
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white py-20 pt-32 lg:pt-48">
+      <section className="relative bg-gradient-to-br from-stone-900 via-stone-800 to-stone-900 text-white py-20 pt-32 lg:pt-48">
         <div className="absolute inset-0 bg-black/20"></div>
         <div
           className="absolute inset-0 bg-cover bg-center opacity-30"
@@ -227,7 +227,7 @@ const ChimneyRenovationPage = () => {
               <br />
               <span className="text-brand-400">Professioneel Renoveren!</span>
             </h1>
-            <p className="text-xl md:text-2xl text-gray-200 mb-8 max-w-3xl mx-auto">
+            <p className="text-xl md:text-2xl text-stone-200 mb-8 max-w-3xl mx-auto">
               Geef uw schoorsteen een tweede leven! Van kleine reparaties tot complete renovatie.
               <span className="text-brand-400 font-bold"> 10 jaar garantie & vaste prijzen!</span>
             </p>
@@ -241,11 +241,11 @@ const ChimneyRenovationPage = () => {
                 <span>GRATIS RENOVATIE OFFERTE</span>
               </button>
               <a
-                href="tel:0488234625"
-                className="bg-blue-600 hover:bg-blue-700 text-white font-bold px-10 py-5 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-2xl flex items-center justify-center space-x-2 text-lg"
+                href="tel:0657010861"
+                className="bg-brand-600 hover:bg-brand-700 text-white font-bold px-10 py-5 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-2xl flex items-center justify-center space-x-2 text-lg"
               >
                 <Phone className="w-6 h-6" />
-                <span>DIRECT ADVIES: 0488 234 625</span>
+                <span>DIRECT ADVIES: 06 57 01 08 61</span>
               </a>
             </div>
 
@@ -282,9 +282,9 @@ const ChimneyRenovationPage = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-slate-900 mb-6">
-              Waarom <span className="bg-gradient-to-r from-blue-500 to-brand-600 bg-clip-text text-transparent">Schoorsteen Renoveren?</span>
+              Waarom <span className="bg-gradient-to-r from-brand-400 to-brand-600 bg-clip-text text-transparent">Schoorsteen Renoveren?</span>
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
+            <p className="text-xl text-stone-600 max-w-3xl mx-auto mb-8">
               Een gerenoveerde schoorsteen werkt beter, ziet er mooier uit en verhoogt de waarde van uw woning.
               Plus: geen lekkages meer en lagere energiekosten!
             </p>
@@ -299,12 +299,12 @@ const ChimneyRenovationPage = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
             {features.map((feature, index) => (
-              <div key={index} className="text-center p-8 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors">
+              <div key={index} className="text-center p-8 bg-stone-50 rounded-xl hover:bg-stone-100 transition-colors">
                 <div className="w-16 h-16 bg-brand-500 rounded-full flex items-center justify-center mx-auto mb-6">
                   <feature.icon className="w-8 h-8 text-white" />
                 </div>
                 <h3 className="text-xl font-bold text-slate-900 mb-4">{feature.title}</h3>
-                <p className="text-gray-600">{feature.description}</p>
+                <p className="text-stone-600">{feature.description}</p>
               </div>
             ))}
           </div>
@@ -351,16 +351,16 @@ const ChimneyRenovationPage = () => {
       </section>
 
       {/* Renovation Types Section */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-stone-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-slate-900 mb-6">
-              Onze <span className="bg-gradient-to-r from-blue-500 to-brand-600 bg-clip-text text-transparent">Renovatie Services</span>
+              Onze <span className="bg-gradient-to-r from-brand-400 to-brand-600 bg-clip-text text-transparent">Renovatie Services</span>
             </h2>
-            <p className="text-xl text-gray-700 font-semibold max-w-3xl mx-auto mb-2">
+            <p className="text-xl text-stone-700 font-semibold max-w-3xl mx-auto mb-2">
               ✅ Complete renovatie van A tot Z
             </p>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto mb-8">
+            <p className="text-lg text-stone-600 max-w-3xl mx-auto mb-8">
               Van kleine reparaties tot complete renovatie. Alles is mogelijk!
               Met behoud van het karakter van uw woning.
             </p>
@@ -383,13 +383,13 @@ const ChimneyRenovationPage = () => {
                     </div>
                     <div>
                       <h3 className="text-2xl font-bold text-slate-900">{type.title}</h3>
-                      <p className="text-gray-600 text-lg">{type.description}</p>
+                      <p className="text-stone-600 text-lg">{type.description}</p>
                     </div>
                   </div>
-                  <p className="text-gray-700 leading-relaxed mb-4">{type.details}</p>
+                  <p className="text-stone-700 leading-relaxed mb-4">{type.details}</p>
                   <button
                     onClick={() => setIsContactPopupOpen(true)}
-                    className="bg-blue-600 hover:bg-blue-700 text-white font-bold px-6 py-3 rounded-lg transition-all duration-300 inline-flex items-center space-x-2"
+                    className="bg-brand-600 hover:bg-brand-700 text-white font-bold px-6 py-3 rounded-lg transition-all duration-300 inline-flex items-center space-x-2"
                   >
                     <Phone className="w-5 h-5" />
                     <span>Vraag Offerte Aan</span>
@@ -401,19 +401,19 @@ const ChimneyRenovationPage = () => {
                     <ul className="space-y-2">
                       <li className="flex items-center space-x-3">
                         <CheckCircle className="w-5 h-5 text-brand-500 flex-shrink-0" />
-                        <span className="text-gray-700">Gratis inspectie vooraf</span>
+                        <span className="text-stone-700">Gratis inspectie vooraf</span>
                       </li>
                       <li className="flex items-center space-x-3">
                         <CheckCircle className="w-5 h-5 text-brand-500 flex-shrink-0" />
-                        <span className="text-gray-700">Vaste prijs, geen verrassingen</span>
+                        <span className="text-stone-700">Vaste prijs, geen verrassingen</span>
                       </li>
                       <li className="flex items-center space-x-3">
                         <CheckCircle className="w-5 h-5 text-brand-500 flex-shrink-0" />
-                        <span className="text-gray-700">Hoogwaardige materialen</span>
+                        <span className="text-stone-700">Hoogwaardige materialen</span>
                       </li>
                       <li className="flex items-center space-x-3">
                         <CheckCircle className="w-5 h-5 text-brand-500 flex-shrink-0" />
-                        <span className="text-gray-700">10 jaar garantie</span>
+                        <span className="text-stone-700">10 jaar garantie</span>
                       </li>
                     </ul>
                   </div>
@@ -425,17 +425,17 @@ const ChimneyRenovationPage = () => {
       </section>
 
       {/* Benefits Section */}
-      <section className="py-20 bg-gradient-to-br from-green-50 to-blue-50">
+      <section className="py-20 bg-gradient-to-br from-green-50 to-brand-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <Sparkles className="w-16 h-16 text-green-500 mx-auto mb-6 animate-pulse" />
             <h2 className="text-4xl font-bold text-slate-900 mb-6">
               <span className="text-green-600">De Voordelen Van Renovatie</span>
             </h2>
-            <p className="text-xl text-gray-700 font-semibold max-w-3xl mx-auto mb-4">
+            <p className="text-xl text-stone-700 font-semibold max-w-3xl mx-auto mb-4">
               Stop de problemen, behoud het karakter!
             </p>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto mb-8">
+            <p className="text-lg text-stone-600 max-w-3xl mx-auto mb-8">
               Een gerenoveerde schoorsteen is veiliger, mooier en energiezuiniger
             </p>
           </div>
@@ -449,11 +449,11 @@ const ChimneyRenovationPage = () => {
                 <div key={index} className="px-6 py-4 flex justify-between items-center">
                   <div className="font-medium text-slate-900">{item.problem}</div>
                   <div className="text-center">
-                    <div className="text-sm text-gray-600">Oplossing</div>
-                    <div className="font-bold text-blue-600">{item.solution}</div>
+                    <div className="text-sm text-stone-600">Oplossing</div>
+                    <div className="font-bold text-brand-600">{item.solution}</div>
                   </div>
                   <div className="text-center">
-                    <div className="text-sm text-gray-600">Resultaat</div>
+                    <div className="text-sm text-stone-600">Resultaat</div>
                     <div className="font-bold text-green-600 animate-pulse">
                       {item.result}
                     </div>
@@ -464,7 +464,7 @@ const ChimneyRenovationPage = () => {
           </div>
 
           <div className="text-center mt-8 space-y-4">
-            <p className="text-lg font-semibold text-gray-700">
+            <p className="text-lg font-semibold text-stone-700">
               Investeer in kwaliteit en geniet jarenlang zonder zorgen!
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -476,11 +476,11 @@ const ChimneyRenovationPage = () => {
                 <span>BEREKEN UW INVESTERING</span>
               </button>
               <a
-                href="tel:0488234625"
-                className="bg-blue-600 hover:bg-blue-700 text-white font-bold px-10 py-5 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-2xl inline-flex items-center space-x-2 text-lg"
+                href="tel:0657010861"
+                className="bg-brand-600 hover:bg-brand-700 text-white font-bold px-10 py-5 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-2xl inline-flex items-center space-x-2 text-lg"
               >
                 <Phone className="w-6 h-6" />
-                <span>0488 234 625 - BEL NU!</span>
+                <span>06 57 01 08 61 - BEL NU!</span>
               </a>
             </div>
           </div>
@@ -492,12 +492,12 @@ const ChimneyRenovationPage = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-slate-900 mb-6">
-              Hoe Wij Uw <span className="bg-gradient-to-r from-blue-500 to-brand-600 bg-clip-text text-transparent">Schoorsteen Renoveren</span>
+              Hoe Wij Uw <span className="bg-gradient-to-r from-brand-400 to-brand-600 bg-clip-text text-transparent">Schoorsteen Renoveren</span>
             </h2>
-            <p className="text-xl text-gray-700 font-semibold max-w-3xl mx-auto mb-2">
+            <p className="text-xl text-stone-700 font-semibold max-w-3xl mx-auto mb-2">
               In 4 Stappen Naar Een Als Nieuwe Schoorsteen!
             </p>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto mb-8">
+            <p className="text-lg text-stone-600 max-w-3xl mx-auto mb-8">
               Professioneel, betrouwbaar en met oog voor detail
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
@@ -510,7 +510,7 @@ const ChimneyRenovationPage = () => {
               </button>
               <a
                 href="tel:0488234625"
-                className="bg-blue-600 hover:bg-blue-700 text-white font-bold px-8 py-4 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg inline-flex items-center space-x-2"
+                className="bg-brand-600 hover:bg-brand-700 text-white font-bold px-8 py-4 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg inline-flex items-center space-x-2"
               >
                 <Clock className="w-5 h-5" />
                 <span>GRATIS INSPECTIE PLANNEN</span>
@@ -525,8 +525,8 @@ const ChimneyRenovationPage = () => {
                   {item.step}
                 </div>
                 <h3 className="text-xl font-bold text-slate-900 mb-3">{item.title}</h3>
-                <p className="text-gray-600 mb-4">{item.description}</p>
-                <p className="text-gray-500 text-sm">{item.details}</p>
+                <p className="text-stone-600 mb-4">{item.description}</p>
+                <p className="text-stone-500 text-sm">{item.details}</p>
               </div>
             ))}
           </div>
@@ -534,27 +534,27 @@ const ChimneyRenovationPage = () => {
       </section>
 
       {/* Services Section */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-stone-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
               <h2 className="text-4xl font-bold text-slate-900 mb-8">
-                Waarom <span className="bg-gradient-to-r from-blue-500 to-brand-600 bg-clip-text text-transparent">Renoveren Ipv Verwijderen?</span>
+                Waarom <span className="bg-gradient-to-r from-brand-400 to-brand-600 bg-clip-text text-transparent">Renoveren Ipv Verwijderen?</span>
               </h2>
               <div className="space-y-6">
                 {renovationServices.map((service, index) => (
                   <div key={index} className="flex items-start space-x-3">
                     <CheckCircle className="w-6 h-6 text-brand-500 flex-shrink-0 mt-1" />
-                    <span className="text-gray-700 font-medium text-lg">{service}</span>
+                    <span className="text-stone-700 font-medium text-lg">{service}</span>
                   </div>
                 ))}
               </div>
               <div className="mt-8">
-                <div className="p-6 bg-gradient-to-br from-brand-50 to-blue-50 border-2 border-brand-400 rounded-lg mb-6">
+                <div className="p-6 bg-gradient-to-br from-brand-50 to-brand-50 border-2 border-brand-400 rounded-lg mb-6">
                   <h4 className="font-bold text-slate-900 mb-4 text-xl">
                     💎 Verhoog De Waarde Van Uw Woning!
                   </h4>
-                  <p className="text-gray-700 mb-4">
+                  <p className="text-stone-700 mb-4">
                     Een gerenoveerde schoorsteen verhoogt de waarde van uw woning
                     <strong>aanzienlijk!</strong>
                   </p>
@@ -565,9 +565,9 @@ const ChimneyRenovationPage = () => {
                     ONTDEK DE MOGELIJKHEDEN →
                   </button>
                 </div>
-                <div className="bg-white rounded-lg p-4 border-2 border-gray-200">
+                <div className="bg-white rounded-lg p-4 border-2 border-stone-200">
                   <h5 className="font-bold text-slate-900 mb-3 text-lg">✅ Voordelen Renovatie:</h5>
-                  <div className="space-y-2 text-gray-700">
+                  <div className="space-y-2 text-stone-700">
                     <div className="flex items-center"><CheckCircle className="w-5 h-5 text-green-500 mr-2" />Behoud authentiek karakter</div>
                     <div className="flex items-center"><CheckCircle className="w-5 h-5 text-green-500 mr-2" />Waardeverhoging woning</div>
                     <div className="flex items-center"><CheckCircle className="w-5 h-5 text-green-500 mr-2" />Energiebesparing</div>
@@ -592,27 +592,27 @@ const ChimneyRenovationPage = () => {
       </section>
 
       {/* Professional Testimonials */}
-      <section className="py-20 bg-gradient-to-br from-slate-50 to-gray-100">
+      <section className="py-20 bg-gradient-to-br from-slate-50 to-stone-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-100 rounded-full mb-6">
-              <Users className="w-8 h-8 text-blue-600" />
+            <div className="inline-flex items-center justify-center w-16 h-16 bg-brand-100 rounded-full mb-6">
+              <Users className="w-8 h-8 text-brand-600" />
             </div>
             <h2 className="text-4xl font-bold text-slate-900 mb-6">
-              Wat Onze <span className="bg-gradient-to-r from-blue-500 to-brand-600 bg-clip-text text-transparent">Klanten</span> Zeggen
+              Wat Onze <span className="bg-gradient-to-r from-brand-400 to-brand-600 bg-clip-text text-transparent">Klanten</span> Zeggen
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              Al meer dan 25 jaar renoveren wij schoorstenen. Onze klanten waarderen onze
+            <p className="text-xl text-stone-600 max-w-3xl mx-auto leading-relaxed">
+              Al meer dan 7 jaar renoveren wij schoorstenen. Onze klanten waarderen onze
               vakmanschap, betrouwbaarheid en de kwaliteit van ons werk.
             </p>
           </div>
 
           <div className="relative w-full max-w-none mx-auto">
-            <div className="absolute inset-0 bg-gradient-to-r from-blue-50 to-slate-50 rounded-2xl transform rotate-1"></div>
-            <div className="absolute inset-0 bg-gradient-to-r from-slate-50 to-blue-50 rounded-2xl transform -rotate-1"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-brand-50 to-slate-50 rounded-2xl transform rotate-1"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-slate-50 to-brand-50 rounded-2xl transform -rotate-1"></div>
 
-            <div className="relative bg-white rounded-2xl shadow-xl border border-gray-200 p-4 sm:p-6 mx-2 sm:mx-4">
-              <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-20 h-1 bg-gradient-to-r from-blue-500 to-brand-600 rounded-b-full"></div>
+            <div className="relative bg-white rounded-2xl shadow-xl border border-stone-200 p-4 sm:p-6 mx-2 sm:mx-4">
+              <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-20 h-1 bg-gradient-to-r from-brand-400 to-brand-600 rounded-b-full"></div>
 
               <div
                 className="overflow-hidden rounded-xl"
@@ -632,7 +632,7 @@ const ChimneyRenovationPage = () => {
 
           <div className="mt-12">
             <div className="text-center space-y-6">
-              <div className="inline-flex items-center space-x-1 text-xs text-gray-400 font-medium tracking-wide">
+              <div className="inline-flex items-center space-x-1 text-xs text-stone-400 font-medium tracking-wide">
                 <Shield className="w-3 h-3" />
                 <span>VOLLEDIG VERZEKERD</span>
                 <span className="mx-3">•</span>
@@ -640,12 +640,11 @@ const ChimneyRenovationPage = () => {
                 <span>GECERTIFICEERD</span>
                 <span className="mx-3">•</span>
                 <Clock className="w-3 h-3" />
-                <span>25+ JAAR ERVARING</span>
+                <span>7+ JAAR ERVARING</span>
               </div>
 
               <div className="pt-2">
                 <a
-                  href="https://nl.trustpilot.com/review/www.compleetdakonderhoudnederland.nl"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-block hover:scale-105 transition-transform duration-200"
@@ -667,14 +666,14 @@ const ChimneyRenovationPage = () => {
         <section id="contact">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <span className="bg-gradient-to-r from-blue-500 to-brand-600 bg-clip-text text-transparent font-semibold text-lg tracking-wide uppercase">
+            <span className="bg-gradient-to-r from-brand-400 to-brand-600 bg-clip-text text-transparent font-semibold text-lg tracking-wide uppercase">
               Contact
             </span>
             <h2 className="text-4xl md:text-5xl font-bold text-white mt-4 mb-6 leading-tight">
               Laten We Uw Schoorsteen
               <span className="text-brand-400"> Renoveren</span>
             </h2>
-            <p className="text-gray-300 text-lg max-w-3xl mx-auto leading-relaxed">
+            <p className="text-stone-300 text-lg max-w-3xl mx-auto leading-relaxed">
               Klaar voor een gerenoveerde schoorsteen? Neem contact met ons op
               voor een gratis inspectie en renovatie-advies.
             </p>
@@ -692,7 +691,7 @@ const ChimneyRenovationPage = () => {
                     <div>
                       <h4 className="text-white font-semibold mb-2">{info.title}</h4>
                       {info.details.map((detail, detailIndex) => (
-                        <p key={detailIndex} className="text-gray-300">
+                        <p key={detailIndex} className="text-stone-300">
                           {info.action && detailIndex === 0 ? (
                             <a
                               href={info.action}
@@ -710,23 +709,23 @@ const ChimneyRenovationPage = () => {
                 ))}
               </div>
 
-              <div className="mt-8 p-6 bg-gray-800 rounded-xl">
+              <div className="mt-8 p-6 bg-stone-800 rounded-xl">
                 <h4 className="text-white font-bold mb-4">Bedrijfsgegevens</h4>
-                <div className="space-y-2 text-gray-300 text-sm">
-                  <p><span className="font-medium">KvK:</span> 94106819</p>
-                  <p><span className="font-medium">Vestiging:</span> Andelst</p>
-                  <p><span className="font-medium">Ervaring:</span> 25+ jaar</p>
+                <div className="space-y-2 text-stone-300 text-sm">
+                  <p><span className="font-medium">KvK:</span> 96885904</p>
+                  <p><span className="font-medium">Vestiging:</span> Waalwijk</p>
+                  <p><span className="font-medium">Ervaring:</span> 7+ jaar</p>
                 </div>
               </div>
 
               <div className="mt-8 p-6 bg-green-900/20 border border-green-900/50 rounded-xl">
                 <h4 className="text-green-400 font-bold mb-2">Renovatie Specialist</h4>
-                <p className="text-gray-300 mb-3">Voor advies over renovatie</p>
+                <p className="text-stone-300 mb-3">Voor advies over renovatie</p>
                 <a
-                  href="tel:0488234625"
+                  href="tel:0657010861"
                   className="text-green-400 font-semibold hover:text-green-300 transition-colors"
                 >
-                  0488 234 625
+                  06 57 01 08 61
                 </a>
               </div>
             </div>
@@ -744,32 +743,32 @@ const ChimneyRenovationPage = () => {
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                      <label className="block text-sm font-medium text-stone-700 mb-2">
                         Naam *
                       </label>
                       <div className="relative">
-                        <User className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
+                        <User className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-stone-400" />
                         <input
                           type="text"
                           value={formData.name}
                           onChange={(e) => handleInputChange('name', e.target.value)}
-                          className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-gray-900"
+                          className="w-full pl-12 pr-4 py-3 border border-stone-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-stone-900"
                           placeholder="Uw volledige naam"
                           required
                         />
                       </div>
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                      <label className="block text-sm font-medium text-stone-700 mb-2">
                         Email *
                       </label>
                       <div className="relative">
-                        <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
+                        <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-stone-400" />
                         <input
                           type="email"
                           value={formData.email}
                           onChange={(e) => handleInputChange('email', e.target.value)}
-                          className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-gray-900"
+                          className="w-full pl-12 pr-4 py-3 border border-stone-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-stone-900"
                           placeholder="uw.email@example.nl"
                           required
                         />
@@ -779,31 +778,31 @@ const ChimneyRenovationPage = () => {
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                      <label className="block text-sm font-medium text-stone-700 mb-2">
                         Telefoon
                       </label>
                       <div className="relative">
-                        <Phone className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
+                        <Phone className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-stone-400" />
                         <input
                           type="tel"
                           value={formData.phone}
                           onChange={(e) => handleInputChange('phone', e.target.value)}
-                          className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-gray-900"
-                          placeholder="0488 234 625"
+                          className="w-full pl-12 pr-4 py-3 border border-stone-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-stone-900"
+                          placeholder="06 57 01 08 61"
                         />
                       </div>
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                      <label className="block text-sm font-medium text-stone-700 mb-2">
                         Stad
                       </label>
                       <div className="relative">
-                        <MapPin className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
+                        <MapPin className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-stone-400" />
                         <input
                           type="text"
                           value={formData.stad}
                           onChange={(e) => handleInputChange('stad', e.target.value)}
-                          className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-gray-900"
+                          className="w-full pl-12 pr-4 py-3 border border-stone-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-stone-900"
                           placeholder="Amsterdam"
                         />
                       </div>
@@ -812,31 +811,31 @@ const ChimneyRenovationPage = () => {
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                      <label className="block text-sm font-medium text-stone-700 mb-2">
                         Straatnaam + Huisnummer
                       </label>
                       <div className="relative">
-                        <Home className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
+                        <Home className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-stone-400" />
                         <input
                           type="text"
                           value={formData.address}
                           onChange={(e) => handleInputChange('address', e.target.value)}
-                          className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-gray-900"
+                          className="w-full pl-12 pr-4 py-3 border border-stone-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-stone-900"
                           placeholder="Hoofdstraat 123"
                         />
                       </div>
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                      <label className="block text-sm font-medium text-stone-700 mb-2">
                         Provincie
                       </label>
                       <div className="relative">
-                        <Building2 className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
+                        <Building2 className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-stone-400" />
                         <input
                           type="text"
                           value={formData.provincie}
                           onChange={(e) => handleInputChange('provincie', e.target.value)}
-                          className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-gray-900"
+                          className="w-full pl-12 pr-4 py-3 border border-stone-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-stone-900"
                           placeholder="Noord-Holland"
                         />
                       </div>
@@ -844,15 +843,15 @@ const ChimneyRenovationPage = () => {
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <label className="block text-sm font-medium text-stone-700 mb-2">
                       Gewenste startdatum
                     </label>
                     <div className="relative">
-                      <Calendar className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
+                      <Calendar className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-stone-400" />
                       <select
                         value={formData.timeline}
                         onChange={(e) => handleInputChange('timeline', e.target.value)}
-                        className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-gray-900"
+                        className="w-full pl-12 pr-4 py-3 border border-stone-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-stone-900"
                       >
                         <option value="">Selecteer timing</option>
                         <option value="asap">Zo snel mogelijk</option>
@@ -865,16 +864,16 @@ const ChimneyRenovationPage = () => {
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <label className="block text-sm font-medium text-stone-700 mb-2">
                       Bericht/Beschrijving *
                     </label>
                     <div className="relative">
-                      <MessageCircle className="absolute left-3 top-4 w-5 h-5 text-gray-400" />
+                      <MessageCircle className="absolute left-3 top-4 w-5 h-5 text-stone-400" />
                       <textarea
                         value={formData.message}
                         onChange={(e) => handleInputChange('message', e.target.value)}
                         rows={5}
-                        className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 resize-none text-gray-900"
+                        className="w-full pl-12 pr-4 py-3 border border-stone-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 resize-none text-stone-900"
                         placeholder="Beschrijf uw schoorsteen renovatie wensen..."
                         required
                       />
@@ -887,7 +886,7 @@ const ChimneyRenovationPage = () => {
                       disabled={isSubmitting}
                       className={`inline-flex items-center space-x-3 px-8 py-4 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg ${
                         isSubmitting
-                          ? 'bg-gray-400 cursor-not-allowed'
+                          ? 'bg-stone-400 cursor-not-allowed'
                           : 'bg-brand-500 hover:bg-brand-600 text-white'
                       }`}
                     >
@@ -905,7 +904,7 @@ const ChimneyRenovationPage = () => {
                     </button>
                   </div>
 
-                  <p className="text-gray-600 text-sm text-center">
+                  <p className="text-stone-600 text-sm text-center">
                     Door dit formulier te verzenden gaat u akkoord met ons privacybeleid.
                     Wij nemen binnen 24 uur contact met u op.
                   </p>
@@ -924,10 +923,10 @@ const ChimneyRenovationPage = () => {
                 Gratis inspectie, eerlijke prijzen, 10 jaar garantie!
               </p>
               <a
-                href="tel:0488234625"
-                className="inline-block bg-slate-900 hover:bg-slate-800 text-white font-semibold px-8 py-4 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg"
+                href="tel:0657010861"
+                className="inline-block bg-stone-900 hover:bg-slate-800 text-white font-semibold px-8 py-4 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg"
               >
-                Bel Nu: 0488 234 625
+                Bel Nu: 06 57 01 08 61
               </a>
             </div>
           </div>

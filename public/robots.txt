@@ -14,13 +14,11 @@ Allow: /dakwerk-dakdekken
 Allow: /renovatie-verbouwing
 Allow: /tegelwerk
 Allow: /schilderwerk-stukadoor
-Allow: /aanbouw-uitbouw
 Allow: /commerciele-bouw
 Allow: /projectmanagement
 Allow: /duurzame-bouw
 Allow: /onderhoud-reparatie
 Allow: /schoorsteenwerk
-Allow: /aircos-monteren
 
 # Crawl delay
 Crawl-delay: 1

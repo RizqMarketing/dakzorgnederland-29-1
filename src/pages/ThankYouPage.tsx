@@ -19,7 +19,7 @@ const ThankYouPage = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-stone-50">
       <Header />
       
       <section className="py-20 pt-32 lg:pt-48">
@@ -28,7 +28,7 @@ const ThankYouPage = () => {
             <div className="mb-8">
               <CheckCircle className="w-20 h-20 text-green-500 mx-auto mb-6" />
               <h1 className="text-4xl font-bold text-slate-900 mb-4">Bedankt voor uw bericht!</h1>
-              <p className="text-xl text-gray-600 mb-6">
+              <p className="text-xl text-stone-600 mb-6">
                 Uw contactaanvraag is succesvol verzonden. Wij nemen binnen 24 uur contact met u op.
               </p>
             </div>
@@ -38,40 +38,40 @@ const ThankYouPage = () => {
               <div className="space-y-3 text-left">
                 <div className="flex items-start space-x-3">
                   <div className="w-6 h-6 bg-brand-500 text-white rounded-full flex items-center justify-center text-sm font-bold mt-0.5">1</div>
-                  <p className="text-gray-700">Wij bekijken uw aanvraag zorgvuldig</p>
+                  <p className="text-stone-700">Wij bekijken uw aanvraag zorgvuldig</p>
                 </div>
                 <div className="flex items-start space-x-3">
                   <div className="w-6 h-6 bg-brand-500 text-white rounded-full flex items-center justify-center text-sm font-bold mt-0.5">2</div>
-                  <p className="text-gray-700">U ontvangt binnen 24 uur een reactie van ons</p>
+                  <p className="text-stone-700">U ontvangt binnen 24 uur een reactie van ons</p>
                 </div>
                 <div className="flex items-start space-x-3">
                   <div className="w-6 h-6 bg-brand-500 text-white rounded-full flex items-center justify-center text-sm font-bold mt-0.5">3</div>
-                  <p className="text-gray-700">Wij plannen een afspraak voor een vrijblijvend gesprek</p>
+                  <p className="text-stone-700">Wij plannen een afspraak voor een vrijblijvend gesprek</p>
                 </div>
               </div>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-              <div className="bg-gray-50 p-6 rounded-lg">
+              <div className="bg-stone-50 p-6 rounded-lg">
                 <Phone className="w-8 h-8 text-brand-500 mx-auto mb-3" />
                 <h4 className="font-bold text-slate-900 mb-2">Spoedeisend?</h4>
-                <p className="text-gray-600 mb-3">Voor urgente zaken kunt u ons direct bellen</p>
-                <a 
-                  href="tel:0488234625" 
+                <p className="text-stone-600 mb-3">Voor urgente zaken kunt u ons direct bellen</p>
+                <a
+                  href="tel:0657010861"
                   className="text-brand-600 hover:text-brand-700 font-semibold"
                 >
-                  0488 234 625
+                  06 57 01 08 61
                 </a>
               </div>
-              <div className="bg-gray-50 p-6 rounded-lg">
+              <div className="bg-stone-50 p-6 rounded-lg">
                 <Mail className="w-8 h-8 text-brand-500 mx-auto mb-3" />
                 <h4 className="font-bold text-slate-900 mb-2">Email Contact</h4>
-                <p className="text-gray-600 mb-3">Of stuur ons direct een email</p>
-                <a 
-                  href="mailto:info@compleetdakonderhoudnederland.nl" 
+                <p className="text-stone-600 mb-3">Of stuur ons direct een email</p>
+                <a
+                  href="mailto:info@dakzorgnederland.nl"
                   className="text-brand-600 hover:text-brand-700 font-semibold"
                 >
-                  info@compleetdakonderhoudnederland.nl
+                  info@dakzorgnederland.nl
                 </a>
               </div>
             </div>
@@ -88,7 +88,7 @@ const ThankYouPage = () => {
                 to="/#about"
                 className="inline-flex items-center space-x-2 border-2 border-brand-500 text-brand-600 hover:bg-brand-500 hover:text-slate-900 font-semibold px-6 py-3 rounded-lg transition-all duration-300"
               >
-                <span>Meer Over Compleet Dakonderhoud Nederland</span>
+                <span>Meer Over DakZorg Nederland</span>
               </Link>
             </div>
           </div>

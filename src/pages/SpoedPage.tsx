@@ -103,7 +103,7 @@ const SpoedPage = () => {
       <Header />
       
       {/* Hero Section */}
-      <section className="relative pt-32 lg:pt-48 pb-20 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
+      <section className="relative pt-32 lg:pt-48 pb-20 bg-gradient-to-br from-stone-900 via-stone-800 to-stone-900">
         <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=1920')] bg-cover bg-center opacity-20"></div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
@@ -121,20 +121,20 @@ const SpoedPage = () => {
             <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">
               <span className="text-red-400">DAKSPOED NODIG?</span>
               <br />
-              <span className="bg-gradient-to-r from-blue-500 to-brand-600 bg-clip-text text-transparent">Binnen 2 Uur Ter Plaatse!</span>
+              <span className="bg-gradient-to-r from-brand-400 to-brand-600 bg-clip-text text-transparent">Binnen 2 Uur Ter Plaatse!</span>
             </h1>
-            <p className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xl text-stone-300 mb-8 max-w-3xl mx-auto leading-relaxed">
               <span className="text-red-400 font-bold">NOODGEVAL?</span> Acute lekkage? Storm schade?
               Wij zijn er binnen 2 uur. 24/7 professionele spoedservice voor alle dakproblemen.
               <span className="text-brand-400 font-bold"> Geen voorrijkosten!</span>
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
               <a
-                href="tel:0488234625"
+                href="tel:0657010861"
                 className="bg-red-500 hover:bg-red-600 text-white font-bold px-10 py-5 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-2xl flex items-center justify-center text-lg animate-pulse"
               >
                 <Phone className="w-6 h-6 mr-3" />
-                SPOED: 0488 234 625 - BEL NU!
+                SPOED: 06 57 01 08 61 - BEL NU!
               </a>
               <button
                 onClick={() => setIsContactPopupOpen(true)}
@@ -181,10 +181,10 @@ const SpoedPage = () => {
             <h2 className="text-4xl font-bold text-slate-900 mb-6">
               <span className="text-red-600">Elk Moment Telt Bij Spoedgevallen!</span>
             </h2>
-            <p className="text-xl text-gray-700 max-w-3xl mx-auto mb-4">
+            <p className="text-xl text-stone-700 max-w-3xl mx-auto mb-4">
               <strong>Elke minuut wachten is elke euro meer schade!</strong> Dakproblemen verergeren snel.
             </p>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto mb-8">
+            <p className="text-lg text-stone-600 max-w-3xl mx-auto mb-8">
               Wij zijn binnen 2 uur ter plaatse. Direct gestopt. Verdere schade voorkomen!
             </p>
           </div>
@@ -197,33 +197,33 @@ const SpoedPage = () => {
               <div className="px-6 py-4 flex justify-between items-center">
                 <div className="font-medium text-slate-900">Storm schade niet direct afgedekt</div>
                 <div className="text-center">
-                  <div className="text-sm text-gray-600">Gevolg</div>
+                  <div className="text-sm text-stone-600">Gevolg</div>
                   <div className="font-bold text-red-600">Regenwater in huis</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-sm text-gray-600">Extra Kosten</div>
+                  <div className="text-sm text-stone-600">Extra Kosten</div>
                   <div className="font-bold text-red-600">Hoge Kosten</div>
                 </div>
               </div>
               <div className="px-6 py-4 flex justify-between items-center">
                 <div className="font-medium text-slate-900">Lekkage niet direct gedicht</div>
                 <div className="text-center">
-                  <div className="text-sm text-gray-600">Gevolg</div>
+                  <div className="text-sm text-stone-600">Gevolg</div>
                   <div className="font-bold text-red-600">Isolatie doorweekt</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-sm text-gray-600">Extra Kosten</div>
+                  <div className="text-sm text-stone-600">Extra Kosten</div>
                   <div className="font-bold text-red-600">Zeer Hoge Kosten</div>
                 </div>
               </div>
               <div className="px-6 py-4 flex justify-between items-center">
                 <div className="font-medium text-slate-900">Losgewaaide dakpannen niet vervangen</div>
                 <div className="text-center">
-                  <div className="text-sm text-gray-600">Gevolg</div>
+                  <div className="text-sm text-stone-600">Gevolg</div>
                   <div className="font-bold text-red-600">Complete dakschade</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-sm text-gray-600">Extra Kosten</div>
+                  <div className="text-sm text-stone-600">Extra Kosten</div>
                   <div className="font-bold text-red-600">Zeer Hoge Kosten</div>
                 </div>
               </div>
@@ -231,16 +231,16 @@ const SpoedPage = () => {
           </div>
 
           <div className="text-center space-y-4">
-            <p className="text-lg font-semibold text-gray-700">
+            <p className="text-lg font-semibold text-stone-700">
               BEL NU! Wachten kost u veel meer dan onze spoedservice!
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="tel:0488234625"
+                href="tel:0657010861"
                 className="bg-red-500 hover:bg-red-600 text-white font-bold px-10 py-5 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-2xl inline-flex items-center space-x-2 text-lg animate-pulse"
               >
                 <Phone className="w-6 h-6" />
-                <span>0488 234 625 - SPOED!</span>
+                <span>06 57 01 08 61 - SPOED!</span>
               </a>
               <button
                 onClick={() => setIsContactPopupOpen(true)}
@@ -259,21 +259,21 @@ const SpoedPage = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-slate-900 mb-4">
-              Onze <span className="bg-gradient-to-r from-blue-500 to-brand-600 bg-clip-text text-transparent">Spoeddiensten</span>
+              Onze <span className="bg-gradient-to-r from-brand-400 to-brand-600 bg-clip-text text-transparent">Spoeddiensten</span>
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-stone-600 max-w-3xl mx-auto">
               24/7 beschikbaar voor alle dakgerelateerde noodgevallen
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {spoedTypes.map((type, index) => (
-              <div key={index} className="bg-gray-50 rounded-xl p-8 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border-l-4 border-brand-500">
+              <div key={index} className="bg-stone-50 rounded-xl p-8 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border-l-4 border-brand-500">
                 <div className="w-16 h-16 bg-brand-100 rounded-lg flex items-center justify-center mb-6">
                   <type.icon className="w-8 h-8 text-brand-600" />
                 </div>
                 <h3 className="text-2xl font-bold text-slate-900 mb-4">{type.title}</h3>
-                <p className="text-gray-600 mb-4">{type.description}</p>
-                <p className="text-gray-700">{type.details}</p>
+                <p className="text-stone-600 mb-4">{type.description}</p>
+                <p className="text-stone-700">{type.details}</p>
               </div>
             ))}
           </div>
@@ -281,7 +281,7 @@ const SpoedPage = () => {
       </section>
 
       {/* Features Section */}
-      <section className="py-20 bg-slate-900">
+      <section className="py-20 bg-stone-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-white mb-4">
@@ -295,7 +295,7 @@ const SpoedPage = () => {
                   <feature.icon className="w-10 h-10 text-white" />
                 </div>
                 <h3 className="text-xl font-bold text-white mb-2">{feature.title}</h3>
-                <p className="text-gray-300">{feature.description}</p>
+                <p className="text-stone-300">{feature.description}</p>
               </div>
             ))}
           </div>
@@ -303,7 +303,7 @@ const SpoedPage = () => {
       </section>
 
       {/* Services List */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-stone-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
@@ -314,7 +314,7 @@ const SpoedPage = () => {
                 {spoedServices.map((service, index) => (
                   <div key={index} className="flex items-start space-x-3">
                     <CheckCircle className="w-6 h-6 text-brand-500 flex-shrink-0 mt-0.5" />
-                    <span className="text-gray-700 text-lg">{service}</span>
+                    <span className="text-stone-700 text-lg">{service}</span>
                   </div>
                 ))}
               </div>
@@ -339,9 +339,9 @@ const SpoedPage = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-slate-900 mb-4">
-              Ons <span className="bg-gradient-to-r from-blue-500 to-brand-600 bg-clip-text text-transparent">Noodprotocol</span>
+              Ons <span className="bg-gradient-to-r from-brand-400 to-brand-600 bg-clip-text text-transparent">Noodprotocol</span>
             </h2>
-            <p className="text-xl text-gray-600">Van noodoproep tot definitieve oplossing</p>
+            <p className="text-xl text-stone-600">Van noodoproep tot definitieve oplossing</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             {spoedProcess.map((item, index) => (
@@ -351,10 +351,10 @@ const SpoedPage = () => {
                     {item.step}
                   </div>
                   <h3 className="text-xl font-bold text-slate-900 mb-2">{item.title}</h3>
-                  <p className="text-gray-600">{item.description}</p>
+                  <p className="text-stone-600">{item.description}</p>
                 </div>
                 {index < spoedProcess.length - 1 && (
-                  <ArrowRight className="hidden md:block absolute top-8 -right-4 w-8 h-8 text-gray-300" />
+                  <ArrowRight className="hidden md:block absolute top-8 -right-4 w-8 h-8 text-stone-300" />
                 )}
               </div>
             ))}
@@ -363,17 +363,17 @@ const SpoedPage = () => {
       </section>
 
       {/* Professional Testimonials */}
-      <section className="py-20 bg-gradient-to-br from-slate-50 to-gray-100">
+      <section className="py-20 bg-gradient-to-br from-slate-50 to-stone-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Header with Icon */}
           <div className="text-center mb-16">
-            <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-100 rounded-full mb-6">
-              <Users className="w-8 h-8 text-blue-600" />
+            <div className="inline-flex items-center justify-center w-16 h-16 bg-brand-100 rounded-full mb-6">
+              <Users className="w-8 h-8 text-brand-600" />
             </div>
             <h2 className="text-4xl font-bold text-slate-900 mb-6">
-              Wat Onze <span className="bg-gradient-to-r from-blue-500 to-brand-600 bg-clip-text text-transparent">Klanten</span> Zeggen
+              Wat Onze <span className="bg-gradient-to-r from-brand-400 to-brand-600 bg-clip-text text-transparent">Klanten</span> Zeggen
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xl text-stone-600 max-w-3xl mx-auto leading-relaxed">
               Al meer dan 25 jaar zorgen wij voor vakkundig dakwerk. Onze klanten waarderen onze 
               betrouwbaarheid, kwaliteit en persoonlijke service.
             </p>
@@ -382,13 +382,13 @@ const SpoedPage = () => {
           {/* Enhanced Widget Container */}
           <div className="relative w-full max-w-none mx-auto">
             {/* Subtle background pattern */}
-            <div className="absolute inset-0 bg-gradient-to-r from-blue-50 to-slate-50 rounded-2xl transform rotate-1"></div>
-            <div className="absolute inset-0 bg-gradient-to-r from-slate-50 to-blue-50 rounded-2xl transform -rotate-1"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-brand-50 to-slate-50 rounded-2xl transform rotate-1"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-slate-50 to-brand-50 rounded-2xl transform -rotate-1"></div>
             
             {/* Main container */}
-            <div className="relative bg-white rounded-2xl shadow-xl border border-gray-200 p-4 sm:p-6 mx-2 sm:mx-4">
+            <div className="relative bg-white rounded-2xl shadow-xl border border-stone-200 p-4 sm:p-6 mx-2 sm:mx-4">
               {/* Top accent */}
-              <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-20 h-1 bg-gradient-to-r from-blue-500 to-brand-600 rounded-b-full"></div>
+              <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-20 h-1 bg-gradient-to-r from-brand-400 to-brand-600 rounded-b-full"></div>
               
               {/* Widget */}
               <div 
@@ -410,7 +410,7 @@ const SpoedPage = () => {
           {/* Clean Trust Footer */}
           <div className="mt-12">
             <div className="text-center space-y-6">
-              <div className="inline-flex items-center space-x-1 text-xs text-gray-400 font-medium tracking-wide">
+              <div className="inline-flex items-center space-x-1 text-xs text-stone-400 font-medium tracking-wide">
                 <Shield className="w-3 h-3" />
                 <span>VOLLEDIG VERZEKERD</span>
                 <span className="mx-3">•</span>
@@ -418,13 +418,12 @@ const SpoedPage = () => {
                 <span>GECERTIFICEERD</span>
                 <span className="mx-3">•</span>
                 <Clock className="w-3 h-3" />
-                <span>25+ JAAR ERVARING</span>
+                <span>7+ JAAR ERVARING</span>
               </div>
               
               {/* Trustpilot Logo */}
               <div className="pt-2">
                 <a 
-                  href="https://nl.trustpilot.com/review/www.compleetdakonderhoudnederland.nl"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-block hover:scale-105 transition-transform duration-200"

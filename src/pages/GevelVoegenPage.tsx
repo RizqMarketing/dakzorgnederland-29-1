@@ -156,30 +156,30 @@ const GevelVoegenPage = () => {
       <Header />
       
       {/* Hero Section */}
-      <section className="relative pt-32 lg:pt-48 pb-20 bg-slate-900 md:bg-gradient-to-br md:from-blue-900 md:via-blue-800 md:to-slate-900">
+      <section className="relative pt-32 lg:pt-48 pb-20 bg-stone-900 md:bg-gradient-to-br md:from-brand-900 md:via-brand-800 md:to-slate-900">
         <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=1920')] bg-cover bg-center opacity-25"></div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">
-              Professioneel <span className="bg-gradient-to-r from-blue-500 to-brand-600 bg-clip-text text-transparent">Gevel Voegen</span>
+              Professioneel <span className="bg-gradient-to-r from-brand-400 to-brand-600 bg-clip-text text-transparent">Gevel Voegen</span>
             </h1>
-            <p className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xl text-stone-300 mb-8 max-w-3xl mx-auto leading-relaxed">
               Vakkundig voegwerk voor een waterdichte en mooie gevel. Van kleine reparaties tot complete voegrenovatie.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button 
                 onClick={() => setIsContactPopupOpen(true)}
-                className="bg-blue-500 hover:bg-blue-600 text-white font-semibold px-8 py-4 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg flex items-center justify-center"
+                className="bg-brand-500 hover:bg-brand-600 text-white font-semibold px-8 py-4 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg flex items-center justify-center"
               >
                 <Calculator className="w-5 h-5 mr-2" />
                 Gratis Offerte
               </button>
-              <a 
-                href="tel:0488234625"
-                className="bg-white hover:bg-gray-100 text-slate-900 font-semibold px-8 py-4 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg flex items-center justify-center"
+              <a
+                href="tel:0657010861"
+                className="bg-white hover:bg-stone-100 text-slate-900 font-semibold px-8 py-4 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg flex items-center justify-center"
               >
                 <Phone className="w-5 h-5 mr-2" />
-                Bel: 0488 234 625
+                Bel: 06 57 01 08 61
               </a>
             </div>
           </div>
@@ -187,9 +187,9 @@ const GevelVoegenPage = () => {
       </section>
 
       {/* Info Banner */}
-      <section className="bg-blue-50 border-y border-blue-200">
+      <section className="bg-brand-50 border-y border-brand-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-          <div className="flex items-center justify-center space-x-2 text-blue-900">
+          <div className="flex items-center justify-center space-x-2 text-brand-900">
             <Shield className="w-5 h-5" />
             <span className="font-semibold">Slechte voegen = waterschade!</span>
             <span>Laat tijdig controleren en repareren.</span>
@@ -202,21 +202,21 @@ const GevelVoegenPage = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-slate-900 mb-4">
-              Onze <span className="bg-gradient-to-r from-blue-500 to-brand-600 bg-clip-text text-transparent">Voegwerk</span> Specialiteiten
+              Onze <span className="bg-gradient-to-r from-brand-400 to-brand-600 bg-clip-text text-transparent">Voegwerk</span> Specialiteiten
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-stone-600 max-w-3xl mx-auto">
               Van preventieve reparaties tot complete voegrenovatie
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {gevelVoegenTypes.map((type, index) => (
-              <div key={index} className="bg-gray-50 rounded-xl p-8 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
-                <div className="w-16 h-16 bg-blue-100 rounded-lg flex items-center justify-center mb-6">
-                  <type.icon className="w-8 h-8 text-blue-600" />
+              <div key={index} className="bg-stone-50 rounded-xl p-8 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+                <div className="w-16 h-16 bg-brand-100 rounded-lg flex items-center justify-center mb-6">
+                  <type.icon className="w-8 h-8 text-brand-600" />
                 </div>
                 <h3 className="text-2xl font-bold text-slate-900 mb-4">{type.title}</h3>
-                <p className="text-gray-600 mb-4">{type.description}</p>
-                <p className="text-gray-700">{type.details}</p>
+                <p className="text-stone-600 mb-4">{type.description}</p>
+                <p className="text-stone-700">{type.details}</p>
               </div>
             ))}
           </div>
@@ -224,21 +224,21 @@ const GevelVoegenPage = () => {
       </section>
 
       {/* Features Section */}
-      <section className="py-20 bg-slate-900">
+      <section className="py-20 bg-stone-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-white mb-4">
-              Waarom Onze <span className="bg-gradient-to-r from-blue-500 to-brand-600 bg-clip-text text-transparent">Voegwerk Service</span>?
+              Waarom Onze <span className="bg-gradient-to-r from-brand-400 to-brand-600 bg-clip-text text-transparent">Voegwerk Service</span>?
             </h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {features.map((feature, index) => (
               <div key={index} className="text-center">
-                <div className="w-20 h-20 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-6">
+                <div className="w-20 h-20 bg-brand-500 rounded-full flex items-center justify-center mx-auto mb-6">
                   <feature.icon className="w-10 h-10 text-white" />
                 </div>
                 <h3 className="text-xl font-bold text-white mb-2">{feature.title}</h3>
-                <p className="text-gray-300">{feature.description}</p>
+                <p className="text-stone-300">{feature.description}</p>
               </div>
             ))}
           </div>
@@ -246,18 +246,18 @@ const GevelVoegenPage = () => {
       </section>
 
       {/* Services List */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-stone-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-4xl font-bold text-slate-900 mb-8">
-                Onze <span className="bg-gradient-to-r from-blue-500 to-brand-600 bg-clip-text text-transparent">Voegwerk</span> Services
+                Onze <span className="bg-gradient-to-r from-brand-400 to-brand-600 bg-clip-text text-transparent">Voegwerk</span> Services
               </h2>
               <div className="space-y-4">
                 {gevelVoegenServices.map((service, index) => (
                   <div key={index} className="flex items-start space-x-3">
-                    <CheckCircle className="w-6 h-6 text-blue-500 flex-shrink-0 mt-0.5" />
-                    <span className="text-gray-700 text-lg">{service}</span>
+                    <CheckCircle className="w-6 h-6 text-brand-500 flex-shrink-0 mt-0.5" />
+                    <span className="text-stone-700 text-lg">{service}</span>
                   </div>
                 ))}
               </div>
@@ -268,8 +268,8 @@ const GevelVoegenPage = () => {
                 alt="Gevel voegwerk" 
                 className="rounded-xl shadow-2xl"
               />
-              <div className="absolute -bottom-6 -right-6 bg-blue-500 text-white p-6 rounded-lg shadow-xl">
-                <div className="text-3xl font-bold">25+</div>
+              <div className="absolute -bottom-6 -right-6 bg-brand-500 text-white p-6 rounded-lg shadow-xl">
+                <div className="text-3xl font-bold">7+</div>
                 <div className="text-sm">Jaar Ervaring</div>
               </div>
             </div>
@@ -282,38 +282,38 @@ const GevelVoegenPage = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-slate-900 mb-4">
-              <span className="bg-gradient-to-r from-blue-500 to-brand-600 bg-clip-text text-transparent">Voegmortel</span> Types
+              <span className="bg-gradient-to-r from-brand-400 to-brand-600 bg-clip-text text-transparent">Voegmortel</span> Types
             </h2>
-            <p className="text-xl text-gray-600">De juiste mortel voor elke situatie</p>
+            <p className="text-xl text-stone-600">De juiste mortel voor elke situatie</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             <div className="text-center">
-              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Layers className="w-8 h-8 text-blue-600" />
+              <div className="w-16 h-16 bg-brand-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Layers className="w-8 h-8 text-brand-600" />
               </div>
               <h3 className="font-bold text-slate-900 mb-2">Cement Voegen</h3>
-              <p className="text-gray-600">Sterk en duurzaam voor moderne woningen</p>
+              <p className="text-stone-600">Sterk en duurzaam voor moderne woningen</p>
             </div>
             <div className="text-center">
-              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Building2 className="w-8 h-8 text-blue-600" />
+              <div className="w-16 h-16 bg-brand-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Building2 className="w-8 h-8 text-brand-600" />
               </div>
               <h3 className="font-bold text-slate-900 mb-2">Kalk Voegen</h3>
-              <p className="text-gray-600">Traditioneel voor historische gebouwen</p>
+              <p className="text-stone-600">Traditioneel voor historische gebouwen</p>
             </div>
             <div className="text-center">
-              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Droplets className="w-8 h-8 text-blue-600" />
+              <div className="w-16 h-16 bg-brand-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Droplets className="w-8 h-8 text-brand-600" />
               </div>
               <h3 className="font-bold text-slate-900 mb-2">Flexibele Voegen</h3>
-              <p className="text-gray-600">Voor ramen, deuren en bewegende voegen</p>
+              <p className="text-stone-600">Voor ramen, deuren en bewegende voegen</p>
             </div>
             <div className="text-center">
-              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Eye className="w-8 h-8 text-blue-600" />
+              <div className="w-16 h-16 bg-brand-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Eye className="w-8 h-8 text-brand-600" />
               </div>
               <h3 className="font-bold text-slate-900 mb-2">Kleurvoegen</h3>
-              <p className="text-gray-600">Elke gewenste kleur mogelijk</p>
+              <p className="text-stone-600">Elke gewenste kleur mogelijk</p>
             </div>
           </div>
         </div>
@@ -321,17 +321,17 @@ const GevelVoegenPage = () => {
 
 
       {/* Professional Testimonials */}
-      <section className="py-20 bg-gradient-to-br from-slate-50 to-gray-100">
+      <section className="py-20 bg-gradient-to-br from-slate-50 to-stone-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Header with Icon */}
           <div className="text-center mb-16">
-            <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-100 rounded-full mb-6">
-              <Users className="w-8 h-8 text-blue-600" />
+            <div className="inline-flex items-center justify-center w-16 h-16 bg-brand-100 rounded-full mb-6">
+              <Users className="w-8 h-8 text-brand-600" />
             </div>
             <h2 className="text-4xl font-bold text-slate-900 mb-6">
-              Wat Onze <span className="bg-gradient-to-r from-blue-500 to-brand-600 bg-clip-text text-transparent">Klanten</span> Zeggen
+              Wat Onze <span className="bg-gradient-to-r from-brand-400 to-brand-600 bg-clip-text text-transparent">Klanten</span> Zeggen
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xl text-stone-600 max-w-3xl mx-auto leading-relaxed">
               Al meer dan 25 jaar zorgen wij voor vakkundig dakwerk. Onze klanten waarderen onze 
               betrouwbaarheid, kwaliteit en persoonlijke service.
             </p>
@@ -340,13 +340,13 @@ const GevelVoegenPage = () => {
           {/* Enhanced Widget Container */}
           <div className="relative w-full max-w-none mx-auto">
             {/* Subtle background pattern */}
-            <div className="absolute inset-0 bg-gradient-to-r from-blue-50 to-slate-50 rounded-2xl transform rotate-1"></div>
-            <div className="absolute inset-0 bg-gradient-to-r from-slate-50 to-blue-50 rounded-2xl transform -rotate-1"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-brand-50 to-slate-50 rounded-2xl transform rotate-1"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-slate-50 to-brand-50 rounded-2xl transform -rotate-1"></div>
             
             {/* Main container */}
-            <div className="relative bg-white rounded-2xl shadow-xl border border-gray-200 p-4 sm:p-6 mx-2 sm:mx-4">
+            <div className="relative bg-white rounded-2xl shadow-xl border border-stone-200 p-4 sm:p-6 mx-2 sm:mx-4">
               {/* Top accent */}
-              <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-20 h-1 bg-gradient-to-r from-blue-500 to-brand-600 rounded-b-full"></div>
+              <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-20 h-1 bg-gradient-to-r from-brand-400 to-brand-600 rounded-b-full"></div>
               
               {/* Widget */}
               <div 
@@ -368,7 +368,7 @@ const GevelVoegenPage = () => {
           {/* Clean Trust Footer */}
           <div className="mt-12">
             <div className="text-center space-y-6">
-              <div className="inline-flex items-center space-x-1 text-xs text-gray-400 font-medium tracking-wide">
+              <div className="inline-flex items-center space-x-1 text-xs text-stone-400 font-medium tracking-wide">
                 <Shield className="w-3 h-3" />
                 <span>VOLLEDIG VERZEKERD</span>
                 <span className="mx-3">•</span>
@@ -376,13 +376,12 @@ const GevelVoegenPage = () => {
                 <span>GECERTIFICEERD</span>
                 <span className="mx-3">•</span>
                 <Clock className="w-3 h-3" />
-                <span>25+ JAAR ERVARING</span>
+                <span>7+ JAAR ERVARING</span>
               </div>
               
               {/* Trustpilot Logo */}
               <div className="pt-2">
                 <a 
-                  href="https://nl.trustpilot.com/review/www.compleetdakonderhoudnederland.nl"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-block hover:scale-105 transition-transform duration-200"
@@ -400,13 +399,13 @@ const GevelVoegenPage = () => {
       </section>
 
       {/* Signs Section */}
-      <section className="py-20 bg-blue-50">
+      <section className="py-20 bg-brand-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-slate-900 mb-4">
-              <span className="bg-gradient-to-r from-blue-500 to-brand-600 bg-clip-text text-transparent">Signalen</span> voor Voegvernieuwing
+              <span className="bg-gradient-to-r from-brand-400 to-brand-600 bg-clip-text text-transparent">Signalen</span> voor Voegvernieuwing
             </h2>
-            <p className="text-xl text-gray-600">Wanneer is voegwerk nodig?</p>
+            <p className="text-xl text-stone-600">Wanneer is voegwerk nodig?</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <div className="bg-white p-6 rounded-xl shadow-md">
@@ -414,42 +413,42 @@ const GevelVoegenPage = () => {
                 <AlertTriangle className="w-6 h-6 text-red-500 mr-3" />
                 <h3 className="font-bold text-slate-900">Uitvallende Mortel</h3>
               </div>
-              <p className="text-gray-700">Voegmortel valt uit of brokkelt af door ouderdom of weersinvloeden.</p>
+              <p className="text-stone-700">Voegmortel valt uit of brokkelt af door ouderdom of weersinvloeden.</p>
             </div>
             <div className="bg-white p-6 rounded-xl shadow-md">
               <div className="flex items-center mb-4">
-                <Droplets className="w-6 h-6 text-blue-500 mr-3" />
+                <Droplets className="w-6 h-6 text-brand-500 mr-3" />
                 <h3 className="font-bold text-slate-900">Vochtproblemen</h3>
               </div>
-              <p className="text-gray-700">Vocht dringt binnen door slechte voegen, vochtvlekken in huis zichtbaar.</p>
+              <p className="text-stone-700">Vocht dringt binnen door slechte voegen, vochtvlekken in huis zichtbaar.</p>
             </div>
             <div className="bg-white p-6 rounded-xl shadow-md">
               <div className="flex items-center mb-4">
-                <Eye className="w-6 h-6 text-blue-500 mr-3" />
+                <Eye className="w-6 h-6 text-brand-500 mr-3" />
                 <h3 className="font-bold text-slate-900">Scheuren in Voegen</h3>
               </div>
-              <p className="text-gray-700">Kleine of grote scheuren in het voegwerk door beweging of krimp.</p>
+              <p className="text-stone-700">Kleine of grote scheuren in het voegwerk door beweging of krimp.</p>
             </div>
             <div className="bg-white p-6 rounded-xl shadow-md">
               <div className="flex items-center mb-4">
                 <Leaf className="w-6 h-6 text-green-500 mr-3" />
                 <h3 className="font-bold text-slate-900">Mos en Algen</h3>
               </div>
-              <p className="text-gray-700">Groene aanslag en plantengroei in de voegen door vocht.</p>
+              <p className="text-stone-700">Groene aanslag en plantengroei in de voegen door vocht.</p>
             </div>
             <div className="bg-white p-6 rounded-xl shadow-md">
               <div className="flex items-center mb-4">
-                <Clock className="w-6 h-6 text-gray-500 mr-3" />
+                <Clock className="w-6 h-6 text-stone-500 mr-3" />
                 <h3 className="font-bold text-slate-900">Ouderdom</h3>
               </div>
-              <p className="text-gray-700">Voegen zijn ouder dan 20 jaar en verdienen preventieve vernieuwing.</p>
+              <p className="text-stone-700">Voegen zijn ouder dan 20 jaar en verdienen preventieve vernieuwing.</p>
             </div>
             <div className="bg-white p-6 rounded-xl shadow-md">
               <div className="flex items-center mb-4">
                 <Building2 className="w-6 h-6 text-purple-500 mr-3" />
                 <h3 className="font-bold text-slate-900">Renovatie</h3>
               </div>
-              <p className="text-gray-700">Bij gevelschildering of renovatie is vaak voegvernieuwing gewenst.</p>
+              <p className="text-stone-700">Bij gevelschildering of renovatie is vaak voegvernieuwing gewenst.</p>
             </div>
           </div>
         </div>

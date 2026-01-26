@@ -10,7 +10,20 @@
       "Bash(npm run build:*)",
       "Bash(npm run lint)",
       "Bash(npm run dev:*)",
-      "WebFetch(domain:mtddaken.nl)"
+      "WebFetch(domain:mtddaken.nl)",
+      "Bash(timeout:*)",
+      "Bash(start http://localhost:5174)",
+      "Bash(powershell -Command:*)",
+      "Bash(npm run)",
+      "Bash(npm install)",
+      "Bash(export:*)",
+      "Bash(export ANTHROPIC_AUTH_TOKEN=sk-xDE9cjZcINf5FCTWaqc30ykX6GmBcjElTqo4qWIkTcUMsW0H:*)",
+      "Bash(TaskOutput 105 tapline taskComplete=1 false 10000)",
+      "Bash(curl:*)",
+      "Bash(del:*)",
+      "WebFetch(domain:localhost)",
+      "Bash(netstat:*)",
+      "Bash(findstr:*)"
     ],
     "deny": [],
     "ask": []

@@ -13,19 +13,19 @@ const ContactWithGHL = ({ standalone = true, ghlFormUrl }: ContactWithGHLProps) 
     {
       icon: Phone,
       title: "Telefoon",
-      details: ["0488 234 625", "24/7 Bereikbaar"],
-      action: "tel:0488234625"
+      details: ["06 57 01 08 61", "24/7 Bereikbaar"],
+      action: "tel:0657010861"
     },
     {
       icon: Mail,
       title: "Email",
-      details: ["info@compleetdakonderhoudnederland.nl", "Reactie vaak binnen 2 uur"],
-      action: "mailto:info@compleetdakonderhoudnederland.nl"
+      details: ["info@dakzorgnederland.nl", "Reactie vaak binnen 2 uur"],
+      action: "mailto:info@dakzorgnederland.nl"
     },
     {
       icon: MapPin,
       title: "Adres",
-      details: ["Geurdeland 17G", "6673 DR Andelst"],
+      details: ["Villa gagel 9", "5146AC Waalwijk"],
       action: "https://maps.google.com"
     },
     {
@@ -46,9 +46,9 @@ const ContactWithGHL = ({ standalone = true, ghlFormUrl }: ContactWithGHLProps) 
           </span>
           <h2 className="text-4xl md:text-5xl font-bold text-white mt-4 mb-6 leading-tight">
             Laten We Uw Project
-            <span className="bg-gradient-to-r from-blue-500 to-brand-600 bg-clip-text text-transparent"> Bespreken</span>
+            <span className="bg-gradient-to-r from-brand-400 to-brand-600 bg-clip-text text-transparent"> Bespreken</span>
           </h2>
-          <p className="text-gray-300 text-lg max-w-3xl mx-auto leading-relaxed">
+          <p className="text-stone-300 text-lg max-w-3xl mx-auto leading-relaxed">
             Klaar om uw dakproject te realiseren? Neem contact met ons op 
             voor een vrijblijvende dakinspectie.
           </p>
@@ -67,7 +67,7 @@ const ContactWithGHL = ({ standalone = true, ghlFormUrl }: ContactWithGHLProps) 
                   <div>
                     <h4 className="text-white font-semibold mb-2">{info.title}</h4>
                     {info.details.map((detail, detailIndex) => (
-                      <p key={detailIndex} className="text-gray-300">
+                      <p key={detailIndex} className="text-stone-300">
                         {info.action && detailIndex === 0 ? (
                           <a 
                             href={info.action} 
@@ -86,11 +86,11 @@ const ContactWithGHL = ({ standalone = true, ghlFormUrl }: ContactWithGHLProps) 
             </div>
 
             {/* Company Info */}
-            <div className="mt-8 p-6 bg-gray-800 rounded-xl">
+            <div className="mt-8 p-6 bg-stone-800 rounded-xl">
               <h4 className="text-white font-bold mb-4">Bedrijfsgegevens</h4>
-              <div className="space-y-2 text-gray-300 text-sm">
-                <p><span className="font-medium">KvK:</span> 94106819</p>
-                <p><span className="font-medium">Vestiging:</span> Andelst</p>
+              <div className="space-y-2 text-stone-300 text-sm">
+                <p><span className="font-medium">KvK:</span> 96885904</p>
+                <p><span className="font-medium">Vestiging:</span> Waalwijk</p>
                 <p><span className="font-medium">Ervaring:</span> 25+ jaar</p>
               </div>
             </div>
@@ -98,12 +98,12 @@ const ContactWithGHL = ({ standalone = true, ghlFormUrl }: ContactWithGHLProps) 
             {/* Emergency Contact */}
             <div className="mt-8 p-6 bg-red-900/20 border border-red-900/50 rounded-xl">
               <h4 className="text-red-400 font-bold mb-2">24/7 Noodservice</h4>
-              <p className="text-gray-300 mb-3">Voor acute bouwproblemen</p>
-              <a 
-                href="tel:0488234625" 
+              <p className="text-stone-300 mb-3">Voor acute bouwproblemen</p>
+              <a
+                href="tel:0657010861"
                 className="text-red-400 font-semibold hover:text-red-300 transition-colors"
               >
-                0488 234 625
+                06 57 01 08 61
               </a>
             </div>
           </div>
@@ -129,18 +129,18 @@ const ContactWithGHL = ({ standalone = true, ghlFormUrl }: ContactWithGHLProps) 
                     loading="lazy"
                   />
                 ) : (
-                  <div className="bg-gray-50 rounded-lg p-12 text-center">
-                    <div className="text-gray-500 mb-4">
+                  <div className="bg-stone-50 rounded-lg p-12 text-center">
+                    <div className="text-stone-500 mb-4">
                       <Mail className="w-12 h-12 mx-auto mb-4" />
                     </div>
-                    <h4 className="text-xl font-semibold text-gray-700 mb-2">
+                    <h4 className="text-xl font-semibold text-stone-700 mb-2">
                       Formulier wordt geladen...
                     </h4>
-                    <p className="text-gray-600 mb-6">
+                    <p className="text-stone-600 mb-6">
                       Voeg je GoHighLevel formulier URL toe om het formulier te tonen.
                     </p>
-                    <p className="text-sm text-gray-500">
-                      Of bel direct: <a href="tel:0488234625" className="text-brand-600 hover:underline">0488 234 625</a>
+                    <p className="text-sm text-stone-500">
+                      Of bel direct: <a href="tel:0657010861" className="text-brand-600 hover:underline">06 57 01 08 61</a>
                     </p>
                   </div>
                 )}
@@ -160,10 +160,10 @@ const ContactWithGHL = ({ standalone = true, ghlFormUrl }: ContactWithGHLProps) 
               Onze experts staan 24/7 voor u klaar.
             </p>
             <a
-              href="tel:0488234625"
+              href="tel:0657010861"
               className="inline-block bg-slate-900 hover:bg-slate-800 text-white font-semibold px-8 py-4 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg"
             >
-              Bel Nu: 0488 234 625
+              Bel Nu: 06 57 01 08 61
             </a>
           </div>
         </div>
@@ -173,7 +173,7 @@ const ContactWithGHL = ({ standalone = true, ghlFormUrl }: ContactWithGHLProps) 
 
   if (standalone) {
     return (
-      <section id="contact" className="py-20 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
+      <section id="contact" className="py-20 bg-gradient-to-br from-stone-900 via-stone-800 to-stone-900">
         {content}
       </section>
     );

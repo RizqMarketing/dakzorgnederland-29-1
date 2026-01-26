@@ -103,7 +103,7 @@ const DakLekkagePage = () => {
       <Header />
       
       {/* Hero Section */}
-      <section className="relative pt-32 lg:pt-48 pb-20 bg-gradient-to-br from-red-900 via-blue-800 to-slate-900">
+      <section className="relative pt-32 lg:pt-48 pb-20 bg-gradient-to-br from-red-900 via-brand-800 to-slate-900">
         <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=1920')] bg-cover bg-center opacity-20"></div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
@@ -121,19 +121,19 @@ const DakLekkagePage = () => {
             <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">
               <span className="text-red-400">ACUTE DAKLEKKAGE?</span>
               <br />
-              <span className="bg-gradient-to-r from-blue-500 to-brand-600 bg-clip-text text-transparent">Binnen 2 Uur Opgelost!</span>
+              <span className="bg-gradient-to-r from-brand-400 to-brand-600 bg-clip-text text-transparent">Binnen 2 Uur Opgelost!</span>
             </h1>
-            <p className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xl text-stone-300 mb-8 max-w-3xl mx-auto leading-relaxed">
               <span className="text-red-400 font-bold">STOP DE SCHADE NU!</span> Daklekkage wordt elke minuut erger.
               Wij vinden de bron en lossen het definitief op. 24/7 spoedservice voor directe hulp.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
               <a
-                href="tel:0488234625"
+                href="tel:0657010861"
                 className="bg-red-500 hover:bg-red-600 text-white font-bold px-10 py-5 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-2xl flex items-center justify-center text-lg animate-pulse"
               >
                 <Phone className="w-6 h-6 mr-3" />
-                SPOED: 0488 234 625 - BEL NU!
+                SPOED: 06 57 01 08 61 - BEL NU!
               </a>
               <button
                 onClick={() => setIsContactPopupOpen(true)}
@@ -180,10 +180,10 @@ const DakLekkagePage = () => {
             <h2 className="text-4xl font-bold text-slate-900 mb-6">
               <span className="text-red-600">Elke Minuut Telt Bij Daklekkage!</span>
             </h2>
-            <p className="text-xl text-gray-700 max-w-3xl mx-auto mb-4">
+            <p className="text-xl text-stone-700 max-w-3xl mx-auto mb-4">
               <strong>Een druppel wordt een stroom!</strong> Daklekkage veroorzaakt snel duizenden euro's waterschade.
             </p>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto mb-8">
+            <p className="text-lg text-stone-600 max-w-3xl mx-auto mb-8">
               Binnen 2 uur ter plaatse. Direct gestopt. Geen schade uitbreiding meer!
             </p>
           </div>
@@ -196,33 +196,33 @@ const DakLekkagePage = () => {
               <div className="px-6 py-4 flex justify-between items-center">
                 <div className="font-medium text-slate-900">1 uur wachten</div>
                 <div className="text-center">
-                  <div className="text-sm text-gray-600">Gevolg</div>
+                  <div className="text-sm text-stone-600">Gevolg</div>
                   <div className="font-bold text-red-600">Water verspreidt zich</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-sm text-gray-600">Kosten</div>
+                  <div className="text-sm text-stone-600">Kosten</div>
                   <div className="font-bold text-red-600">Lage Kosten</div>
                 </div>
               </div>
               <div className="px-6 py-4 flex justify-between items-center">
                 <div className="font-medium text-slate-900">1 dag wachten</div>
                 <div className="text-center">
-                  <div className="text-sm text-gray-600">Gevolg</div>
+                  <div className="text-sm text-stone-600">Gevolg</div>
                   <div className="font-bold text-red-600">Isolatie en plafond beschadigd</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-sm text-gray-600">Kosten</div>
+                  <div className="text-sm text-stone-600">Kosten</div>
                   <div className="font-bold text-red-600">Gemiddelde Kosten</div>
                 </div>
               </div>
               <div className="px-6 py-4 flex justify-between items-center">
                 <div className="font-medium text-slate-900">1 week wachten</div>
                 <div className="text-center">
-                  <div className="text-sm text-gray-600">Gevolg</div>
+                  <div className="text-sm text-stone-600">Gevolg</div>
                   <div className="font-bold text-red-600">Schimmel & structuurschade</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-sm text-gray-600">Kosten</div>
+                  <div className="text-sm text-stone-600">Kosten</div>
                   <div className="font-bold text-red-600">Hoge Kosten</div>
                 </div>
               </div>
@@ -230,16 +230,16 @@ const DakLekkagePage = () => {
           </div>
 
           <div className="text-center space-y-4">
-            <p className="text-lg font-semibold text-gray-700">
+            <p className="text-lg font-semibold text-stone-700">
               BEL NU! Elke minuut dat u wacht wordt duurder!
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="tel:0488234625"
+                href="tel:0657010861"
                 className="bg-red-500 hover:bg-red-600 text-white font-bold px-10 py-5 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-2xl inline-flex items-center space-x-2 text-lg animate-pulse"
               >
                 <Phone className="w-6 h-6" />
-                <span>0488 234 625 - STOP DE SCHADE!</span>
+                <span>06 57 01 08 61 - STOP DE SCHADE!</span>
               </a>
               <button
                 onClick={() => setIsContactPopupOpen(true)}
@@ -258,21 +258,21 @@ const DakLekkagePage = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-slate-900 mb-4">
-              Onze <span className="bg-gradient-to-r from-blue-500 to-brand-600 bg-clip-text text-transparent">Lekkage</span> Services
+              Onze <span className="bg-gradient-to-r from-brand-400 to-brand-600 bg-clip-text text-transparent">Lekkage</span> Services
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-stone-600 max-w-3xl mx-auto">
               Van spoedopsporing tot definitieve reparatie
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {dakLekkageTypes.map((type, index) => (
-              <div key={index} className="bg-gray-50 rounded-xl p-8 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
-                <div className="w-16 h-16 bg-blue-100 rounded-lg flex items-center justify-center mb-6">
-                  <type.icon className="w-8 h-8 text-blue-600" />
+              <div key={index} className="bg-stone-50 rounded-xl p-8 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+                <div className="w-16 h-16 bg-brand-100 rounded-lg flex items-center justify-center mb-6">
+                  <type.icon className="w-8 h-8 text-brand-600" />
                 </div>
                 <h3 className="text-2xl font-bold text-slate-900 mb-4">{type.title}</h3>
-                <p className="text-gray-600 mb-4">{type.description}</p>
-                <p className="text-gray-700">{type.details}</p>
+                <p className="text-stone-600 mb-4">{type.description}</p>
+                <p className="text-stone-700">{type.details}</p>
               </div>
             ))}
           </div>
@@ -280,21 +280,21 @@ const DakLekkagePage = () => {
       </section>
 
       {/* Features Section */}
-      <section className="py-20 bg-slate-900">
+      <section className="py-20 bg-stone-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-white mb-4">
-              Waarom Onze <span className="bg-gradient-to-r from-blue-500 to-brand-600 bg-clip-text text-transparent">Lekkage Service</span>?
+              Waarom Onze <span className="bg-gradient-to-r from-brand-400 to-brand-600 bg-clip-text text-transparent">Lekkage Service</span>?
             </h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {features.map((feature, index) => (
               <div key={index} className="text-center">
-                <div className="w-20 h-20 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-6">
+                <div className="w-20 h-20 bg-brand-500 rounded-full flex items-center justify-center mx-auto mb-6">
                   <feature.icon className="w-10 h-10 text-white" />
                 </div>
                 <h3 className="text-xl font-bold text-white mb-2">{feature.title}</h3>
-                <p className="text-gray-300">{feature.description}</p>
+                <p className="text-stone-300">{feature.description}</p>
               </div>
             ))}
           </div>
@@ -302,18 +302,18 @@ const DakLekkagePage = () => {
       </section>
 
       {/* Services List */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-stone-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-4xl font-bold text-slate-900 mb-8">
-                Complete <span className="bg-gradient-to-r from-blue-500 to-brand-600 bg-clip-text text-transparent">Lekkage</span> Oplossingen
+                Complete <span className="bg-gradient-to-r from-brand-400 to-brand-600 bg-clip-text text-transparent">Lekkage</span> Oplossingen
               </h2>
               <div className="space-y-4">
                 {dakLekkageServices.map((service, index) => (
                   <div key={index} className="flex items-start space-x-3">
-                    <CheckCircle className="w-6 h-6 text-blue-500 flex-shrink-0 mt-0.5" />
-                    <span className="text-gray-700 text-lg">{service}</span>
+                    <CheckCircle className="w-6 h-6 text-brand-500 flex-shrink-0 mt-0.5" />
+                    <span className="text-stone-700 text-lg">{service}</span>
                   </div>
                 ))}
               </div>
@@ -324,7 +324,7 @@ const DakLekkagePage = () => {
                 alt="Lekkage opsporing werkzaamheden" 
                 className="rounded-xl shadow-2xl"
               />
-              <div className="absolute -bottom-6 -right-6 bg-blue-500 text-white p-6 rounded-lg shadow-xl">
+              <div className="absolute -bottom-6 -right-6 bg-brand-500 text-white p-6 rounded-lg shadow-xl">
                 <div className="text-3xl font-bold">24/7</div>
                 <div className="text-sm">Service</div>
               </div>
@@ -339,22 +339,22 @@ const DakLekkagePage = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-slate-900 mb-4">
-              Ons <span className="bg-gradient-to-r from-blue-500 to-brand-600 bg-clip-text text-transparent">Lekkage Protocol</span>
+              Ons <span className="bg-gradient-to-r from-brand-400 to-brand-600 bg-clip-text text-transparent">Lekkage Protocol</span>
             </h2>
-            <p className="text-xl text-gray-600">Van melding tot definitieve oplossing</p>
+            <p className="text-xl text-stone-600">Van melding tot definitieve oplossing</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             {dakLekkageProcess.map((item, index) => (
               <div key={index} className="relative">
                 <div className="text-center">
-                  <div className="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-4 text-white font-bold text-xl">
+                  <div className="w-16 h-16 bg-brand-500 rounded-full flex items-center justify-center mx-auto mb-4 text-white font-bold text-xl">
                     {item.step}
                   </div>
                   <h3 className="text-xl font-bold text-slate-900 mb-2">{item.title}</h3>
-                  <p className="text-gray-600">{item.description}</p>
+                  <p className="text-stone-600">{item.description}</p>
                 </div>
                 {index < dakLekkageProcess.length - 1 && (
-                  <ArrowRight className="hidden md:block absolute top-8 -right-4 w-8 h-8 text-gray-300" />
+                  <ArrowRight className="hidden md:block absolute top-8 -right-4 w-8 h-8 text-stone-300" />
                 )}
               </div>
             ))}
@@ -363,18 +363,18 @@ const DakLekkagePage = () => {
       </section>
 
       {/* Professional Testimonials */}
-      <section className="py-20 bg-gradient-to-br from-slate-50 to-gray-100">
+      <section className="py-20 bg-gradient-to-br from-slate-50 to-stone-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Header with Icon */}
           <div className="text-center mb-16">
-            <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-100 rounded-full mb-6">
-              <Users className="w-8 h-8 text-blue-600" />
+            <div className="inline-flex items-center justify-center w-16 h-16 bg-brand-100 rounded-full mb-6">
+              <Users className="w-8 h-8 text-brand-600" />
             </div>
             <h2 className="text-4xl font-bold text-slate-900 mb-6">
-              Wat Onze <span className="bg-gradient-to-r from-blue-500 to-brand-600 bg-clip-text text-transparent">Klanten</span> Zeggen
+              Wat Onze <span className="bg-gradient-to-r from-brand-400 to-brand-600 bg-clip-text text-transparent">Klanten</span> Zeggen
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              Al meer dan 25 jaar zorgen wij voor vakkundig dakwerk. Onze klanten waarderen onze 
+            <p className="text-xl text-stone-600 max-w-3xl mx-auto leading-relaxed">
+              Al meer dan 7 jaar zorgen wij voor vakkundig dakwerk. Onze klanten waarderen onze 
               betrouwbaarheid, kwaliteit en persoonlijke service.
             </p>
           </div>
@@ -382,13 +382,13 @@ const DakLekkagePage = () => {
           {/* Enhanced Widget Container */}
           <div className="relative w-full max-w-none mx-auto">
             {/* Subtle background pattern */}
-            <div className="absolute inset-0 bg-gradient-to-r from-blue-50 to-slate-50 rounded-2xl transform rotate-1"></div>
-            <div className="absolute inset-0 bg-gradient-to-r from-slate-50 to-blue-50 rounded-2xl transform -rotate-1"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-brand-50 to-slate-50 rounded-2xl transform rotate-1"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-slate-50 to-brand-50 rounded-2xl transform -rotate-1"></div>
             
             {/* Main container */}
-            <div className="relative bg-white rounded-2xl shadow-xl border border-gray-200 p-4 sm:p-6 mx-2 sm:mx-4">
+            <div className="relative bg-white rounded-2xl shadow-xl border border-stone-200 p-4 sm:p-6 mx-2 sm:mx-4">
               {/* Top accent */}
-              <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-20 h-1 bg-gradient-to-r from-blue-500 to-brand-600 rounded-b-full"></div>
+              <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-20 h-1 bg-gradient-to-r from-brand-400 to-brand-600 rounded-b-full"></div>
               
               {/* Widget */}
               <div 
@@ -410,7 +410,7 @@ const DakLekkagePage = () => {
           {/* Clean Trust Footer */}
           <div className="mt-12">
             <div className="text-center space-y-6">
-              <div className="inline-flex items-center space-x-1 text-xs text-gray-400 font-medium tracking-wide">
+              <div className="inline-flex items-center space-x-1 text-xs text-stone-400 font-medium tracking-wide">
                 <Shield className="w-3 h-3" />
                 <span>VOLLEDIG VERZEKERD</span>
                 <span className="mx-3">•</span>
@@ -418,13 +418,12 @@ const DakLekkagePage = () => {
                 <span>GECERTIFICEERD</span>
                 <span className="mx-3">•</span>
                 <Clock className="w-3 h-3" />
-                <span>25+ JAAR ERVARING</span>
+                <span>7+ JAAR ERVARING</span>
               </div>
               
               {/* Trustpilot Logo */}
               <div className="pt-2">
                 <a 
-                  href="https://nl.trustpilot.com/review/www.compleetdakonderhoudnederland.nl"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-block hover:scale-105 transition-transform duration-200"

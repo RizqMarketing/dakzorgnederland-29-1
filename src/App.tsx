@@ -15,12 +15,6 @@ import ScrollToTop from './components/ScrollToTop';
 import FacebookPixelPageView from './components/FacebookPixelPageView';
 
 // Lazy load service landing pages
-const NewBuildPage = React.lazy(() => import('./pages/NewBuildPage'));
-const CommercialPage = React.lazy(() => import('./pages/CommercialPage'));
-const RenovationPage = React.lazy(() => import('./pages/RenovationPage'));
-const ProjectManagementPage = React.lazy(() => import('./pages/ProjectManagementPage'));
-const SustainableBuildingPage = React.lazy(() => import('./pages/SustainableBuildingPage'));
-const MaintenancePage = React.lazy(() => import('./pages/MaintenancePage'));
 
 // Lazy load new service pages
 const RoofingPage = React.lazy(() => import('./pages/RoofingPage'));
@@ -28,9 +22,6 @@ const PaintingPage = React.lazy(() => import('./pages/PaintingPage'));
 const TilingPage = React.lazy(() => import('./pages/TilingPage'));
 const ChimneyPage = React.lazy(() => import('./pages/ChimneyPage'));
 const ChimneyRenovationPage = React.lazy(() => import('./pages/ChimneyRenovationPage'));
-const ExtensionPage = React.lazy(() => import('./pages/ExtensionPage'));
-const AircoPage = React.lazy(() => import('./pages/AircoPage'));
-const SolarPanelPage = React.lazy(() => import('./pages/SolarPanelPage'));
 
 // Lazy load additional service pages
 const NokVorstenPage = React.lazy(() => import('./pages/NokVorstenPage'));
@@ -52,10 +43,10 @@ const ThankYouPage = React.lazy(() => import('./pages/ThankYouPage'));
 
 // Loading component
 const LoadingSpinner = () => (
-  <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+  <div className="min-h-screen bg-stone-50 flex items-center justify-center">
     <div className="text-center">
-      <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-4"></div>
-      <p className="text-gray-600">Pagina laden...</p>
+      <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-brand-600 mx-auto mb-4"></div>
+      <p className="text-stone-600">Pagina laden...</p>
     </div>
   </div>
 );
@@ -78,13 +69,13 @@ class ErrorBoundary extends React.Component {
   render() {
     if (this.state.hasError) {
       return (
-        <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <div className="min-h-screen bg-stone-50 flex items-center justify-center">
           <div className="text-center p-8">
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">Oeps! Er ging iets mis</h2>
-            <p className="text-gray-600 mb-6">De pagina kon niet geladen worden.</p>
+            <h2 className="text-2xl font-bold text-stone-900 mb-4">Oeps! Er ging iets mis</h2>
+            <p className="text-stone-600 mb-6">De pagina kon niet geladen worden.</p>
             <button 
               onClick={() => window.location.href = '/'}
-              className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors"
+              className="bg-brand-600 text-white px-6 py-3 rounded-lg hover:bg-brand-700 transition-colors"
             >
               Ga naar homepage
             </button>
@@ -123,7 +114,7 @@ const HomePage = () => {
   }, [location]);
 
   return (
-    <div className="min-h-screen bg-gray-50 w-full overflow-x-hidden">
+    <div className="min-h-screen bg-stone-50 w-full overflow-x-hidden">
       <Header />
       <Hero />
       <About />
@@ -149,22 +140,12 @@ function App() {
             <Suspense fallback={<LoadingSpinner />}>
               <Routes>
                 <Route path="/" element={<HomePage />} />
-                <Route path="/nieuwbouw-woningen" element={<NewBuildPage />} />
-                <Route path="/commerciele-bouw" element={<CommercialPage />} />
-                <Route path="/renovatie-verbouwing" element={<RenovationPage />} />
-                <Route path="/projectmanagement" element={<ProjectManagementPage />} />
-                <Route path="/duurzame-bouw" element={<SustainableBuildingPage />} />
-                <Route path="/onderhoud-reparatie" element={<MaintenancePage />} />
-                
                 {/* New Service Routes */}
                 <Route path="/dakwerk-dakdekken" element={<RoofingPage />} />
                 <Route path="/schilderwerk-stukadoor" element={<PaintingPage />} />
                 <Route path="/tegelwerk" element={<TilingPage />} />
                 <Route path="/schoorsteen-verwijderen" element={<ChimneyPage />} />
                 <Route path="/schoorsteen-renovatie" element={<ChimneyRenovationPage />} />
-                <Route path="/aanbouw-uitbouw" element={<ExtensionPage />} />
-                <Route path="/aircos-monteren" element={<AircoPage />} />
-                <Route path="/zonnepanelen" element={<SolarPanelPage />} />
                 
                 {/* Additional Service Routes */}
                 <Route path="/nokvorsten" element={<NokVorstenPage />} />
