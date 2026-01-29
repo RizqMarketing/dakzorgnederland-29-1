@@ -34,6 +34,12 @@ body {
   100% { background-position: 0% 50%; }
 }
 
+/* Hero slideshow progress bar */
+@keyframes progressBar {
+  0% { width: 0%; }
+  100% { width: 100%; }
+}
+
 .gradient-border {
   background: linear-gradient(90deg, #2db86d, #00a550, #008c44, #00a550, #2db86d);
   background-size: 200% 200%;

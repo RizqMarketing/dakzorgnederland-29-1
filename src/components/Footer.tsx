@@ -1,9 +1,6 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import {
-  Mail, Phone, MapPin, Facebook, Instagram, Linkedin,
-  Youtube, Clock, Award, Shield, CheckCircle, Star, Euro, Timer, FileText
-} from 'lucide-react';
+import { Mail, Phone, MapPin, Clock } from 'lucide-react';
 
 interface FooterProps {
   children?: React.ReactNode;
@@ -14,43 +11,23 @@ const Footer = ({ children }: FooterProps) => {
   const currentYear = new Date().getFullYear();
 
   const services = [
-    { name: "Dakwerk & Dakdekken", href: "/dakwerk-dakdekken" },
-    { name: "Schoorsteen Verwijderen", href: "/schoorsteen-verwijderen" },
-    { name: "Schoorsteen Renovatie", href: "/schoorsteen-renovatie" },
-    { name: "Nokvorsten", href: "/nokvorsten" },
-    { name: "Loodreparaties", href: "/loodreparaties" },
-    { name: "Spoed Service", href: "/spoed" },
-    { name: "Dakinspectie", href: "/dakinspectie" },
-    { name: "Daklekkage", href: "/daklekkage" },
-    { name: "Dakgoot Reiniging", href: "/dakgootreiniging" },
+    { name: 'Dakwerk & Dakdekken', href: '/dakwerk-dakdekken' },
+    { name: 'Bitumen & EPDM Daken', href: '/bitumen-epdm' },
+    { name: 'Dakkapel & Dakramen', href: '/dakkapel' },
+    { name: 'Schoorsteen Verwijderen', href: '/schoorsteen-verwijderen' },
+    { name: 'Schoorsteen Renovatie', href: '/schoorsteen-renovatie' },
+    { name: 'Nokvorsten', href: '/nokvorsten' },
+    { name: 'Loodreparaties', href: '/loodreparaties' },
+    { name: 'Daklekkage', href: '/daklekkage' },
+    { name: 'Dakgoten', href: '/dakgootreiniging' },
+    { name: 'Dakinspectie', href: '/dakinspectie' },
+    { name: 'Vogel & Ongedierte Wering', href: '/vogel-ongedierte-wering' },
+    { name: 'Spoed Service', href: '/spoed' },
   ];
 
-  const quickLinks = [
-    { name: "Over Ons", href: "/#about" },
-    { name: "Kostencalculator", href: "/#cost-calculator" },
-    { name: "Contact", href: "/#contact" }
-  ];
-
-  const certifications = [
-    "KvK Geregistreerd (96885904)",
-    "Verzekerd & Gebonden",
-    "7+ Jaar Ervaring",
-    "Kwaliteitsgarantie",
-    "Veilig Werken",
-    "Milieubewust Bouwen"
-  ];
-
-  const socialLinks = [
-    { icon: Facebook, href: "#", name: "Facebook" },
-    { icon: Instagram, href: "#", name: "Instagram" },
-    { icon: Linkedin, href: "#", name: "LinkedIn" },
-    { icon: Youtube, href: "#", name: "YouTube" }
-  ];
-
-  const handleAnchorClick = (href) => {
+  const handleAnchorClick = (href: string) => {
     if (href.startsWith('/#')) {
       const sectionId = href.substring(2);
-
       if (window.location.pathname !== '/') {
         navigate('/', { state: { scrollToId: sectionId } });
       } else {
@@ -63,222 +40,120 @@ const Footer = ({ children }: FooterProps) => {
   };
 
   return (
-    <footer className="bg-gradient-to-b from-stone-900 via-stone-950 to-black text-white relative overflow-hidden">
-      {/* Subtle background texture */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_80%,_rgba(59,130,246,0.1),transparent_40%),radial-gradient(circle_at_80%_20%,_rgba(59,130,246,0.1),transparent_40%)]"></div>
-      </div>
+    <footer className="bg-stone-950 text-white">
+      {/* Top Accent */}
+      <div className="h-0.5 bg-gradient-to-r from-brand-600 via-brand-500 to-brand-600"></div>
 
       {/* Contact Content (if provided) */}
       {children && (
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           {children}
         </div>
       )}
 
-      {/* Main Footer Content - Elegant Design */}
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
-          {/* Company Info */}
-          <div className="lg:col-span-2 space-y-8">
-            {/* Logo */}
-            <Link to="/" className="block max-w-xs">
-              <div className="w-44 h-20 flex items-center justify-center">
-                <img
-                  src="https://imgur.com/kocXYo5.png"
-                  alt="DakZorg Nederland Logo"
-                  className="w-full h-full object-contain"
-                />
-              </div>
+      {/* Main Footer */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+
+          {/* Logo & Info */}
+          <div>
+            <Link to="/" className="inline-block mb-4 group">
+              <img
+                src="https://imgur.com/kocXYo5.png"
+                alt="DakZorg Nederland"
+                className="h-36 w-auto transition-all duration-300 group-hover:scale-105 group-hover:brightness-110"
+              />
             </Link>
-
-            {/* Description */}
-            <p className="text-stone-400 leading-relaxed text-base max-w-prose">
-              Al meer dan 7 jaar uw betrouwbare partner voor hoogwaardig dakonderhoud en renovatieprojecten in Nederland.
+            <p className="text-stone-500 text-sm leading-relaxed mb-4">
+              Uw specialist voor vakkundig dakonderhoud en renovatie.
             </p>
-
-            {/* Contact cards */}
-            <div className="space-y-4">
-              {/* Phone */}
-              <a href="tel:0657010861" className="group flex items-center space-x-4 p-4 bg-stone-800/20 rounded-lg hover:bg-stone-800/30 transition-all duration-200">
-                <div className="w-10 h-10 flex items-center justify-center rounded-lg bg-blue-500/10 text-blue-400 group-hover:bg-blue-500/20 transition-colors">
-                  <Phone className="w-5 h-5" />
-                </div>
-                <div className="flex-1 min-w-0">
-                  <div className="text-white font-medium">06 57 01 08 61</div>
-                  <div className="text-sm text-stone-500">24/7 bereikbaar</div>
-                </div>
-                <div className="text-stone-600 group-hover:translate-x-1 transition-transform">→</div>
-              </a>
-
-              {/* Email */}
-              <a href="mailto:info@dakzorgnederland.nl" className="group flex items-center space-x-4 p-4 bg-stone-800/20 rounded-lg hover:bg-stone-800/30 transition-all duration-200">
-                <div className="w-10 h-10 flex items-center justify-center rounded-lg bg-blue-500/10 text-blue-400 group-hover:bg-blue-500/20 transition-colors">
-                  <Mail className="w-5 h-5" />
-                </div>
-                <div className="flex-1 min-w-0">
-                  <div className="text-white font-medium">info@dakzorgnederland.nl</div>
-                  <div className="text-sm text-stone-500">Binnen 24 uur reactie</div>
-                </div>
-                <div className="text-stone-600 group-hover:translate-x-1 transition-transform">→</div>
-              </a>
-            </div>
-
-            {/* Location */}
-            <div className="flex items-start space-x-4 p-4 bg-stone-800/10 rounded-lg">
-              <div className="w-10 h-10 flex items-center justify-center">
-                <MapPin className="w-5 h-5 text-blue-400" />
-              </div>
-              <div className="flex-1">
-                <div className="text-white font-medium">Waalwijk</div>
-                <div className="text-stone-400 text-sm">Villa Gagel 9, 5146AC</div>
-              </div>
-            </div>
+            <a href="tel:0657010861" className="group inline-flex items-center gap-2 text-brand-500 text-sm hover:text-brand-400 transition-all duration-300">
+              <Clock className="w-4 h-4 group-hover:animate-pulse" />
+              <span className="font-medium group-hover:translate-x-0.5 transition-transform duration-300">24/7 Spoedservice</span>
+            </a>
           </div>
 
-          {/* Services */}
-          <div className="space-y-4">
-            <h4 className="text-lg font-semibold text-white">Diensten</h4>
+          {/* Diensten Kolom 1 */}
+          <div>
+            <h4 className="text-brand-500 font-semibold mb-4 text-sm uppercase tracking-wider">Diensten</h4>
             <ul className="space-y-2">
-              {services.map((service, index) => (
+              {services.slice(0, 6).map((service, index) => (
                 <li key={index}>
                   <Link
                     to={service.href}
-                    className="group flex items-center space-x-2 py-2 text-stone-400 hover:text-white transition-colors"
+                    className="text-stone-500 hover:text-white text-sm inline-block transition-all duration-300 hover:translate-x-1.5 hover:pl-2 border-l-2 border-transparent hover:border-brand-500"
                   >
-                    <div className="w-1.5 h-1.5 rounded-full bg-stone-600 group-hover:bg-blue-400 transition-colors"></div>
-                    <span>{service.name}</span>
+                    {service.name}
                   </Link>
                 </li>
               ))}
             </ul>
-
-            <Link
-              to="/diensten"
-              className="inline-flex items-center space-x-2 mt-2 text-blue-400 hover:text-blue-300 transition-colors text-sm font-medium group"
-            >
-              <span>Alle diensten</span>
-              <span className="group-hover:translate-x-1 transition-transform">→</span>
-            </Link>
-
-            {/* Emergency */}
-            <div className="mt-8 p-4 bg-red-900/10 border border-red-800/20 rounded-lg">
-              <div className="flex items-center space-x-2 mb-2">
-                <Clock className="w-4 h-4 text-red-400" />
-                <span className="text-red-400 font-medium text-sm">24/7 Spoedservice</span>
-              </div>
-              <a href="tel:0657010861" className="text-red-300 hover:text-red-200 text-sm font-medium block">
-                06 57 01 08 61
-              </a>
-            </div>
           </div>
 
-          {/* Quick Links */}
-          <div className="space-y-4">
-            <h4 className="text-lg font-semibold text-white">Snel naar</h4>
-            <nav className="space-y-2">
-              {quickLinks.map((link, index) => (
-                <Link
-                  key={index}
-                  to={link.href}
-                  onClick={(e) => {
-                    if (link.href.startsWith('/#')) {
-                      e.preventDefault();
-                      handleAnchorClick(link.href);
-                    }
-                  }}
-                  className="block py-2 text-stone-400 hover:text-white transition-colors"
-                >
-                  {link.name}
-                </Link>
-              ))}
-            </nav>
-
-            {/* Certifications */}
-            <div className="mt-8 space-y-3">
-              <h5 className="text-sm font-semibold text-stone-300 mb-2">Certificeringen</h5>
-              {/* Only show first 3 certs */}
-              {certifications.slice(0, 3).map((cert, index) => (
-                <div key={index} className="flex items-center space-x-2 text-xs text-stone-500">
-                  <Award className="w-3 h-3 text-blue-400" />
-                  <span>{cert}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Guarantees */}
-          <div className="space-y-4">
-            <h4 className="text-lg font-semibold text-white">Garanties</h4>
-            <div className="space-y-4">
-              {[
-                { icon: Shield, text: "100% Verzekerd", color: "green-400" },
-                { icon: Timer, text: "Binnen 3 uur ter pleatse", color: "blue-400" },
-                { icon: Euro, text: "Gratis offertes", color: "yellow-400" },
-                { icon: Star, text: "7+ jaar ervaring", color: "yellow-400" }
-              ].map((item, index) => (
-                <div key={index} className="flex items-center space-x-3">
-                  <div className={`w-6 h-6 flex items-center justify-center text-${item.color}`}>
-                    <item.icon className="w-4 h-4" />
-                  </div>
-                  <span className="text-stone-300 text-sm">{item.text}</span>
-                </div>
-              ))}
-            </div>
-
-            {/* Social */}
-            <div className="mt-8">
-              <p className="text-sm text-stone-400 mb-3">Volg ons</p>
-              <div className="flex space-x-2">
-                {[Facebook, Instagram, Linkedin].map((Icon, index) => (
-                  <a
-                    key={index}
-                    href="#"
-                    className="w-8 h-8 bg-stone-800/20 hover:bg-stone-800/40 rounded flex items-center justify-center transition-colors group"
+          {/* Diensten Kolom 2 */}
+          <div>
+            <h4 className="text-brand-500 font-semibold mb-4 text-sm uppercase tracking-wider">Meer Diensten</h4>
+            <ul className="space-y-2">
+              {services.slice(6).map((service, index) => (
+                <li key={index}>
+                  <Link
+                    to={service.href}
+                    className="text-stone-500 hover:text-white text-sm inline-block transition-all duration-300 hover:translate-x-1.5 hover:pl-2 border-l-2 border-transparent hover:border-brand-500"
                   >
-                    <Icon className="w-4 h-4 text-stone-500 group-hover:text-white transition-colors" />
-                  </a>
-                ))}
+                    {service.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Contact */}
+          <div>
+            <h4 className="text-brand-500 font-semibold mb-4 text-sm uppercase tracking-wider">Contact</h4>
+            <div className="space-y-3">
+              <a href="tel:0657010861" className="group flex items-center gap-3 text-stone-500 hover:text-white transition-all duration-300 text-sm">
+                <span className="w-8 h-8 rounded-lg bg-stone-900 group-hover:bg-brand-500 flex items-center justify-center transition-all duration-300 group-hover:scale-110">
+                  <Phone className="w-4 h-4 text-brand-500 group-hover:text-white transition-colors duration-300" />
+                </span>
+                <span className="group-hover:translate-x-1 transition-transform duration-300">06 57 01 08 61</span>
+              </a>
+              <a href="mailto:info@dakzorgnederland.nl" className="group flex items-center gap-3 text-stone-500 hover:text-white transition-all duration-300 text-sm">
+                <span className="w-8 h-8 rounded-lg bg-stone-900 group-hover:bg-brand-500 flex items-center justify-center transition-all duration-300 group-hover:scale-110">
+                  <Mail className="w-4 h-4 text-brand-500 group-hover:text-white transition-colors duration-300" />
+                </span>
+                <span className="group-hover:translate-x-1 transition-transform duration-300">info@dakzorgnederland.nl</span>
+              </a>
+              <div className="flex items-center gap-3 text-stone-500 text-sm">
+                <span className="w-8 h-8 rounded-lg bg-stone-900 flex items-center justify-center">
+                  <MapPin className="w-4 h-4 text-brand-500" />
+                </span>
+                <span>Waalwijk, Nederland</span>
+              </div>
+            </div>
+
+            {/* Quick Nav */}
+            <div className="mt-6 pt-4 border-t border-stone-900">
+              <div className="flex flex-wrap gap-x-4 gap-y-1">
+                <Link to="/" className="text-stone-600 hover:text-brand-400 transition-all duration-300 text-xs hover:-translate-y-0.5">Home</Link>
+                <button onClick={() => handleAnchorClick('/#about')} className="text-stone-600 hover:text-brand-400 transition-all duration-300 text-xs hover:-translate-y-0.5">Over Ons</button>
+                <button onClick={() => handleAnchorClick('/#contact')} className="text-stone-600 hover:text-brand-400 transition-all duration-300 text-xs hover:-translate-y-0.5">Contact</button>
               </div>
             </div>
           </div>
         </div>
+      </div>
 
-        {/* Separator */}
-        <div className="mt-16 pt-8 border-t border-stone-800">
-          {/* Bottom navigation */}
-          <div className="flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0">
-            <div className="flex items-center space-x-6 text-sm text-stone-500">
-              <span>© {currentYear} DakZorg Nederland</span>
-              <span className="hidden md:block">•</span>
-              <span>KvK: 96885904</span>
-              <span className="hidden md:block">•</span>
-              <span>Waalwijk, Nederland</span>
-            </div>
-
-            <div className="flex items-center space-x-6">
-              <div className="flex items-center space-x-2 text-xs text-green-400">
-                <Shield className="w-3 h-3" />
-                <span>SSL Secured</span>
-              </div>
-
-              <div className="flex items-center space-x-4 text-sm">
-                <Link to="/privacybeleid" className="text-stone-500 hover:text-white transition-colors">
-                  Privacy
-                </Link>
-                <Link to="/algemene-voorwaarden" className="text-stone-500 hover:text-white transition-colors">
-                  Voorwaarden
-                </Link>
-                <Link to="/cookiebeleid" className="text-stone-500 hover:text-white transition-colors">
-                  Cookies
-                </Link>
-              </div>
+      {/* Bottom Bar */}
+      <div className="border-t border-stone-900">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-stone-600">
+            <span>© {currentYear} DakZorg Nederland • KvK: 96885904</span>
+            <div className="flex items-center gap-4">
+              <Link to="/privacybeleid" className="hover:text-brand-400 transition-all duration-300 hover:-translate-y-0.5">Privacy</Link>
+              <Link to="/algemene-voorwaarden" className="hover:text-brand-400 transition-all duration-300 hover:-translate-y-0.5">Voorwaarden</Link>
+              <Link to="/cookiebeleid" className="hover:text-brand-400 transition-all duration-300 hover:-translate-y-0.5">Cookies</Link>
             </div>
           </div>
-
-          <p className="mt-4 text-center text-xs text-stone-600">
-            Laatst bijgewerkt: {new Date().toLocaleDateString('nl-NL')}
-          </p>
         </div>
       </div>
     </footer>

@@ -83,7 +83,7 @@ const NicoContact = () => {
 
           {/* Right side - Image */}
           <div className="relative hidden lg:flex items-center justify-center">
-            <div className="relative w-[90%]">
+            <div className="relative w-[85%]">
               {/* Image */}
               <div className="relative">
                 <img

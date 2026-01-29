@@ -1,148 +1,138 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { 
-  Paintbrush, CheckCircle, Phone, Mail, ArrowRight, 
-  Award, Shield, Clock, Users, Calculator, Eye, Palette, Home, Building2,
-  Send, User, MessageCircle, Calendar, MapPin
+import {
+  Home, CheckCircle, Phone, Mail, ArrowRight,
+  Award, Shield, Clock, Users, Calculator, Eye, Hammer, Sun, Wrench,
+  Send, User, MessageCircle, Calendar, Building2, MapPin, Building, Droplets, Layers
 } from 'lucide-react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import ContactPopup from '../components/ContactPopup';
 import { sendEmail } from '../utils/emailService';
+import Testimonials from '../components/Testimonials';
 
-const PaintingPage = () => {
+const BitumenEpdmPage = () => {
   const navigate = useNavigate();
   const [isContactPopupOpen, setIsContactPopupOpen] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     phone: '',
-    message: '',
     stad: '',
     address: '',
     provincie: '',
-    timeline: ''
+    timeline: '',
+    message: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState('');
 
-  const paintingServices = [
-    "Schilderwerk binnenwerk",
-    "Schilderwerk buitenwerk", 
-    "Stukadoor werkzaamheden",
-    "Gips wanden plaatsen",
-    "Impregneren van muren en stenen",
-    "Gevel renovatie en onderhoud",
-    "Voegen van gevels",
-    "Metselwerk en reparaties"
+  const bitumenEpdmServices = [
+    "Bitumen dak repareren",
+    "Bitumen dak vernieuwen",
+    "Bitumen dak lekkage detecteren",
+    "EPDM daken repareren",
+    "EPDM daken renoveren",
+    "Dak isoleren (plat dak)"
   ];
 
-  const paintingTypes = [
+  const bitumenEpdmTypes = [
     {
-      title: "Schilderwerk Binnen",
-      description: "Professioneel binnenwerk voor wanden, plafonds en houtwerk",
+      title: "Bitumen Daken",
+      description: "Professionele bitumen dakbedekking voor platte daken",
+      icon: Layers,
+      details: "Van reparatie tot volledige vernieuwing. Bitumen is de betrouwbaarste oplossing voor platte daken met jarenlange garantie."
+    },
+    {
+      title: "EPDM Daken",
+      description: "Duurzame EPDM rubberen dakbedekking",
+      icon: Shield,
+      details: "EPDM is een flexibel en duurzaam materiaal dat perfect geschikt is voor platte daken. Wij repareren en renoveren alle EPDM daken."
+    },
+    {
+      title: "Dak Isolatie",
+      description: "Optimale isolatie voor platte daken",
       icon: Home,
-      details: "Van kleine kamers tot complete woningen. Wij zorgen voor een perfecte afwerking met kwaliteitsverf."
-    },
-    {
-      title: "Schilderwerk Buiten",
-      description: "Duurzame buitenschilderwerk voor gevels en houtwerk",
-      icon: Building2,
-      details: "Weerbestendige verfsystemen die uw woning jarenlang beschermen tegen de elementen."
-    },
-    {
-      title: "Stukadoor & Gipswerk",
-      description: "Vakkundig stukadoorwerk en gipswanden voor gladde afwerkingen",
-      icon: Palette,
-      details: "Professionele stukadoor werkzaamheden voor nieuwe wanden en reparaties van bestaande oppervlakken."
+      details: "Bespaar op uw energierekening met professionele dak isolatie. Wij isoleren zowel bitumen als EPDM daken vakkundig."
     }
   ];
 
   const features = [
     {
-      title: "Vakkundig Schilderwerk",
-      description: "7+ jaar ervaring in binnen- en buitenschilderwerk",
-      icon: Award
-    },
-    {
-      title: "Kwaliteitsverf",
-      description: "Alleen A-merk verven voor duurzame resultaten",
+      title: "Waterdichte Garantie",
+      description: "Garantie op al onze bitumen en EPDM werkzaamheden",
       icon: Shield
     },
     {
-      title: "Netjes & Snel",
-      description: "Zorgvuldige voorbereiding en snelle uitvoering",
+      title: "7+ Jaar Ervaring",
+      description: "Specialist in platte daken en dakbedekking",
+      icon: Award
+    },
+    {
+      title: "Snelle Service",
+      description: "Spoedservice voor lekkages aan platte daken",
       icon: Clock
     }
   ];
 
-
-  const paintingProcess = [
+  const bitumenEpdmProcess = [
     {
       step: "1",
       title: "Inspectie & Advies",
-      description: "Bekijken van het werk en advies over materialen en kleuren",
-      details: "We bekijken het te schilderen oppervlak en adviseren over de beste aanpak en materialen."
+      description: "Grondige inspectie van uw platte dak",
+      details: "We beoordelen de staat van uw bitumen of EPDM dak en adviseren de beste aanpak."
     },
     {
       step: "2",
-      title: "Voorbereiding",
-      description: "Zorgvuldige voorbereiding van alle oppervlakken",
-      details: "Grondig schoonmaken, afplakken en voorbehandelen voor een perfect resultaat."
+      title: "Offerte & Planning",
+      description: "Transparante offerte zonder verrassingen",
+      details: "Heldere prijsopgave met alle kosten en een realistische planning."
     },
     {
       step: "3",
-      title: "Grondlaag",
-      description: "Aanbrengen van primer en grondlaag waar nodig",
-      details: "Professionele grondbehandeling voor optimale hechting en duurzaamheid."
+      title: "Materialen & Voorbereiding",
+      description: "Hoogwaardige materialen voor uw dak",
+      details: "Wij werken uitsluitend met A-kwaliteit bitumen en EPDM materialen."
     },
     {
       step: "4",
-      title: "Afwerking",
-      description: "Vakkundige afwerking met kwaliteitsverf",
-      details: "Zorgvuldige afwerking met A-merk verven voor een langdurig mooi resultaat."
+      title: "Vakkundige Uitvoering",
+      description: "Professionele plaatsing met garantie",
+      details: "Vakkundige uitvoering door ervaren dakdekkers met garantie op het werk."
     }
   ];
 
-  const paintingAreas = [
-    {
-      area: "Binnenwerk",
-      items: ["Wanden & plafonds", "Houtwerk & kozijnen", "Deuren & kasten", "Radiatoren"]
-    },
-    {
-      area: "Buitenwerk", 
-      items: ["Gevels", "Kozijnen & ramen", "Deuren", "Dakgoten & boeidelen"]
-    },
-    {
-      area: "Specialistisch",
-      items: ["Stukadoorwerk", "Gipswanden", "Voegwerk", "Impregneren"]
-    }
+  const emergencyServices = [
+    { service: "Acute lekkage plat dak", response: "Binnen 2 uur", available: "24/7" },
+    { service: "Stormschade bitumen", response: "Binnen 4 uur", available: "24/7" },
+    { service: "EPDM noodreparatie", response: "Zelfde dag", available: "24/7" },
+    { service: "Noodafdichting", response: "Binnen 1 dag", available: "24/7" }
   ];
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
     setError('');
-    
+
     try {
       const success = await sendEmail({
         ...formData,
-        service: 'Schilderwerk & Stukadoor'
+        service: 'Bitumen & EPDM Daken'
       });
-      
+
       if (success) {
         // Reset form
         setFormData({
           name: '',
           email: '',
           phone: '',
-          message: '',
           stad: '',
           address: '',
           provincie: '',
-          timeline: ''
+          timeline: '',
+          message: ''
         });
-        
+
         // Redirect to thank you page
         navigate('/bedankt');
       } else {
@@ -187,7 +177,6 @@ const PaintingPage = () => {
     }
   ];
 
-
   return (
     <div className="min-h-screen bg-stone-50">
       <Header />
@@ -195,13 +184,13 @@ const PaintingPage = () => {
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-stone-900 via-stone-800 to-stone-900 text-white py-20 pt-32 lg:pt-48">
         <div className="absolute inset-0 bg-black/20"></div>
-        <div 
+        <div
           className="absolute inset-0 bg-cover bg-center opacity-30"
           style={{
-            backgroundImage: 'url(https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop)'
+            backgroundImage: 'url(https://images.pexels.com/photos/2219024/pexels-photo-2219024.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop)'
           }}
         ></div>
-        
+
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <div className="relative inline-block mb-6">
@@ -209,21 +198,21 @@ const PaintingPage = () => {
                 <div className="flex items-center space-x-3">
                   <div className="w-3 h-3 bg-brand-400 rounded-full shadow-lg"></div>
                   <span className="text-white font-semibold text-sm tracking-wide">
-                    Gecertificeerd Specialist in Schilderwerk
+                    Gecertificeerd Specialist in Bitumen & EPDM Daken
                   </span>
                   <div className="w-3 h-3 bg-brand-400 rounded-full shadow-lg"></div>
                 </div>
               </div>
             </div>
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              Professioneel <span className="text-brand-400">Schilderwerk & Stukadoor</span>
+              Professioneel <span className="text-brand-400">Bitumen & EPDM</span>
               <br />
-              <span className="text-brand-400">Uw Woning Verdient Het Beste!</span>
+              <span className="text-brand-400">Platte Daken Specialist!</span>
             </h1>
             <p className="text-xl md:text-2xl text-stone-200 mb-8 max-w-3xl mx-auto">
-              Van binnen- tot buitenschilderwerk - wij zorgen voor perfecte afwerking!
-              <span className="text-brand-400 font-bold"> Gratis kleuradvies en 10 jaar garantie!</span>
-              Vakkundige schilders met A-merk verven.
+              Van lekkage reparatie tot complete vernieuwing - wij zijn uw specialist voor platte daken!
+              <span className="text-brand-400 font-bold"> Lekkage aan uw platte dak? Binnen 3 uur ter plaatse!</span>
+              {' '}Gratis inspectie & garantie op al ons werk.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
@@ -251,19 +240,19 @@ const PaintingPage = () => {
               <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
                 <div className="flex items-center justify-center space-x-2">
                   <CheckCircle className="w-6 h-6 text-green-400" />
-                  <span>Gratis Kleuradvies</span>
+                  <span>Gratis Inspectie</span>
                 </div>
                 <div className="flex items-center justify-center space-x-2">
                   <CheckCircle className="w-6 h-6 text-green-400" />
-                  <span>10 Jaar Garantie</span>
+                  <span>Waterdichte Garantie</span>
                 </div>
                 <div className="flex items-center justify-center space-x-2">
                   <CheckCircle className="w-6 h-6 text-green-400" />
-                  <span>A-merk Verven</span>
+                  <span>Geen Voorrijkosten</span>
                 </div>
                 <div className="flex items-center justify-center space-x-2">
                   <CheckCircle className="w-6 h-6 text-green-400" />
-                  <span>Transparante Prijzen</span>
+                  <span>Binnen 3 Uur Ter Plaatse</span>
                 </div>
               </div>
             </div>
@@ -276,11 +265,11 @@ const PaintingPage = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-slate-900 mb-6">
-              Waarom Uw <span className="bg-gradient-to-r from-brand-400 to-brand-600 bg-clip-text text-transparent">Woning Laten Schilderen?</span>
+              Waarom Uw <span className="bg-gradient-to-r from-brand-400 to-brand-600 bg-clip-text text-transparent">Platte Dak Laten Repareren?</span>
             </h2>
             <p className="text-xl text-stone-600 max-w-3xl mx-auto mb-8">
-              Oude verf beschermt uw woning niet meer tegen vocht en weersinvloeden.
-              Wij zorgen voor duurzame bescherming met kwaliteitsverf en 10 jaar garantie!
+              Een lekkend plat dak kan binnen dagen duizenden euro's schade veroorzaken aan uw woning.
+              Wij zorgen voor waterdichte en duurzame oplossingen met garantie!
             </p>
             <button
               onClick={() => setIsContactPopupOpen(true)}
@@ -306,57 +295,57 @@ const PaintingPage = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="relative overflow-hidden rounded-xl shadow-lg">
               <img
-                src="https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop"
-                alt="Schilderwerk binnenwerk"
+                src="https://images.pexels.com/photos/2138126/pexels-photo-2138126.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop"
+                alt="Bitumen dak werkzaamheden"
                 className="w-full h-64 object-cover hover:scale-110 transition-transform duration-500"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent"></div>
               <div className="absolute bottom-4 left-4 text-white">
-                <h4 className="font-bold">Binnenwerk</h4>
-                <p className="text-sm">Wanden, plafonds en houtwerk</p>
+                <h4 className="font-bold">Bitumen Daken</h4>
+                <p className="text-sm">Waterdichte platte daken</p>
+              </div>
+            </div>
+            <div className="relative overflow-hidden rounded-xl shadow-lg">
+              <img
+                src="https://images.pexels.com/photos/2102587/pexels-photo-2102587.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop"
+                alt="EPDM dak aanleg"
+                className="w-full h-64 object-cover hover:scale-110 transition-transform duration-500"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent"></div>
+              <div className="absolute bottom-4 left-4 text-white">
+                <h4 className="font-bold">EPDM Daken</h4>
+                <p className="text-sm">Duurzame rubberen dakbedekking</p>
               </div>
             </div>
             <div className="relative overflow-hidden rounded-xl shadow-lg">
               <img
                 src="https://images.pexels.com/photos/2219024/pexels-photo-2219024.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop"
-                alt="Schilderwerk buitenwerk"
+                alt="Plat dak isolatie"
                 className="w-full h-64 object-cover hover:scale-110 transition-transform duration-500"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent"></div>
               <div className="absolute bottom-4 left-4 text-white">
-                <h4 className="font-bold">Buitenwerk</h4>
-                <p className="text-sm">Gevels en kozijnen</p>
-              </div>
-            </div>
-            <div className="relative overflow-hidden rounded-xl shadow-lg">
-              <img
-                src="https://images.pexels.com/photos/2360569/pexels-photo-2360569.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop"
-                alt="Stukadoorwerk"
-                className="w-full h-64 object-cover hover:scale-110 transition-transform duration-500"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent"></div>
-              <div className="absolute bottom-4 left-4 text-white">
-                <h4 className="font-bold">Stukadoorwerk</h4>
-                <p className="text-sm">Gipswanden en afwerkingen</p>
+                <h4 className="font-bold">Dak Isolatie</h4>
+                <p className="text-sm">Optimale isolatie voor platte daken</p>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Painting Types Section */}
+      {/* Bitumen & EPDM Types Section */}
       <section className="py-20 bg-stone-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-slate-900 mb-6">
-              Onze <span className="bg-gradient-to-r from-brand-400 to-brand-600 bg-clip-text text-transparent">Schilderwerk Specialisaties</span>
+              Onze <span className="bg-gradient-to-r from-brand-400 to-brand-600 bg-clip-text text-transparent">Platte Dak Specialisaties</span>
             </h2>
             <p className="text-xl text-stone-700 font-semibold max-w-3xl mx-auto mb-2">
-              ✅ Complete schilderprojecten van A tot Z
+              Complete bitumen en EPDM dakwerkzaamheden van A tot Z
             </p>
             <p className="text-lg text-stone-600 max-w-3xl mx-auto mb-8">
-              Van binnen- tot buitenschilderwerk en stukadoorwerk.
-              Inclusief kleuradvies, A-merk verven en 10 jaar garantie!
+              Van reparatie tot volledige vernieuwing van uw platte dak.
+              Inclusief isolatie en garantie op al ons werk!
             </p>
             <button
               onClick={() => setIsContactPopupOpen(true)}
@@ -368,7 +357,7 @@ const PaintingPage = () => {
           </div>
 
           <div className="space-y-12">
-            {paintingTypes.map((type, index) => (
+            {bitumenEpdmTypes.map((type, index) => (
               <div key={index} className={`flex flex-col lg:flex-row items-center gap-12 ${index % 2 === 1 ? 'lg:flex-row-reverse' : ''}`}>
                 <div className="lg:w-1/2">
                   <div className="flex items-center mb-6">
@@ -388,15 +377,15 @@ const PaintingPage = () => {
                     <ul className="space-y-2">
                       <li className="flex items-center space-x-3">
                         <CheckCircle className="w-5 h-5 text-brand-500 flex-shrink-0" />
-                        <span className="text-stone-700">Kleuradvies</span>
+                        <span className="text-stone-700">Grondige inspectie</span>
                       </li>
                       <li className="flex items-center space-x-3">
                         <CheckCircle className="w-5 h-5 text-brand-500 flex-shrink-0" />
-                        <span className="text-stone-700">Zorgvuldige voorbereiding</span>
+                        <span className="text-stone-700">Kwaliteitsvolle materialen</span>
                       </li>
                       <li className="flex items-center space-x-3">
                         <CheckCircle className="w-5 h-5 text-brand-500 flex-shrink-0" />
-                        <span className="text-stone-700">A-merk verven</span>
+                        <span className="text-stone-700">Vakkundige uitvoering</span>
                       </li>
                       <li className="flex items-center space-x-3">
                         <CheckCircle className="w-5 h-5 text-brand-500 flex-shrink-0" />
@@ -415,54 +404,54 @@ const PaintingPage = () => {
       <section className="py-20 bg-gradient-to-br from-red-50 to-orange-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <Paintbrush className="w-16 h-16 text-red-500 mx-auto mb-6 animate-pulse" />
+            <Wrench className="w-16 h-16 text-red-500 mx-auto mb-6 animate-pulse" />
             <h2 className="text-4xl font-bold text-slate-900 mb-6">
-              <span className="text-red-600">Schilderwerk Wachten Niet!</span>
+              <span className="text-red-600">Platte Dak Problemen Wachten Niet!</span>
             </h2>
             <p className="text-xl text-stone-700 max-w-3xl mx-auto mb-4">
-              <strong>Bescherm uw woning nu!</strong> Oude verf laat vocht toe en kost u duizenden.
+              <strong>Elke dag uitstellen kost u geld!</strong> Lekkages veroorzaken snel waterschade.
             </p>
             <p className="text-lg text-stone-600 max-w-3xl mx-auto mb-8">
-              Wacht niet langer - elke dag uitstellen verhoogt het risico op schade!
+              Urgente platte dak problemen? Binnen 3 uur ter plaatse! Preventief onderhoud bespaart duizenden euro's.
             </p>
           </div>
 
           <div className="bg-white rounded-xl shadow-lg overflow-hidden mb-8">
             <div className="px-6 py-4 bg-red-500 text-white">
-              <h3 className="text-xl font-bold">Herkenbare Schilderproblemen</h3>
+              <h3 className="text-xl font-bold">Herkenbare Platte Dak Problemen</h3>
             </div>
             <div className="divide-y divide-gray-200">
               <div className="px-6 py-4 flex justify-between items-center">
-                <div className="font-medium text-slate-900">Afbladderende verf</div>
+                <div className="font-medium text-slate-900">Lekkend plat dak</div>
                 <div className="text-center">
                   <div className="text-sm text-stone-600">Gevolg</div>
-                  <div className="font-bold text-red-600">Vochtschade binnen maanden</div>
+                  <div className="font-bold text-red-600">Waterschade binnen dagen</div>
                 </div>
                 <div className="text-center">
                   <div className="text-sm text-stone-600">Actie</div>
-                  <div className="font-bold text-green-600">Direct Herschilderen</div>
+                  <div className="font-bold text-green-600">Direct Repareren</div>
                 </div>
               </div>
               <div className="px-6 py-4 flex justify-between items-center">
-                <div className="font-medium text-slate-900">Verkleurde buitenverf</div>
+                <div className="font-medium text-slate-900">Loslatende dakbedekking</div>
                 <div className="text-center">
                   <div className="text-sm text-stone-600">Gevolg</div>
-                  <div className="font-bold text-red-600">Lagere woningwaarde</div>
+                  <div className="font-bold text-red-600">Wind- en regenschade</div>
                 </div>
                 <div className="text-center">
                   <div className="text-sm text-stone-600">Actie</div>
-                  <div className="font-bold text-green-600">Urgent Schilderen</div>
+                  <div className="font-bold text-green-600">Urgent Vervangen</div>
                 </div>
               </div>
               <div className="px-6 py-4 flex justify-between items-center">
-                <div className="font-medium text-slate-900">Schimmel op muren</div>
+                <div className="font-medium text-slate-900">Verouderd bitumen dak</div>
                 <div className="text-center">
                   <div className="text-sm text-stone-600">Gevolg</div>
-                  <div className="font-bold text-red-600">Gezondheidsrisico's</div>
+                  <div className="font-bold text-red-600">Energieverlies & lekkages</div>
                 </div>
                 <div className="text-center">
                   <div className="text-sm text-stone-600">Actie</div>
-                  <div className="font-bold text-green-600">Direct Behandelen</div>
+                  <div className="font-bold text-green-600">Vernieuwen Nu</div>
                 </div>
               </div>
             </div>
@@ -470,7 +459,7 @@ const PaintingPage = () => {
 
           <div className="text-center space-y-4">
             <p className="text-lg font-semibold text-stone-700">
-              Waarom langer wachten? Elke dag dat u uitstelt kost u meer geld!
+              Waarom langer wachten? Elk lek dat u uitstelt wordt duurder!
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button
@@ -492,18 +481,62 @@ const PaintingPage = () => {
         </div>
       </section>
 
+      {/* Emergency Section */}
+      <section className="py-20 bg-red-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <Wrench className="w-16 h-16 text-red-500 mx-auto mb-6" />
+            <h2 className="text-4xl font-bold text-slate-900 mb-6">
+              <span className="text-red-500">24/7 Spoedservice</span>
+            </h2>
+            <p className="text-xl text-stone-600 max-w-3xl mx-auto mb-8">
+              Lekkage of stormschade aan uw platte dak? Wij zijn 24/7 bereikbaar voor
+              spoedgevallen en acute dakproblemen.
+            </p>
+            <a
+              href="tel:0657010861"
+              className="bg-red-500 hover:bg-red-600 text-white font-bold px-8 py-4 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg inline-flex items-center space-x-2"
+            >
+              <Phone className="w-5 h-5" />
+              <span>Bel Nu: 06 57 01 08 61</span>
+            </a>
+          </div>
+
+          <div className="bg-white rounded-xl shadow-lg overflow-hidden">
+            <div className="px-6 py-4 bg-red-500 text-white">
+              <h3 className="text-xl font-bold">24/7 Spoedservice Response Tijden</h3>
+            </div>
+            <div className="divide-y divide-gray-200">
+              {emergencyServices.map((emergency, index) => (
+                <div key={index} className="px-6 py-4 flex justify-between items-center">
+                  <div className="font-medium text-slate-900">{emergency.service}</div>
+                  <div className="text-center">
+                    <div className="text-sm text-stone-600">Response tijd</div>
+                    <div className="font-bold text-red-500">{emergency.response}</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-sm text-stone-600">Beschikbaarheid</div>
+                    <div className="font-bold text-green-600">{emergency.available}</div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Process Section */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-slate-900 mb-6">
-              Hoe Wij Uw <span className="bg-gradient-to-r from-brand-400 to-brand-600 bg-clip-text text-transparent">Woning Schilderen</span>
+              Hoe Wij Uw <span className="bg-gradient-to-r from-brand-400 to-brand-600 bg-clip-text text-transparent">Platte Dak Repareren</span>
             </h2>
             <p className="text-xl text-stone-700 font-semibold max-w-3xl mx-auto mb-2">
-              In 4 Simpele Stappen Naar Een Prachtig Geschilderde Woning!
+              In 4 Simpele Stappen Naar Een Waterdicht Plat Dak!
             </p>
             <p className="text-lg text-stone-600 max-w-3xl mx-auto mb-8">
-              Vakkundig, netjes en met oog voor detail - wij regelen alles voor u
+              Snel, vakkundig en zonder zorgen - wij regelen alles voor u
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
               <button
@@ -518,13 +551,13 @@ const PaintingPage = () => {
                 className="bg-brand-600 hover:bg-brand-700 text-white font-bold px-8 py-4 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg inline-flex items-center space-x-2"
               >
                 <Clock className="w-5 h-5" />
-                <span>GRATIS KLEURADVIES</span>
+                <span>BINNEN 24 UUR INSPECTIE</span>
               </a>
             </div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {paintingProcess.map((item, index) => (
+            {bitumenEpdmProcess.map((item, index) => (
               <div key={index} className="text-center">
                 <div className="w-16 h-16 bg-brand-500 text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">
                   {item.step}
@@ -544,38 +577,38 @@ const PaintingPage = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
               <h2 className="text-4xl font-bold text-slate-900 mb-8">
-                Onze <span className="bg-gradient-to-r from-brand-400 to-brand-600 bg-clip-text text-transparent">Schilderwerk Diensten</span>
+                Onze <span className="bg-gradient-to-r from-brand-400 to-brand-600 bg-clip-text text-transparent">Bitumen & EPDM Diensten</span>
               </h2>
-              <div className="space-y-6">
-                {paintingServices.map((service, index) => (
-                  <div key={index} className="flex items-start space-x-3">
-                    <CheckCircle className="w-6 h-6 text-brand-500 flex-shrink-0 mt-1" />
-                    <span className="text-stone-700 font-medium text-lg">{service}</span>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {bitumenEpdmServices.map((service, index) => (
+                  <div key={index} className="flex items-center space-x-3 bg-white rounded-xl p-4 shadow-sm border border-stone-100">
+                    <CheckCircle className="w-5 h-5 text-brand-500 flex-shrink-0" />
+                    <span className="text-stone-700 font-medium">{service}</span>
                   </div>
                 ))}
               </div>
               <div className="mt-8">
                 <div className="p-6 bg-gradient-to-br from-brand-50 to-brand-50 border-2 border-brand-400 rounded-lg mb-6">
                   <h4 className="font-bold text-slate-900 mb-4 text-xl">
-                    🎨 Verhoog Uw Woningwaarde!
+                    Bespaar Op Uw Energierekening!
                   </h4>
                   <p className="text-stone-700 mb-4">
-                    Vakkundig schilderwerk verhoogt uw woningwaarde <strong>aanzienlijk</strong>.
-                    Een investering die zich direct terugbetaalt!
+                    Een goed geisoleerd plat dak bespaart u <strong>aanzienlijk op uw energierekening</strong>.
+                    Onze bitumen en EPDM werkzaamheden betalen zichzelf terug!
                   </p>
                   <button
                     onClick={() => setIsContactPopupOpen(true)}
                     className="w-full bg-brand-500 hover:bg-brand-600 text-slate-900 font-bold px-6 py-3 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg"
                   >
-                    BEREKEN UW WAARDESTIJGING →
+                    BEREKEN UW BESPARING
                   </button>
                 </div>
                 <div className="bg-white rounded-lg p-4 border-2 border-stone-200">
-                  <h5 className="font-bold text-slate-900 mb-3 text-lg">✅ Direct Voordeel:</h5>
+                  <h5 className="font-bold text-slate-900 mb-3 text-lg">Direct Voordeel:</h5>
                   <div className="space-y-2 text-stone-700">
-                    <div className="flex items-center"><CheckCircle className="w-5 h-5 text-green-500 mr-2" />Gratis kleuradvies</div>
-                    <div className="flex items-center"><CheckCircle className="w-5 h-5 text-green-500 mr-2" />A-merk kwaliteitsverf</div>
-                    <div className="flex items-center"><CheckCircle className="w-5 h-5 text-green-500 mr-2" />10 jaar garantie</div>
+                    <div className="flex items-center"><CheckCircle className="w-5 h-5 text-green-500 mr-2" />Waterdichte garantie</div>
+                    <div className="flex items-center"><CheckCircle className="w-5 h-5 text-green-500 mr-2" />Lagere energierekening</div>
+                    <div className="flex items-center"><CheckCircle className="w-5 h-5 text-green-500 mr-2" />Garantie op het werk</div>
                     <div className="flex items-center"><CheckCircle className="w-5 h-5 text-green-500 mr-2" />Transparante prijzen</div>
                     <div className="flex items-center"><CheckCircle className="w-5 h-5 text-green-500 mr-2" />Hogere woningwaarde</div>
                   </div>
@@ -584,8 +617,8 @@ const PaintingPage = () => {
             </div>
             <div className="relative">
               <img
-                src="https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop"
-                alt="Schilderwerk in uitvoering"
+                src="https://images.pexels.com/photos/2219024/pexels-photo-2219024.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop"
+                alt="Bitumen en EPDM dak werkzaamheden"
                 className="w-full h-96 object-cover rounded-xl shadow-lg"
               />
             </div>
@@ -593,114 +626,7 @@ const PaintingPage = () => {
         </div>
       </section>
 
-      {/* Painting Areas */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-slate-900 mb-6">
-              Wat Wij <span className="text-brand-500">Schilderen</span>
-            </h2>
-            <p className="text-xl text-stone-600 max-w-3xl mx-auto">
-              Van binnen- tot buitenwerk, wij schilderen alles met 
-              vakkundigheid en oog voor detail.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {paintingAreas.map((area, index) => (
-              <div key={index} className="bg-stone-50 p-8 rounded-xl">
-                <h3 className="text-xl font-bold text-slate-900 mb-6">{area.area}</h3>
-                <ul className="space-y-3">
-                  {area.items.map((item, itemIndex) => (
-                    <li key={itemIndex} className="flex items-center space-x-3">
-                      <CheckCircle className="w-5 h-5 text-brand-500 flex-shrink-0" />
-                      <span className="text-stone-700">{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Professional Testimonials */}
-      <section className="py-20 bg-gradient-to-br from-slate-50 to-stone-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Header with Icon */}
-          <div className="text-center mb-16">
-            <div className="inline-flex items-center justify-center w-16 h-16 bg-brand-100 rounded-full mb-6">
-              <Users className="w-8 h-8 text-brand-600" />
-            </div>
-            <h2 className="text-4xl font-bold text-slate-900 mb-6">
-              Wat Onze <span className="bg-gradient-to-r from-brand-400 to-brand-600 bg-clip-text text-transparent">Klanten</span> Zeggen
-            </h2>
-            <p className="text-xl text-stone-600 max-w-3xl mx-auto leading-relaxed">
-              Al meer dan 7 jaar zorgen wij voor vakkundig dakwerk. Onze klanten waarderen onze 
-              betrouwbaarheid, kwaliteit en persoonlijke service.
-            </p>
-          </div>
-          
-          {/* Enhanced Widget Container */}
-          <div className="relative w-full max-w-none mx-auto">
-            {/* Subtle background pattern */}
-            <div className="absolute inset-0 bg-gradient-to-r from-brand-50 to-slate-50 rounded-2xl transform rotate-1"></div>
-            <div className="absolute inset-0 bg-gradient-to-r from-slate-50 to-brand-50 rounded-2xl transform -rotate-1"></div>
-            
-            {/* Main container */}
-            <div className="relative bg-white rounded-2xl shadow-xl border border-stone-200 p-4 sm:p-6 mx-2 sm:mx-4">
-              {/* Top accent */}
-              <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-20 h-1 bg-gradient-to-r from-brand-400 to-brand-600 rounded-b-full"></div>
-              
-              {/* Widget */}
-              <div 
-                className="overflow-hidden rounded-xl"
-                style={{ 
-                  minHeight: '400px',
-                  paddingBottom: '10px'
-                }}
-                dangerouslySetInnerHTML={{
-                  __html: `
-                    <script type='text/javascript' src='https://reputationhub.site/reputation/assets/review-widget.js'></script>
-                    <iframe class='lc_reviews_widget' src='https://reputationhub.site/reputation/widgets/review_widget/bGV3Pxr7SBGEoFWh6kb3' frameborder='0' scrolling='auto' style='min-width: 100%; width: 100%; height: 350px; border-radius: 12px; display: block; margin: 0; padding: 0; box-sizing: border-box;'></iframe>
-                  `
-                }}
-              />
-            </div>
-          </div>
-
-          {/* Clean Trust Footer */}
-          <div className="mt-12">
-            <div className="text-center space-y-6">
-              <div className="inline-flex items-center space-x-1 text-xs text-stone-400 font-medium tracking-wide">
-                <Shield className="w-3 h-3" />
-                <span>VOLLEDIG VERZEKERD</span>
-                <span className="mx-3">•</span>
-                <Award className="w-3 h-3" />
-                <span>GECERTIFICEERD</span>
-                <span className="mx-3">•</span>
-                <Clock className="w-3 h-3" />
-                <span>7+ JAAR ERVARING</span>
-              </div>
-              
-              {/* Trustpilot Logo */}
-              <div className="pt-2">
-                <a 
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-block hover:scale-105 transition-transform duration-200"
-                >
-                  <img 
-                    src="https://imgur.com/ZKUY57s.png" 
-                    alt="Trustpilot Reviews - Bekijk onze beoordelingen" 
-                    className="h-16 w-auto opacity-80 hover:opacity-100 transition-opacity"
-                  />
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <Testimonials />
 
       <Footer>
         {/* Contact Section */}
@@ -711,12 +637,12 @@ const PaintingPage = () => {
               Contact
             </span>
             <h2 className="text-4xl md:text-5xl font-bold text-white mt-4 mb-6 leading-tight">
-              Laten We Uw Project
-              <span className="bg-gradient-to-r from-brand-400 to-brand-600 bg-clip-text text-transparent"> Bespreken</span>
+              Laten We Uw Platte Dak
+              <span className="text-brand-400"> Inspecteren</span>
             </h2>
             <p className="text-stone-300 text-lg max-w-3xl mx-auto leading-relaxed">
-              Klaar voor vakkundig schilderwerk? Neem contact met ons op 
-              voor een gratis kleuradvies en offerte.
+              Klaar voor vakkundig bitumen of EPDM dakwerk? Neem contact met ons op
+              voor een gratis dakinspectie en vrijblijvende offerte.
             </p>
           </div>
 
@@ -734,8 +660,8 @@ const PaintingPage = () => {
                       {info.details.map((detail, detailIndex) => (
                         <p key={detailIndex} className="text-stone-300">
                           {info.action && detailIndex === 0 ? (
-                            <a 
-                              href={info.action} 
+                            <a
+                              href={info.action}
                               className="hover:text-brand-400 transition-colors"
                             >
                               {detail}
@@ -758,18 +684,35 @@ const PaintingPage = () => {
                   <p><span className="font-medium">Ervaring:</span> 7+ jaar</p>
                 </div>
               </div>
+
+              <div className="mt-8 p-6 bg-red-900/20 border border-red-900/50 rounded-xl">
+                <h4 className="text-red-400 font-bold mb-2">24/7 Spoedservice</h4>
+                <p className="text-stone-300 mb-3">Voor acute platte dak problemen</p>
+                <a
+                  href="tel:0657010861"
+                  className="text-red-400 font-semibold hover:text-red-300 transition-colors"
+                >
+                  06 57 01 08 61
+                </a>
+              </div>
             </div>
 
             <div className="lg:col-span-2">
               <div className="bg-white rounded-2xl p-8 shadow-2xl">
-                <h3 className="text-2xl font-bold text-slate-900 mb-8">Stuur ons een bericht</h3>
-                
+                <h3 className="text-2xl font-bold text-slate-900 mb-6">Vraag uw gratis offerte aan</h3>
+
+                <div className="bg-brand-50 border border-brand-200 rounded-lg p-4 mb-6">
+                  <h4 className="font-bold text-slate-900 mb-2">Gratis dakinspectie</h4>
+                  <h4 className="font-bold text-slate-900 mb-2">Vrijblijvende offerte</h4>
+                  <h4 className="font-bold text-slate-900">Persoonlijk advies</h4>
+                </div>
+
                 {error && (
                   <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg">
                     <p className="text-red-600">{error}</p>
                   </div>
                 )}
-                
+
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
@@ -782,7 +725,7 @@ const PaintingPage = () => {
                           type="text"
                           value={formData.name}
                           onChange={(e) => handleInputChange('name', e.target.value)}
-                          className="w-full pl-12 pr-4 py-3 border border-stone-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-stone-900"
+                          className="w-full pl-12 pr-4 py-3 border border-stone-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 text-stone-900"
                           placeholder="Uw volledige naam"
                           required
                         />
@@ -798,7 +741,7 @@ const PaintingPage = () => {
                           type="email"
                           value={formData.email}
                           onChange={(e) => handleInputChange('email', e.target.value)}
-                          className="w-full pl-12 pr-4 py-3 border border-stone-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-stone-900"
+                          className="w-full pl-12 pr-4 py-3 border border-stone-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 text-stone-900"
                           placeholder="uw.email@example.nl"
                           required
                         />
@@ -809,7 +752,7 @@ const PaintingPage = () => {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
                       <label className="block text-sm font-medium text-stone-700 mb-2">
-                        Telefoon
+                        Telefoon *
                       </label>
                       <div className="relative">
                         <Phone className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-stone-400" />
@@ -817,14 +760,15 @@ const PaintingPage = () => {
                           type="tel"
                           value={formData.phone}
                           onChange={(e) => handleInputChange('phone', e.target.value)}
-                          className="w-full pl-12 pr-4 py-3 border border-stone-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-stone-900"
+                          className="w-full pl-12 pr-4 py-3 border border-stone-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 text-stone-900"
                           placeholder="06 57 01 08 61"
+                          required
                         />
                       </div>
                     </div>
                     <div>
                       <label className="block text-sm font-medium text-stone-700 mb-2">
-                        Stad
+                        Stad *
                       </label>
                       <div className="relative">
                         <MapPin className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-stone-400" />
@@ -832,8 +776,44 @@ const PaintingPage = () => {
                           type="text"
                           value={formData.stad}
                           onChange={(e) => handleInputChange('stad', e.target.value)}
-                          className="w-full pl-12 pr-4 py-3 border border-stone-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-stone-900"
-                          placeholder="Bijv. Waalwijk"
+                          className="w-full pl-12 pr-4 py-3 border border-stone-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 text-stone-900"
+                          placeholder="Amsterdam"
+                          required
+                        />
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                      <label className="block text-sm font-medium text-stone-700 mb-2">
+                        Straatnaam + Huisnummer *
+                      </label>
+                      <div className="relative">
+                        <Building2 className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-stone-400" />
+                        <input
+                          type="text"
+                          value={formData.address}
+                          onChange={(e) => handleInputChange('address', e.target.value)}
+                          className="w-full pl-12 pr-4 py-3 border border-stone-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 text-stone-900"
+                          placeholder="Hoofdstraat 123"
+                          required
+                        />
+                      </div>
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium text-stone-700 mb-2">
+                        Provincie *
+                      </label>
+                      <div className="relative">
+                        <Building className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-stone-400" />
+                        <input
+                          type="text"
+                          value={formData.provincie}
+                          onChange={(e) => handleInputChange('provincie', e.target.value)}
+                          className="w-full pl-12 pr-4 py-3 border border-stone-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 text-stone-900"
+                          placeholder="Noord-Holland"
+                          required
                         />
                       </div>
                     </div>
@@ -841,55 +821,23 @@ const PaintingPage = () => {
 
                   <div>
                     <label className="block text-sm font-medium text-stone-700 mb-2">
-                      Straatnaam + Huisnummer
+                      Gewenste startdatum *
                     </label>
                     <div className="relative">
-                      <Home className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-stone-400" />
-                      <input
-                        type="text"
-                        value={formData.address}
-                        onChange={(e) => handleInputChange('address', e.target.value)}
-                        className="w-full pl-12 pr-4 py-3 border border-stone-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-stone-900"
-                        placeholder="Bijv. Villa gagel 9"
-                      />
-                    </div>
-                  </div>
-
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div>
-                      <label className="block text-sm font-medium text-stone-700 mb-2">
-                        Provincie
-                      </label>
-                      <div className="relative">
-                        <Building2 className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-stone-400" />
-                        <input
-                          type="text"
-                          value={formData.provincie}
-                          onChange={(e) => handleInputChange('provincie', e.target.value)}
-                          className="w-full pl-12 pr-4 py-3 border border-stone-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-stone-900"
-                          placeholder="Bijv. Gelderland"
-                        />
-                      </div>
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium text-stone-700 mb-2">
-                        Gewenste startdatum
-                      </label>
-                      <div className="relative">
-                        <Calendar className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-stone-400" />
-                        <select
-                          value={formData.timeline}
-                          onChange={(e) => handleInputChange('timeline', e.target.value)}
-                          className="w-full pl-12 pr-4 py-3 border border-stone-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-stone-900"
-                        >
-                          <option value="">Selecteer timing</option>
-                          <option value="Zo snel mogelijk">Zo snel mogelijk</option>
-                          <option value="1-3 maanden">1-3 maanden</option>
-                          <option value="3-6 maanden">3-6 maanden</option>
-                          <option value="6-12 maanden">6-12 maanden</option>
-                          <option value="Flexibel">Flexibel</option>
-                        </select>
-                      </div>
+                      <Calendar className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-stone-400" />
+                      <select
+                        value={formData.timeline}
+                        onChange={(e) => handleInputChange('timeline', e.target.value)}
+                        className="w-full pl-12 pr-4 py-3 border border-stone-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 text-stone-900"
+                        required
+                      >
+                        <option value="">Selecteer timing</option>
+                        <option value="asap">Zo snel mogelijk</option>
+                        <option value="1-3months">1-3 maanden</option>
+                        <option value="3-6months">3-6 maanden</option>
+                        <option value="6-12months">6-12 maanden</option>
+                        <option value="flexible">Flexibel</option>
+                      </select>
                     </div>
                   </div>
 
@@ -903,8 +851,8 @@ const PaintingPage = () => {
                         value={formData.message}
                         onChange={(e) => handleInputChange('message', e.target.value)}
                         rows={5}
-                        className="w-full pl-12 pr-4 py-3 border border-stone-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 resize-none text-stone-900"
-                        placeholder="Beschrijf uw schilderproject..."
+                        className="w-full pl-12 pr-4 py-3 border border-stone-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 resize-none text-stone-900"
+                        placeholder="Beschrijf uw platte dak probleem of project..."
                         required
                       />
                     </div>
@@ -916,13 +864,13 @@ const PaintingPage = () => {
                       disabled={isSubmitting}
                       className={`inline-flex items-center space-x-3 px-8 py-4 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg ${
                         isSubmitting
-                          ? 'bg-stone-400 cursor-not-allowed'
-                          : 'bg-brand-500 hover:bg-brand-600 text-slate-900'
+                          ? 'bg-stone-400 cursor-not-allowed text-white'
+                          : 'bg-brand-500 hover:bg-brand-600 text-white'
                       }`}
                     >
                       {isSubmitting ? (
                         <>
-                          <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-slate-900"></div>
+                          <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white"></div>
                           <span>Verzenden...</span>
                         </>
                       ) : (
@@ -935,8 +883,8 @@ const PaintingPage = () => {
                   </div>
 
                   <p className="text-stone-600 text-sm text-center">
-                    Door dit formulier te verzenden gaat u akkoord met ons privacybeleid. 
-                    Wij nemen binnen 24 uur contact met u op.
+                    Door dit formulier te verzenden gaat u akkoord met ons privacybeleid.
+                    Wij nemen binnen 24 uur contact met u op voor uw gratis dakinspectie en offerte.
                   </p>
                 </form>
               </div>
@@ -946,11 +894,11 @@ const PaintingPage = () => {
           <div className="text-center mt-16">
             <div className="bg-gradient-to-r from-brand-400 to-brand-600 rounded-2xl p-8">
               <h3 className="text-2xl font-bold text-slate-900 mb-4">
-                Klaar Voor Een Nieuwe Kleur?
+                Acute Platte Dak Problemen?
               </h3>
               <p className="text-slate-800 mb-6 max-w-2xl mx-auto">
-                Laat uw woning stralen met vakkundig schilderwerk. 
-                Neem contact op voor gratis kleuradvies.
+                Voor lekkages, stormschade of andere spoedgevallen aan uw platte dak kunt u ons 24/7 bellen.<br/>
+                Onze dakdekkers staan voor u klaar. Vraag nu een gratis offerte aan!
               </p>
               <a
                 href="tel:0657010861"
@@ -964,14 +912,14 @@ const PaintingPage = () => {
       </section>
       </Footer>
 
-      <ContactPopup 
+      <ContactPopup
         isOpen={isContactPopupOpen}
         onClose={() => setIsContactPopupOpen(false)}
-        service="Schilderwerk & Stukadoor"
-        title="Gratis Kleuradvies Aanvragen"
+        service="Bitumen & EPDM Daken"
+        title="Gratis Offerte & Dakinspectie Aanvragen"
       />
     </div>
   );
 };
 
-export default PaintingPage;
+export default BitumenEpdmPage;

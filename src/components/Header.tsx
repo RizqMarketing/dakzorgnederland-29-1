@@ -31,14 +31,17 @@ const Header = () => {
 
   const services = [
     { name: 'Dakwerk & Dakdekken', href: '/dakwerk-dakdekken' },
+    { name: 'Bitumen & EPDM Daken', href: '/bitumen-epdm' },
+    { name: 'Dakkapel & Dakramen', href: '/dakkapel' },
     { name: 'Schoorsteen Verwijderen', href: '/schoorsteen-verwijderen' },
     { name: 'Schoorsteen Renovatie', href: '/schoorsteen-renovatie' },
     { name: 'Nokvorsten', href: '/nokvorsten' },
     { name: 'Loodreparaties', href: '/loodreparaties' },
-    { name: 'Spoed Service', href: '/spoed' },
-    { name: 'Dakinspectie', href: '/dakinspectie' },
     { name: 'Daklekkage', href: '/daklekkage' },
-    { name: 'Dakgoot Reiniging', href: '/dakgootreiniging' },
+    { name: 'Dakgoten', href: '/dakgootreiniging' },
+    { name: 'Dakinspectie', href: '/dakinspectie' },
+    { name: 'Vogel & Ongedierte Wering', href: '/vogel-ongedierte-wering' },
+    { name: 'Spoed Service', href: '/spoed' },
   ];
 
   const handleNavClick = (href) => {
@@ -101,7 +104,7 @@ const Header = () => {
               {/* Only show company name on larger screens */}
               <div className="hidden sm:block">
                 <h1 className="text-white font-bold text-base sm:text-lg lg:text-xl">DakZorg Nederland</h1>
-                <p className="text-stone-300 text-xs lg:text-sm">
+                <p className="text-brand-500 text-xs lg:text-sm font-medium">
                   Uw specialist in dakonderhoud
                 </p>
               </div>
@@ -116,13 +119,13 @@ const Header = () => {
 
             {/* Desktop Navigation */}
             <nav className="hidden lg:flex items-center">
-              <div className="flex items-center bg-white/10 backdrop-blur-sm rounded-full px-2 py-1 border border-white/20">
+              <div className="flex items-center">
                 {navigation.map((item) => (
                   item.href.startsWith('/#') ? (
                     <button
                       key={item.name}
                       onClick={() => handleNavClick(item.href)}
-                      className="text-white hover:bg-brand-500 hover:text-slate-900 px-5 py-2.5 rounded-full transition-all duration-300 font-medium text-sm"
+                      className="text-white hover:bg-brand-500 hover:text-slate-900 px-4 py-2 rounded-md transition-all duration-300 font-medium text-sm"
                     >
                       {item.name}
                     </button>
@@ -130,7 +133,7 @@ const Header = () => {
                     <Link
                       key={item.name}
                       to={item.href}
-                      className="text-white hover:bg-brand-500 hover:text-slate-900 px-5 py-2.5 rounded-full transition-all duration-300 font-medium text-sm"
+                      className="text-white hover:bg-brand-500 hover:text-slate-900 px-4 py-2 rounded-md transition-all duration-300 font-medium text-sm"
                     >
                       {item.name}
                     </Link>
@@ -142,7 +145,7 @@ const Header = () => {
                   <button
                     onMouseEnter={() => setIsServicesOpen(true)}
                     onMouseLeave={() => setIsServicesOpen(false)}
-                    className="flex items-center space-x-1 text-white hover:bg-brand-500 hover:text-slate-900 px-5 py-2.5 rounded-full transition-all duration-300 font-medium text-sm"
+                    className="flex items-center space-x-1 text-white hover:bg-brand-500 hover:text-slate-900 px-4 py-2 rounded-md transition-all duration-300 font-medium text-sm"
                   >
                     <span>Diensten</span>
                     <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${isServicesOpen ? 'rotate-180' : ''}`} />
@@ -174,19 +177,19 @@ const Header = () => {
             </nav>
 
             {/* Contact Info - Desktop only */}
-            <div className="hidden lg:flex items-center space-x-3">
+            <div className="hidden lg:flex items-center gap-8">
               <a
                 href="mailto:info@dakzorgnederland.nl"
-                className="flex items-center space-x-2 text-white hover:text-brand-400 transition-colors px-3 py-2"
+                className="flex items-center space-x-2 text-white/80 hover:text-white transition-all duration-300 mr-6"
               >
                 <Mail className="w-4 h-4" />
                 <span className="text-sm font-medium">info@dakzorgnederland.nl</span>
               </a>
               <a
                 href="tel:0657010861"
-                className="flex items-center space-x-2 bg-gradient-to-r from-brand-500 to-brand-600 hover:from-brand-400 hover:to-brand-500 text-slate-900 font-bold px-5 py-2.5 rounded-full transition-all duration-300 shadow-lg shadow-brand-500/20"
+                className="group flex items-center space-x-2 bg-gradient-to-r from-brand-500 to-brand-400 hover:from-brand-400 hover:to-brand-300 text-stone-900 font-bold px-6 py-3 rounded-xl transition-all duration-300 shadow-lg shadow-brand-500/25 hover:shadow-xl hover:shadow-brand-500/40 hover:scale-105"
               >
-                <Phone className="w-4 h-4" />
+                <Phone className="w-4 h-4 group-hover:animate-pulse" />
                 <span className="text-sm">06 57 01 08 61</span>
               </a>
             </div>

@@ -23,7 +23,9 @@
       "Bash(del:*)",
       "WebFetch(domain:localhost)",
       "Bash(netstat:*)",
-      "Bash(findstr:*)"
+      "Bash(findstr:*)",
+      "WebFetch(domain:www.pexels.com)",
+      "WebFetch(domain:images.pexels.com)"
     ],
     "deny": [],
     "ask": []

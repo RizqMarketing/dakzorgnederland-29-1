@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
-  Hammer, CheckCircle, Phone, Mail, ArrowRight,
-  Award, Shield, Clock, Users, Calculator, Eye, Wrench, AlertTriangle,
-  Send, User, MessageCircle, Calendar, Building2, MapPin, Building, Home, Sparkles
+  Home, CheckCircle, Phone, Mail, ArrowRight,
+  Award, Shield, Clock, Users, Calculator, Eye, Hammer, Sun, Wrench,
+  Send, User, MessageCircle, Calendar, Building2, MapPin, Building, Square
 } from 'lucide-react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
@@ -11,7 +11,7 @@ import ContactPopup from '../components/ContactPopup';
 import { sendEmail } from '../utils/emailService';
 import Testimonials from '../components/Testimonials';
 
-const ChimneyRenovationPage = () => {
+const DakkapelPage = () => {
   const navigate = useNavigate();
   const [isContactPopupOpen, setIsContactPopupOpen] = useState(false);
   const [formData, setFormData] = useState({
@@ -27,102 +27,86 @@ const ChimneyRenovationPage = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState('');
 
-  const renovationServices = [
-    "Schoorsteen voegen en repareren",
-    "Schoorsteenvegen",
-    "Kachels plaatsen & afbouwen",
-    "Rookkanalen vernieuwen",
-    "Waterdicht maken van schoorsteen",
-    "Scheuren repareren in schoorsteen"
+  const dakkapelServices = [
+    "Dakkapel timmeren of plaatsen",
+    "Dakkapel repareren",
+    "Dakkapel bekleden",
+    "Dakbedekking dakkapel vervangen",
+    "Lood vervangen bij dakkapel",
+    "Dakramen plaatsen en/of repareren"
   ];
 
-  const renovationTypes = [
+  const dakkapelTypes = [
     {
-      title: "Complete Schoorsteen Renovatie",
-      description: "Van kap tot fundering - complete vernieuwing",
-      icon: Hammer,
-      details: "Volledige renovatie van uw schoorsteen met moderne materialen voor jarenlang probleemloos gebruik."
-    },
-    {
-      title: "Schouw Renovatie",
-      description: "Moderne, veilige en energiezuinige schouw",
+      title: "Dakkapel Plaatsen",
+      description: "Meer ruimte en licht in uw woning",
       icon: Home,
-      details: "Complete renovatie van uw schouw, van woonkamer tot dak. Mooi, veilig en volgens alle normen."
+      details: "Wij timmeren en plaatsen dakkapellen die perfect bij uw woning passen. Meer leefruimte en natuurlijk daglicht gegarandeerd."
     },
     {
-      title: "Rookkanaal Herstel",
-      description: "Veilig en efficiënt rookkanaal voor optimale trek",
-      icon: Shield,
-      details: "Professioneel herstel en renovatie van rookkanalen voor veilige afvoer van rookgassen."
+      title: "Dakkapel Renoveren",
+      description: "Uw dakkapel weer als nieuw",
+      icon: Hammer,
+      details: "Van reparatie en bekleden tot complete dakbedekking vervanging. Wij maken uw dakkapel weer waterdicht en mooi."
+    },
+    {
+      title: "Dakramen",
+      description: "Professionele plaatsing en reparatie van dakramen",
+      icon: Sun,
+      details: "Dakramen zorgen voor extra licht en ventilatie. Wij plaatsen en repareren alle merken dakramen vakkundig."
     }
   ];
 
   const features = [
     {
-      title: "Behoud Karakter",
-      description: "Wij behouden het authentieke karakter van uw woning",
-      icon: Sparkles
+      title: "Vakkundig Timmerwerk",
+      description: "Ervaren timmerlieden voor uw dakkapel",
+      icon: Hammer
     },
     {
-      title: "Moderne Technieken",
-      description: "Gebruik van de nieuwste materialen en technieken",
-      icon: Wrench
-    },
-    {
-      title: "10 Jaar Garantie",
-      description: "Uitgebreide garantie op alle renovatiewerkzaamheden",
+      title: "Waterdichte Afwerking",
+      description: "Garantie op waterdichtheid en afwerking",
       icon: Shield
+    },
+    {
+      title: "Snelle Plaatsing",
+      description: "Efficiënte plaatsing met minimale overlast",
+      icon: Clock
     }
   ];
 
-  const renovationProcess = [
+  const dakkapelProcess = [
     {
       step: "1",
-      title: "Gratis Inspectie",
-      description: "Uitgebreide inspectie van uw schoorsteen",
-      details: "We beoordelen de staat en maken een renovatieplan op maat."
+      title: "Inmeting & Advies",
+      description: "Nauwkeurige inmeting en persoonlijk advies",
+      details: "We komen langs voor een grondige inmeting en bespreken uw wensen en mogelijkheden."
     },
     {
       step: "2",
-      title: "Renovatieplan & Offerte",
-      description: "Gedetailleerd plan met vaste prijs",
-      details: "U krijgt een helder plan met alle werkzaamheden en kosten."
+      title: "Ontwerp & Offerte",
+      description: "Op maat gemaakt ontwerp met heldere offerte",
+      details: "U ontvangt een gedetailleerd ontwerp en transparante offerte zonder verrassingen."
     },
     {
       step: "3",
-      title: "Professionele Uitvoering",
-      description: "Vakkundige renovatie door specialisten",
-      details: "Ervaren vakmensen renoveren uw schoorsteen met oog voor detail."
+      title: "Fabricage & Voorbereiding",
+      description: "Uw dakkapel wordt op maat gemaakt",
+      details: "Wij zorgen voor de fabricage en bereiden de plaatsing zorgvuldig voor."
     },
     {
       step: "4",
-      title: "Oplevering & Garantie",
-      description: "Perfecte afwerking met 10 jaar garantie",
-      details: "Complete oplevering met garantiecertificaat voor uw zekerheid."
+      title: "Plaatsing & Afwerking",
+      description: "Vakkundige plaatsing en nette afwerking",
+      details: "Uw dakkapel wordt geplaatst en netjes afgewerkt, inclusief binnen- en buitenzijde."
     }
   ];
 
-  const renovationBenefits = [
-    {
-      problem: "Lekkende schoorsteen",
-      solution: "Waterdicht gemaakt met nieuwe technieken",
-      result: "Geen Lekkages Meer"
-    },
-    {
-      problem: "Slechte trek in schoorsteen",
-      solution: "Rookkanaal gerenoveerd voor optimale trek",
-      result: "Perfect Werkend"
-    },
-    {
-      problem: "Oude, lelijke schoorsteen",
-      solution: "Volledig gerenoveerd en gemoderniseerd",
-      result: "Als Nieuw"
-    },
-    {
-      problem: "Energieverlies via schoorsteen",
-      solution: "Geïsoleerd en afgedicht",
-      result: "Energie Besparing"
-    }
+  const emergencyServices = [
+    { service: "Lekkage dakkapel", response: "Binnen 2 uur", available: "24/7" },
+    { service: "Stormschade dakkapel", response: "Binnen 4 uur", available: "24/7" },
+    { service: "Kapot dakraam", response: "Zelfde dag", available: "24/7" },
+    { service: "Noodreparatie bekleden", response: "Binnen 1 dag", available: "24/7" }
   ];
 
   const handleSubmit = async (e) => {
@@ -133,10 +117,11 @@ const ChimneyRenovationPage = () => {
     try {
       const success = await sendEmail({
         ...formData,
-        service: 'Schoorsteen Renovatie'
+        service: 'Dakkapel & Dakramen'
       });
 
       if (success) {
+        // Reset form
         setFormData({
           name: '',
           email: '',
@@ -147,6 +132,8 @@ const ChimneyRenovationPage = () => {
           timeline: '',
           message: ''
         });
+
+        // Redirect to thank you page
         navigate('/bedankt');
       } else {
         setError('Er is een fout opgetreden bij het verzenden. Probeer het opnieuw of bel ons direct.');
@@ -185,9 +172,16 @@ const ChimneyRenovationPage = () => {
     {
       icon: Clock,
       title: "Beschikbaarheid",
-      details: ["24/7 Bereikbaar", "Voor al uw renovatieprojecten"],
+      details: ["24/7 Bereikbaar", "Voor al uw bouwprojecten"],
       action: null
     }
+  ];
+
+  const projectTypes = [
+    { id: 'dakkapel-plaatsen', label: 'Dakkapel Plaatsen', icon: Home },
+    { id: 'dakkapel-renoveren', label: 'Dakkapel Renoveren', icon: Hammer },
+    { id: 'dakramen', label: 'Dakramen', icon: Sun },
+    { id: 'anders', label: 'Anders', icon: Wrench }
   ];
 
   return (
@@ -200,7 +194,7 @@ const ChimneyRenovationPage = () => {
         <div
           className="absolute inset-0 bg-cover bg-center opacity-30"
           style={{
-            backgroundImage: 'url(https://images.pexels.com/photos/2219024/pexels-photo-2219024.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop)'
+            backgroundImage: 'url(https://images.pexels.com/photos/1396132/pexels-photo-1396132.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop)'
           }}
         ></div>
 
@@ -211,20 +205,21 @@ const ChimneyRenovationPage = () => {
                 <div className="flex items-center space-x-3">
                   <div className="w-3 h-3 bg-brand-400 rounded-full shadow-lg"></div>
                   <span className="text-white font-semibold text-sm tracking-wide">
-                    Gecertificeerd Specialist in Schoorsteen Renovatie
+                    Gecertificeerd Specialist in Dakkapellen & Dakramen
                   </span>
                   <div className="w-3 h-3 bg-brand-400 rounded-full shadow-lg"></div>
                 </div>
               </div>
             </div>
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              <span className="text-brand-400">Schoorsteen & Schouw</span>
+              Professioneel <span className="text-brand-400">Dakkapel & Dakramen</span>
               <br />
-              <span className="text-brand-400">Professioneel Renoveren!</span>
+              <span className="text-brand-400">Meer Ruimte, Meer Licht!</span>
             </h1>
             <p className="text-xl md:text-2xl text-stone-200 mb-8 max-w-3xl mx-auto">
-              Geef uw schoorsteen een tweede leven! Van kleine reparaties tot complete renovatie.
-              <span className="text-brand-400 font-bold"> 10 jaar garantie & vaste prijzen!</span>
+              Van dakkapel plaatsen tot reparatie en dakramen - wij zorgen voor vakkundig werk!
+              <span className="text-brand-400 font-bold"> Problemen met uw dakkapel? Wij helpen snel!</span>
+              {' '}Gratis inmeting & garantie op al ons werk.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
@@ -233,38 +228,38 @@ const ChimneyRenovationPage = () => {
                 className="bg-brand-500 hover:bg-brand-600 text-slate-900 font-bold px-10 py-5 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-2xl flex items-center justify-center space-x-2 text-lg animate-pulse"
               >
                 <Calculator className="w-6 h-6" />
-                <span>GRATIS RENOVATIE OFFERTE</span>
+                <span>GRATIS OFFERTE AANVRAGEN</span>
               </button>
               <a
                 href="tel:0657010861"
                 className="bg-brand-600 hover:bg-brand-700 text-white font-bold px-10 py-5 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-2xl flex items-center justify-center space-x-2 text-lg"
               >
                 <Phone className="w-6 h-6" />
-                <span>DIRECT ADVIES: 06 57 01 08 61</span>
+                <span>DIRECT BELLEN</span>
               </a>
             </div>
 
             <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 mb-8">
               <div className="flex items-center justify-center space-x-2 mb-4">
                 <CheckCircle className="w-6 h-6 text-brand-400" />
-                <p className="text-lg font-semibold text-brand-400">Waarom kiezen voor renovatie?</p>
+                <p className="text-lg font-semibold text-brand-400">Waarom kiezen voor ons?</p>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
                 <div className="flex items-center justify-center space-x-2">
                   <CheckCircle className="w-6 h-6 text-green-400" />
-                  <span>Behoud Karakter Woning</span>
+                  <span>Gratis Inmeting</span>
                 </div>
                 <div className="flex items-center justify-center space-x-2">
                   <CheckCircle className="w-6 h-6 text-green-400" />
-                  <span>10 Jaar Garantie</span>
+                  <span>Waterdichte Garantie</span>
                 </div>
                 <div className="flex items-center justify-center space-x-2">
                   <CheckCircle className="w-6 h-6 text-green-400" />
-                  <span>Energiebesparing</span>
+                  <span>Geen Voorrijkosten</span>
                 </div>
                 <div className="flex items-center justify-center space-x-2">
                   <CheckCircle className="w-6 h-6 text-green-400" />
-                  <span>Waardeverhoging Woning</span>
+                  <span>Vakkundig Timmerwerk</span>
                 </div>
               </div>
             </div>
@@ -277,18 +272,18 @@ const ChimneyRenovationPage = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-slate-900 mb-6">
-              Waarom <span className="bg-gradient-to-r from-brand-400 to-brand-600 bg-clip-text text-transparent">Schoorsteen Renoveren?</span>
+              Waarom Een <span className="bg-gradient-to-r from-brand-400 to-brand-600 bg-clip-text text-transparent">Dakkapel Plaatsen?</span>
             </h2>
             <p className="text-xl text-stone-600 max-w-3xl mx-auto mb-8">
-              Een gerenoveerde schoorsteen werkt beter, ziet er mooier uit en verhoogt de waarde van uw woning.
-              Plus: geen lekkages meer en lagere energiekosten!
+              Een dakkapel vergroot uw woonruimte en brengt extra daglicht in huis.
+              Wij zorgen voor vakkundige plaatsing met waterdichte garantie!
             </p>
             <button
               onClick={() => setIsContactPopupOpen(true)}
               className="bg-brand-500 hover:bg-brand-600 text-slate-900 font-bold px-8 py-4 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg inline-flex items-center space-x-2"
             >
               <ArrowRight className="w-5 h-5" />
-              <span>Ontdek De Mogelijkheden</span>
+              <span>Vraag Nu Een Gratis Offerte Aan</span>
             </button>
           </div>
 
@@ -307,69 +302,69 @@ const ChimneyRenovationPage = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="relative overflow-hidden rounded-xl shadow-lg">
               <img
-                src="https://i.imgur.com/H2FKpZ2.jpg"
-                alt="Schoorsteen renovatie"
+                src="https://images.pexels.com/photos/1396132/pexels-photo-1396132.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop"
+                alt="Dakkapel plaatsing"
                 className="w-full h-64 object-cover hover:scale-110 transition-transform duration-500"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent"></div>
               <div className="absolute bottom-4 left-4 text-white">
-                <h4 className="font-bold">Voor Renovatie</h4>
-                <p className="text-sm">Oude, beschadigde staat</p>
+                <h4 className="font-bold">Dakkapel Plaatsen</h4>
+                <p className="text-sm">Meer ruimte en licht</p>
               </div>
             </div>
             <div className="relative overflow-hidden rounded-xl shadow-lg">
               <img
-                src="https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop"
-                alt="Schoorsteen renovatie"
+                src="https://images.pexels.com/photos/259588/pexels-photo-259588.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop"
+                alt="Dakkapel renovatie"
                 className="w-full h-64 object-cover hover:scale-110 transition-transform duration-500"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent"></div>
               <div className="absolute bottom-4 left-4 text-white">
-                <h4 className="font-bold">Tijdens Renovatie</h4>
-                <p className="text-sm">Vakkundig werk</p>
+                <h4 className="font-bold">Dakkapel Renoveren</h4>
+                <p className="text-sm">Vakkundige renovatie</p>
               </div>
             </div>
             <div className="relative overflow-hidden rounded-xl shadow-lg">
               <img
-                src="https://imgur.com/Zcx7Pq6.jpg"
-                alt="Gerenoveerde schoorsteen"
+                src="https://images.pexels.com/photos/186077/pexels-photo-186077.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop"
+                alt="Dakramen plaatsen"
                 className="w-full h-64 object-cover hover:scale-110 transition-transform duration-500"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent"></div>
               <div className="absolute bottom-4 left-4 text-white">
-                <h4 className="font-bold">Na Renovatie</h4>
-                <p className="text-sm">Perfect resultaat!</p>
+                <h4 className="font-bold">Dakramen</h4>
+                <p className="text-sm">Extra licht en ventilatie</p>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Renovation Types Section */}
+      {/* Types Section */}
       <section className="py-20 bg-stone-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-slate-900 mb-6">
-              Onze <span className="bg-gradient-to-r from-brand-400 to-brand-600 bg-clip-text text-transparent">Renovatie Services</span>
+              Onze <span className="bg-gradient-to-r from-brand-400 to-brand-600 bg-clip-text text-transparent">Dakkapel Specialisaties</span>
             </h2>
             <p className="text-xl text-stone-700 font-semibold max-w-3xl mx-auto mb-2">
-              ✅ Complete renovatie van A tot Z
+              Complete dakkapel diensten van A tot Z
             </p>
             <p className="text-lg text-stone-600 max-w-3xl mx-auto mb-8">
-              Van kleine reparaties tot complete renovatie. Alles is mogelijk!
-              Met behoud van het karakter van uw woning.
+              Van nieuwe dakkapellen tot renovatie en dakramen.
+              Inclusief waterdichte garantie en vakkundige afwerking!
             </p>
             <button
               onClick={() => setIsContactPopupOpen(true)}
               className="bg-brand-500 hover:bg-brand-600 text-slate-900 font-bold px-8 py-4 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg inline-flex items-center space-x-2"
             >
               <Calculator className="w-5 h-5" />
-              <span>BEREKEN RENOVATIEKOSTEN</span>
+              <span>VRAAG GRATIS OFFERTE AAN</span>
             </button>
           </div>
 
           <div className="space-y-12">
-            {renovationTypes.map((type, index) => (
+            {dakkapelTypes.map((type, index) => (
               <div key={index} className={`flex flex-col lg:flex-row items-center gap-12 ${index % 2 === 1 ? 'lg:flex-row-reverse' : ''}`}>
                 <div className="lg:w-1/2">
                   <div className="flex items-center mb-6">
@@ -381,14 +376,7 @@ const ChimneyRenovationPage = () => {
                       <p className="text-stone-600 text-lg">{type.description}</p>
                     </div>
                   </div>
-                  <p className="text-stone-700 leading-relaxed mb-4">{type.details}</p>
-                  <button
-                    onClick={() => setIsContactPopupOpen(true)}
-                    className="bg-brand-600 hover:bg-brand-700 text-white font-bold px-6 py-3 rounded-lg transition-all duration-300 inline-flex items-center space-x-2"
-                  >
-                    <Phone className="w-5 h-5" />
-                    <span>Vraag Offerte Aan</span>
-                  </button>
+                  <p className="text-stone-700 leading-relaxed">{type.details}</p>
                 </div>
                 <div className="lg:w-1/2">
                   <div className="bg-white rounded-xl p-8 shadow-lg">
@@ -396,19 +384,19 @@ const ChimneyRenovationPage = () => {
                     <ul className="space-y-2">
                       <li className="flex items-center space-x-3">
                         <CheckCircle className="w-5 h-5 text-brand-500 flex-shrink-0" />
-                        <span className="text-stone-700">Gratis inspectie vooraf</span>
+                        <span className="text-stone-700">Grondige inspectie</span>
                       </li>
                       <li className="flex items-center space-x-3">
                         <CheckCircle className="w-5 h-5 text-brand-500 flex-shrink-0" />
-                        <span className="text-stone-700">Vaste prijs, geen verrassingen</span>
+                        <span className="text-stone-700">Kwaliteitsvolle materialen</span>
                       </li>
                       <li className="flex items-center space-x-3">
                         <CheckCircle className="w-5 h-5 text-brand-500 flex-shrink-0" />
-                        <span className="text-stone-700">Hoogwaardige materialen</span>
+                        <span className="text-stone-700">Vakkundige uitvoering</span>
                       </li>
                       <li className="flex items-center space-x-3">
                         <CheckCircle className="w-5 h-5 text-brand-500 flex-shrink-0" />
-                        <span className="text-stone-700">10 jaar garantie</span>
+                        <span className="text-stone-700">Garantie op het werk</span>
                       </li>
                     </ul>
                   </div>
@@ -419,48 +407,66 @@ const ChimneyRenovationPage = () => {
         </div>
       </section>
 
-      {/* Benefits Section */}
-      <section className="py-20 bg-gradient-to-br from-green-50 to-brand-50">
+      {/* Urgency Section */}
+      <section className="py-20 bg-gradient-to-br from-red-50 to-orange-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <Sparkles className="w-16 h-16 text-green-500 mx-auto mb-6 animate-pulse" />
+            <Wrench className="w-16 h-16 text-red-500 mx-auto mb-6 animate-pulse" />
             <h2 className="text-4xl font-bold text-slate-900 mb-6">
-              <span className="text-green-600">De Voordelen Van Renovatie</span>
+              <span className="text-red-600">Dakkapel Problemen Wachten Niet!</span>
             </h2>
-            <p className="text-xl text-stone-700 font-semibold max-w-3xl mx-auto mb-4">
-              Stop de problemen, behoud het karakter!
+            <p className="text-xl text-stone-700 max-w-3xl mx-auto mb-4">
+              <strong>Elke dag uitstellen kost u geld!</strong> Lekkages veroorzaken snel waterschade.
             </p>
             <p className="text-lg text-stone-600 max-w-3xl mx-auto mb-8">
-              Een gerenoveerde schoorsteen is veiliger, mooier en energiezuiniger
+              Urgente dakkapel problemen? Wij zijn snel ter plaatse! Preventief onderhoud bespaart duizenden euro's.
             </p>
           </div>
 
-          <div className="bg-white rounded-xl shadow-lg overflow-hidden">
-            <div className="px-6 py-4 bg-green-500 text-white">
-              <h3 className="text-xl font-bold">Wat Renovatie Voor U Betekent</h3>
+          <div className="bg-white rounded-xl shadow-lg overflow-hidden mb-8">
+            <div className="px-6 py-4 bg-red-500 text-white">
+              <h3 className="text-xl font-bold">Herkenbare Dakkapel Problemen</h3>
             </div>
             <div className="divide-y divide-gray-200">
-              {renovationBenefits.map((item, index) => (
-                <div key={index} className="px-6 py-4 flex justify-between items-center">
-                  <div className="font-medium text-slate-900">{item.problem}</div>
-                  <div className="text-center">
-                    <div className="text-sm text-stone-600">Oplossing</div>
-                    <div className="font-bold text-brand-600">{item.solution}</div>
-                  </div>
-                  <div className="text-center">
-                    <div className="text-sm text-stone-600">Resultaat</div>
-                    <div className="font-bold text-green-600 animate-pulse">
-                      {item.result}
-                    </div>
-                  </div>
+              <div className="px-6 py-4 flex justify-between items-center">
+                <div className="font-medium text-slate-900">Lekkende dakkapel</div>
+                <div className="text-center">
+                  <div className="text-sm text-stone-600">Gevolg</div>
+                  <div className="font-bold text-red-600">Waterschade aan plafonds</div>
                 </div>
-              ))}
+                <div className="text-center">
+                  <div className="text-sm text-stone-600">Actie</div>
+                  <div className="font-bold text-green-600">Direct Repareren</div>
+                </div>
+              </div>
+              <div className="px-6 py-4 flex justify-between items-center">
+                <div className="font-medium text-slate-900">Rottend houtwerk</div>
+                <div className="text-center">
+                  <div className="text-sm text-stone-600">Gevolg</div>
+                  <div className="font-bold text-red-600">Structurele schade</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-sm text-stone-600">Actie</div>
+                  <div className="font-bold text-green-600">Urgent Vervangen</div>
+                </div>
+              </div>
+              <div className="px-6 py-4 flex justify-between items-center">
+                <div className="font-medium text-slate-900">Kapot dakraam</div>
+                <div className="text-center">
+                  <div className="text-sm text-stone-600">Gevolg</div>
+                  <div className="font-bold text-red-600">Warmteverlies & tocht</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-sm text-stone-600">Actie</div>
+                  <div className="font-bold text-green-600">Snel Herstellen</div>
+                </div>
+              </div>
             </div>
           </div>
 
-          <div className="text-center mt-8 space-y-4">
+          <div className="text-center space-y-4">
             <p className="text-lg font-semibold text-stone-700">
-              Investeer in kwaliteit en geniet jarenlang zonder zorgen!
+              Waarom langer wachten? Elk lek dat u uitstelt wordt duurder!
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button
@@ -468,7 +474,7 @@ const ChimneyRenovationPage = () => {
                 className="bg-brand-500 hover:bg-brand-600 text-slate-900 font-bold px-10 py-5 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-2xl inline-flex items-center space-x-2 text-lg"
               >
                 <Calculator className="w-6 h-6" />
-                <span>BEREKEN UW INVESTERING</span>
+                <span>BEREKEN UW SCHADE</span>
               </button>
               <a
                 href="tel:0657010861"
@@ -482,18 +488,62 @@ const ChimneyRenovationPage = () => {
         </div>
       </section>
 
+      {/* Emergency Section */}
+      <section className="py-20 bg-red-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <Wrench className="w-16 h-16 text-red-500 mx-auto mb-6" />
+            <h2 className="text-4xl font-bold text-slate-900 mb-6">
+              <span className="text-red-500">24/7 Spoedservice</span>
+            </h2>
+            <p className="text-xl text-stone-600 max-w-3xl mx-auto mb-8">
+              Lekkage of stormschade aan uw dakkapel? Wij zijn 24/7 bereikbaar voor
+              spoedgevallen en acute dakkapel problemen.
+            </p>
+            <a
+              href="tel:0657010861"
+              className="bg-red-500 hover:bg-red-600 text-white font-bold px-8 py-4 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg inline-flex items-center space-x-2"
+            >
+              <Phone className="w-5 h-5" />
+              <span>Bel Nu: 06 57 01 08 61</span>
+            </a>
+          </div>
+
+          <div className="bg-white rounded-xl shadow-lg overflow-hidden">
+            <div className="px-6 py-4 bg-red-500 text-white">
+              <h3 className="text-xl font-bold">24/7 Spoedservice Response Tijden</h3>
+            </div>
+            <div className="divide-y divide-gray-200">
+              {emergencyServices.map((emergency, index) => (
+                <div key={index} className="px-6 py-4 flex justify-between items-center">
+                  <div className="font-medium text-slate-900">{emergency.service}</div>
+                  <div className="text-center">
+                    <div className="text-sm text-stone-600">Response tijd</div>
+                    <div className="font-bold text-red-500">{emergency.response}</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-sm text-stone-600">Beschikbaarheid</div>
+                    <div className="font-bold text-green-600">{emergency.available}</div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Process Section */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-slate-900 mb-6">
-              Hoe Wij Uw <span className="bg-gradient-to-r from-brand-400 to-brand-600 bg-clip-text text-transparent">Schoorsteen Renoveren</span>
+              Hoe Wij Uw <span className="bg-gradient-to-r from-brand-400 to-brand-600 bg-clip-text text-transparent">Dakkapel Plaatsen</span>
             </h2>
             <p className="text-xl text-stone-700 font-semibold max-w-3xl mx-auto mb-2">
-              In 4 Stappen Naar Een Als Nieuwe Schoorsteen!
+              In 4 Simpele Stappen Naar Uw Nieuwe Dakkapel!
             </p>
             <p className="text-lg text-stone-600 max-w-3xl mx-auto mb-8">
-              Professioneel, betrouwbaar en met oog voor detail
+              Snel, vakkundig en zonder zorgen - wij regelen alles voor u
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
               <button
@@ -501,20 +551,20 @@ const ChimneyRenovationPage = () => {
                 className="bg-green-500 hover:bg-green-600 text-white font-bold px-8 py-4 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg inline-flex items-center space-x-2"
               >
                 <Phone className="w-5 h-5" />
-                <span>START UW RENOVATIE</span>
+                <span>START VANDAAG NOG!</span>
               </button>
               <a
-                href="tel:0488234625"
+                href="tel:0657010861"
                 className="bg-brand-600 hover:bg-brand-700 text-white font-bold px-8 py-4 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg inline-flex items-center space-x-2"
               >
                 <Clock className="w-5 h-5" />
-                <span>GRATIS INSPECTIE PLANNEN</span>
+                <span>BINNEN 24 UUR INMETING</span>
               </a>
             </div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {renovationProcess.map((item, index) => (
+            {dakkapelProcess.map((item, index) => (
               <div key={index} className="text-center">
                 <div className="w-16 h-16 bg-brand-500 text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">
                   {item.step}
@@ -534,10 +584,10 @@ const ChimneyRenovationPage = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
               <h2 className="text-4xl font-bold text-slate-900 mb-8">
-                Waarom <span className="bg-gradient-to-r from-brand-400 to-brand-600 bg-clip-text text-transparent">Renoveren Ipv Verwijderen?</span>
+                Onze <span className="bg-gradient-to-r from-brand-400 to-brand-600 bg-clip-text text-transparent">Dakkapel Diensten</span>
               </h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                {renovationServices.map((service, index) => (
+                {dakkapelServices.map((service, index) => (
                   <div key={index} className="flex items-center space-x-3 bg-white rounded-xl p-4 shadow-sm border border-stone-100">
                     <CheckCircle className="w-5 h-5 text-brand-500 flex-shrink-0" />
                     <span className="text-stone-700 font-medium">{service}</span>
@@ -547,40 +597,37 @@ const ChimneyRenovationPage = () => {
               <div className="mt-8">
                 <div className="p-6 bg-gradient-to-br from-brand-50 to-brand-50 border-2 border-brand-400 rounded-lg mb-6">
                   <h4 className="font-bold text-slate-900 mb-4 text-xl">
-                    💎 Verhoog De Waarde Van Uw Woning!
+                    Meer Ruimte In Uw Woning!
                   </h4>
                   <p className="text-stone-700 mb-4">
-                    Een gerenoveerde schoorsteen verhoogt de waarde van uw woning
-                    <strong>aanzienlijk!</strong>
+                    Een dakkapel zorgt voor <strong>extra leefruimte en meer daglicht</strong> in uw woning.
+                    Verhoog de waarde van uw huis met een prachtige dakkapel!
                   </p>
                   <button
                     onClick={() => setIsContactPopupOpen(true)}
                     className="w-full bg-brand-500 hover:bg-brand-600 text-slate-900 font-bold px-6 py-3 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg"
                   >
-                    ONTDEK DE MOGELIJKHEDEN →
+                    VRAAG GRATIS INMETING AAN →
                   </button>
                 </div>
                 <div className="bg-white rounded-lg p-4 border-2 border-stone-200">
-                  <h5 className="font-bold text-slate-900 mb-3 text-lg">✅ Voordelen Renovatie:</h5>
+                  <h5 className="font-bold text-slate-900 mb-3 text-lg">Direct Voordeel:</h5>
                   <div className="space-y-2 text-stone-700">
-                    <div className="flex items-center"><CheckCircle className="w-5 h-5 text-green-500 mr-2" />Behoud authentiek karakter</div>
-                    <div className="flex items-center"><CheckCircle className="w-5 h-5 text-green-500 mr-2" />Waardeverhoging woning</div>
-                    <div className="flex items-center"><CheckCircle className="w-5 h-5 text-green-500 mr-2" />Energiebesparing</div>
-                    <div className="flex items-center"><CheckCircle className="w-5 h-5 text-green-500 mr-2" />Veilig & betrouwbaar</div>
-                    <div className="flex items-center"><CheckCircle className="w-5 h-5 text-green-500 mr-2" />10 jaar garantie</div>
+                    <div className="flex items-center"><CheckCircle className="w-5 h-5 text-green-500 mr-2" />Meer woonruimte</div>
+                    <div className="flex items-center"><CheckCircle className="w-5 h-5 text-green-500 mr-2" />Meer daglicht</div>
+                    <div className="flex items-center"><CheckCircle className="w-5 h-5 text-green-500 mr-2" />Hogere woningwaarde</div>
+                    <div className="flex items-center"><CheckCircle className="w-5 h-5 text-green-500 mr-2" />Waterdichte garantie</div>
+                    <div className="flex items-center"><CheckCircle className="w-5 h-5 text-green-500 mr-2" />Vakkundige afwerking</div>
                   </div>
                 </div>
               </div>
             </div>
             <div className="relative">
               <img
-                src="https://images.pexels.com/photos/2219024/pexels-photo-2219024.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop"
-                alt="Schoorsteen renovatie"
+                src="https://images.pexels.com/photos/1396132/pexels-photo-1396132.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop"
+                alt="Dakkapel werkzaamheden"
                 className="w-full h-96 object-cover rounded-xl shadow-lg"
               />
-              <div className="absolute top-4 right-4 bg-brand-500 text-slate-900 font-bold px-4 py-2 rounded-lg">
-                10 JAAR GARANTIE
-              </div>
             </div>
           </div>
         </div>
@@ -597,12 +644,12 @@ const ChimneyRenovationPage = () => {
               Contact
             </span>
             <h2 className="text-4xl md:text-5xl font-bold text-white mt-4 mb-6 leading-tight">
-              Laten We Uw Schoorsteen
-              <span className="text-brand-400"> Renoveren</span>
+              Laten We Uw Dakkapel
+              <span className="text-brand-400"> Inmeten</span>
             </h2>
             <p className="text-stone-300 text-lg max-w-3xl mx-auto leading-relaxed">
-              Klaar voor een gerenoveerde schoorsteen? Neem contact met ons op
-              voor een gratis inspectie en renovatie-advies.
+              Klaar voor meer ruimte en licht? Neem contact met ons op
+              voor een gratis inmeting en vrijblijvende offerte.
             </p>
           </div>
 
@@ -645,12 +692,12 @@ const ChimneyRenovationPage = () => {
                 </div>
               </div>
 
-              <div className="mt-8 p-6 bg-green-900/20 border border-green-900/50 rounded-xl">
-                <h4 className="text-green-400 font-bold mb-2">Renovatie Specialist</h4>
-                <p className="text-stone-300 mb-3">Voor advies over renovatie</p>
+              <div className="mt-8 p-6 bg-red-900/20 border border-red-900/50 rounded-xl">
+                <h4 className="text-red-400 font-bold mb-2">24/7 Spoedservice</h4>
+                <p className="text-stone-300 mb-3">Voor acute dakkapel problemen</p>
                 <a
                   href="tel:0657010861"
-                  className="text-green-400 font-semibold hover:text-green-300 transition-colors"
+                  className="text-red-400 font-semibold hover:text-red-300 transition-colors"
                 >
                   06 57 01 08 61
                 </a>
@@ -659,7 +706,13 @@ const ChimneyRenovationPage = () => {
 
             <div className="lg:col-span-2">
               <div className="bg-white rounded-2xl p-8 shadow-2xl">
-                <h3 className="text-2xl font-bold text-slate-900 mb-8">Vraag een gratis renovatie-offerte aan</h3>
+                <h3 className="text-2xl font-bold text-slate-900 mb-6">Vraag uw gratis offerte aan</h3>
+
+                <div className="bg-brand-50 border border-brand-200 rounded-lg p-4 mb-6">
+                  <h4 className="font-bold text-slate-900 mb-2">✓ Gratis inmeting</h4>
+                  <h4 className="font-bold text-slate-900 mb-2">✓ Vrijblijvende offerte</h4>
+                  <h4 className="font-bold text-slate-900">✓ Persoonlijk advies</h4>
+                </div>
 
                 {error && (
                   <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg">
@@ -679,7 +732,7 @@ const ChimneyRenovationPage = () => {
                           type="text"
                           value={formData.name}
                           onChange={(e) => handleInputChange('name', e.target.value)}
-                          className="w-full pl-12 pr-4 py-3 border border-stone-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-stone-900"
+                          className="w-full pl-12 pr-4 py-3 border border-stone-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 text-stone-900"
                           placeholder="Uw volledige naam"
                           required
                         />
@@ -695,7 +748,7 @@ const ChimneyRenovationPage = () => {
                           type="email"
                           value={formData.email}
                           onChange={(e) => handleInputChange('email', e.target.value)}
-                          className="w-full pl-12 pr-4 py-3 border border-stone-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-stone-900"
+                          className="w-full pl-12 pr-4 py-3 border border-stone-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 text-stone-900"
                           placeholder="uw.email@example.nl"
                           required
                         />
@@ -706,7 +759,7 @@ const ChimneyRenovationPage = () => {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
                       <label className="block text-sm font-medium text-stone-700 mb-2">
-                        Telefoon
+                        Telefoon *
                       </label>
                       <div className="relative">
                         <Phone className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-stone-400" />
@@ -714,14 +767,15 @@ const ChimneyRenovationPage = () => {
                           type="tel"
                           value={formData.phone}
                           onChange={(e) => handleInputChange('phone', e.target.value)}
-                          className="w-full pl-12 pr-4 py-3 border border-stone-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-stone-900"
+                          className="w-full pl-12 pr-4 py-3 border border-stone-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 text-stone-900"
                           placeholder="06 57 01 08 61"
+                          required
                         />
                       </div>
                     </div>
                     <div>
                       <label className="block text-sm font-medium text-stone-700 mb-2">
-                        Stad
+                        Stad *
                       </label>
                       <div className="relative">
                         <MapPin className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-stone-400" />
@@ -729,8 +783,9 @@ const ChimneyRenovationPage = () => {
                           type="text"
                           value={formData.stad}
                           onChange={(e) => handleInputChange('stad', e.target.value)}
-                          className="w-full pl-12 pr-4 py-3 border border-stone-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-stone-900"
+                          className="w-full pl-12 pr-4 py-3 border border-stone-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 text-stone-900"
                           placeholder="Amsterdam"
+                          required
                         />
                       </div>
                     </div>
@@ -739,31 +794,33 @@ const ChimneyRenovationPage = () => {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
                       <label className="block text-sm font-medium text-stone-700 mb-2">
-                        Straatnaam + Huisnummer
-                      </label>
-                      <div className="relative">
-                        <Home className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-stone-400" />
-                        <input
-                          type="text"
-                          value={formData.address}
-                          onChange={(e) => handleInputChange('address', e.target.value)}
-                          className="w-full pl-12 pr-4 py-3 border border-stone-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-stone-900"
-                          placeholder="Hoofdstraat 123"
-                        />
-                      </div>
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium text-stone-700 mb-2">
-                        Provincie
+                        Straatnaam + Huisnummer *
                       </label>
                       <div className="relative">
                         <Building2 className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-stone-400" />
                         <input
                           type="text"
+                          value={formData.address}
+                          onChange={(e) => handleInputChange('address', e.target.value)}
+                          className="w-full pl-12 pr-4 py-3 border border-stone-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 text-stone-900"
+                          placeholder="Hoofdstraat 123"
+                          required
+                        />
+                      </div>
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium text-stone-700 mb-2">
+                        Provincie *
+                      </label>
+                      <div className="relative">
+                        <Building className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-stone-400" />
+                        <input
+                          type="text"
                           value={formData.provincie}
                           onChange={(e) => handleInputChange('provincie', e.target.value)}
-                          className="w-full pl-12 pr-4 py-3 border border-stone-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-stone-900"
+                          className="w-full pl-12 pr-4 py-3 border border-stone-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 text-stone-900"
                           placeholder="Noord-Holland"
+                          required
                         />
                       </div>
                     </div>
@@ -771,14 +828,15 @@ const ChimneyRenovationPage = () => {
 
                   <div>
                     <label className="block text-sm font-medium text-stone-700 mb-2">
-                      Gewenste startdatum
+                      Gewenste startdatum *
                     </label>
                     <div className="relative">
                       <Calendar className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-stone-400" />
                       <select
                         value={formData.timeline}
                         onChange={(e) => handleInputChange('timeline', e.target.value)}
-                        className="w-full pl-12 pr-4 py-3 border border-stone-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-stone-900"
+                        className="w-full pl-12 pr-4 py-3 border border-stone-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 text-stone-900"
+                        required
                       >
                         <option value="">Selecteer timing</option>
                         <option value="asap">Zo snel mogelijk</option>
@@ -792,7 +850,7 @@ const ChimneyRenovationPage = () => {
 
                   <div>
                     <label className="block text-sm font-medium text-stone-700 mb-2">
-                      Bericht/Beschrijving *
+                      Bericht *
                     </label>
                     <div className="relative">
                       <MessageCircle className="absolute left-3 top-4 w-5 h-5 text-stone-400" />
@@ -800,8 +858,8 @@ const ChimneyRenovationPage = () => {
                         value={formData.message}
                         onChange={(e) => handleInputChange('message', e.target.value)}
                         rows={5}
-                        className="w-full pl-12 pr-4 py-3 border border-stone-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 resize-none text-stone-900"
-                        placeholder="Beschrijf uw schoorsteen renovatie wensen..."
+                        className="w-full pl-12 pr-4 py-3 border border-stone-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 resize-none text-stone-900"
+                        placeholder="Beschrijf uw dakkapel project of probleem..."
                         required
                       />
                     </div>
@@ -813,7 +871,7 @@ const ChimneyRenovationPage = () => {
                       disabled={isSubmitting}
                       className={`inline-flex items-center space-x-3 px-8 py-4 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg ${
                         isSubmitting
-                          ? 'bg-stone-400 cursor-not-allowed'
+                          ? 'bg-stone-400 cursor-not-allowed text-white'
                           : 'bg-brand-500 hover:bg-brand-600 text-white'
                       }`}
                     >
@@ -833,7 +891,7 @@ const ChimneyRenovationPage = () => {
 
                   <p className="text-stone-600 text-sm text-center">
                     Door dit formulier te verzenden gaat u akkoord met ons privacybeleid.
-                    Wij nemen binnen 24 uur contact met u op.
+                    Wij nemen binnen 24 uur contact met u op voor uw gratis inmeting en offerte.
                   </p>
                 </form>
               </div>
@@ -843,11 +901,11 @@ const ChimneyRenovationPage = () => {
           <div className="text-center mt-16">
             <div className="bg-gradient-to-r from-brand-400 to-brand-600 rounded-2xl p-8">
               <h3 className="text-2xl font-bold text-slate-900 mb-4">
-                Klaar Voor Een Gerenoveerde Schoorsteen?
+                Acute Dakkapel Problemen?
               </h3>
               <p className="text-slate-800 mb-6 max-w-2xl mx-auto">
-                Laat uw schoorsteen renoveren door specialisten.
-                Gratis inspectie, eerlijke prijzen, 10 jaar garantie!
+                Voor lekkages, stormschade of andere spoedgevallen kunt u ons 24/7 bellen.<br/>
+                Onze vakmensen staan voor u klaar. Vraag ook een gratis offerte aan!
               </p>
               <a
                 href="tel:0657010861"
@@ -864,11 +922,11 @@ const ChimneyRenovationPage = () => {
       <ContactPopup
         isOpen={isContactPopupOpen}
         onClose={() => setIsContactPopupOpen(false)}
-        service="Schoorsteen Renovatie"
-        title="Gratis Renovatie Inspectie"
+        service="Dakkapel & Dakramen"
+        title="Gratis Offerte & Inmeting Aanvragen"
       />
     </div>
   );
 };
 
-export default ChimneyRenovationPage;
+export default DakkapelPage;

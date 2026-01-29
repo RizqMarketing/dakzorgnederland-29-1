@@ -8,6 +8,7 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import ContactPopup from '../components/ContactPopup';
 import Contact from '../components/Contact';
+import Testimonials from '../components/Testimonials';
 
 const SpoedPage = () => {
   const [isContactPopupOpen, setIsContactPopupOpen] = useState(false);
@@ -362,83 +363,7 @@ const SpoedPage = () => {
         </div>
       </section>
 
-      {/* Professional Testimonials */}
-      <section className="py-20 bg-gradient-to-br from-slate-50 to-stone-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Header with Icon */}
-          <div className="text-center mb-16">
-            <div className="inline-flex items-center justify-center w-16 h-16 bg-brand-100 rounded-full mb-6">
-              <Users className="w-8 h-8 text-brand-600" />
-            </div>
-            <h2 className="text-4xl font-bold text-slate-900 mb-6">
-              Wat Onze <span className="bg-gradient-to-r from-brand-400 to-brand-600 bg-clip-text text-transparent">Klanten</span> Zeggen
-            </h2>
-            <p className="text-xl text-stone-600 max-w-3xl mx-auto leading-relaxed">
-              Al meer dan 25 jaar zorgen wij voor vakkundig dakwerk. Onze klanten waarderen onze 
-              betrouwbaarheid, kwaliteit en persoonlijke service.
-            </p>
-          </div>
-          
-          {/* Enhanced Widget Container */}
-          <div className="relative w-full max-w-none mx-auto">
-            {/* Subtle background pattern */}
-            <div className="absolute inset-0 bg-gradient-to-r from-brand-50 to-slate-50 rounded-2xl transform rotate-1"></div>
-            <div className="absolute inset-0 bg-gradient-to-r from-slate-50 to-brand-50 rounded-2xl transform -rotate-1"></div>
-            
-            {/* Main container */}
-            <div className="relative bg-white rounded-2xl shadow-xl border border-stone-200 p-4 sm:p-6 mx-2 sm:mx-4">
-              {/* Top accent */}
-              <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-20 h-1 bg-gradient-to-r from-brand-400 to-brand-600 rounded-b-full"></div>
-              
-              {/* Widget */}
-              <div 
-                className="overflow-hidden rounded-xl"
-                style={{ 
-                  minHeight: '400px',
-                  paddingBottom: '10px'
-                }}
-                dangerouslySetInnerHTML={{
-                  __html: `
-                    <script type='text/javascript' src='https://reputationhub.site/reputation/assets/review-widget.js'></script>
-                    <iframe class='lc_reviews_widget' src='https://reputationhub.site/reputation/widgets/review_widget/bGV3Pxr7SBGEoFWh6kb3' frameborder='0' scrolling='auto' style='min-width: 100%; width: 100%; height: 350px; border-radius: 12px; display: block; margin: 0; padding: 0; box-sizing: border-box;'></iframe>
-                  `
-                }}
-              />
-            </div>
-          </div>
-
-          {/* Clean Trust Footer */}
-          <div className="mt-12">
-            <div className="text-center space-y-6">
-              <div className="inline-flex items-center space-x-1 text-xs text-stone-400 font-medium tracking-wide">
-                <Shield className="w-3 h-3" />
-                <span>VOLLEDIG VERZEKERD</span>
-                <span className="mx-3">•</span>
-                <Award className="w-3 h-3" />
-                <span>GECERTIFICEERD</span>
-                <span className="mx-3">•</span>
-                <Clock className="w-3 h-3" />
-                <span>7+ JAAR ERVARING</span>
-              </div>
-              
-              {/* Trustpilot Logo */}
-              <div className="pt-2">
-                <a 
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-block hover:scale-105 transition-transform duration-200"
-                >
-                  <img 
-                    src="https://imgur.com/ZKUY57s.png" 
-                    alt="Trustpilot Reviews - Bekijk onze beoordelingen" 
-                    className="h-16 w-auto opacity-80 hover:opacity-100 transition-opacity"
-                  />
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <Testimonials />
 
 
       <Footer>

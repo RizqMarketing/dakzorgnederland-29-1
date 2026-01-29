@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { Calculator, Home, Building2, Wrench, Check, ArrowRight } from 'lucide-react';
+import { Calculator, Home, Building2, Wrench, Check, ArrowRight, Hammer, HardHat, ShieldCheck, Droplets, Sun } from 'lucide-react';
 
 const CostCalculator = () => {
   const [formData, setFormData] = useState({
-    projectType: '',
+    projectType: 'dakrenovatie',
     buildingType: '',
     size: '',
     specifications: {
@@ -18,55 +18,55 @@ const CostCalculator = () => {
   });
 
   const [estimate, setEstimate] = useState(null);
-  const [activeTab, setActiveTab] = useState('project');
+  const [activeTab, setActiveTab] = useState('dakwerk');
 
   const projectTypes = [
-    { id: 'new', label: 'Nieuwbouw', icon: Building2, desc: 'Volledig nieuw gebouw' },
-    { id: 'renovation', label: 'Renovatie', icon: Wrench, desc: 'Bestaand pand vernieuwen' },
-    { id: 'extension', label: 'Uitbouw', icon: Home, desc: 'Aanbouw of uitbreiding' }
+    { id: 'dakrenovatie', label: 'Dakrenovatie', icon: Hammer, desc: 'Renovatie van bestaand dak' },
+    { id: 'nieuwdak', label: 'Nieuw Dak', icon: Home, desc: 'Volledig nieuw dak plaatsen' },
+    { id: 'onderhoud', label: 'Dakonhderhoud', icon: ShieldCheck, desc: 'Onderhoud en reparaties' }
   ];
 
   const buildingTypes = [
-    { id: 'house', label: 'Woonhuis', basePrice: 1800 },
-    { id: 'apartment', label: 'Appartement', basePrice: 1600 },
-    { id: 'commercial', label: 'Commercieel', basePrice: 2200 },
-    { id: 'office', label: 'Kantoor', basePrice: 2000 }
+    { id: 'schuin', label: 'Schuin Dak', basePrice: 65 },
+    { id: 'plat', label: 'Plat Dak', basePrice: 55 },
+    { id: 'mansard', label: 'Mansarde Dak', basePrice: 85 },
+    { id: 'geen', label: 'Nieuw/Dakopbouw', basePrice: 75 }
   ];
 
   const specifications = {
-    flooring: [
-      { id: 'basic', label: 'Standaard', sublabel: 'Laminaat', multiplier: 1.0 },
-      { id: 'mid', label: 'Midden', sublabel: 'Parket', multiplier: 1.2 },
-      { id: 'high', label: 'Luxe', sublabel: 'Natuursteen', multiplier: 1.5 }
-    ],
-    kitchen: [
-      { id: 'basic', label: 'Standaard', sublabel: 'Basis keuken', multiplier: 1.0 },
-      { id: 'mid', label: 'Midden', sublabel: 'Design keuken', multiplier: 1.3 },
-      { id: 'high', label: 'Luxe', sublabel: 'Maatwerk', multiplier: 1.8 }
-    ],
-    bathroom: [
-      { id: 'basic', label: 'Standaard', sublabel: 'Basis sanitair', multiplier: 1.0 },
-      { id: 'mid', label: 'Midden', sublabel: 'Design sanitair', multiplier: 1.25 },
-      { id: 'high', label: 'Luxe', sublabel: 'Wellness', multiplier: 1.6 }
-    ],
-    heating: [
-      { id: 'basic', label: 'CV Ketel', sublabel: 'Traditioneel', multiplier: 1.0 },
-      { id: 'mid', label: 'Vloerverwarming', sublabel: 'Comfort', multiplier: 1.15 },
-      { id: 'high', label: 'Warmtepomp', sublabel: 'Duurzaam', multiplier: 1.3 }
+    tiles: [
+      { id: 'bitumen', label: 'Bitumen', sublabel: 'Klassieke dakbedekking', multiplier: 1.0 },
+      { id: 'pannen', label: 'Dakpannen', sublabel: 'Keramiek of beton', multiplier: 1.1 },
+      { id: 'metaal', label: 'Metalen Dak', sublabel: 'Zink, koper of staal', multiplier: 1.2 }
     ],
     insulation: [
-      { id: 'basic', label: 'Standaard', sublabel: 'Bouwbesluit', multiplier: 1.0 },
-      { id: 'mid', label: 'Verbeterd', sublabel: 'Energielabel A', multiplier: 1.1 },
-      { id: 'high', label: 'Passief', sublabel: 'Energieneutraal', multiplier: 1.4 }
+      { id: 'basic', label: 'Basis Isolatie', sublabel: 'Minimale eisen', multiplier: 1.0 },
+      { id: 'good', label: 'Goede Isolatie', sublabel: 'HR++ glas', multiplier: 1.05 },
+      { id: 'excellent', label: 'Uitmuntend', sublabel: 'PIR of PUR isolatie', multiplier: 1.1 }
+    ],
+    guttering: [
+      { id: 'pvc', label: 'PVC', sublabel: 'Standaaard afvoer', multiplier: 1.0 },
+      { id: 'zink', label: 'Zinken Goten', sublabel: 'Duurzaam materiaal', multiplier: 1.08 },
+      { id: 'koper', label: 'Koperen Goten', sublabel: 'Premium afwerking', multiplier: 1.15 }
+    ],
+    ventilation: [
+      { id: 'basic', label: 'Basis Ventilatie', sublabel: 'Traditionele roosters', multiplier: 1.0 },
+      { id: 'mechanical', label: 'Mechanische Ventilatie', sublabel: 'Actieve luchtcirculatie', multiplier: 1.08 },
+      { id: 'smart', label: 'Slimme Ventilatie', sublabel: 'Automatisch geregelde lucht', multiplier: 1.12 }
+    ],
+    safety: [
+      { id: 'basic', label: 'Basis Beveiliging', sublabel: 'Valbeveiliging aanbrengen', multiplier: 1.0 },
+      { id: 'enhanced', label: 'Verbeterde Veiligheid', sublabel: 'Extra bevestiging en conctrol', multiplier: 1.05 },
+      { id: 'premium', label: 'Premium Veiligheid', sublabel: 'Volledige valbescherming en liften', multiplier: 1.08 }
     ]
   };
 
   const specLabels = {
-    flooring: 'Vloeren',
-    kitchen: 'Keuken',
-    bathroom: 'Badkamer',
-    heating: 'Verwarming',
-    insulation: 'Isolatie'
+    tiles: 'Dakbedekking',
+    insulation: 'Isolatie',
+    guttering: 'Goten & Afvoer',
+    ventilation: 'Ventilatie',
+    safety: 'Veiligheid & Montage'
   };
 
   const calculateEstimate = () => {
@@ -76,28 +76,42 @@ const CostCalculator = () => {
     const basePrice = buildingType.basePrice;
     const size = parseInt(formData.size) || 0;
 
-    let multiplier = 1.0;
+    let totalMultiplier = 1.0;
 
-    if (formData.projectType === 'renovation') multiplier *= 0.8;
-    if (formData.projectType === 'extension') multiplier *= 0.9;
+    // Afhankelijk van projecttype
+    if (formData.projectType === 'dakrenovatie') totalMultiplier *= 0.9; // Renovatie is goedkoper
+    if (formData.projectType === 'onderhoud') totalMultiplier *= 0.8; // Onderhoud is goedkoopst
 
     Object.keys(formData.specifications).forEach(spec => {
       const specValue = formData.specifications[spec];
       if (specValue && specifications[spec]) {
         const specOption = specifications[spec].find(s => s.id === specValue);
-        if (specOption) multiplier *= specOption.multiplier;
+        if (specOption) totalMultiplier *= specOption.multiplier;
       }
     });
 
-    const totalEstimate = basePrice * size * multiplier;
-    const minEstimate = totalEstimate * 0.85;
-    const maxEstimate = totalEstimate * 1.15;
+    // Area-based calculation
+    let areaMultiplier = 1.0;
+    if (size > 100) areaMultiplier *= 0.9;   // Volume discount
+    if (size > 200) areaMultiplier *= 0.8;   // Large project discount
+    if (size < 50) areaMultiplier *= 1.1;    // Small project surcharge
+
+    // Realistic calculation including materials + labor (60% + overhead 15%)
+    let materialCost = basePrice * size * totalMultiplier;
+    let laborCost = materialCost * 0.6; // Realistisch: 60% is arbeid (inclusief manuren)
+    let overhead = (materialCost + laborCost) * 0.15; // 15% overhead (transport, materiaalafzet, etc.)
+    let totalEstimate = (materialCost + laborCost + overhead) * areaMultiplier;
+
+    // Smaller range for more accuracy
+    const minEstimate = totalEstimate * 0.92;
+    const maxEstimate = totalEstimate * 1.08;
 
     setEstimate({
       min: Math.round(minEstimate),
       max: Math.round(maxEstimate),
       average: Math.round(totalEstimate)
     });
+
   };
 
   useEffect(() => {
@@ -120,6 +134,8 @@ const CostCalculator = () => {
         [field]: value
       }));
     }
+
+    // Auto-progress removed, users can navigate themselves with next buttons
   };
 
   const handleRequestQuote = () => {
@@ -130,7 +146,7 @@ const CostCalculator = () => {
   };
 
   const tabs = [
-    { id: 'project', label: 'Project' },
+    { id: 'dakwerk', label: 'Dakwerk' },
     { id: 'gebouw', label: 'Gebouw' },
     { id: 'afwerking', label: 'Afwerking' }
   ];
@@ -148,19 +164,29 @@ const CostCalculator = () => {
   const status = getCompletionStatus();
 
   return (
-    <section id="cost-calculator" className="py-20 bg-gradient-to-br from-stone-100 via-stone-50 to-amber-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="cost-calculator" className="py-20 bg-stone-900 relative overflow-hidden">
+      {/* Background Pattern */}
+      <div className="absolute inset-0 opacity-5">
+        <div className="absolute inset-0 bg-gradient-to-br from-brand-400/20 to-brand-600/20"></div>
+        <div className="absolute top-0 left-0 w-full h-full roof-pattern"></div>
+      </div>
+
+      {/* Decorative elements */}
+      <div className="absolute top-20 right-10 w-32 h-32 bg-brand-500/10 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-20 left-10 w-40 h-40 bg-brand-400/10 rounded-full blur-3xl"></div>
+
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-12">
-          <div className="inline-flex items-center gap-2 bg-brand-500/20 text-brand-600 px-4 py-2 rounded-full mb-6">
+          <div className="inline-flex items-center gap-2 bg-brand-500/20 text-brand-300 px-4 py-2 rounded-full mb-6 border border-brand-400/30">
             <Calculator className="w-5 h-5" />
             <span className="font-medium">Kostencalculator</span>
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold text-stone-800 mb-4">
-            Bereken Uw Projectkosten
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+            Bereken Uw Dakwerken
           </h2>
-          <p className="text-stone-600 text-lg max-w-2xl mx-auto">
-            Configureer uw project en ontvang direct een indicatieve kostenraming
+          <p className="text-stone-300 text-lg max-w-2xl mx-auto">
+            Bereken kosten voor uw dakrenovatie of nieuwe dak - direct indicatie online
           </p>
         </div>
 
@@ -168,7 +194,7 @@ const CostCalculator = () => {
           {/* Left Panel - Configuration */}
           <div className="space-y-6">
             {/* Tabs */}
-            <div className="bg-white rounded-2xl p-2 inline-flex gap-2 shadow-md">
+            <div className="bg-stone-800/50 backdrop-blur-sm rounded-2xl p-2 inline-flex gap-2 border border-stone-700/50 shadow-md">
               {tabs.map((tab) => (
                 <button
                   key={tab.id}
@@ -176,7 +202,7 @@ const CostCalculator = () => {
                   className={`px-6 py-3 rounded-xl font-medium transition-all duration-300 ${
                     activeTab === tab.id
                       ? 'bg-brand-500 text-stone-900'
-                      : 'text-stone-500 hover:text-stone-800 hover:bg-stone-100'
+                      : 'text-stone-300 hover:text-white hover:bg-stone-700'
                   }`}
                 >
                   {tab.label}
@@ -185,11 +211,22 @@ const CostCalculator = () => {
             </div>
 
             {/* Tab Content */}
-            <div className="bg-white border border-stone-200 rounded-2xl p-6 md:p-8 shadow-lg">
-              {/* Project Tab */}
-              {activeTab === 'project' && (
+            <div className="bg-stone-800/50 backdrop-blur-sm border border-stone-700/50 rounded-2xl p-6 md:p-8 shadow-lg relative">
+              {/* Progress indicators */}
+              {formData.projectType && activeTab === 'dakwerk' && (
+                <div className="absolute top-3 right-3 w-6 h-6 bg-green-500 rounded-full flex items-center justify-center animate-pulse">
+                  <Check className="w-4 h-4 text-white" />
+                </div>
+              )}
+              {formData.buildingType && formData.size && activeTab === 'gebouw' && (
+                <div className="absolute top-3 right-3 w-6 h-6 bg-green-500 rounded-full flex items-center justify-center animate-pulse">
+                  <Check className="w-4 h-4 text-white" />
+                </div>
+              )}
+              {/* Dakwerk Tab */}
+              {activeTab === 'dakwerk' && (
                 <div className="space-y-6">
-                  <h3 className="text-xl font-semibold text-stone-800 mb-6">Kies uw projecttype</h3>
+                  <h3 className="text-xl font-semibold text-stone-100 mb-6">Kies uw dakwerk</h3>
                   <div className="grid gap-4">
                     {projectTypes.map((type) => (
                       <button
@@ -197,20 +234,24 @@ const CostCalculator = () => {
                         onClick={() => handleInputChange('projectType', type.id)}
                         className={`flex items-center gap-4 p-5 rounded-xl border-2 text-left transition-all duration-300 group ${
                           formData.projectType === type.id
-                            ? 'border-brand-500 bg-brand-50'
-                            : 'border-stone-200 hover:border-stone-300 bg-stone-50'
+                            ? 'border-brand-400 bg-brand-400/10'
+                            : 'border-stone-600 hover:border-stone-500 bg-stone-700 hover:bg-stone-600'
                         }`}
                       >
                         <div className={`w-14 h-14 rounded-xl flex items-center justify-center transition-colors ${
                           formData.projectType === type.id
-                            ? 'bg-brand-500 text-stone-900'
-                            : 'bg-stone-200 text-stone-500 group-hover:bg-stone-300'
+                            ? 'bg-brand-400 text-stone-900 shadow-lg shadow-brand-400/30'
+                            : 'bg-stone-700 text-stone-200 group-hover:bg-stone-600'
                         }`}>
                           <type.icon className="w-7 h-7" />
                         </div>
-                        <div className="flex-1">
-                          <div className="font-semibold text-stone-800 text-lg">{type.label}</div>
-                          <div className="text-stone-500 text-sm">{type.desc}</div>
+                                                <div className="flex-1">
+                          <div className={`font-semibold text-lg ${
+                            formData.projectType === type.id ? 'text-white' : 'text-stone-100'
+                          }`}>{type.label}</div>
+                          <div className={`text-sm ${
+                            formData.projectType === type.id ? 'text-stone-200' : 'text-stone-300'
+                          }`}>{type.desc}</div>
                         </div>
                         {formData.projectType === type.id && (
                           <div className="w-8 h-8 rounded-full bg-brand-500 flex items-center justify-center">
@@ -220,6 +261,19 @@ const CostCalculator = () => {
                       </button>
                     ))}
                   </div>
+
+                  {/* Next button */}
+                  {formData.projectType && (
+                    <div className="mt-6 text-right">
+                      <button
+                        onClick={() => setActiveTab('gebouw')}
+                        className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-brand-400 to-brand-500 text-stone-900 rounded-xl font-semibold hover:shadow-lg hover:shadow-brand-400/30 transition-all duration-300 transform hover:scale-105"
+                      >
+                        Volgende
+                        <ArrowRight className="w-5 h-5 ml-2" />
+                      </button>
+                    </div>
+                  )}
                 </div>
               )}
 
@@ -227,7 +281,7 @@ const CostCalculator = () => {
               {activeTab === 'gebouw' && (
                 <div className="space-y-8">
                   <div>
-                    <h3 className="text-xl font-semibold text-stone-800 mb-6">Type gebouw</h3>
+                    <h3 className="text-xl font-semibold text-stone-100 mb-6">Type gebouw</h3>
                     <div className="grid grid-cols-2 gap-4">
                       {buildingTypes.map((type) => (
                         <button
@@ -235,40 +289,57 @@ const CostCalculator = () => {
                           onClick={() => handleInputChange('buildingType', type.id)}
                           className={`p-5 rounded-xl border-2 text-center transition-all duration-300 ${
                             formData.buildingType === type.id
-                              ? 'border-brand-500 bg-brand-50'
-                              : 'border-stone-200 hover:border-stone-300 bg-stone-50'
+                              ? 'border-brand-400 bg-brand-400/10'
+                              : 'border-stone-600 hover:border-stone-500 bg-stone-700 hover:bg-stone-600'
                           }`}
                         >
-                          <div className="font-semibold text-stone-800">{type.label}</div>
-                          <div className="text-brand-600 text-sm mt-1">€{type.basePrice}/m²</div>
+                          <div className={`font-semibold ${
+                            formData.buildingType === type.id ? 'text-white' : 'text-stone-100'
+                          }`}>{type.label}</div>
+                          <div className={`text-sm mt-1 ${
+                            formData.buildingType === type.id ? 'text-brand-200' : 'text-brand-300'
+                          }`}>€{type.basePrice}/m²</div>
                         </button>
                       ))}
                     </div>
                   </div>
 
                   <div>
-                    <h3 className="text-xl font-semibold text-stone-800 mb-4">Oppervlakte</h3>
+                    <h3 className="text-xl font-semibold text-stone-100 mb-4">Oppervlakte</h3>
                     <div className="relative">
                       <input
                         type="number"
                         value={formData.size}
                         onChange={(e) => handleInputChange('size', e.target.value)}
                         placeholder="Voer oppervlakte in"
-                        className="w-full p-4 pr-16 bg-stone-50 border border-stone-200 rounded-xl text-stone-800 placeholder-stone-400 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition-all"
+                        className="w-full p-4 pr-16 bg-stone-700 border border-stone-600 rounded-xl text-stone-100 placeholder-stone-300 focus:ring-2 focus:ring-brand-400 focus:border-brand-400 transition-all"
                       />
-                      <span className="absolute right-4 top-1/2 -translate-y-1/2 text-stone-500 font-medium">m²</span>
+                      <span className="absolute right-4 top-1/2 -translate-y-1/2 text-stone-300 font-medium">m²</span>
                     </div>
                   </div>
+
+                  {/* Next button */}
+                  {(formData.buildingType && formData.size) && (
+                    <div className="mt-6 text-right">
+                      <button
+                        onClick={() => setActiveTab('afwerking')}
+                        className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-brand-400 to-brand-500 text-stone-900 rounded-xl font-semibold hover:shadow-lg hover:shadow-brand-400/30 transition-all duration-300 transform hover:scale-105"
+                      >
+                        Volgende
+                        <ArrowRight className="w-5 h-5 ml-2" />
+                      </button>
+                    </div>
+                  )}
                 </div>
               )}
 
               {/* Afwerking Tab */}
               {activeTab === 'afwerking' && (
                 <div className="space-y-6">
-                  <h3 className="text-xl font-semibold text-stone-800 mb-6">Kies uw afwerkingsniveau</h3>
+                  <h3 className="text-xl font-semibold text-stone-100 mb-6">Kies uw afwerkingsniveau</h3>
                   {Object.keys(specifications).map((specKey) => (
                     <div key={specKey} className="space-y-3">
-                      <label className="text-sm font-medium text-stone-600">
+                      <label className="text-sm font-medium text-stone-300">
                         {specLabels[specKey]}
                       </label>
                       <div className="grid grid-cols-3 gap-3">
@@ -278,24 +349,40 @@ const CostCalculator = () => {
                             onClick={() => handleInputChange(`specifications.${specKey}`, option.id)}
                             className={`p-3 rounded-xl border-2 text-center transition-all duration-300 ${
                               formData.specifications[specKey] === option.id
-                                ? 'border-brand-500 bg-brand-50'
-                                : 'border-stone-200 hover:border-stone-300 bg-stone-50'
+                                ? 'border-brand-400 bg-brand-400/10'
+                                : 'border-stone-600 hover:border-stone-500 bg-stone-700 hover:bg-stone-600'
                             }`}
                           >
-                            <div className="font-medium text-stone-800 text-sm">{option.label}</div>
-                            <div className="text-stone-400 text-xs mt-0.5">{option.sublabel}</div>
+                            <div className={`font-medium text-sm ${
+                              formData.specifications[specKey] === option.id ? 'text-white' : 'text-stone-100'
+                            }`}>{option.label}</div>
+                            <div className={`text-xs mt-0.5 ${
+                              formData.specifications[specKey] === option.id ? 'text-stone-200' : 'text-stone-300'
+                            }`}>{option.sublabel}</div>
                           </button>
                         ))}
                       </div>
                     </div>
                   ))}
+
+                  {/* Navigation buttons */}
+                  <div className="mt-8 flex justify-between">
+                    <button
+                      onClick={() => setActiveTab('gebouw')}
+                      className="inline-flex items-center px-4 py-2 bg-stone-700 text-white rounded-xl font-medium hover:bg-stone-600 transition-all duration-300"
+                    >
+                      <ArrowRight className="w-4 h-4 mr-2 rotate-180" />
+                      Vorige: Gebouw
+                    </button>
+                    <div className="text-sm text-transparent">Klaar!</div>
+                  </div>
                 </div>
               )}
             </div>
           </div>
 
           {/* Right Panel - Live Estimate */}
-          <div className="flex justify-center">
+          <div className="flex justify-center mt-12">
             <div className="bg-gradient-to-br from-stone-800 to-stone-900 rounded-2xl p-8 md:p-10 sticky top-8 shadow-xl w-full max-w-md">
               {/* Progress */}
               <div className="mb-10 text-center">
@@ -325,7 +412,7 @@ const CostCalculator = () => {
                   {/* Breakdown */}
                   <div className="bg-stone-700/50 rounded-xl p-4 space-y-3">
                     <div className="flex justify-between text-sm">
-                      <span className="text-stone-400">Projecttype</span>
+                      <span className="text-stone-400">Dakwerk</span>
                       <span className="text-white font-medium">
                         {projectTypes.find(p => p.id === formData.projectType)?.label || '-'}
                       </span>

@@ -18,10 +18,11 @@ import FacebookPixelPageView from './components/FacebookPixelPageView';
 
 // Lazy load new service pages
 const RoofingPage = React.lazy(() => import('./pages/RoofingPage'));
-const PaintingPage = React.lazy(() => import('./pages/PaintingPage'));
-const TilingPage = React.lazy(() => import('./pages/TilingPage'));
 const ChimneyPage = React.lazy(() => import('./pages/ChimneyPage'));
 const ChimneyRenovationPage = React.lazy(() => import('./pages/ChimneyRenovationPage'));
+const BitumenEpdmPage = React.lazy(() => import('./pages/BitumenEpdmPage'));
+const DakkapelPage = React.lazy(() => import('./pages/DakkapelPage'));
+const VogelWeringPage = React.lazy(() => import('./pages/VogelWeringPage'));
 
 // Lazy load additional service pages
 const NokVorstenPage = React.lazy(() => import('./pages/NokVorstenPage'));
@@ -30,8 +31,6 @@ const SpoedPage = React.lazy(() => import('./pages/SpoedPage'));
 const DakInspectiePage = React.lazy(() => import('./pages/DakInspectiePage'));
 const DakLekkagePage = React.lazy(() => import('./pages/DakLekkagePage'));
 const DakgootReinigingPage = React.lazy(() => import('./pages/DakgootReinigingPage'));
-const GevelVoegenPage = React.lazy(() => import('./pages/GevelVoegenPage'));
-const GevelReinigenPage = React.lazy(() => import('./pages/GevelReinigenPage'));
 
 // Lazy load legal pages
 const PrivacyPage = React.lazy(() => import('./pages/PrivacyPage'));
@@ -120,8 +119,8 @@ const HomePage = () => {
       <About />
       <NicoContact />
       <Coverage />
-      <Testimonials />
       <CostCalculator />
+      <Testimonials />
       <Footer>
         <Contact standalone={false} />
       </Footer>
@@ -140,13 +139,14 @@ function App() {
             <Suspense fallback={<LoadingSpinner />}>
               <Routes>
                 <Route path="/" element={<HomePage />} />
-                {/* New Service Routes */}
+                {/* Main Service Routes */}
                 <Route path="/dakwerk-dakdekken" element={<RoofingPage />} />
-                <Route path="/schilderwerk-stukadoor" element={<PaintingPage />} />
-                <Route path="/tegelwerk" element={<TilingPage />} />
                 <Route path="/schoorsteen-verwijderen" element={<ChimneyPage />} />
                 <Route path="/schoorsteen-renovatie" element={<ChimneyRenovationPage />} />
-                
+                <Route path="/bitumen-epdm" element={<BitumenEpdmPage />} />
+                <Route path="/dakkapel" element={<DakkapelPage />} />
+                <Route path="/vogel-ongedierte-wering" element={<VogelWeringPage />} />
+
                 {/* Additional Service Routes */}
                 <Route path="/nokvorsten" element={<NokVorstenPage />} />
                 <Route path="/loodreparaties" element={<LoodReparatiePage />} />
@@ -154,8 +154,6 @@ function App() {
                 <Route path="/dakinspectie" element={<DakInspectiePage />} />
                 <Route path="/daklekkage" element={<DakLekkagePage />} />
                 <Route path="/dakgootreiniging" element={<DakgootReinigingPage />} />
-                <Route path="/gevel-voegen" element={<GevelVoegenPage />} />
-                <Route path="/gevel-reinigen" element={<GevelReinigenPage />} />
                 
                 {/* Legal Pages */}
                 <Route path="/privacybeleid" element={<PrivacyPage />} />

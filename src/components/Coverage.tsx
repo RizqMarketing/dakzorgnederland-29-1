@@ -93,20 +93,6 @@ const Coverage = () => {
               style={{ width: '125%', height: 'auto', maxWidth: 'none' }}
             />
 
-            {/* Premium badges */}
-            <div className="absolute top-6 md:top-6 top-2 -right-2 bg-gradient-to-r from-green-500 to-green-600 text-white px-3 py-1 rounded-lg text-xs font-semibold shadow-xl border border-green-400/30 backdrop-blur-sm">
-              <span className="flex items-center space-x-1">
-                <span className="w-1.5 h-1.5 bg-green-300 rounded-full animate-pulse"></span>
-                <span>Alle Provincies</span>
-              </span>
-            </div>
-
-            <div className="absolute bottom-24 md:bottom-24 bottom-16 left-6 bg-gradient-to-r from-brand-400 to-brand-600 text-white px-3 py-1 rounded-lg text-xs font-semibold shadow-xl border border-brand-400/30 backdrop-blur-sm">
-              <span className="flex items-center space-x-1">
-                <span className="w-1.5 h-1.5 bg-brand-300 rounded-full animate-pulse"></span>
-                <span>7+ Jaar Ervaring</span>
-              </span>
-            </div>
           </div>
         </div>
 
