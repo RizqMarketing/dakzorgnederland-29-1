@@ -43,7 +43,7 @@ const About = () => {
                 {/* Left - Image */}
                 <div className="relative h-80 lg:h-auto">
                   <img
-                    src="https://images.pexels.com/photos/206172/pexels-photo-206172.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                    src="/house3-new.jpg"
                     alt="Professioneel dakwerk"
                     className="w-full h-full object-cover"
                   />
