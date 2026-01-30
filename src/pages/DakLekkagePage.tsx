@@ -85,8 +85,7 @@ const DakLekkagePage = () => {
   const emergencyServices = [
     { service: "Acute daklekkage", description: "Directe hulp bij waterschade", available: "24/7 bereikbaar" },
     { service: "Stormschade lekkage", description: "Snelle beoordeling en reparatie", available: "24/7 bereikbaar" },
-    { service: "Plafondschade water", description: "Bron opsporen en dichten", available: "24/7 bereikbaar" },
-    { service: "Kelderlekkage", description: "Detectie en waterdicht maken", available: "Op afspraak" }
+    { service: "Plafondschade water", description: "Bron opsporen en dichten", available: "24/7 bereikbaar" }
   ];
 
   return (
