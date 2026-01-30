@@ -195,44 +195,6 @@ const ChimneyRenovationPage = () => {
             ))}
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="relative overflow-hidden rounded-2xl shadow-lg">
-              <img
-                src="https://i.imgur.com/H2FKpZ2.jpg"
-                alt="Schoorsteen renovatie"
-                className="w-full h-64 object-cover hover:scale-105 transition-transform duration-500"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent"></div>
-              <div className="absolute bottom-4 left-4 text-white">
-                <h4 className="font-bold">Voor Renovatie</h4>
-                <p className="text-sm text-white/80">Oude, beschadigde staat</p>
-              </div>
-            </div>
-            <div className="relative overflow-hidden rounded-2xl shadow-lg">
-              <img
-                src="https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop"
-                alt="Schoorsteen renovatie in uitvoering"
-                className="w-full h-64 object-cover hover:scale-105 transition-transform duration-500"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent"></div>
-              <div className="absolute bottom-4 left-4 text-white">
-                <h4 className="font-bold">Tijdens Renovatie</h4>
-                <p className="text-sm text-white/80">Vakkundig werk</p>
-              </div>
-            </div>
-            <div className="relative overflow-hidden rounded-2xl shadow-lg">
-              <img
-                src="https://imgur.com/Zcx7Pq6.jpg"
-                alt="Gerenoveerde schoorsteen"
-                className="w-full h-64 object-cover hover:scale-105 transition-transform duration-500"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent"></div>
-              <div className="absolute bottom-4 left-4 text-white">
-                <h4 className="font-bold">Na Renovatie</h4>
-                <p className="text-sm text-white/80">Perfect resultaat</p>
-              </div>
-            </div>
-          </div>
         </div>
       </section>
 
