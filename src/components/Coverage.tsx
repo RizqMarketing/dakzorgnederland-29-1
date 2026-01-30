@@ -24,7 +24,7 @@ const Coverage = () => {
             <img
               src="https://imgur.com/s93HFyS.png"
               alt="Nederland kaart met provincies - DakZorg Nederland"
-              className="w-3/4 h-auto"
+              className="w-full h-auto"
             />
           </div>
         </div>

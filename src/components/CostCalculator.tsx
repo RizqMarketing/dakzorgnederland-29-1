@@ -282,7 +282,7 @@ const CostCalculator = () => {
                 <div className="space-y-8">
                   <div>
                     <h3 className="text-xl font-semibold text-stone-100 mb-6">Type gebouw</h3>
-                    <div className="grid grid-cols-2 gap-4">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       {buildingTypes.map((type) => (
                         <button
                           key={type.id}
@@ -462,6 +462,24 @@ const CostCalculator = () => {
           </div>
         </div>
       </div>
+      {/* Sticky bottom bar on mobile - shows estimate */}
+      {estimate && (
+        <div className="fixed bottom-0 left-0 right-0 z-50 lg:hidden bg-stone-900/95 backdrop-blur-md border-t border-stone-700 px-4 py-3 shadow-2xl">
+          <div className="flex items-center justify-between max-w-lg mx-auto">
+            <div>
+              <div className="text-stone-400 text-xs">Geschatte kosten</div>
+              <div className="text-brand-400 text-xl font-bold">€{estimate.average.toLocaleString()}</div>
+            </div>
+            <button
+              onClick={handleRequestQuote}
+              className="bg-brand-500 hover:bg-brand-600 text-stone-900 font-semibold py-2.5 px-5 rounded-xl transition-all flex items-center gap-2 text-sm"
+            >
+              <span>Offerte Aanvragen</span>
+              <ArrowRight className="w-4 h-4" />
+            </button>
+          </div>
+        </div>
+      )}
     </section>
   );
 };
