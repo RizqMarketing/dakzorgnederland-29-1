@@ -155,44 +155,9 @@ const sendToGoHighLevel = async (formData: FormData): Promise<boolean> => {
 };
 
 export const sendEmail = async (formData: FormData): Promise<boolean> => {
-  try {
-    // Translate form values to Dutch
-    const translatedProjectType = projectTypeTranslations[formData.projectType] || formData.projectType;
-    const translatedBudget = budgetTranslations[formData.budget] || formData.budget;
-    const translatedTimeline = timelineTranslations[formData.timeline] || formData.timeline;
-
-    const templateParams = {
-      from_name: formData.name,
-      from_email: formData.email,
-      phone: formData.phone,
-      preferred_contact: 'Email', // Default since we removed this field
-      stad: formData.stad || 'Niet opgegeven',
-      address: formData.address || 'Niet opgegeven',
-      provincie: formData.provincie || 'Niet opgegeven',
-      project_type: formData.projectType ? translatedProjectType : 'Niet gespecificeerd',
-      message: formData.message,
-      budget: formData.budget ? translatedBudget : 'Niet gespecificeerd',
-      timeline: translatedTimeline,
-      service: formData.service || 'Algemene aanvraag',
-      to_email: 'info@dakzorgnederland.nl'
-    };
-
-    // Send to both EmailJS and GoHighLevel in parallel
-    const [emailResult, ghlResult] = await Promise.allSettled([
-      emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams, EMAILJS_PUBLIC_KEY),
-      sendToGoHighLevel(formData)
-    ]);
-
-    // Log results for debugging
-    console.log('EmailJS Result:', emailResult);
-    console.log('GoHighLevel Result:', ghlResult);
-
-    // Return true if EmailJS succeeds (GHL is optional)
-    return emailResult.status === 'fulfilled' && emailResult.value.status === 200;
-  } catch (error) {
-    console.error('Email Service Error:', error);
-    return false;
-  }
+  // EmailJS is tijdelijk uitgeschakeld - wordt later opnieuw geconfigureerd
+  console.log('Form submission disabled - EmailJS not connected', formData);
+  return false;
 };
 
 // Dummy function for compatibility
