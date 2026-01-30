@@ -2,29 +2,6 @@ import React from 'react';
 import { CheckCircle, Award, ArrowRight, Star, Shield, Clock, Wrench, Phone, Users } from 'lucide-react';
 
 const About = () => {
-  const features = [
-    {
-      icon: Award,
-      title: "7+ Jaar Ervaring",
-      description: "Bewezen vakmanschap en expertise"
-    },
-    {
-      icon: Shield,
-      title: "Volledig Verzekerd",
-      description: "Werk met garantie en zekerheid"
-    },
-    {
-      icon: Clock,
-      title: "24/7 Bereikbaar",
-      description: "Altijd klaar voor spoedgevallen"
-    },
-    {
-      icon: Users,
-      title: "Persoonlijke Aanpak",
-      description: "Direct contact met de vakman"
-    }
-  ];
-
   const handleContactClick = () => {
     const contactSection = document.getElementById('contact');
     if (contactSection) {
@@ -136,21 +113,6 @@ const About = () => {
             </div>
           </div>
 
-        {/* Features Grid */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mt-12">
-          {features.map((feature, index) => (
-            <div
-              key={index}
-              className="bg-white rounded-2xl p-6 shadow-lg border border-stone-100 hover:shadow-xl hover:border-brand-200 hover:-translate-y-1 transition-all duration-300 text-center"
-            >
-              <div className="w-14 h-14 bg-gradient-to-br from-brand-400 to-brand-600 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg shadow-brand-500/20">
-                <feature.icon className="w-7 h-7 text-white" />
-              </div>
-              <h4 className="font-bold text-stone-900 mb-1">{feature.title}</h4>
-              <p className="text-stone-500 text-sm">{feature.description}</p>
-            </div>
-          ))}
-        </div>
 
       </div>
     </section>

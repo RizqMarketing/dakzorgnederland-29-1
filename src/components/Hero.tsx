@@ -104,7 +104,7 @@ const Hero = () => {
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
 
             {/* Left Column - Text Content */}
-            <div className="text-white order-2 lg:order-1">
+            <div className="text-white order-1">
               {/* Rating Badge */}
               <div className="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full mb-8">
                 <div className="flex -space-x-1">
@@ -158,7 +158,7 @@ const Hero = () => {
             </div>
 
             {/* Right Column - Contact Form */}
-            <div className="order-1 lg:order-2">
+            <div className="order-2">
               <div className="rounded-2xl overflow-hidden bg-stone-800/60 backdrop-blur-sm">
                 <div className="p-6">
                   {/* Header - matching left side style */}

@@ -18,6 +18,15 @@ const Coverage = () => {
           <p className="text-xl text-stone-600 max-w-3xl mx-auto">
             Met meer dan 7 jaar ervaring zijn wij uw betrouwbare dakdekker in alle Nederlandse provincies.
           </p>
+
+          {/* Map - mobile only, right below the description */}
+          <div className="mt-8 flex justify-center lg:hidden">
+            <img
+              src="https://imgur.com/s93HFyS.png"
+              alt="Nederland kaart met provincies - DakZorg Nederland"
+              className="w-3/4 h-auto"
+            />
+          </div>
         </div>
 
         {/* Content Grid */}
@@ -84,8 +93,8 @@ const Coverage = () => {
             </div>
           </div>
 
-          {/* Map Image - RIGHT */}
-          <div className="relative flex items-center justify-center h-full order-2">
+          {/* Map Image - RIGHT (desktop only) */}
+          <div className="relative hidden lg:flex items-center justify-center h-full order-2">
             <img
               src="https://imgur.com/s93HFyS.png"
               alt="Nederland kaart met provincies - DakZorg Nederland"

@@ -52,7 +52,7 @@ const NicoContact = () => {
               </div>
               <div className="flex items-center space-x-3 bg-white/5 backdrop-blur-sm rounded-2xl p-4">
                 <Award className="w-6 h-6 text-brand-400" />
-                <span className="font-semibold">Kwaliteitsgarantie</span>
+                <span className="font-semibold">Persoonlijke aanpak</span>
               </div>
             </div>
 
@@ -65,12 +65,12 @@ const NicoContact = () => {
 
                 <a
                   href="tel:0657010861"
-                  className="inline-flex items-center justify-center w-full bg-gradient-to-r from-brand-500 to-brand-600 hover:from-brand-400 hover:to-brand-500 text-slate-900 font-bold py-5 px-8 rounded-full transition-all duration-300 transform hover:scale-[1.02] shadow-xl hover:shadow-2xl hover:shadow-brand-500/30 group"
+                  className="inline-flex items-center justify-center w-full bg-gradient-to-r from-brand-500 to-brand-600 hover:from-brand-400 hover:to-brand-500 text-slate-900 font-bold py-3 px-6 lg:py-5 lg:px-8 rounded-full transition-all duration-300 transform hover:scale-[1.02] shadow-xl hover:shadow-2xl hover:shadow-brand-500/30 group"
                 >
-                  <Phone className="w-7 h-7 mr-4 group-hover:animate-bounce" />
+                  <Phone className="w-5 h-5 lg:w-7 lg:h-7 mr-3 lg:mr-4 group-hover:animate-bounce" />
                   <div className="text-left">
-                    <div className="text-sm font-semibold">Bel Nu Gratis</div>
-                    <div className="text-2xl font-black">06 57 01 08 61</div>
+                    <div className="text-xs lg:text-sm font-semibold">Bel Nu Gratis</div>
+                    <div className="text-lg lg:text-2xl font-black">06 57 01 08 61</div>
                   </div>
                 </a>
 
@@ -82,8 +82,8 @@ const NicoContact = () => {
           </div>
 
           {/* Right side - Image */}
-          <div className="relative hidden lg:flex items-center justify-center">
-            <div className="relative w-[85%]">
+          <div className="relative flex items-center justify-center order-last lg:order-none mt-8 lg:mt-0">
+            <div className="relative w-full lg:w-[85%]">
               {/* Image */}
               <div className="relative">
                 <img
