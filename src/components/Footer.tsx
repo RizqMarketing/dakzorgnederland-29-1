@@ -40,7 +40,7 @@ const Footer = ({ children }: FooterProps) => {
   };
 
   return (
-    <footer className="bg-stone-950 text-white">
+    <footer className="bg-stone-900 text-white">
       {/* Top Accent */}
       <div className="h-0.5 bg-gradient-to-r from-brand-600 via-brand-500 to-brand-600"></div>
 
