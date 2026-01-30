@@ -35,7 +35,7 @@ const PrivacyPage = () => {
                 <div className="space-y-2">
                   <div className="flex items-center space-x-3">
                     <MapPin className="w-5 h-5 text-brand-500" />
-                    <span>Villa gagel 9, 5146AC Waalwijk</span>
+                    <span>Overwegwachter 4, 3034KG Rotterdam</span>
                   </div>
                   <div className="flex items-center space-x-3">
                     <Phone className="w-5 h-5 text-brand-500" />

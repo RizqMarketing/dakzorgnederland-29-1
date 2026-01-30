@@ -25,7 +25,7 @@ const ContactWithGHL = ({ standalone = true, ghlFormUrl }: ContactWithGHLProps) 
     {
       icon: MapPin,
       title: "Adres",
-      details: ["Villa gagel 9", "5146AC Waalwijk"],
+      details: ["Overwegwachter 4", "3034KG Rotterdam"],
       action: "https://maps.google.com"
     },
     {
@@ -90,7 +90,7 @@ const ContactWithGHL = ({ standalone = true, ghlFormUrl }: ContactWithGHLProps) 
               <h4 className="text-white font-bold mb-4">Bedrijfsgegevens</h4>
               <div className="space-y-2 text-stone-300 text-sm">
                 <p><span className="font-medium">KvK:</span> 96885904</p>
-                <p><span className="font-medium">Vestiging:</span> Waalwijk</p>
+                <p><span className="font-medium">Vestiging:</span> Rotterdam</p>
                 <p><span className="font-medium">Ervaring:</span> 25+ jaar</p>
               </div>
             </div>

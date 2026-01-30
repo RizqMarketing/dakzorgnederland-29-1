@@ -165,7 +165,7 @@ const ContactPopup: React.FC<ContactPopupProps> = ({ isOpen, onClose, service, t
                     value={formData.stad}
                     onChange={(e) => handleInputChange('stad', e.target.value)}
                     className="w-full pl-12 pr-4 py-3 border border-stone-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-stone-900"
-                    placeholder="Bijv. Waalwijk"
+                    placeholder="Bijv. Rotterdam"
                   />
                 </div>
               </div>
@@ -183,7 +183,7 @@ const ContactPopup: React.FC<ContactPopupProps> = ({ isOpen, onClose, service, t
                   value={formData.address}
                   onChange={(e) => handleInputChange('address', e.target.value)}
                   className="w-full pl-12 pr-4 py-3 border border-stone-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-stone-900"
-                  placeholder="Bijv. Villa gagel 9"
+                  placeholder="Bijv. Overwegwachter 4"
                 />
               </div>
             </div>
@@ -201,7 +201,7 @@ const ContactPopup: React.FC<ContactPopupProps> = ({ isOpen, onClose, service, t
                     value={formData.provincie || ''}
                     onChange={(e) => handleInputChange('provincie', e.target.value)}
                     className="w-full pl-12 pr-4 py-3 border border-stone-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-stone-900"
-                    placeholder="Bijv. Gelderland"
+                    placeholder="Bijv. Zuid-Holland"
                   />
                 </div>
               </div>

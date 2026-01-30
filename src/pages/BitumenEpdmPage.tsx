@@ -1,31 +1,16 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import {
-  Home, CheckCircle, Phone, Mail, ArrowRight,
-  Award, Shield, Clock, Users, Calculator, Eye, Hammer, Sun, Wrench,
-  Send, User, MessageCircle, Calendar, Building2, MapPin, Building, Droplets, Layers
+  Home, CheckCircle, Phone, ArrowRight,
+  Award, Shield, Clock, Wrench, Layers
 } from 'lucide-react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import Contact from '../components/Contact';
 import ContactPopup from '../components/ContactPopup';
-import { sendEmail } from '../utils/emailService';
 import Testimonials from '../components/Testimonials';
 
 const BitumenEpdmPage = () => {
-  const navigate = useNavigate();
   const [isContactPopupOpen, setIsContactPopupOpen] = useState(false);
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    stad: '',
-    address: '',
-    provincie: '',
-    timeline: '',
-    message: ''
-  });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [error, setError] = useState('');
 
   const bitumenEpdmServices = [
     "Bitumen dak repareren",
@@ -103,78 +88,10 @@ const BitumenEpdmPage = () => {
   ];
 
   const emergencyServices = [
-    { service: "Acute lekkage plat dak", response: "Binnen 2 uur", available: "24/7" },
-    { service: "Stormschade bitumen", response: "Binnen 4 uur", available: "24/7" },
-    { service: "EPDM noodreparatie", response: "Zelfde dag", available: "24/7" },
-    { service: "Noodafdichting", response: "Binnen 1 dag", available: "24/7" }
-  ];
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    setError('');
-
-    try {
-      const success = await sendEmail({
-        ...formData,
-        service: 'Bitumen & EPDM Daken'
-      });
-
-      if (success) {
-        // Reset form
-        setFormData({
-          name: '',
-          email: '',
-          phone: '',
-          stad: '',
-          address: '',
-          provincie: '',
-          timeline: '',
-          message: ''
-        });
-
-        // Redirect to thank you page
-        navigate('/bedankt');
-      } else {
-        setError('Er is een fout opgetreden bij het verzenden. Probeer het opnieuw of bel ons direct.');
-      }
-    } catch (error) {
-      console.error('Error submitting form:', error);
-      setError('Er is een fout opgetreden. Probeer het opnieuw of bel ons direct.');
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
-
-  const handleInputChange = (field, value) => {
-    setFormData(prev => ({ ...prev, [field]: value }));
-  };
-
-  const contactInfo = [
-    {
-      icon: Phone,
-      title: "Telefoon",
-      details: ["06 57 01 08 61", "24/7 Bereikbaar"],
-      action: "tel:0657010861"
-    },
-    {
-      icon: Mail,
-      title: "Email",
-      details: ["info@dakzorgnederland.nl", "Reactie vaak binnen 2 uur"],
-      action: "mailto:info@dakzorgnederland.nl"
-    },
-    {
-      icon: MapPin,
-      title: "Adres",
-      details: ["Villa gagel 9", "5146AC Waalwijk"],
-      action: "https://maps.google.com"
-    },
-    {
-      icon: Clock,
-      title: "Beschikbaarheid",
-      details: ["24/7 Bereikbaar", "Voor al uw bouwprojecten"],
-      action: null
-    }
+    { service: "Acute lekkage plat dak", description: "Directe hulp bij waterschade", available: "24/7 bereikbaar" },
+    { service: "Stormschade bitumen", description: "Snelle beoordeling en reparatie", available: "24/7 bereikbaar" },
+    { service: "EPDM noodreparatie", description: "Vakkundige spoedoplossing", available: "24/7 bereikbaar" },
+    { service: "Noodafdichting", description: "Tijdelijke of permanente afdichting", available: "Op afspraak" }
   ];
 
   return (
@@ -187,104 +104,91 @@ const BitumenEpdmPage = () => {
         <div
           className="absolute inset-0 bg-cover bg-center opacity-30"
           style={{
-            backgroundImage: 'url(https://images.pexels.com/photos/2219024/pexels-photo-2219024.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop)'
+            backgroundImage: 'url(/house2-new.jpg)'
           }}
         ></div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <div className="relative inline-block mb-6">
-              <div className="bg-gradient-to-r from-white/20 to-brand-400/30 backdrop-blur-sm rounded-full px-6 py-3 border border-brand-400/40 shadow-xl">
-                <div className="flex items-center space-x-3">
-                  <div className="w-3 h-3 bg-brand-400 rounded-full shadow-lg"></div>
-                  <span className="text-white font-semibold text-sm tracking-wide">
-                    Gecertificeerd Specialist in Bitumen & EPDM Daken
-                  </span>
-                  <div className="w-3 h-3 bg-brand-400 rounded-full shadow-lg"></div>
-                </div>
-              </div>
+            <div className="inline-flex items-center space-x-2 bg-brand-500/20 text-brand-300 px-5 py-2.5 rounded-full text-sm font-semibold border border-brand-400/30 mb-8">
+              <Award className="w-4 h-4" />
+              <span>Specialist in Platte Daken</span>
             </div>
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              Professioneel <span className="text-brand-400">Bitumen & EPDM</span>
-              <br />
-              <span className="text-brand-400">Platte Daken Specialist!</span>
+
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 leading-[1.1]">
+              Professioneel Bitumen
+              <span className="block text-brand-400 mt-2">& EPDM Dakwerk</span>
             </h1>
-            <p className="text-xl md:text-2xl text-stone-200 mb-8 max-w-3xl mx-auto">
-              Van lekkage reparatie tot complete vernieuwing - wij zijn uw specialist voor platte daken!
-              <span className="text-brand-400 font-bold"> Lekkage aan uw platte dak? Binnen 3 uur ter plaatse!</span>
-              {' '}Gratis inspectie & garantie op al ons werk.
+
+            <p className="text-lg text-stone-300 mb-10 max-w-2xl mx-auto leading-relaxed">
+              Van lekkage reparatie tot complete vernieuwing van uw platte dak.
+              DakZorg Nederland staat voor waterdichte oplossingen met gratis inspectie en garantie.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-10">
               <button
                 onClick={() => setIsContactPopupOpen(true)}
-                className="bg-brand-500 hover:bg-brand-600 text-slate-900 font-bold px-10 py-5 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-2xl flex items-center justify-center space-x-2 text-lg animate-pulse"
+                className="bg-brand-500 hover:bg-brand-400 text-stone-900 font-bold px-8 py-4 rounded-xl transition-all duration-300 flex items-center justify-center space-x-2 shadow-lg shadow-brand-500/20"
               >
-                <Calculator className="w-6 h-6" />
-                <span>GRATIS OFFERTE AANVRAGEN</span>
+                <ArrowRight className="w-5 h-5" />
+                <span>Gratis Offerte Aanvragen</span>
               </button>
               <a
                 href="tel:0657010861"
-                className="bg-brand-600 hover:bg-brand-700 text-white font-bold px-10 py-5 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-2xl flex items-center justify-center space-x-2 text-lg"
+                className="bg-stone-800 hover:bg-stone-700 text-white font-bold px-8 py-4 rounded-xl transition-all duration-300 flex items-center justify-center space-x-2"
               >
-                <Phone className="w-6 h-6" />
-                <span>DIRECT BELLEN</span>
+                <Phone className="w-5 h-5" />
+                <span>06 57 01 08 61</span>
               </a>
             </div>
 
-            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 mb-8">
-              <div className="flex items-center justify-center space-x-2 mb-4">
-                <CheckCircle className="w-6 h-6 text-brand-400" />
-                <p className="text-lg font-semibold text-brand-400">Waarom kiezen voor ons?</p>
-              </div>
-              <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-                <div className="flex items-center justify-center space-x-2">
-                  <CheckCircle className="w-6 h-6 text-green-400" />
-                  <span>Gratis Inspectie</span>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-3xl mx-auto">
+              {[
+                { icon: CheckCircle, text: "Gratis inspectie & offerte" },
+                { icon: Clock, text: "24/7 bereikbaar" },
+                { icon: Shield, text: "Volledig verzekerd" },
+                { icon: Award, text: "7+ jaar ervaring" }
+              ].map((item, index) => (
+                <div key={index} className="flex items-center justify-center space-x-3 bg-white/5 rounded-xl px-4 py-3">
+                  <item.icon className="w-5 h-5 text-brand-400 flex-shrink-0" />
+                  <span className="text-white/90 text-sm font-medium">{item.text}</span>
                 </div>
-                <div className="flex items-center justify-center space-x-2">
-                  <CheckCircle className="w-6 h-6 text-green-400" />
-                  <span>Waterdichte Garantie</span>
-                </div>
-                <div className="flex items-center justify-center space-x-2">
-                  <CheckCircle className="w-6 h-6 text-green-400" />
-                  <span>Geen Voorrijkosten</span>
-                </div>
-                <div className="flex items-center justify-center space-x-2">
-                  <CheckCircle className="w-6 h-6 text-green-400" />
-                  <span>Binnen 3 Uur Ter Plaatse</span>
-                </div>
-              </div>
+              ))}
             </div>
           </div>
         </div>
       </section>
 
       {/* Features Section */}
-      <section className="py-20 bg-white">
+      <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-slate-900 mb-6">
-              Waarom Uw <span className="bg-gradient-to-r from-brand-400 to-brand-600 bg-clip-text text-transparent">Platte Dak Laten Repareren?</span>
+            <div className="inline-flex items-center space-x-2 bg-brand-100 text-brand-700 px-5 py-2 rounded-full text-sm font-semibold mb-6">
+              <Shield className="w-4 h-4" />
+              <span>Waarom DakZorg</span>
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">
+              Waarom kiezen voor{' '}
+              <span className="bg-gradient-to-r from-brand-500 to-brand-600 bg-clip-text text-transparent">ons platte dakwerk</span>
             </h2>
             <p className="text-xl text-stone-600 max-w-3xl mx-auto mb-8">
-              Een lekkend plat dak kan binnen dagen duizenden euro's schade veroorzaken aan uw woning.
-              Wij zorgen voor waterdichte en duurzame oplossingen met garantie!
+              Een waterdicht plat dak beschermt uw woning en bespaart energie.
+              Wij zorgen voor duurzame bitumen en EPDM oplossingen met garantie.
             </p>
             <button
               onClick={() => setIsContactPopupOpen(true)}
-              className="bg-brand-500 hover:bg-brand-600 text-slate-900 font-bold px-8 py-4 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg inline-flex items-center space-x-2"
+              className="group bg-stone-900 hover:bg-stone-800 text-white font-bold px-6 py-4 rounded-xl transition-all duration-300 inline-flex items-center space-x-2"
             >
-              <ArrowRight className="w-5 h-5" />
-              <span>Vraag Nu Een Gratis Offerte Aan</span>
+              <span>Neem contact op</span>
+              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </button>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
             {features.map((feature, index) => (
-              <div key={index} className="text-center p-8 bg-stone-50 rounded-xl hover:bg-stone-100 transition-colors">
-                <div className="w-16 h-16 bg-brand-500 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <feature.icon className="w-8 h-8 text-white" />
+              <div key={index} className="text-center p-8 bg-white rounded-2xl shadow-lg border border-stone-100 hover:shadow-xl transition-all duration-300">
+                <div className="w-14 h-14 bg-gradient-to-br from-brand-400 to-brand-600 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg shadow-brand-500/20">
+                  <feature.icon className="w-7 h-7 text-white" />
                 </div>
                 <h3 className="text-xl font-bold text-slate-900 mb-4">{feature.title}</h3>
                 <p className="text-stone-600">{feature.description}</p>
@@ -293,67 +197,62 @@ const BitumenEpdmPage = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="relative overflow-hidden rounded-xl shadow-lg">
+            <div className="relative overflow-hidden rounded-2xl shadow-lg">
               <img
                 src="https://images.pexels.com/photos/2138126/pexels-photo-2138126.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop"
                 alt="Bitumen dak werkzaamheden"
-                className="w-full h-64 object-cover hover:scale-110 transition-transform duration-500"
+                className="w-full h-64 object-cover hover:scale-105 transition-transform duration-500"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent"></div>
               <div className="absolute bottom-4 left-4 text-white">
                 <h4 className="font-bold">Bitumen Daken</h4>
-                <p className="text-sm">Waterdichte platte daken</p>
+                <p className="text-sm text-white/80">Waterdichte platte daken</p>
               </div>
             </div>
-            <div className="relative overflow-hidden rounded-xl shadow-lg">
+            <div className="relative overflow-hidden rounded-2xl shadow-lg">
               <img
                 src="https://images.pexels.com/photos/2102587/pexels-photo-2102587.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop"
                 alt="EPDM dak aanleg"
-                className="w-full h-64 object-cover hover:scale-110 transition-transform duration-500"
+                className="w-full h-64 object-cover hover:scale-105 transition-transform duration-500"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent"></div>
               <div className="absolute bottom-4 left-4 text-white">
                 <h4 className="font-bold">EPDM Daken</h4>
-                <p className="text-sm">Duurzame rubberen dakbedekking</p>
+                <p className="text-sm text-white/80">Duurzame rubberen dakbedekking</p>
               </div>
             </div>
-            <div className="relative overflow-hidden rounded-xl shadow-lg">
+            <div className="relative overflow-hidden rounded-2xl shadow-lg">
               <img
                 src="https://images.pexels.com/photos/2219024/pexels-photo-2219024.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop"
                 alt="Plat dak isolatie"
-                className="w-full h-64 object-cover hover:scale-110 transition-transform duration-500"
+                className="w-full h-64 object-cover hover:scale-105 transition-transform duration-500"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent"></div>
               <div className="absolute bottom-4 left-4 text-white">
                 <h4 className="font-bold">Dak Isolatie</h4>
-                <p className="text-sm">Optimale isolatie voor platte daken</p>
+                <p className="text-sm text-white/80">Optimale isolatie voor platte daken</p>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Bitumen & EPDM Types Section */}
-      <section className="py-20 bg-stone-50">
+      {/* Specialisaties Section */}
+      <section className="py-24 bg-gradient-to-b from-stone-50 to-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-slate-900 mb-6">
-              Onze <span className="bg-gradient-to-r from-brand-400 to-brand-600 bg-clip-text text-transparent">Platte Dak Specialisaties</span>
+            <div className="inline-flex items-center space-x-2 bg-brand-100 text-brand-700 px-5 py-2 rounded-full text-sm font-semibold mb-6">
+              <Wrench className="w-4 h-4" />
+              <span>Onze Specialisaties</span>
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">
+              Onze{' '}
+              <span className="bg-gradient-to-r from-brand-500 to-brand-600 bg-clip-text text-transparent">Platte Dak Specialisaties</span>
             </h2>
-            <p className="text-xl text-stone-700 font-semibold max-w-3xl mx-auto mb-2">
-              Complete bitumen en EPDM dakwerkzaamheden van A tot Z
+            <p className="text-xl text-stone-600 max-w-3xl mx-auto">
+              Complete bitumen en EPDM dakwerkzaamheden van A tot Z.
+              Inclusief isolatie en garantie op al ons werk.
             </p>
-            <p className="text-lg text-stone-600 max-w-3xl mx-auto mb-8">
-              Van reparatie tot volledige vernieuwing van uw platte dak.
-              Inclusief isolatie en garantie op al ons werk!
-            </p>
-            <button
-              onClick={() => setIsContactPopupOpen(true)}
-              className="bg-brand-500 hover:bg-brand-600 text-slate-900 font-bold px-8 py-4 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg inline-flex items-center space-x-2"
-            >
-              <Calculator className="w-5 h-5" />
-              <span>VRAAG GRATIS OFFERTE AAN</span>
-            </button>
           </div>
 
           <div className="space-y-12">
@@ -361,8 +260,8 @@ const BitumenEpdmPage = () => {
               <div key={index} className={`flex flex-col lg:flex-row items-center gap-12 ${index % 2 === 1 ? 'lg:flex-row-reverse' : ''}`}>
                 <div className="lg:w-1/2">
                   <div className="flex items-center mb-6">
-                    <div className="w-16 h-16 bg-brand-500 rounded-full flex items-center justify-center mr-6">
-                      <type.icon className="w-8 h-8 text-white" />
+                    <div className="w-14 h-14 bg-gradient-to-br from-brand-400 to-brand-600 rounded-2xl flex items-center justify-center mr-6 shadow-lg shadow-brand-500/20">
+                      <type.icon className="w-7 h-7 text-white" />
                     </div>
                     <div>
                       <h3 className="text-2xl font-bold text-slate-900">{type.title}</h3>
@@ -372,24 +271,32 @@ const BitumenEpdmPage = () => {
                   <p className="text-stone-700 leading-relaxed">{type.details}</p>
                 </div>
                 <div className="lg:w-1/2">
-                  <div className="bg-white rounded-xl p-8 shadow-lg">
+                  <div className="bg-white rounded-2xl p-8 shadow-lg border border-stone-100">
                     <h4 className="font-bold text-slate-900 mb-4">Wat is inbegrepen:</h4>
-                    <ul className="space-y-2">
+                    <ul className="space-y-3">
                       <li className="flex items-center space-x-3">
-                        <CheckCircle className="w-5 h-5 text-brand-500 flex-shrink-0" />
-                        <span className="text-stone-700">Grondige inspectie</span>
+                        <div className="w-6 h-6 bg-brand-500 rounded-full flex items-center justify-center flex-shrink-0">
+                          <CheckCircle className="w-4 h-4 text-white" />
+                        </div>
+                        <span className="text-stone-700 font-medium">Grondige inspectie</span>
                       </li>
                       <li className="flex items-center space-x-3">
-                        <CheckCircle className="w-5 h-5 text-brand-500 flex-shrink-0" />
-                        <span className="text-stone-700">Kwaliteitsvolle materialen</span>
+                        <div className="w-6 h-6 bg-brand-500 rounded-full flex items-center justify-center flex-shrink-0">
+                          <CheckCircle className="w-4 h-4 text-white" />
+                        </div>
+                        <span className="text-stone-700 font-medium">Kwaliteitsvolle materialen</span>
                       </li>
                       <li className="flex items-center space-x-3">
-                        <CheckCircle className="w-5 h-5 text-brand-500 flex-shrink-0" />
-                        <span className="text-stone-700">Vakkundige uitvoering</span>
+                        <div className="w-6 h-6 bg-brand-500 rounded-full flex items-center justify-center flex-shrink-0">
+                          <CheckCircle className="w-4 h-4 text-white" />
+                        </div>
+                        <span className="text-stone-700 font-medium">Vakkundige uitvoering</span>
                       </li>
                       <li className="flex items-center space-x-3">
-                        <CheckCircle className="w-5 h-5 text-brand-500 flex-shrink-0" />
-                        <span className="text-stone-700">Garantie op het werk</span>
+                        <div className="w-6 h-6 bg-brand-500 rounded-full flex items-center justify-center flex-shrink-0">
+                          <CheckCircle className="w-4 h-4 text-white" />
+                        </div>
+                        <span className="text-stone-700 font-medium">Garantie op het werk</span>
                       </li>
                     </ul>
                   </div>
@@ -400,158 +307,96 @@ const BitumenEpdmPage = () => {
         </div>
       </section>
 
-      {/* Urgency Section */}
-      <section className="py-20 bg-gradient-to-br from-red-50 to-orange-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Availability & Emergency Section */}
+      <section className="py-24 bg-stone-900 relative overflow-hidden">
+        <div className="absolute inset-0 opacity-5">
+          <div className="absolute inset-0 bg-gradient-to-br from-brand-400/20 to-brand-600/20"></div>
+        </div>
+        <div className="absolute top-10 right-10 w-32 h-32 bg-brand-500/10 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-10 left-10 w-40 h-40 bg-brand-400/10 rounded-full blur-3xl"></div>
+
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <Wrench className="w-16 h-16 text-red-500 mx-auto mb-6 animate-pulse" />
-            <h2 className="text-4xl font-bold text-slate-900 mb-6">
-              <span className="text-red-600">Platte Dak Problemen Wachten Niet!</span>
+            <div className="inline-flex items-center space-x-2 bg-brand-500/20 text-brand-300 px-5 py-2.5 rounded-full text-sm font-semibold border border-brand-400/30 mb-6">
+              <Clock className="w-4 h-4" />
+              <span>24/7 Beschikbaar</span>
+            </div>
+
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+              Altijd bereikbaar voor uw{' '}
+              <span className="bg-gradient-to-r from-brand-400 to-brand-500 bg-clip-text text-transparent">platte dak</span>
             </h2>
-            <p className="text-xl text-stone-700 max-w-3xl mx-auto mb-4">
-              <strong>Elke dag uitstellen kost u geld!</strong> Lekkages veroorzaken snel waterschade.
-            </p>
-            <p className="text-lg text-stone-600 max-w-3xl mx-auto mb-8">
-              Urgente platte dak problemen? Binnen 3 uur ter plaatse! Preventief onderhoud bespaart duizenden euro's.
+            <p className="text-lg text-stone-300 max-w-3xl mx-auto leading-relaxed">
+              Lekkage of stormschade aan uw platte dak? Onze specialisten staan dag en nacht voor u klaar.
+              Preventief onderhoud voorkomt kostbare reparaties.
             </p>
           </div>
 
-          <div className="bg-white rounded-xl shadow-lg overflow-hidden mb-8">
-            <div className="px-6 py-4 bg-red-500 text-white">
-              <h3 className="text-xl font-bold">Herkenbare Platte Dak Problemen</h3>
-            </div>
-            <div className="divide-y divide-gray-200">
-              <div className="px-6 py-4 flex justify-between items-center">
-                <div className="font-medium text-slate-900">Lekkend plat dak</div>
-                <div className="text-center">
-                  <div className="text-sm text-stone-600">Gevolg</div>
-                  <div className="font-bold text-red-600">Waterschade binnen dagen</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-sm text-stone-600">Actie</div>
-                  <div className="font-bold text-green-600">Direct Repareren</div>
-                </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+            {emergencyServices.map((emergency, index) => (
+              <div key={index} className="bg-stone-800/50 backdrop-blur-sm rounded-2xl p-6 border border-stone-700/50 hover:border-brand-500/30 transition-all duration-300 text-center">
+                <div className="text-white font-semibold mb-2">{emergency.service}</div>
+                <div className="text-stone-300 text-sm mb-2">{emergency.description}</div>
+                <div className="text-brand-400 font-medium text-sm">{emergency.available}</div>
               </div>
-              <div className="px-6 py-4 flex justify-between items-center">
-                <div className="font-medium text-slate-900">Loslatende dakbedekking</div>
-                <div className="text-center">
-                  <div className="text-sm text-stone-600">Gevolg</div>
-                  <div className="font-bold text-red-600">Wind- en regenschade</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-sm text-stone-600">Actie</div>
-                  <div className="font-bold text-green-600">Urgent Vervangen</div>
-                </div>
-              </div>
-              <div className="px-6 py-4 flex justify-between items-center">
-                <div className="font-medium text-slate-900">Verouderd bitumen dak</div>
-                <div className="text-center">
-                  <div className="text-sm text-stone-600">Gevolg</div>
-                  <div className="font-bold text-red-600">Energieverlies & lekkages</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-sm text-stone-600">Actie</div>
-                  <div className="font-bold text-green-600">Vernieuwen Nu</div>
-                </div>
-              </div>
-            </div>
+            ))}
           </div>
 
-          <div className="text-center space-y-4">
-            <p className="text-lg font-semibold text-stone-700">
-              Waarom langer wachten? Elk lek dat u uitstelt wordt duurder!
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button
-                onClick={() => setIsContactPopupOpen(true)}
-                className="bg-brand-500 hover:bg-brand-600 text-slate-900 font-bold px-10 py-5 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-2xl inline-flex items-center space-x-2 text-lg"
-              >
-                <Calculator className="w-6 h-6" />
-                <span>BEREKEN UW SCHADE</span>
-              </button>
+          <div className="relative bg-stone-800 rounded-3xl p-8 md:p-10 overflow-hidden border border-stone-700">
+            <div className="absolute top-0 right-0 w-64 h-64 bg-brand-500/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
+            <div className="relative flex flex-col md:flex-row items-center justify-between gap-6">
+              <div className="text-center md:text-left">
+                <h3 className="text-2xl md:text-3xl font-bold text-white mb-2">
+                  Direct hulp nodig?
+                </h3>
+                <p className="text-stone-400 max-w-lg">
+                  Onze dakdekkers staan voor u klaar bij spoedeisende situaties aan uw platte dak.
+                </p>
+              </div>
               <a
                 href="tel:0657010861"
-                className="bg-brand-600 hover:bg-brand-700 text-white font-bold px-10 py-5 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-2xl inline-flex items-center space-x-2 text-lg"
+                className="group flex items-center gap-4 bg-gradient-to-r from-brand-500 to-brand-600 hover:from-brand-400 hover:to-brand-500 text-slate-900 font-bold px-8 py-5 rounded-2xl transition-all duration-300 shadow-xl shadow-brand-500/20"
               >
                 <Phone className="w-6 h-6" />
-                <span>06 57 01 08 61 - BEL NU!</span>
+                <div className="text-left">
+                  <div className="text-xs font-semibold opacity-80">Bel direct</div>
+                  <div className="text-xl">06 57 01 08 61</div>
+                </div>
               </a>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Emergency Section */}
-      <section className="py-20 bg-red-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <Wrench className="w-16 h-16 text-red-500 mx-auto mb-6" />
-            <h2 className="text-4xl font-bold text-slate-900 mb-6">
-              <span className="text-red-500">24/7 Spoedservice</span>
-            </h2>
-            <p className="text-xl text-stone-600 max-w-3xl mx-auto mb-8">
-              Lekkage of stormschade aan uw platte dak? Wij zijn 24/7 bereikbaar voor
-              spoedgevallen en acute dakproblemen.
-            </p>
-            <a
-              href="tel:0657010861"
-              className="bg-red-500 hover:bg-red-600 text-white font-bold px-8 py-4 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg inline-flex items-center space-x-2"
-            >
-              <Phone className="w-5 h-5" />
-              <span>Bel Nu: 06 57 01 08 61</span>
-            </a>
-          </div>
-
-          <div className="bg-white rounded-xl shadow-lg overflow-hidden">
-            <div className="px-6 py-4 bg-red-500 text-white">
-              <h3 className="text-xl font-bold">24/7 Spoedservice Response Tijden</h3>
-            </div>
-            <div className="divide-y divide-gray-200">
-              {emergencyServices.map((emergency, index) => (
-                <div key={index} className="px-6 py-4 flex justify-between items-center">
-                  <div className="font-medium text-slate-900">{emergency.service}</div>
-                  <div className="text-center">
-                    <div className="text-sm text-stone-600">Response tijd</div>
-                    <div className="font-bold text-red-500">{emergency.response}</div>
-                  </div>
-                  <div className="text-center">
-                    <div className="text-sm text-stone-600">Beschikbaarheid</div>
-                    <div className="font-bold text-green-600">{emergency.available}</div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Process Section */}
-      <section className="py-20 bg-white">
+      <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-slate-900 mb-6">
-              Hoe Wij Uw <span className="bg-gradient-to-r from-brand-400 to-brand-600 bg-clip-text text-transparent">Platte Dak Repareren</span>
+            <div className="inline-flex items-center space-x-2 bg-brand-100 text-brand-700 px-5 py-2 rounded-full text-sm font-semibold mb-6">
+              <Wrench className="w-4 h-4" />
+              <span>Ons Werkproces</span>
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">
+              Hoe wij uw{' '}
+              <span className="bg-gradient-to-r from-brand-500 to-brand-600 bg-clip-text text-transparent">platte dak aanpakken</span>
             </h2>
-            <p className="text-xl text-stone-700 font-semibold max-w-3xl mx-auto mb-2">
-              In 4 Simpele Stappen Naar Een Waterdicht Plat Dak!
+            <p className="text-xl text-stone-600 max-w-3xl mx-auto mb-8">
+              In 4 stappen naar een waterdicht plat dak. Vakkundig en zonder zorgen.
             </p>
-            <p className="text-lg text-stone-600 max-w-3xl mx-auto mb-8">
-              Snel, vakkundig en zonder zorgen - wij regelen alles voor u
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button
                 onClick={() => setIsContactPopupOpen(true)}
-                className="bg-green-500 hover:bg-green-600 text-white font-bold px-8 py-4 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg inline-flex items-center space-x-2"
+                className="bg-brand-500 hover:bg-brand-400 text-stone-900 font-bold px-6 py-4 rounded-xl transition-all duration-300 inline-flex items-center space-x-2"
               >
-                <Phone className="w-5 h-5" />
-                <span>START VANDAAG NOG!</span>
+                <ArrowRight className="w-5 h-5" />
+                <span>Start uw project</span>
               </button>
               <a
                 href="tel:0657010861"
-                className="bg-brand-600 hover:bg-brand-700 text-white font-bold px-8 py-4 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg inline-flex items-center space-x-2"
+                className="bg-stone-900 hover:bg-stone-800 text-white font-bold px-6 py-4 rounded-xl transition-all duration-300 inline-flex items-center space-x-2"
               >
-                <Clock className="w-5 h-5" />
-                <span>BINNEN 24 UUR INSPECTIE</span>
+                <Phone className="w-5 h-5" />
+                <span>06 57 01 08 61</span>
               </a>
             </div>
           </div>
@@ -559,7 +404,7 @@ const BitumenEpdmPage = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {bitumenEpdmProcess.map((item, index) => (
               <div key={index} className="text-center">
-                <div className="w-16 h-16 bg-brand-500 text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">
+                <div className="w-16 h-16 bg-gradient-to-br from-brand-400 to-brand-600 text-white rounded-2xl flex items-center justify-center text-2xl font-bold mx-auto mb-4 shadow-lg shadow-brand-500/20">
                   {item.step}
                 </div>
                 <h3 className="text-xl font-bold text-slate-900 mb-3">{item.title}</h3>
@@ -572,344 +417,70 @@ const BitumenEpdmPage = () => {
       </section>
 
       {/* Services Section */}
-      <section className="py-20 bg-stone-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div>
-              <h2 className="text-4xl font-bold text-slate-900 mb-8">
-                Onze <span className="bg-gradient-to-r from-brand-400 to-brand-600 bg-clip-text text-transparent">Bitumen & EPDM Diensten</span>
-              </h2>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                {bitumenEpdmServices.map((service, index) => (
-                  <div key={index} className="flex items-center space-x-3 bg-white rounded-xl p-4 shadow-sm border border-stone-100">
-                    <CheckCircle className="w-5 h-5 text-brand-500 flex-shrink-0" />
-                    <span className="text-stone-700 font-medium">{service}</span>
-                  </div>
-                ))}
-              </div>
-              <div className="mt-8">
-                <div className="p-6 bg-gradient-to-br from-brand-50 to-brand-50 border-2 border-brand-400 rounded-lg mb-6">
-                  <h4 className="font-bold text-slate-900 mb-4 text-xl">
-                    Bespaar Op Uw Energierekening!
-                  </h4>
-                  <p className="text-stone-700 mb-4">
-                    Een goed geisoleerd plat dak bespaart u <strong>aanzienlijk op uw energierekening</strong>.
-                    Onze bitumen en EPDM werkzaamheden betalen zichzelf terug!
-                  </p>
-                  <button
-                    onClick={() => setIsContactPopupOpen(true)}
-                    className="w-full bg-brand-500 hover:bg-brand-600 text-slate-900 font-bold px-6 py-3 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg"
-                  >
-                    BEREKEN UW BESPARING
-                  </button>
-                </div>
-                <div className="bg-white rounded-lg p-4 border-2 border-stone-200">
-                  <h5 className="font-bold text-slate-900 mb-3 text-lg">Direct Voordeel:</h5>
-                  <div className="space-y-2 text-stone-700">
-                    <div className="flex items-center"><CheckCircle className="w-5 h-5 text-green-500 mr-2" />Waterdichte garantie</div>
-                    <div className="flex items-center"><CheckCircle className="w-5 h-5 text-green-500 mr-2" />Lagere energierekening</div>
-                    <div className="flex items-center"><CheckCircle className="w-5 h-5 text-green-500 mr-2" />Garantie op het werk</div>
-                    <div className="flex items-center"><CheckCircle className="w-5 h-5 text-green-500 mr-2" />Transparante prijzen</div>
-                    <div className="flex items-center"><CheckCircle className="w-5 h-5 text-green-500 mr-2" />Hogere woningwaarde</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="relative">
-              <img
-                src="https://images.pexels.com/photos/2219024/pexels-photo-2219024.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop"
-                alt="Bitumen en EPDM dak werkzaamheden"
-                className="w-full h-96 object-cover rounded-xl shadow-lg"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
+      <section className="py-24 bg-stone-900 relative overflow-hidden">
+        <div className="absolute top-0 left-0 w-96 h-96 bg-brand-500/5 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
+        <div className="absolute bottom-0 right-0 w-80 h-80 bg-brand-400/5 rounded-full blur-3xl translate-x-1/2 translate-y-1/2"></div>
 
-      <Testimonials />
-
-      <Footer>
-        {/* Contact Section */}
-        <section id="contact">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <span className="bg-gradient-to-r from-brand-400 to-brand-600 bg-clip-text text-transparent font-semibold text-lg tracking-wide uppercase">
-              Contact
-            </span>
-            <h2 className="text-4xl md:text-5xl font-bold text-white mt-4 mb-6 leading-tight">
-              Laten We Uw Platte Dak
-              <span className="text-brand-400"> Inspecteren</span>
+            <div className="inline-flex items-center space-x-2 bg-brand-500/20 text-brand-300 px-5 py-2.5 rounded-full text-sm font-semibold border border-brand-400/30 mb-6">
+              <Award className="w-4 h-4" />
+              <span>Onze Diensten</span>
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+              Compleet{' '}
+              <span className="bg-gradient-to-r from-brand-400 to-brand-500 bg-clip-text text-transparent">Bitumen & EPDM Aanbod</span>
             </h2>
-            <p className="text-stone-300 text-lg max-w-3xl mx-auto leading-relaxed">
-              Klaar voor vakkundig bitumen of EPDM dakwerk? Neem contact met ons op
-              voor een gratis dakinspectie en vrijblijvende offerte.
+            <p className="text-lg text-stone-300 max-w-3xl mx-auto">
+              Van kleine reparaties tot complete vernieuwing. Altijd met garantie en vakkundige uitvoering.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
-            <div className="lg:col-span-1">
-              <h3 className="text-2xl font-bold text-white mb-8">Contactgegevens</h3>
-              <div className="space-y-6">
-                {contactInfo.map((info, index) => (
-                  <div key={index} className="flex items-start space-x-4">
-                    <div className="w-12 h-12 bg-brand-500 rounded-lg flex items-center justify-center flex-shrink-0">
-                      <info.icon className="w-6 h-6 text-slate-900" />
-                    </div>
-                    <div>
-                      <h4 className="text-white font-semibold mb-2">{info.title}</h4>
-                      {info.details.map((detail, detailIndex) => (
-                        <p key={detailIndex} className="text-stone-300">
-                          {info.action && detailIndex === 0 ? (
-                            <a
-                              href={info.action}
-                              className="hover:text-brand-400 transition-colors"
-                            >
-                              {detail}
-                            </a>
-                          ) : (
-                            detail
-                          )}
-                        </p>
-                      ))}
-                    </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-12">
+            {bitumenEpdmServices.map((service, index) => (
+              <div key={index} className="flex items-center space-x-3 bg-stone-800/50 backdrop-blur-sm rounded-xl px-5 py-4 border border-stone-700/50">
+                <CheckCircle className="w-5 h-5 text-brand-400 flex-shrink-0" />
+                <span className="text-white/90 font-medium text-sm">{service}</span>
+              </div>
+            ))}
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <div className="bg-stone-800 rounded-2xl p-8 border border-stone-700">
+              <h3 className="text-xl font-bold text-white mb-3">Bespaar op uw energierekening</h3>
+              <p className="text-stone-300 mb-6 leading-relaxed">
+                Een goed geïsoleerd plat dak bespaart u aanzienlijk op uw energierekening.
+                Onze bitumen en EPDM werkzaamheden betalen zichzelf terug.
+              </p>
+              <button
+                onClick={() => setIsContactPopupOpen(true)}
+                className="group bg-brand-500 hover:bg-brand-400 text-stone-900 font-bold px-6 py-3.5 rounded-xl transition-all duration-300 inline-flex items-center space-x-2"
+              >
+                <span>Vraag een offerte aan</span>
+                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </button>
+            </div>
+
+            <div className="bg-stone-800 rounded-2xl p-8 border border-stone-700">
+              <h3 className="text-xl font-bold text-white mb-4">Direct voordeel</h3>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                {["Waterdichte garantie", "Lagere energierekening", "Garantie op het werk", "Transparante prijzen", "Hogere woningwaarde"].map((item, index) => (
+                  <div key={index} className="flex items-center space-x-2">
+                    <CheckCircle className="w-4 h-4 text-brand-400 flex-shrink-0" />
+                    <span className="text-stone-300 text-sm font-medium">{item}</span>
                   </div>
                 ))}
               </div>
-
-              <div className="mt-8 p-6 bg-stone-800 rounded-xl">
-                <h4 className="text-white font-bold mb-4">Bedrijfsgegevens</h4>
-                <div className="space-y-2 text-stone-300 text-sm">
-                  <p><span className="font-medium">KvK:</span> 96885904</p>
-                  <p><span className="font-medium">Vestiging:</span> Waalwijk</p>
-                  <p><span className="font-medium">Ervaring:</span> 7+ jaar</p>
-                </div>
-              </div>
-
-              <div className="mt-8 p-6 bg-red-900/20 border border-red-900/50 rounded-xl">
-                <h4 className="text-red-400 font-bold mb-2">24/7 Spoedservice</h4>
-                <p className="text-stone-300 mb-3">Voor acute platte dak problemen</p>
-                <a
-                  href="tel:0657010861"
-                  className="text-red-400 font-semibold hover:text-red-300 transition-colors"
-                >
-                  06 57 01 08 61
-                </a>
-              </div>
-            </div>
-
-            <div className="lg:col-span-2">
-              <div className="bg-white rounded-2xl p-8 shadow-2xl">
-                <h3 className="text-2xl font-bold text-slate-900 mb-6">Vraag uw gratis offerte aan</h3>
-
-                <div className="bg-brand-50 border border-brand-200 rounded-lg p-4 mb-6">
-                  <h4 className="font-bold text-slate-900 mb-2">Gratis dakinspectie</h4>
-                  <h4 className="font-bold text-slate-900 mb-2">Vrijblijvende offerte</h4>
-                  <h4 className="font-bold text-slate-900">Persoonlijk advies</h4>
-                </div>
-
-                {error && (
-                  <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg">
-                    <p className="text-red-600">{error}</p>
-                  </div>
-                )}
-
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div>
-                      <label className="block text-sm font-medium text-stone-700 mb-2">
-                        Naam *
-                      </label>
-                      <div className="relative">
-                        <User className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-stone-400" />
-                        <input
-                          type="text"
-                          value={formData.name}
-                          onChange={(e) => handleInputChange('name', e.target.value)}
-                          className="w-full pl-12 pr-4 py-3 border border-stone-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 text-stone-900"
-                          placeholder="Uw volledige naam"
-                          required
-                        />
-                      </div>
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium text-stone-700 mb-2">
-                        Email *
-                      </label>
-                      <div className="relative">
-                        <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-stone-400" />
-                        <input
-                          type="email"
-                          value={formData.email}
-                          onChange={(e) => handleInputChange('email', e.target.value)}
-                          className="w-full pl-12 pr-4 py-3 border border-stone-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 text-stone-900"
-                          placeholder="uw.email@example.nl"
-                          required
-                        />
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div>
-                      <label className="block text-sm font-medium text-stone-700 mb-2">
-                        Telefoon *
-                      </label>
-                      <div className="relative">
-                        <Phone className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-stone-400" />
-                        <input
-                          type="tel"
-                          value={formData.phone}
-                          onChange={(e) => handleInputChange('phone', e.target.value)}
-                          className="w-full pl-12 pr-4 py-3 border border-stone-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 text-stone-900"
-                          placeholder="06 57 01 08 61"
-                          required
-                        />
-                      </div>
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium text-stone-700 mb-2">
-                        Stad *
-                      </label>
-                      <div className="relative">
-                        <MapPin className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-stone-400" />
-                        <input
-                          type="text"
-                          value={formData.stad}
-                          onChange={(e) => handleInputChange('stad', e.target.value)}
-                          className="w-full pl-12 pr-4 py-3 border border-stone-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 text-stone-900"
-                          placeholder="Amsterdam"
-                          required
-                        />
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div>
-                      <label className="block text-sm font-medium text-stone-700 mb-2">
-                        Straatnaam + Huisnummer *
-                      </label>
-                      <div className="relative">
-                        <Building2 className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-stone-400" />
-                        <input
-                          type="text"
-                          value={formData.address}
-                          onChange={(e) => handleInputChange('address', e.target.value)}
-                          className="w-full pl-12 pr-4 py-3 border border-stone-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 text-stone-900"
-                          placeholder="Hoofdstraat 123"
-                          required
-                        />
-                      </div>
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium text-stone-700 mb-2">
-                        Provincie *
-                      </label>
-                      <div className="relative">
-                        <Building className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-stone-400" />
-                        <input
-                          type="text"
-                          value={formData.provincie}
-                          onChange={(e) => handleInputChange('provincie', e.target.value)}
-                          className="w-full pl-12 pr-4 py-3 border border-stone-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 text-stone-900"
-                          placeholder="Noord-Holland"
-                          required
-                        />
-                      </div>
-                    </div>
-                  </div>
-
-                  <div>
-                    <label className="block text-sm font-medium text-stone-700 mb-2">
-                      Gewenste startdatum *
-                    </label>
-                    <div className="relative">
-                      <Calendar className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-stone-400" />
-                      <select
-                        value={formData.timeline}
-                        onChange={(e) => handleInputChange('timeline', e.target.value)}
-                        className="w-full pl-12 pr-4 py-3 border border-stone-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 text-stone-900"
-                        required
-                      >
-                        <option value="">Selecteer timing</option>
-                        <option value="asap">Zo snel mogelijk</option>
-                        <option value="1-3months">1-3 maanden</option>
-                        <option value="3-6months">3-6 maanden</option>
-                        <option value="6-12months">6-12 maanden</option>
-                        <option value="flexible">Flexibel</option>
-                      </select>
-                    </div>
-                  </div>
-
-                  <div>
-                    <label className="block text-sm font-medium text-stone-700 mb-2">
-                      Bericht *
-                    </label>
-                    <div className="relative">
-                      <MessageCircle className="absolute left-3 top-4 w-5 h-5 text-stone-400" />
-                      <textarea
-                        value={formData.message}
-                        onChange={(e) => handleInputChange('message', e.target.value)}
-                        rows={5}
-                        className="w-full pl-12 pr-4 py-3 border border-stone-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 resize-none text-stone-900"
-                        placeholder="Beschrijf uw platte dak probleem of project..."
-                        required
-                      />
-                    </div>
-                  </div>
-
-                  <div className="text-center">
-                    <button
-                      type="submit"
-                      disabled={isSubmitting}
-                      className={`inline-flex items-center space-x-3 px-8 py-4 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg ${
-                        isSubmitting
-                          ? 'bg-stone-400 cursor-not-allowed text-white'
-                          : 'bg-brand-500 hover:bg-brand-600 text-white'
-                      }`}
-                    >
-                      {isSubmitting ? (
-                        <>
-                          <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white"></div>
-                          <span>Verzenden...</span>
-                        </>
-                      ) : (
-                        <>
-                          <Send className="w-5 h-5" />
-                          <span>Verzend Bericht</span>
-                        </>
-                      )}
-                    </button>
-                  </div>
-
-                  <p className="text-stone-600 text-sm text-center">
-                    Door dit formulier te verzenden gaat u akkoord met ons privacybeleid.
-                    Wij nemen binnen 24 uur contact met u op voor uw gratis dakinspectie en offerte.
-                  </p>
-                </form>
-              </div>
-            </div>
-          </div>
-
-          <div className="text-center mt-16">
-            <div className="bg-gradient-to-r from-brand-400 to-brand-600 rounded-2xl p-8">
-              <h3 className="text-2xl font-bold text-slate-900 mb-4">
-                Acute Platte Dak Problemen?
-              </h3>
-              <p className="text-slate-800 mb-6 max-w-2xl mx-auto">
-                Voor lekkages, stormschade of andere spoedgevallen aan uw platte dak kunt u ons 24/7 bellen.<br/>
-                Onze dakdekkers staan voor u klaar. Vraag nu een gratis offerte aan!
-              </p>
-              <a
-                href="tel:0657010861"
-                className="inline-block bg-stone-900 hover:bg-slate-800 text-white font-semibold px-8 py-4 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg"
-              >
-                Bel Nu: 06 57 01 08 61
-              </a>
             </div>
           </div>
         </div>
       </section>
+
+      {/* Testimonials */}
+      <Testimonials />
+
+      <Footer>
+        <Contact standalone={false} />
       </Footer>
 
       <ContactPopup

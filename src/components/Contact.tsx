@@ -79,7 +79,7 @@ const Contact = ({ standalone = true }: ContactProps) => {
     {
       icon: MapPin,
       title: "Adres",
-      details: ["Villa gagel 9", "5146AC Waalwijk"],
+      details: ["Overwegwachter 4", "3034KG Rotterdam"],
       action: "https://maps.google.com"
     },
     {
@@ -159,7 +159,7 @@ const Contact = ({ standalone = true }: ContactProps) => {
               </h4>
               <div className="space-y-2 text-stone-400 text-sm">
                 <p className="flex justify-between"><span>KvK</span><span className="text-white font-medium">96885904</span></p>
-                <p className="flex justify-between"><span>Vestiging</span><span className="text-white font-medium">Waalwijk</span></p>
+                <p className="flex justify-between"><span>Vestiging</span><span className="text-white font-medium">Rotterdam</span></p>
                 <p className="flex justify-between"><span>Ervaring</span><span className="text-brand-400 font-medium">7+ jaar</span></p>
               </div>
             </div>
@@ -264,7 +264,7 @@ const Contact = ({ standalone = true }: ContactProps) => {
                         value={formData.stad}
                         onChange={(e) => handleInputChange('stad', e.target.value)}
                         className="w-full pl-12 pr-4 py-3 border border-stone-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-stone-900"
-                        placeholder="Bijv. Waalwijk"
+                        placeholder="Bijv. Rotterdam"
                       />
                     </div>
                   </div>
@@ -281,7 +281,7 @@ const Contact = ({ standalone = true }: ContactProps) => {
                       value={formData.address}
                       onChange={(e) => handleInputChange('address', e.target.value)}
                       className="w-full pl-12 pr-4 py-3 border border-stone-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-stone-900"
-                      placeholder="Bijv. Villa gagel 9"
+                      placeholder="Bijv. Overwegwachter 4"
                     />
                   </div>
                 </div>
@@ -298,7 +298,7 @@ const Contact = ({ standalone = true }: ContactProps) => {
                         value={formData.provincie}
                         onChange={(e) => handleInputChange('provincie', e.target.value)}
                         className="w-full pl-12 pr-4 py-3 border border-stone-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-stone-900"
-                        placeholder="Bijv. Gelderland"
+                        placeholder="Bijv. Zuid-Holland"
                       />
                     </div>
                   </div>

@@ -1,22 +1,21 @@
 import React, { useState } from 'react';
-import { 
-  Home, CheckCircle, Phone, Mail, ArrowRight, 
-  Award, Shield, Clock, Users, Calculator, Eye, Hammer, Sun, Wrench,
-  Send, User, Calendar, Building2, MapPin, AlertTriangle, Droplets, Search, Zap
+import {
+  CheckCircle, Phone, ArrowRight,
+  Shield, Clock, Eye, Hammer, Droplets, Search, Zap
 } from 'lucide-react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import ContactPopup from '../components/ContactPopup';
 import Contact from '../components/Contact';
+import ContactPopup from '../components/ContactPopup';
 import Testimonials from '../components/Testimonials';
 
 const DakLekkagePage = () => {
   const [isContactPopupOpen, setIsContactPopupOpen] = useState(false);
 
-  const dakLekkageServices = [
+  const services = [
     "Lekkages detecteren en oplossen",
     "Lekdetectie met professionele apparatuur",
-    "Bitumen dak lekkage detecteren",
+    "Bitumen dak lekkage reparatie",
     "Directe noodreparaties",
     "Waterschade preventie en herstel",
     "Complete dakbedekking reparatie",
@@ -24,338 +23,244 @@ const DakLekkagePage = () => {
     "24/7 spoedservice bij acute lekkages"
   ];
 
-  const dakLekkageTypes = [
+  const types = [
     {
       title: "Lekkage Opsporing",
-      description: "Professionele detectie van de bron van waterproblemen",
-      icon: Search,
-      details: "Met moderne apparatuur zoals thermische camera's en vochtmeters vinden wij elke lekkage."
+      description: "Met moderne apparatuur zoals thermische camera's en vochtmeters vinden wij elke lekkage snel en nauwkeurig.",
+      icon: Search
     },
     {
       title: "Acute Reparatie",
-      description: "Directe reparatie om verdere schade te voorkomen",
-      icon: Zap,
-      details: "24/7 beschikbaar voor spoedgevallen. Binnen 2 uur ter plaatse voor noodreparaties."
+      description: "Directe noodreparatie om verdere waterschade te voorkomen. Beschikbaar voor spoedgevallen wanneer u ons nodig heeft.",
+      icon: Zap
     },
     {
       title: "Waterdicht Herstel",
-      description: "Definitieve oplossing met lange termijn garantie",
-      icon: Shield,
-      details: "Vakkundige reparatie met hoogwaardige materialen voor blijvend waterdichte resultaten."
+      description: "Vakkundige definitieve reparatie met hoogwaardige materialen voor blijvend waterdichte resultaten en garantie.",
+      icon: Shield
     }
   ];
 
   const features = [
     {
       title: "100% Waterdicht",
-      description: "Garantie op alle uitgevoerde reparaties",
+      description: "Garantie op alle uitgevoerde reparaties voor een waterdicht resultaat",
       icon: Droplets
     },
     {
       title: "Snelle Service",
-      description: "Binnen 2 uur ter plaatse bij spoedgevallen",
+      description: "Snel ter plaatse bij spoedgevallen voor directe hulp",
       icon: Clock
     },
     {
       title: "Moderne Techniek",
-      description: "Thermografie en professionele meetapparatuur",
+      description: "Thermografie en professionele meetapparatuur voor nauwkeurige detectie",
       icon: Eye
     }
   ];
 
-
-  const dakLekkageProcess = [
+  const process = [
     {
       step: 1,
       title: "Spoedmelding",
-      description: "Direct contact en inschatting van urgentie",
-      icon: Phone
+      description: "Direct contact en inschatting van urgentie"
     },
     {
       step: 2,
       title: "Lokalisatie",
-      description: "Professionele opsporing van de lekkage bron",
-      icon: Search
+      description: "Professionele opsporing van de lekkage bron"
     },
     {
       step: 3,
       title: "Noodreparatie",
-      description: "Directe reparatie om verdere schade te voorkomen",
-      icon: Hammer
+      description: "Directe reparatie om verdere schade te voorkomen"
     },
     {
       step: 4,
       title: "Definitieve Oplossing",
-      description: "Vakkundige reparatie met garantie",
-      icon: CheckCircle
+      description: "Vakkundige reparatie met garantie"
     }
   ];
 
-
-  const projectTypes = [
-    { id: 'lekkage-opsporing', label: 'Lekkage Opsporing', icon: Search },
-    { id: 'acute-reparatie', label: 'Acute Reparatie', icon: Zap },
-    { id: 'waterdicht-herstel', label: 'Waterdicht Herstel', icon: Shield }
+  const emergencyServices = [
+    { service: "Acute daklekkage", description: "Directe hulp bij waterschade", available: "24/7 bereikbaar" },
+    { service: "Stormschade lekkage", description: "Snelle beoordeling en reparatie", available: "24/7 bereikbaar" },
+    { service: "Plafondschade water", description: "Bron opsporen en dichten", available: "24/7 bereikbaar" },
+    { service: "Kelderlekkage", description: "Detectie en waterdicht maken", available: "Op afspraak" }
   ];
-
 
   return (
     <div className="min-h-screen">
       <Header />
-      
+
       {/* Hero Section */}
-      <section className="relative pt-32 lg:pt-48 pb-20 bg-gradient-to-br from-red-900 via-brand-800 to-slate-900">
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=1920')] bg-cover bg-center opacity-20"></div>
+      <section className="relative pt-32 lg:pt-48 pb-20 bg-stone-900">
+        <div className="absolute inset-0 bg-[url('/house2-new.jpg')] bg-cover bg-center opacity-20"></div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <div className="relative inline-block mb-6">
-              <div className="bg-gradient-to-r from-white/20 to-red-400/30 backdrop-blur-sm rounded-full px-6 py-3 border border-red-400/40 shadow-xl">
-                <div className="flex items-center space-x-3">
-                  <div className="w-3 h-3 bg-red-400 rounded-full shadow-lg animate-pulse"></div>
-                  <span className="text-white font-semibold text-sm tracking-wide">
-                    24/7 SPOEDSERVICE - BINNEN 2 UUR TER PLAATSE
-                  </span>
-                  <div className="w-3 h-3 bg-red-400 rounded-full shadow-lg animate-pulse"></div>
-                </div>
-              </div>
+            <div className="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-sm text-white px-5 py-2.5 rounded-full text-sm font-medium mb-8 border border-white/20">
+              <Droplets className="w-4 h-4 text-brand-400" />
+              <span>24/7 Lekkage Specialist</span>
             </div>
             <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">
-              <span className="text-red-400">ACUTE DAKLEKKAGE?</span>
-              <br />
-              <span className="bg-gradient-to-r from-brand-400 to-brand-600 bg-clip-text text-transparent">Binnen 2 Uur Opgelost!</span>
+              Professionele <span className="text-brand-400">Daklekkage</span> Service
             </h1>
-            <p className="text-xl text-stone-300 mb-8 max-w-3xl mx-auto leading-relaxed">
-              <span className="text-red-400 font-bold">STOP DE SCHADE NU!</span> Daklekkage wordt elke minuut erger.
-              Wij vinden de bron en lossen het definitief op. 24/7 spoedservice voor directe hulp.
+            <p className="text-xl text-stone-300 mb-10 max-w-3xl mx-auto leading-relaxed">
+              Daklekkage? Wij vinden de bron en lossen het definitief op.
+              Professionele detectie en reparatie met garantie op waterdichtheid.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
               <a
                 href="tel:0657010861"
-                className="bg-red-500 hover:bg-red-600 text-white font-bold px-10 py-5 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-2xl flex items-center justify-center text-lg animate-pulse"
+                className="bg-brand-500 hover:bg-brand-600 text-stone-900 font-semibold px-8 py-4 rounded-xl transition-all duration-300 shadow-lg flex items-center justify-center"
               >
-                <Phone className="w-6 h-6 mr-3" />
-                SPOED: 06 57 01 08 61 - BEL NU!
+                <Phone className="w-5 h-5 mr-2" />
+                Bel direct: 06 57 01 08 61
               </a>
               <button
                 onClick={() => setIsContactPopupOpen(true)}
-                className="bg-brand-500 hover:bg-brand-600 text-slate-900 font-bold px-10 py-5 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-2xl flex items-center justify-center text-lg"
+                className="bg-stone-800 hover:bg-stone-700 text-white font-semibold px-8 py-4 rounded-xl transition-all duration-300 shadow-lg flex items-center justify-center border border-stone-700"
               >
-                <Calculator className="w-6 h-6 mr-3" />
-                GRATIS LEKKAGE INSPECTIE
+                <Search className="w-5 h-5 mr-2" />
+                Gratis lekkage inspectie
               </button>
             </div>
-
-            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6">
-              <div className="flex items-center justify-center space-x-2 mb-4">
-                <CheckCircle className="w-6 h-6 text-green-400" />
-                <p className="text-lg font-semibold text-green-400">Waarom ons bellen?</p>
-              </div>
-              <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-                <div className="flex items-center justify-center space-x-2">
-                  <CheckCircle className="w-6 h-6 text-green-400" />
-                  <span className="text-white">Binnen 2 Uur Ter Plaatse</span>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto">
+              {["100% waterdicht", "Geen voorrijkosten", "Gratis inspectie", "24/7 bereikbaar"].map((item, i) => (
+                <div key={i} className="flex items-center justify-center space-x-2">
+                  <CheckCircle className="w-5 h-5 text-brand-400 flex-shrink-0" />
+                  <span className="text-white/90 text-sm">{item}</span>
                 </div>
-                <div className="flex items-center justify-center space-x-2">
-                  <CheckCircle className="w-6 h-6 text-green-400" />
-                  <span className="text-white">100% Garantie</span>
-                </div>
-                <div className="flex items-center justify-center space-x-2">
-                  <CheckCircle className="w-6 h-6 text-green-400" />
-                  <span className="text-white">Geen Voorrijkosten</span>
-                </div>
-                <div className="flex items-center justify-center space-x-2">
-                  <CheckCircle className="w-6 h-6 text-green-400" />
-                  <span className="text-white">Direct Gestopt</span>
-                </div>
-              </div>
+              ))}
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Urgency Section */}
-      <section className="py-20 bg-gradient-to-br from-red-50 to-orange-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <AlertTriangle className="w-16 h-16 text-red-500 mx-auto mb-6 animate-pulse" />
-            <h2 className="text-4xl font-bold text-slate-900 mb-6">
-              <span className="text-red-600">Elke Minuut Telt Bij Daklekkage!</span>
-            </h2>
-            <p className="text-xl text-stone-700 max-w-3xl mx-auto mb-4">
-              <strong>Een druppel wordt een stroom!</strong> Daklekkage veroorzaakt snel duizenden euro's waterschade.
-            </p>
-            <p className="text-lg text-stone-600 max-w-3xl mx-auto mb-8">
-              Binnen 2 uur ter plaatse. Direct gestopt. Geen schade uitbreiding meer!
-            </p>
-          </div>
-
-          <div className="bg-white rounded-xl shadow-lg overflow-hidden mb-8">
-            <div className="px-6 py-4 bg-red-500 text-white">
-              <h3 className="text-xl font-bold">Gevolgen van Uitstellen</h3>
-            </div>
-            <div className="divide-y divide-gray-200">
-              <div className="px-6 py-4 flex justify-between items-center">
-                <div className="font-medium text-slate-900">1 uur wachten</div>
-                <div className="text-center">
-                  <div className="text-sm text-stone-600">Gevolg</div>
-                  <div className="font-bold text-red-600">Water verspreidt zich</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-sm text-stone-600">Kosten</div>
-                  <div className="font-bold text-red-600">Lage Kosten</div>
-                </div>
-              </div>
-              <div className="px-6 py-4 flex justify-between items-center">
-                <div className="font-medium text-slate-900">1 dag wachten</div>
-                <div className="text-center">
-                  <div className="text-sm text-stone-600">Gevolg</div>
-                  <div className="font-bold text-red-600">Isolatie en plafond beschadigd</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-sm text-stone-600">Kosten</div>
-                  <div className="font-bold text-red-600">Gemiddelde Kosten</div>
-                </div>
-              </div>
-              <div className="px-6 py-4 flex justify-between items-center">
-                <div className="font-medium text-slate-900">1 week wachten</div>
-                <div className="text-center">
-                  <div className="text-sm text-stone-600">Gevolg</div>
-                  <div className="font-bold text-red-600">Schimmel & structuurschade</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-sm text-stone-600">Kosten</div>
-                  <div className="font-bold text-red-600">Hoge Kosten</div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="text-center space-y-4">
-            <p className="text-lg font-semibold text-stone-700">
-              BEL NU! Elke minuut dat u wacht wordt duurder!
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
-                href="tel:0657010861"
-                className="bg-red-500 hover:bg-red-600 text-white font-bold px-10 py-5 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-2xl inline-flex items-center space-x-2 text-lg animate-pulse"
-              >
-                <Phone className="w-6 h-6" />
-                <span>06 57 01 08 61 - STOP DE SCHADE!</span>
-              </a>
-              <button
-                onClick={() => setIsContactPopupOpen(true)}
-                className="bg-brand-500 hover:bg-brand-600 text-slate-900 font-bold px-10 py-5 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-2xl inline-flex items-center space-x-2 text-lg"
-              >
-                <Calculator className="w-6 h-6" />
-                <span>BEREKEN SCHADE</span>
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Services Grid */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-slate-900 mb-4">
-              Onze <span className="bg-gradient-to-r from-brand-400 to-brand-600 bg-clip-text text-transparent">Lekkage</span> Services
-            </h2>
-            <p className="text-xl text-stone-600 max-w-3xl mx-auto">
-              Van spoedopsporing tot definitieve reparatie
-            </p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {dakLekkageTypes.map((type, index) => (
-              <div key={index} className="bg-stone-50 rounded-xl p-8 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
-                <div className="w-16 h-16 bg-brand-100 rounded-lg flex items-center justify-center mb-6">
-                  <type.icon className="w-8 h-8 text-brand-600" />
-                </div>
-                <h3 className="text-2xl font-bold text-slate-900 mb-4">{type.title}</h3>
-                <p className="text-stone-600 mb-4">{type.description}</p>
-                <p className="text-stone-700">{type.details}</p>
-              </div>
-            ))}
           </div>
         </div>
       </section>
 
       {/* Features Section */}
-      <section className="py-20 bg-stone-900">
+      <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-white mb-4">
-              Waarom Onze <span className="bg-gradient-to-r from-brand-400 to-brand-600 bg-clip-text text-transparent">Lekkage Service</span>?
+            <div className="inline-flex items-center space-x-2 bg-brand-50 text-brand-700 px-4 py-2 rounded-full text-sm font-medium mb-6">
+              <Shield className="w-4 h-4" />
+              <span>Waarom DakZorg Nederland</span>
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold text-stone-900 mb-4">
+              Waarom kiezen voor onze lekkage service
             </h2>
+            <p className="text-stone-600 text-lg max-w-2xl mx-auto">
+              Professionele lekkage detectie en reparatie met garantie
+            </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {features.map((feature, index) => (
-              <div key={index} className="text-center">
-                <div className="w-20 h-20 bg-brand-500 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <feature.icon className="w-10 h-10 text-white" />
+              <div key={index} className="bg-white rounded-2xl shadow-lg border border-stone-100 p-8 hover:shadow-xl transition-shadow duration-300">
+                <div className="w-14 h-14 bg-gradient-to-br from-brand-50 to-brand-100 rounded-2xl flex items-center justify-center mb-6">
+                  <feature.icon className="w-7 h-7 text-brand-600" />
                 </div>
-                <h3 className="text-xl font-bold text-white mb-2">{feature.title}</h3>
-                <p className="text-stone-300">{feature.description}</p>
+                <h3 className="text-xl font-bold text-stone-900 mb-3">{feature.title}</h3>
+                <p className="text-stone-600 leading-relaxed">{feature.description}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Services List */}
-      <section className="py-20 bg-stone-50">
+      {/* Types Section */}
+      <section className="py-24 bg-stone-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-4xl font-bold text-slate-900 mb-8">
-                Complete <span className="bg-gradient-to-r from-brand-400 to-brand-600 bg-clip-text text-transparent">Lekkage</span> Oplossingen
-              </h2>
-              <div className="space-y-4">
-                {dakLekkageServices.map((service, index) => (
-                  <div key={index} className="flex items-start space-x-3">
-                    <CheckCircle className="w-6 h-6 text-brand-500 flex-shrink-0 mt-0.5" />
-                    <span className="text-stone-700 text-lg">{service}</span>
-                  </div>
-                ))}
-              </div>
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center space-x-2 bg-brand-50 text-brand-700 px-4 py-2 rounded-full text-sm font-medium mb-6">
+              <Search className="w-4 h-4" />
+              <span>Onze specialisaties</span>
             </div>
-            <div className="relative">
-              <img 
-                src="https://imgur.com/ohOuLWB.png" 
-                alt="Lekkage opsporing werkzaamheden" 
-                className="rounded-xl shadow-2xl"
-              />
-              <div className="absolute -bottom-6 -right-6 bg-brand-500 text-white p-6 rounded-lg shadow-xl">
-                <div className="text-3xl font-bold">24/7</div>
-                <div className="text-sm">Service</div>
+            <h2 className="text-3xl md:text-4xl font-bold text-stone-900 mb-4">
+              Lekkage services
+            </h2>
+            <p className="text-stone-600 text-lg max-w-2xl mx-auto">
+              Van spoedopsporing tot definitieve reparatie
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {types.map((type, index) => (
+              <div key={index} className="bg-white rounded-2xl shadow-lg border border-stone-100 p-8 hover:shadow-xl transition-shadow duration-300">
+                <div className="w-14 h-14 bg-gradient-to-br from-brand-50 to-brand-100 rounded-2xl flex items-center justify-center mb-6">
+                  <type.icon className="w-7 h-7 text-brand-600" />
+                </div>
+                <h3 className="text-xl font-bold text-stone-900 mb-3">{type.title}</h3>
+                <p className="text-stone-600 leading-relaxed">{type.description}</p>
               </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
 
+      {/* Emergency Section */}
+      <section className="py-24 bg-stone-900 relative overflow-hidden">
+        <div className="absolute top-0 left-0 w-96 h-96 bg-brand-500/5 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-brand-500/5 rounded-full blur-3xl translate-x-1/2 translate-y-1/2"></div>
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-sm text-white px-4 py-2 rounded-full text-sm font-medium mb-6 border border-white/20">
+              <Clock className="w-4 h-4 text-brand-400" />
+              <span>Altijd bereikbaar</span>
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+              Spoed lekkage service
+            </h2>
+            <p className="text-stone-400 text-lg max-w-2xl mx-auto">
+              Acute daklekkage? Wij staan dag en nacht voor u klaar
+            </p>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {emergencyServices.map((item, index) => (
+              <div key={index} className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:bg-white/10 transition-colors duration-300">
+                <h3 className="text-white font-semibold text-lg mb-2">{item.service}</h3>
+                <p className="text-stone-400 text-sm mb-4">{item.description}</p>
+                <span className="inline-flex items-center text-brand-400 text-sm font-medium">
+                  <Clock className="w-4 h-4 mr-1.5" />
+                  {item.available}
+                </span>
+              </div>
+            ))}
+          </div>
+          <div className="text-center mt-12">
+            <a
+              href="tel:0657010861"
+              className="inline-flex items-center bg-brand-500 hover:bg-brand-600 text-stone-900 font-semibold px-8 py-4 rounded-xl transition-all duration-300 shadow-lg"
+            >
+              <Phone className="w-5 h-5 mr-2" />
+              Direct bellen: 06 57 01 08 61
+            </a>
+          </div>
+        </div>
+      </section>
 
       {/* Process Section */}
-      <section className="py-20 bg-white">
+      <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-slate-900 mb-4">
-              Ons <span className="bg-gradient-to-r from-brand-400 to-brand-600 bg-clip-text text-transparent">Lekkage Protocol</span>
+            <div className="inline-flex items-center space-x-2 bg-brand-50 text-brand-700 px-4 py-2 rounded-full text-sm font-medium mb-6">
+              <Eye className="w-4 h-4" />
+              <span>Ons lekkage protocol</span>
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold text-stone-900 mb-4">
+              Van melding tot definitieve oplossing
             </h2>
-            <p className="text-xl text-stone-600">Van melding tot definitieve oplossing</p>
+            <p className="text-stone-600 text-lg max-w-2xl mx-auto">
+              Gestructureerde aanpak voor snel en effectief resultaat
+            </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            {dakLekkageProcess.map((item, index) => (
-              <div key={index} className="relative">
-                <div className="text-center">
-                  <div className="w-16 h-16 bg-brand-500 rounded-full flex items-center justify-center mx-auto mb-4 text-white font-bold text-xl">
-                    {item.step}
-                  </div>
-                  <h3 className="text-xl font-bold text-slate-900 mb-2">{item.title}</h3>
-                  <p className="text-stone-600">{item.description}</p>
+            {process.map((item, index) => (
+              <div key={index} className="relative text-center">
+                <div className="w-16 h-16 bg-gradient-to-br from-brand-500 to-brand-600 rounded-2xl flex items-center justify-center mx-auto mb-6 text-white font-bold text-xl shadow-lg">
+                  {item.step}
                 </div>
-                {index < dakLekkageProcess.length - 1 && (
-                  <ArrowRight className="hidden md:block absolute top-8 -right-4 w-8 h-8 text-stone-300" />
+                <h3 className="text-lg font-bold text-stone-900 mb-2">{item.title}</h3>
+                <p className="text-stone-600 text-sm">{item.description}</p>
+                {index < process.length - 1 && (
+                  <ArrowRight className="hidden md:block absolute top-8 -right-4 w-6 h-6 text-stone-300" />
                 )}
               </div>
             ))}
@@ -363,15 +268,59 @@ const DakLekkagePage = () => {
         </div>
       </section>
 
-      <Testimonials />
+      {/* Services Section */}
+      <section className="py-24 bg-stone-900 relative overflow-hidden">
+        <div className="absolute top-0 left-0 w-96 h-96 bg-brand-500/5 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-brand-500/5 rounded-full blur-3xl translate-x-1/2 translate-y-1/2"></div>
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <div className="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-sm text-white px-4 py-2 rounded-full text-sm font-medium mb-6 border border-white/20">
+              <Hammer className="w-4 h-4 text-brand-400" />
+              <span>Onze diensten</span>
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+              Complete lekkage oplossingen
+            </h2>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-12">
+            {services.map((service, index) => (
+              <div key={index} className="flex items-center space-x-3 bg-stone-800/50 backdrop-blur-sm rounded-xl px-5 py-4 border border-stone-700/50">
+                <CheckCircle className="w-5 h-5 text-brand-400 flex-shrink-0" />
+                <span className="text-white/90 font-medium text-sm">{service}</span>
+              </div>
+            ))}
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10">
+              <div className="flex items-center space-x-3 mb-4">
+                <div className="w-10 h-10 bg-brand-500/20 rounded-xl flex items-center justify-center">
+                  <Shield className="w-5 h-5 text-brand-400" />
+                </div>
+                <h3 className="text-white font-semibold text-lg">Garantie op waterdichtheid</h3>
+              </div>
+              <p className="text-stone-400">Op alle uitgevoerde reparaties geven wij garantie. Uw dak is waterdicht of wij komen terug.</p>
+            </div>
+            <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10">
+              <div className="flex items-center space-x-3 mb-4">
+                <div className="w-10 h-10 bg-brand-500/20 rounded-xl flex items-center justify-center">
+                  <Search className="w-5 h-5 text-brand-400" />
+                </div>
+                <h3 className="text-white font-semibold text-lg">Gratis lekkage inspectie</h3>
+              </div>
+              <p className="text-stone-400">Wij komen geheel vrijblijvend langs om de lekkage te beoordelen en u te adviseren over de beste oplossing.</p>
+            </div>
+          </div>
+        </div>
+      </section>
 
+      <Testimonials />
 
       <Footer>
         <Contact standalone={false} />
       </Footer>
-      <ContactPopup 
-        isOpen={isContactPopupOpen} 
-        onClose={() => setIsContactPopupOpen(false)} 
+      <ContactPopup
+        isOpen={isContactPopupOpen}
+        onClose={() => setIsContactPopupOpen(false)}
       />
     </div>
   );

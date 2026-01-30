@@ -1,340 +1,273 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { 
-  Home, CheckCircle, Phone, Mail, ArrowRight, 
-  Award, Shield, Clock, Users, Calculator, Eye, Hammer, Sun, Wrench,
-  Send, User, Calendar, Building2, MapPin, AlertTriangle, Droplets, Leaf, Filter
+import {
+  CheckCircle, Phone, ArrowRight,
+  Shield, Clock, Eye, Droplets, Leaf, Filter, Home
 } from 'lucide-react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import ContactPopup from '../components/ContactPopup';
 import Contact from '../components/Contact';
-import { sendEmail } from '../utils/emailService';
+import ContactPopup from '../components/ContactPopup';
 import Testimonials from '../components/Testimonials';
 
 const DakgootReinigingPage = () => {
-  const navigate = useNavigate();
   const [isContactPopupOpen, setIsContactPopupOpen] = useState(false);
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    projectType: '',
-    message: '',
-    stad: '',
-    address: '',
-    provincie: '',
-    budget: '',
-    timeline: ''
-  });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [error, setError] = useState('');
 
-  const dakgootReinigingServices = [
+  const services = [
     "Dakgoten vernieuwen",
     "Dakgoten repareren",
     "Zink werkzaamheden",
     "Dakgoten reinigen",
     "Afvoeren en hemelwaterafvoer ontstoppen",
-    "Controle op schade en slijtage"
+    "Controle op schade en slijtage",
+    "Onderhoudscontracten",
+    "Seizoensgebonden reiniging"
   ];
 
-  const dakgootReinigingTypes = [
+  const types = [
     {
       title: "Standaard Reiniging",
-      description: "Complete reiniging van dakgoten en afvoeren",
-      icon: Droplets,
-      details: "Handmatige reiniging van alle dakgoten, verwijderen van bladeren, mos en vuil uit alle goten en afvoeren."
+      description: "Handmatige reiniging van alle dakgoten, verwijderen van bladeren, mos en vuil uit alle goten en afvoeren.",
+      icon: Droplets
     },
     {
       title: "Seizoen Onderhoud",
-      description: "Periodieke reiniging voor optimale afvoer",
-      icon: Leaf,
-      details: "Regelmatige reiniging in voor- en najaar om verstoppingen te voorkomen en schade door overloop te vermijden."
+      description: "Regelmatige reiniging in voor- en najaar om verstoppingen te voorkomen en schade door overloop te vermijden.",
+      icon: Leaf
     },
     {
       title: "Ontstopping Service",
-      description: "Professioneel ontstoppen van verstopte afvoeren",
-      icon: Filter,
-      details: "Specialistische ontstopping van hardnekkige verstoppingen in dakgoten, hemelwaterafvoer en regenpijpen."
+      description: "Specialistische ontstopping van hardnekkige verstoppingen in dakgoten, hemelwaterafvoer en regenpijpen.",
+      icon: Filter
     }
   ];
 
   const features = [
     {
       title: "Milieuvriendelijk",
-      description: "Afval wordt gescheiden afgevoerd en gerecycled",
+      description: "Afval wordt gescheiden afgevoerd en verantwoord gerecycled",
       icon: Leaf
     },
     {
       title: "Veilig Werken",
-      description: "Professionele apparatuur en veiligheidsmiddelen",
+      description: "Professionele apparatuur en gecertificeerde veiligheidsmiddelen",
       icon: Shield
     },
     {
       title: "Jaarlijks Onderhoud",
-      description: "Onderhoudscontracten voor zorgeloos beheer",
-      icon: Calendar
+      description: "Onderhoudscontracten voor zorgeloos beheer van uw dakgoten",
+      icon: Clock
     }
   ];
 
-
-  const dakgootReinigingProcess = [
+  const process = [
     {
       step: 1,
       title: "Inspectie",
-      description: "Controle van dakgoten en afvoeren",
-      icon: Eye
+      description: "Controle van dakgoten en afvoeren op vervuiling en schade"
     },
     {
       step: 2,
       title: "Reiniging",
-      description: "Handmatig verwijderen van vuil en bladeren",
-      icon: Leaf
+      description: "Handmatig verwijderen van vuil, bladeren en mos"
     },
     {
       step: 3,
       title: "Doorspoelen",
-      description: "Testen van afvoer met water",
-      icon: Droplets
+      description: "Testen van afvoer en doorstroming met water"
     },
     {
       step: 4,
       title: "Afwerking",
-      description: "Opruimen en advies voor onderhoud",
-      icon: CheckCircle
+      description: "Opruimen en advies voor toekomstig onderhoud"
     }
   ];
 
-
-  const projectTypes = [
-    { id: 'standaard-reiniging', label: 'Standaard Reiniging', icon: Droplets },
-    { id: 'seizoen-onderhoud', label: 'Seizoen Onderhoud', icon: Leaf },
-    { id: 'ontstopping-service', label: 'Ontstopping Service', icon: Filter }
+  const emergencyServices = [
+    { service: "Verstopte dakgoot", description: "Directe ontstopping en reiniging", available: "24/7 bereikbaar" },
+    { service: "Lekkende gootnaad", description: "Snelle reparatie van lekke naden", available: "Op afspraak" },
+    { service: "Overlopende goot", description: "Acute hulp bij wateroverlast", available: "24/7 bereikbaar" },
+    { service: "Afvoer probleem", description: "Diagnose en reparatie verstopte afvoer", available: "Op afspraak" }
   ];
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    setError('');
-    
-    try {
-      const success = await sendEmail(formData);
-      
-      if (success) {
-        setFormData({
-          name: '',
-          email: '',
-          phone: '',
-          projectType: '',
-          message: '',
-          stad: '',
-          address: '',
-          provincie: '',
-          budget: '',
-          timeline: ''
-        });
-        navigate('/bedankt');
-      } else {
-        setError('Er is een fout opgetreden bij het verzenden. Probeer het opnieuw of bel ons direct.');
-      }
-    } catch (error) {
-      console.error('Error submitting form:', error);
-      setError('Er is een fout opgetreden. Probeer het opnieuw of bel ons direct.');
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
-
-  const handleInputChange = (field, value) => {
-    setFormData(prev => ({ ...prev, [field]: value }));
-  };
+  const benefits = [
+    { title: "Geen Waterschade", description: "Voorkom water in kelders en kruipruimtes", icon: Shield },
+    { title: "Optimale Afvoer", description: "Regenwater wordt goed afgevoerd", icon: Droplets },
+    { title: "Waardebehoud", description: "Onderhoud verhoogt waarde van uw woning", icon: Home },
+    { title: "Langere Levensduur", description: "Goten gaan langer mee door goed onderhoud", icon: Clock }
+  ];
 
   return (
     <div className="min-h-screen">
       <Header />
-      
+
       {/* Hero Section */}
-      <section className="relative pt-32 lg:pt-48 pb-20 bg-stone-900 md:bg-gradient-to-br md:from-brand-900 md:via-brand-800 md:to-slate-900">
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=1920')] bg-cover bg-center opacity-25"></div>
+      <section className="relative pt-32 lg:pt-48 pb-20 bg-stone-900">
+        <div className="absolute inset-0 bg-[url('/house2-new.jpg')] bg-cover bg-center opacity-20"></div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
+            <div className="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-sm text-white px-5 py-2.5 rounded-full text-sm font-medium mb-8 border border-white/20">
+              <Droplets className="w-4 h-4 text-brand-400" />
+              <span>Specialist in Dakgoot Onderhoud</span>
+            </div>
             <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">
-              Professionele <span className="bg-gradient-to-r from-brand-400 to-brand-600 bg-clip-text text-transparent">Dakgoot</span> Reiniging
+              Professionele <span className="text-brand-400">Dakgoot</span> Reiniging
             </h1>
-            <p className="text-xl text-stone-300 mb-8 max-w-3xl mx-auto leading-relaxed">
-              Voorkom waterschade met regelmatige dakgoot reiniging. Wij zorgen voor vrije afvoer en optimale waterafvoer.
+            <p className="text-xl text-stone-300 mb-10 max-w-3xl mx-auto leading-relaxed">
+              Voorkom waterschade met regelmatige dakgoot reiniging. Wij zorgen voor
+              vrije afvoer en optimale waterafvoer van uw woning.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button 
+            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+              <button
                 onClick={() => setIsContactPopupOpen(true)}
-                className="bg-brand-500 hover:bg-brand-600 text-white font-semibold px-8 py-4 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg flex items-center justify-center"
-              >
-                <Calendar className="w-5 h-5 mr-2" />
-                Plan Reiniging
-              </button>
-              <a 
-                href="tel:0657010861"
-                className="bg-white hover:bg-stone-100 text-slate-900 font-semibold px-8 py-4 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg flex items-center justify-center"
+                className="bg-brand-500 hover:bg-brand-600 text-stone-900 font-semibold px-8 py-4 rounded-xl transition-all duration-300 shadow-lg flex items-center justify-center"
               >
                 <Phone className="w-5 h-5 mr-2" />
-                Bel: 06 57 01 08 61
+                Plan reiniging
+              </button>
+              <a
+                href="tel:0657010861"
+                className="bg-stone-800 hover:bg-stone-700 text-white font-semibold px-8 py-4 rounded-xl transition-all duration-300 shadow-lg flex items-center justify-center border border-stone-700"
+              >
+                <Phone className="w-5 h-5 mr-2" />
+                06 57 01 08 61
               </a>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Info Banner */}
-      <section className="bg-brand-50 border-y border-brand-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-          <div className="flex items-center justify-center space-x-2 text-brand-900">
-            <Leaf className="w-5 h-5" />
-            <span className="font-semibold">Najaar is dé tijd voor dakgoot reiniging!</span>
-            <span>Voorkom verstoppingen door bladval.</span>
-          </div>
-        </div>
-      </section>
-
-      {/* Services Grid */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-slate-900 mb-4">
-              Onze <span className="bg-gradient-to-r from-brand-400 to-brand-600 bg-clip-text text-transparent">Dakgoot</span> Services
-            </h2>
-            <p className="text-xl text-stone-600 max-w-3xl mx-auto">
-              Van standaard reiniging tot volledig onderhoudscontract
-            </p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {dakgootReinigingTypes.map((type, index) => (
-              <div key={index} className="bg-stone-50 rounded-xl p-8 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
-                <div className="w-16 h-16 bg-brand-100 rounded-lg flex items-center justify-center mb-6">
-                  <type.icon className="w-8 h-8 text-brand-600" />
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto">
+              {["Gratis inspectie", "Seizoensonderhoud", "Milieuvriendelijk", "Vaste lage prijs"].map((item, i) => (
+                <div key={i} className="flex items-center justify-center space-x-2">
+                  <CheckCircle className="w-5 h-5 text-brand-400 flex-shrink-0" />
+                  <span className="text-white/90 text-sm">{item}</span>
                 </div>
-                <h3 className="text-2xl font-bold text-slate-900 mb-4">{type.title}</h3>
-                <p className="text-stone-600 mb-4">{type.description}</p>
-                <p className="text-stone-700">{type.details}</p>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
       {/* Features Section */}
-      <section className="py-20 bg-stone-900">
+      <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-white mb-4">
-              Waarom Kiezen voor Onze <span className="bg-gradient-to-r from-brand-400 to-brand-600 bg-clip-text text-transparent">Goot Service</span>?
+            <div className="inline-flex items-center space-x-2 bg-brand-50 text-brand-700 px-4 py-2 rounded-full text-sm font-medium mb-6">
+              <Shield className="w-4 h-4" />
+              <span>Waarom DakZorg Nederland</span>
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold text-stone-900 mb-4">
+              Waarom kiezen voor onze goot service
             </h2>
+            <p className="text-stone-600 text-lg max-w-2xl mx-auto">
+              Professioneel onderhoud voor optimale dakgoot prestatie
+            </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {features.map((feature, index) => (
-              <div key={index} className="text-center">
-                <div className="w-20 h-20 bg-brand-500 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <feature.icon className="w-10 h-10 text-white" />
+              <div key={index} className="bg-white rounded-2xl shadow-lg border border-stone-100 p-8 hover:shadow-xl transition-shadow duration-300">
+                <div className="w-14 h-14 bg-gradient-to-br from-brand-50 to-brand-100 rounded-2xl flex items-center justify-center mb-6">
+                  <feature.icon className="w-7 h-7 text-brand-600" />
                 </div>
-                <h3 className="text-xl font-bold text-white mb-2">{feature.title}</h3>
-                <p className="text-stone-300">{feature.description}</p>
+                <h3 className="text-xl font-bold text-stone-900 mb-3">{feature.title}</h3>
+                <p className="text-stone-600 leading-relaxed">{feature.description}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Services List */}
-      <section className="py-20 bg-stone-50">
+      {/* Types Section */}
+      <section className="py-24 bg-stone-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-4xl font-bold text-slate-900 mb-8">
-                Wat Doen <span className="bg-gradient-to-r from-brand-400 to-brand-600 bg-clip-text text-transparent">Wij</span>?
-              </h2>
-              <div className="space-y-4">
-                {dakgootReinigingServices.map((service, index) => (
-                  <div key={index} className="flex items-start space-x-3">
-                    <CheckCircle className="w-6 h-6 text-brand-500 flex-shrink-0 mt-0.5" />
-                    <span className="text-stone-700 text-lg">{service}</span>
-                  </div>
-                ))}
-              </div>
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center space-x-2 bg-brand-50 text-brand-700 px-4 py-2 rounded-full text-sm font-medium mb-6">
+              <Filter className="w-4 h-4" />
+              <span>Onze specialisaties</span>
             </div>
-            <div className="relative">
-              <img 
-                src="https://imgur.com/8jVsUDM.png" 
-                alt="Dakgoot reiniging werkzaamheden" 
-                className="rounded-xl shadow-2xl"
-              />
-              <div className="absolute -bottom-6 -right-6 bg-brand-500 text-white p-6 rounded-lg shadow-xl">
-                <div className="text-3xl font-bold">2x</div>
-                <div className="text-sm">Per Jaar</div>
+            <h2 className="text-3xl md:text-4xl font-bold text-stone-900 mb-4">
+              Dakgoot services
+            </h2>
+            <p className="text-stone-600 text-lg max-w-2xl mx-auto">
+              Van standaard reiniging tot volledig onderhoudscontract
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {types.map((type, index) => (
+              <div key={index} className="bg-white rounded-2xl shadow-lg border border-stone-100 p-8 hover:shadow-xl transition-shadow duration-300">
+                <div className="w-14 h-14 bg-gradient-to-br from-brand-50 to-brand-100 rounded-2xl flex items-center justify-center mb-6">
+                  <type.icon className="w-7 h-7 text-brand-600" />
+                </div>
+                <h3 className="text-xl font-bold text-stone-900 mb-3">{type.title}</h3>
+                <p className="text-stone-600 leading-relaxed">{type.description}</p>
               </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Seasonal Section */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Emergency Section */}
+      <section className="py-24 bg-stone-900 relative overflow-hidden">
+        <div className="absolute top-0 left-0 w-96 h-96 bg-brand-500/5 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-brand-500/5 rounded-full blur-3xl translate-x-1/2 translate-y-1/2"></div>
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-slate-900 mb-4">
-              <span className="bg-gradient-to-r from-brand-400 to-brand-600 bg-clip-text text-transparent">Seizoen</span> Planning
+            <div className="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-sm text-white px-4 py-2 rounded-full text-sm font-medium mb-6 border border-white/20">
+              <Clock className="w-4 h-4 text-brand-400" />
+              <span>Altijd bereikbaar</span>
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+              Spoed dakgoot service
             </h2>
-            <p className="text-xl text-stone-600">Het juiste moment voor dakgoot onderhoud</p>
+            <p className="text-stone-400 text-lg max-w-2xl mx-auto">
+              Verstopte of lekkende dakgoot? Wij staan voor u klaar
+            </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="bg-orange-50 rounded-xl p-8 border-2 border-orange-200">
-              <div className="flex items-center mb-4">
-                <Leaf className="w-8 h-8 text-orange-600 mr-3" />
-                <h3 className="text-2xl font-bold text-slate-900">Najaar (Oktober-November)</h3>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {emergencyServices.map((item, index) => (
+              <div key={index} className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:bg-white/10 transition-colors duration-300">
+                <h3 className="text-white font-semibold text-lg mb-2">{item.service}</h3>
+                <p className="text-stone-400 text-sm mb-4">{item.description}</p>
+                <span className="inline-flex items-center text-brand-400 text-sm font-medium">
+                  <Clock className="w-4 h-4 mr-1.5" />
+                  {item.available}
+                </span>
               </div>
-              <ul className="space-y-2 text-stone-700">
-                <li>• Bladeren verwijderen na de bladval</li>
-                <li>• Voorbereiding op winter en vorst</li>
-                <li>• Controle voor het regenseizoen</li>
-                <li>• Preventieve reiniging voor verstoppingen</li>
-              </ul>
-            </div>
-            <div className="bg-brand-50 rounded-xl p-8 border-2 border-brand-200">
-              <div className="flex items-center mb-4">
-                <Sun className="w-8 h-8 text-brand-600 mr-3" />
-                <h3 className="text-2xl font-bold text-slate-900">Voorjaar (Maart-April)</h3>
-              </div>
-              <ul className="space-y-2 text-stone-700">
-                <li>• Winterschade controleren en herstellen</li>
-                <li>• Mos en algen verwijderen</li>
-                <li>• Gereedmaken voor regenseizoen</li>
-                <li>• Algemene controle en onderhoud</li>
-              </ul>
-            </div>
+            ))}
+          </div>
+          <div className="text-center mt-12">
+            <a
+              href="tel:0657010861"
+              className="inline-flex items-center bg-brand-500 hover:bg-brand-600 text-stone-900 font-semibold px-8 py-4 rounded-xl transition-all duration-300 shadow-lg"
+            >
+              <Phone className="w-5 h-5 mr-2" />
+              Direct bellen: 06 57 01 08 61
+            </a>
           </div>
         </div>
       </section>
 
       {/* Process Section */}
-      <section className="py-20 bg-stone-50">
+      <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-slate-900 mb-4">
-              Ons <span className="bg-gradient-to-r from-brand-400 to-brand-600 bg-clip-text text-transparent">Reinigingsproces</span>
+            <div className="inline-flex items-center space-x-2 bg-brand-50 text-brand-700 px-4 py-2 rounded-full text-sm font-medium mb-6">
+              <Eye className="w-4 h-4" />
+              <span>Ons reinigingsproces</span>
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold text-stone-900 mb-4">
+              Stap voor stap naar schone goten
             </h2>
-            <p className="text-xl text-stone-600">Stap voor stap naar schone goten</p>
+            <p className="text-stone-600 text-lg max-w-2xl mx-auto">
+              Gestructureerd proces voor een grondig resultaat
+            </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            {dakgootReinigingProcess.map((item, index) => (
-              <div key={index} className="relative">
-                <div className="text-center">
-                  <div className="w-16 h-16 bg-brand-500 rounded-full flex items-center justify-center mx-auto mb-4 text-white font-bold text-xl">
-                    {item.step}
-                  </div>
-                  <h3 className="text-xl font-bold text-slate-900 mb-2">{item.title}</h3>
-                  <p className="text-stone-600">{item.description}</p>
+            {process.map((item, index) => (
+              <div key={index} className="relative text-center">
+                <div className="w-16 h-16 bg-gradient-to-br from-brand-500 to-brand-600 rounded-2xl flex items-center justify-center mx-auto mb-6 text-white font-bold text-xl shadow-lg">
+                  {item.step}
                 </div>
-                {index < dakgootReinigingProcess.length - 1 && (
-                  <ArrowRight className="hidden md:block absolute top-8 -right-4 w-8 h-8 text-stone-300" />
+                <h3 className="text-lg font-bold text-stone-900 mb-2">{item.title}</h3>
+                <p className="text-stone-600 text-sm">{item.description}</p>
+                {index < process.length - 1 && (
+                  <ArrowRight className="hidden md:block absolute top-8 -right-4 w-6 h-6 text-stone-300" />
                 )}
               </div>
             ))}
@@ -342,49 +275,78 @@ const DakgootReinigingPage = () => {
         </div>
       </section>
 
-      <Testimonials />
-
       {/* Benefits Section */}
-      <section className="py-20 bg-brand-50">
+      <section className="py-24 bg-stone-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-slate-900 mb-4">
-              <span className="bg-gradient-to-r from-brand-400 to-brand-600 bg-clip-text text-transparent">Voordelen</span> van Schone Dakgoten
+            <div className="inline-flex items-center space-x-2 bg-brand-50 text-brand-700 px-4 py-2 rounded-full text-sm font-medium mb-6">
+              <CheckCircle className="w-4 h-4" />
+              <span>Voordelen</span>
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold text-stone-900 mb-4">
+              Voordelen van schone dakgoten
             </h2>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div className="text-center">
-              <div className="w-16 h-16 bg-brand-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Shield className="w-8 h-8 text-brand-600" />
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            {benefits.map((benefit, index) => (
+              <div key={index} className="bg-white rounded-2xl shadow-lg border border-stone-100 p-8 text-center hover:shadow-xl transition-shadow duration-300">
+                <div className="w-14 h-14 bg-gradient-to-br from-brand-50 to-brand-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                  <benefit.icon className="w-7 h-7 text-brand-600" />
+                </div>
+                <h3 className="text-lg font-bold text-stone-900 mb-2">{benefit.title}</h3>
+                <p className="text-stone-600 text-sm">{benefit.description}</p>
               </div>
-              <h3 className="font-bold text-slate-900 mb-2">Geen Waterschade</h3>
-              <p className="text-stone-600">Voorkom water in kelders en kruipruimtes</p>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Services Section */}
+      <section className="py-24 bg-stone-900 relative overflow-hidden">
+        <div className="absolute top-0 left-0 w-96 h-96 bg-brand-500/5 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-brand-500/5 rounded-full blur-3xl translate-x-1/2 translate-y-1/2"></div>
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <div className="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-sm text-white px-4 py-2 rounded-full text-sm font-medium mb-6 border border-white/20">
+              <Droplets className="w-4 h-4 text-brand-400" />
+              <span>Onze diensten</span>
             </div>
-            <div className="text-center">
-              <div className="w-16 h-16 bg-brand-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Droplets className="w-8 h-8 text-brand-600" />
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+              Complete dakgoot oplossingen
+            </h2>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-12">
+            {services.map((service, index) => (
+              <div key={index} className="flex items-center space-x-3 bg-stone-800/50 backdrop-blur-sm rounded-xl px-5 py-4 border border-stone-700/50">
+                <CheckCircle className="w-5 h-5 text-brand-400 flex-shrink-0" />
+                <span className="text-white/90 font-medium text-sm">{service}</span>
               </div>
-              <h3 className="font-bold text-slate-900 mb-2">Optimale Afvoer</h3>
-              <p className="text-stone-600">Regenwater wordt goed afgevoerd</p>
+            ))}
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10">
+              <div className="flex items-center space-x-3 mb-4">
+                <div className="w-10 h-10 bg-brand-500/20 rounded-xl flex items-center justify-center">
+                  <Shield className="w-5 h-5 text-brand-400" />
+                </div>
+                <h3 className="text-white font-semibold text-lg">Onderhoudscontract</h3>
+              </div>
+              <p className="text-stone-400">Regelmatig onderhoud met een vast contract. Wij komen automatisch langs voor seizoensreiniging.</p>
             </div>
-            <div className="text-center">
-              <div className="w-16 h-16 bg-brand-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Home className="w-8 h-8 text-brand-600" />
+            <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10">
+              <div className="flex items-center space-x-3 mb-4">
+                <div className="w-10 h-10 bg-brand-500/20 rounded-xl flex items-center justify-center">
+                  <Eye className="w-5 h-5 text-brand-400" />
+                </div>
+                <h3 className="text-white font-semibold text-lg">Gratis inspectie</h3>
               </div>
-              <h3 className="font-bold text-slate-900 mb-2">Waardebehoud</h3>
-              <p className="text-stone-600">Onderhoud verhoogt waarde van uw woning</p>
-            </div>
-            <div className="text-center">
-              <div className="w-16 h-16 bg-brand-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Clock className="w-8 h-8 text-brand-600" />
-              </div>
-              <h3 className="font-bold text-slate-900 mb-2">Langere Levensduur</h3>
-              <p className="text-stone-600">Goten gaan langer mee door goed onderhoud</p>
+              <p className="text-stone-400">Wij komen geheel vrijblijvend langs om de staat van uw dakgoten te beoordelen en advies te geven.</p>
             </div>
           </div>
         </div>
       </section>
 
+      <Testimonials />
 
       <Footer>
         <Contact standalone={false} />

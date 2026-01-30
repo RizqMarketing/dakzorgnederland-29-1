@@ -127,7 +127,7 @@ const Footer = ({ children }: FooterProps) => {
                 <span className="w-8 h-8 rounded-lg bg-stone-900 flex items-center justify-center">
                   <MapPin className="w-4 h-4 text-brand-500" />
                 </span>
-                <span>Waalwijk, Nederland</span>
+                <span>Rotterdam, Nederland</span>
               </div>
             </div>
 

@@ -28,7 +28,7 @@ const TermsPage = () => {
                 In deze algemene voorwaarden wordt verstaan onder:
               </p>
               <ul className="list-disc pl-6 text-stone-700 mb-6 space-y-2">
-                <li><strong>Aannemer:</strong> DakZorg Nederland, gevestigd te Villa gagel 9, 5146AC Waalwijk, KvK: 96885904</li>
+                <li><strong>Aannemer:</strong> DakZorg Nederland, gevestigd te Overwegwachter 4, 3034KG Rotterdam, KvK: 96885904</li>
                 <li><strong>Opdrachtgever:</strong> De natuurlijke of rechtspersoon die een opdracht verstrekt aan de aannemer</li>
                 <li><strong>Overeenkomst:</strong> De tussen aannemer en opdrachtgever gesloten overeenkomst</li>
                 <li><strong>Werk:</strong> Alle door de aannemer te verrichten werkzaamheden</li>
@@ -114,7 +114,7 @@ const TermsPage = () => {
                 <div className="space-y-2">
                   <div className="flex items-center space-x-3">
                     <MapPin className="w-5 h-5 text-brand-600" />
-                    <span>Villa gagel 9, 5146AC Waalwijk</span>
+                    <span>Overwegwachter 4, 3034KG Rotterdam</span>
                   </div>
                   <div className="flex items-center space-x-3">
                     <Phone className="w-5 h-5 text-brand-600" />
