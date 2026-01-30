@@ -188,6 +188,9 @@ const CostCalculator = () => {
           <p className="text-stone-300 text-lg max-w-2xl mx-auto">
             Bereken kosten voor uw dakrenovatie of nieuwe dak - direct indicatie online
           </p>
+          <p className="text-stone-500 text-sm max-w-2xl mx-auto mt-3">
+            Deze calculator maakt gebruik van AI en geeft een globale indicatie. Voor een exacte prijs op maat kunt u vrijblijvend een offerte aanvragen.
+          </p>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-8 items-start">
@@ -400,6 +403,9 @@ const CostCalculator = () => {
               {estimate ? (
                 <div className="space-y-6">
                   <div className="text-center">
+                    <div className="inline-flex items-center gap-1.5 text-stone-500 text-xs font-medium mb-3 bg-stone-700/50 px-3 py-1 rounded-full">
+                      <span>AI-indicatie</span>
+                    </div>
                     <div className="text-stone-400 text-sm font-medium mb-2">Geschatte kosten</div>
                     <div className="text-4xl md:text-5xl font-bold text-brand-400 mb-1">
                       €{estimate.average.toLocaleString()}
@@ -454,8 +460,9 @@ const CostCalculator = () => {
               {/* Disclaimer */}
               <div className="mt-6 pt-6 border-t border-stone-700">
                 <p className="text-stone-500 text-xs leading-relaxed">
-                  Dit is een indicatieve raming. Werkelijke kosten kunnen variëren. Prijzen excl. BTW.
-                  Neem contact op voor een exacte offerte.
+                  Deze berekening is opgesteld met behulp van kunstmatige intelligentie en dient uitsluitend als globale indicatie.
+                  Werkelijke kosten kunnen aanzienlijk afwijken afhankelijk van uw specifieke situatie, materialen en omstandigheden.
+                  Aan deze calculator kunnen geen rechten worden ontleend. Neem contact op voor een exacte offerte op maat.
                 </p>
               </div>
             </div>
@@ -467,7 +474,7 @@ const CostCalculator = () => {
         <div className="fixed bottom-0 left-0 right-0 z-50 lg:hidden bg-stone-900/95 backdrop-blur-md border-t border-stone-700 px-4 py-3 shadow-2xl">
           <div className="flex items-center justify-between max-w-lg mx-auto">
             <div>
-              <div className="text-stone-400 text-xs">Geschatte kosten</div>
+              <div className="text-stone-400 text-xs">AI-indicatie</div>
               <div className="text-brand-400 text-xl font-bold">€{estimate.average.toLocaleString()}</div>
             </div>
             <button
