@@ -307,6 +307,114 @@ const BitumenEpdmPage = () => {
         </div>
       </section>
 
+      {/* Services Section */}
+      <section className="py-24 bg-stone-900 relative overflow-hidden">
+        <div className="absolute top-0 left-0 w-96 h-96 bg-brand-500/5 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
+        <div className="absolute bottom-0 right-0 w-80 h-80 bg-brand-400/5 rounded-full blur-3xl translate-x-1/2 translate-y-1/2"></div>
+
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center space-x-2 bg-brand-500/20 text-brand-300 px-5 py-2.5 rounded-full text-sm font-semibold border border-brand-400/30 mb-6">
+              <Award className="w-4 h-4" />
+              <span>Onze Diensten</span>
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+              Compleet{' '}
+              <span className="bg-gradient-to-r from-brand-400 to-brand-500 bg-clip-text text-transparent">Bitumen & EPDM Aanbod</span>
+            </h2>
+            <p className="text-lg text-stone-300 max-w-3xl mx-auto">
+              Van kleine reparaties tot complete vernieuwing. Altijd met garantie en vakkundige uitvoering.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-12">
+            {bitumenEpdmServices.map((service, index) => (
+              <div key={index} className="flex items-center space-x-3 bg-stone-800/50 backdrop-blur-sm rounded-xl px-5 py-4 border border-stone-700/50">
+                <CheckCircle className="w-5 h-5 text-brand-400 flex-shrink-0" />
+                <span className="text-white/90 font-medium text-sm">{service}</span>
+              </div>
+            ))}
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <div className="bg-stone-800 rounded-2xl p-8 border border-stone-700">
+              <h3 className="text-xl font-bold text-white mb-3">Bespaar op uw energierekening</h3>
+              <p className="text-stone-300 mb-6 leading-relaxed">
+                Een goed geïsoleerd plat dak bespaart u aanzienlijk op uw energierekening.
+                Onze bitumen en EPDM werkzaamheden betalen zichzelf terug.
+              </p>
+              <button
+                onClick={() => setIsContactPopupOpen(true)}
+                className="group bg-brand-500 hover:bg-brand-400 text-stone-900 font-bold px-6 py-3.5 rounded-xl transition-all duration-300 inline-flex items-center space-x-2"
+              >
+                <span>Vraag een offerte aan</span>
+                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </button>
+            </div>
+
+            <div className="bg-stone-800 rounded-2xl p-8 border border-stone-700">
+              <h3 className="text-xl font-bold text-white mb-4">Direct voordeel</h3>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                {["Waterdichte garantie", "Lagere energierekening", "Garantie op het werk", "Transparante prijzen", "Hogere woningwaarde"].map((item, index) => (
+                  <div key={index} className="flex items-center space-x-2">
+                    <CheckCircle className="w-4 h-4 text-brand-400 flex-shrink-0" />
+                    <span className="text-stone-300 text-sm font-medium">{item}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Process Section */}
+      <section className="py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center space-x-2 bg-brand-100 text-brand-700 px-5 py-2 rounded-full text-sm font-semibold mb-6">
+              <Wrench className="w-4 h-4" />
+              <span>Ons Werkproces</span>
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">
+              Hoe wij uw{' '}
+              <span className="bg-gradient-to-r from-brand-500 to-brand-600 bg-clip-text text-transparent">platte dak aanpakken</span>
+            </h2>
+            <p className="text-xl text-stone-600 max-w-3xl mx-auto mb-8">
+              In 4 stappen naar een waterdicht plat dak. Vakkundig en zonder zorgen.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <button
+                onClick={() => setIsContactPopupOpen(true)}
+                className="bg-brand-500 hover:bg-brand-400 text-stone-900 font-bold px-6 py-4 rounded-xl transition-all duration-300 inline-flex items-center space-x-2"
+              >
+                <ArrowRight className="w-5 h-5" />
+                <span>Start uw project</span>
+              </button>
+              <a
+                href="tel:0657010861"
+                className="bg-stone-900 hover:bg-stone-800 text-white font-bold px-6 py-4 rounded-xl transition-all duration-300 inline-flex items-center space-x-2"
+              >
+                <Phone className="w-5 h-5" />
+                <span>06 57 01 08 61</span>
+              </a>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {bitumenEpdmProcess.map((item, index) => (
+              <div key={index} className="text-center">
+                <div className="w-16 h-16 bg-gradient-to-br from-brand-400 to-brand-600 text-white rounded-2xl flex items-center justify-center text-2xl font-bold mx-auto mb-4 shadow-lg shadow-brand-500/20">
+                  {item.step}
+                </div>
+                <h3 className="text-xl font-bold text-slate-900 mb-3">{item.title}</h3>
+                <p className="text-stone-600 mb-4">{item.description}</p>
+                <p className="text-stone-500 text-sm">{item.details}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Availability & Emergency Section */}
       <section className="py-24 bg-stone-900 relative overflow-hidden">
         <div className="absolute inset-0 opacity-5">
@@ -363,114 +471,6 @@ const BitumenEpdmPage = () => {
                   <div className="text-xl">06 57 01 08 61</div>
                 </div>
               </a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Process Section */}
-      <section className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <div className="inline-flex items-center space-x-2 bg-brand-100 text-brand-700 px-5 py-2 rounded-full text-sm font-semibold mb-6">
-              <Wrench className="w-4 h-4" />
-              <span>Ons Werkproces</span>
-            </div>
-            <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">
-              Hoe wij uw{' '}
-              <span className="bg-gradient-to-r from-brand-500 to-brand-600 bg-clip-text text-transparent">platte dak aanpakken</span>
-            </h2>
-            <p className="text-xl text-stone-600 max-w-3xl mx-auto mb-8">
-              In 4 stappen naar een waterdicht plat dak. Vakkundig en zonder zorgen.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button
-                onClick={() => setIsContactPopupOpen(true)}
-                className="bg-brand-500 hover:bg-brand-400 text-stone-900 font-bold px-6 py-4 rounded-xl transition-all duration-300 inline-flex items-center space-x-2"
-              >
-                <ArrowRight className="w-5 h-5" />
-                <span>Start uw project</span>
-              </button>
-              <a
-                href="tel:0657010861"
-                className="bg-stone-900 hover:bg-stone-800 text-white font-bold px-6 py-4 rounded-xl transition-all duration-300 inline-flex items-center space-x-2"
-              >
-                <Phone className="w-5 h-5" />
-                <span>06 57 01 08 61</span>
-              </a>
-            </div>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {bitumenEpdmProcess.map((item, index) => (
-              <div key={index} className="text-center">
-                <div className="w-16 h-16 bg-gradient-to-br from-brand-400 to-brand-600 text-white rounded-2xl flex items-center justify-center text-2xl font-bold mx-auto mb-4 shadow-lg shadow-brand-500/20">
-                  {item.step}
-                </div>
-                <h3 className="text-xl font-bold text-slate-900 mb-3">{item.title}</h3>
-                <p className="text-stone-600 mb-4">{item.description}</p>
-                <p className="text-stone-500 text-sm">{item.details}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Services Section */}
-      <section className="py-24 bg-stone-900 relative overflow-hidden">
-        <div className="absolute top-0 left-0 w-96 h-96 bg-brand-500/5 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
-        <div className="absolute bottom-0 right-0 w-80 h-80 bg-brand-400/5 rounded-full blur-3xl translate-x-1/2 translate-y-1/2"></div>
-
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <div className="inline-flex items-center space-x-2 bg-brand-500/20 text-brand-300 px-5 py-2.5 rounded-full text-sm font-semibold border border-brand-400/30 mb-6">
-              <Award className="w-4 h-4" />
-              <span>Onze Diensten</span>
-            </div>
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-              Compleet{' '}
-              <span className="bg-gradient-to-r from-brand-400 to-brand-500 bg-clip-text text-transparent">Bitumen & EPDM Aanbod</span>
-            </h2>
-            <p className="text-lg text-stone-300 max-w-3xl mx-auto">
-              Van kleine reparaties tot complete vernieuwing. Altijd met garantie en vakkundige uitvoering.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-12">
-            {bitumenEpdmServices.map((service, index) => (
-              <div key={index} className="flex items-center space-x-3 bg-stone-800/50 backdrop-blur-sm rounded-xl px-5 py-4 border border-stone-700/50">
-                <CheckCircle className="w-5 h-5 text-brand-400 flex-shrink-0" />
-                <span className="text-white/90 font-medium text-sm">{service}</span>
-              </div>
-            ))}
-          </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            <div className="bg-stone-800 rounded-2xl p-8 border border-stone-700">
-              <h3 className="text-xl font-bold text-white mb-3">Bespaar op uw energierekening</h3>
-              <p className="text-stone-300 mb-6 leading-relaxed">
-                Een goed geïsoleerd plat dak bespaart u aanzienlijk op uw energierekening.
-                Onze bitumen en EPDM werkzaamheden betalen zichzelf terug.
-              </p>
-              <button
-                onClick={() => setIsContactPopupOpen(true)}
-                className="group bg-brand-500 hover:bg-brand-400 text-stone-900 font-bold px-6 py-3.5 rounded-xl transition-all duration-300 inline-flex items-center space-x-2"
-              >
-                <span>Vraag een offerte aan</span>
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </button>
-            </div>
-
-            <div className="bg-stone-800 rounded-2xl p-8 border border-stone-700">
-              <h3 className="text-xl font-bold text-white mb-4">Direct voordeel</h3>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                {["Waterdichte garantie", "Lagere energierekening", "Garantie op het werk", "Transparante prijzen", "Hogere woningwaarde"].map((item, index) => (
-                  <div key={index} className="flex items-center space-x-2">
-                    <CheckCircle className="w-4 h-4 text-brand-400 flex-shrink-0" />
-                    <span className="text-stone-300 text-sm font-medium">{item}</span>
-                  </div>
-                ))}
-              </div>
             </div>
           </div>
         </div>

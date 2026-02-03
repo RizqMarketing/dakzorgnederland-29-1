@@ -194,79 +194,6 @@ const DakLekkagePage = () => {
         </div>
       </section>
 
-      {/* Emergency Section */}
-      <section className="py-24 bg-stone-900 relative overflow-hidden">
-        <div className="absolute top-0 left-0 w-96 h-96 bg-brand-500/5 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
-        <div className="absolute bottom-0 right-0 w-96 h-96 bg-brand-500/5 rounded-full blur-3xl translate-x-1/2 translate-y-1/2"></div>
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <div className="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-sm text-white px-4 py-2 rounded-full text-sm font-medium mb-6 border border-white/20">
-              <Clock className="w-4 h-4 text-brand-400" />
-              <span>Altijd bereikbaar</span>
-            </div>
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              Spoed lekkage service
-            </h2>
-            <p className="text-stone-400 text-lg max-w-2xl mx-auto">
-              Acute daklekkage? Wij staan dag en nacht voor u klaar
-            </p>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {emergencyServices.map((item, index) => (
-              <div key={index} className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:bg-white/10 transition-colors duration-300">
-                <h3 className="text-white font-semibold text-lg mb-2">{item.service}</h3>
-                <p className="text-stone-400 text-sm mb-4">{item.description}</p>
-                <span className="inline-flex items-center text-brand-400 text-sm font-medium">
-                  <Clock className="w-4 h-4 mr-1.5" />
-                  {item.available}
-                </span>
-              </div>
-            ))}
-          </div>
-          <div className="text-center mt-12">
-            <a
-              href="tel:0657010861"
-              className="inline-flex items-center bg-brand-500 hover:bg-brand-600 text-stone-900 font-semibold px-8 py-4 rounded-xl transition-all duration-300 shadow-lg"
-            >
-              <Phone className="w-5 h-5 mr-2" />
-              Direct bellen: 06 57 01 08 61
-            </a>
-          </div>
-        </div>
-      </section>
-
-      {/* Process Section */}
-      <section className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <div className="inline-flex items-center space-x-2 bg-brand-50 text-brand-700 px-4 py-2 rounded-full text-sm font-medium mb-6">
-              <Eye className="w-4 h-4" />
-              <span>Ons lekkage protocol</span>
-            </div>
-            <h2 className="text-3xl md:text-4xl font-bold text-stone-900 mb-4">
-              Van melding tot definitieve oplossing
-            </h2>
-            <p className="text-stone-600 text-lg max-w-2xl mx-auto">
-              Gestructureerde aanpak voor snel en effectief resultaat
-            </p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            {process.map((item, index) => (
-              <div key={index} className="relative text-center">
-                <div className="w-16 h-16 bg-gradient-to-br from-brand-500 to-brand-600 rounded-2xl flex items-center justify-center mx-auto mb-6 text-white font-bold text-xl shadow-lg">
-                  {item.step}
-                </div>
-                <h3 className="text-lg font-bold text-stone-900 mb-2">{item.title}</h3>
-                <p className="text-stone-600 text-sm">{item.description}</p>
-                {index < process.length - 1 && (
-                  <ArrowRight className="hidden md:block absolute top-8 -right-4 w-6 h-6 text-stone-300" />
-                )}
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Services Section */}
       <section className="py-24 bg-stone-900 relative overflow-hidden">
         <div className="absolute top-0 left-0 w-96 h-96 bg-brand-500/5 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
@@ -308,6 +235,79 @@ const DakLekkagePage = () => {
               </div>
               <p className="text-stone-400">Wij komen geheel vrijblijvend langs om de lekkage te beoordelen en u te adviseren over de beste oplossing.</p>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Process Section */}
+      <section className="py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center space-x-2 bg-brand-50 text-brand-700 px-4 py-2 rounded-full text-sm font-medium mb-6">
+              <Eye className="w-4 h-4" />
+              <span>Ons lekkage protocol</span>
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold text-stone-900 mb-4">
+              Van melding tot definitieve oplossing
+            </h2>
+            <p className="text-stone-600 text-lg max-w-2xl mx-auto">
+              Gestructureerde aanpak voor snel en effectief resultaat
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+            {process.map((item, index) => (
+              <div key={index} className="relative text-center">
+                <div className="w-16 h-16 bg-gradient-to-br from-brand-500 to-brand-600 rounded-2xl flex items-center justify-center mx-auto mb-6 text-white font-bold text-xl shadow-lg">
+                  {item.step}
+                </div>
+                <h3 className="text-lg font-bold text-stone-900 mb-2">{item.title}</h3>
+                <p className="text-stone-600 text-sm">{item.description}</p>
+                {index < process.length - 1 && (
+                  <ArrowRight className="hidden md:block absolute top-8 -right-4 w-6 h-6 text-stone-300" />
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Emergency Section */}
+      <section className="py-24 bg-stone-900 relative overflow-hidden">
+        <div className="absolute top-0 left-0 w-96 h-96 bg-brand-500/5 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-brand-500/5 rounded-full blur-3xl translate-x-1/2 translate-y-1/2"></div>
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-sm text-white px-4 py-2 rounded-full text-sm font-medium mb-6 border border-white/20">
+              <Clock className="w-4 h-4 text-brand-400" />
+              <span>Altijd bereikbaar</span>
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+              Spoed lekkage service
+            </h2>
+            <p className="text-stone-400 text-lg max-w-2xl mx-auto">
+              Acute daklekkage? Wij staan dag en nacht voor u klaar
+            </p>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {emergencyServices.map((item, index) => (
+              <div key={index} className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:bg-white/10 transition-colors duration-300">
+                <h3 className="text-white font-semibold text-lg mb-2">{item.service}</h3>
+                <p className="text-stone-400 text-sm mb-4">{item.description}</p>
+                <span className="inline-flex items-center text-brand-400 text-sm font-medium">
+                  <Clock className="w-4 h-4 mr-1.5" />
+                  {item.available}
+                </span>
+              </div>
+            ))}
+          </div>
+          <div className="text-center mt-12">
+            <a
+              href="tel:0657010861"
+              className="inline-flex items-center bg-brand-500 hover:bg-brand-600 text-stone-900 font-semibold px-8 py-4 rounded-xl transition-all duration-300 shadow-lg"
+            >
+              <Phone className="w-5 h-5 mr-2" />
+              Direct bellen: 06 57 01 08 61
+            </a>
           </div>
         </div>
       </section>

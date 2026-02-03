@@ -202,43 +202,47 @@ const DakgootReinigingPage = () => {
         </div>
       </section>
 
-      {/* Emergency Section */}
+      {/* Services Section */}
       <section className="py-24 bg-stone-900 relative overflow-hidden">
         <div className="absolute top-0 left-0 w-96 h-96 bg-brand-500/5 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
         <div className="absolute bottom-0 right-0 w-96 h-96 bg-brand-500/5 rounded-full blur-3xl translate-x-1/2 translate-y-1/2"></div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+          <div className="text-center mb-12">
             <div className="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-sm text-white px-4 py-2 rounded-full text-sm font-medium mb-6 border border-white/20">
-              <Clock className="w-4 h-4 text-brand-400" />
-              <span>Altijd bereikbaar</span>
+              <Droplets className="w-4 h-4 text-brand-400" />
+              <span>Onze diensten</span>
             </div>
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              Spoed dakgoot service
+              Complete dakgoot oplossingen
             </h2>
-            <p className="text-stone-400 text-lg max-w-2xl mx-auto">
-              Verstopte of lekkende dakgoot? Wij staan voor u klaar
-            </p>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {emergencyServices.map((item, index) => (
-              <div key={index} className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:bg-white/10 transition-colors duration-300">
-                <h3 className="text-white font-semibold text-lg mb-2">{item.service}</h3>
-                <p className="text-stone-400 text-sm mb-4">{item.description}</p>
-                <span className="inline-flex items-center text-brand-400 text-sm font-medium">
-                  <Clock className="w-4 h-4 mr-1.5" />
-                  {item.available}
-                </span>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-12">
+            {services.map((service, index) => (
+              <div key={index} className="flex items-center space-x-3 bg-stone-800/50 backdrop-blur-sm rounded-xl px-5 py-4 border border-stone-700/50">
+                <CheckCircle className="w-5 h-5 text-brand-400 flex-shrink-0" />
+                <span className="text-white/90 font-medium text-sm">{service}</span>
               </div>
             ))}
           </div>
-          <div className="text-center mt-12">
-            <a
-              href="tel:0657010861"
-              className="inline-flex items-center bg-brand-500 hover:bg-brand-600 text-stone-900 font-semibold px-8 py-4 rounded-xl transition-all duration-300 shadow-lg"
-            >
-              <Phone className="w-5 h-5 mr-2" />
-              Direct bellen: 06 57 01 08 61
-            </a>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10">
+              <div className="flex items-center space-x-3 mb-4">
+                <div className="w-10 h-10 bg-brand-500/20 rounded-xl flex items-center justify-center">
+                  <Shield className="w-5 h-5 text-brand-400" />
+                </div>
+                <h3 className="text-white font-semibold text-lg">Onderhoudscontract</h3>
+              </div>
+              <p className="text-stone-400">Regelmatig onderhoud met een vast contract. Wij komen automatisch langs voor seizoensreiniging.</p>
+            </div>
+            <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10">
+              <div className="flex items-center space-x-3 mb-4">
+                <div className="w-10 h-10 bg-brand-500/20 rounded-xl flex items-center justify-center">
+                  <Eye className="w-5 h-5 text-brand-400" />
+                </div>
+                <h3 className="text-white font-semibold text-lg">Gratis inspectie</h3>
+              </div>
+              <p className="text-stone-400">Wij komen geheel vrijblijvend langs om de staat van uw dakgoten te beoordelen en advies te geven.</p>
+            </div>
           </div>
         </div>
       </section>
@@ -301,47 +305,43 @@ const DakgootReinigingPage = () => {
         </div>
       </section>
 
-      {/* Services Section */}
+      {/* Emergency Section */}
       <section className="py-24 bg-stone-900 relative overflow-hidden">
         <div className="absolute top-0 left-0 w-96 h-96 bg-brand-500/5 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
         <div className="absolute bottom-0 right-0 w-96 h-96 bg-brand-500/5 rounded-full blur-3xl translate-x-1/2 translate-y-1/2"></div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
+          <div className="text-center mb-16">
             <div className="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-sm text-white px-4 py-2 rounded-full text-sm font-medium mb-6 border border-white/20">
-              <Droplets className="w-4 h-4 text-brand-400" />
-              <span>Onze diensten</span>
+              <Clock className="w-4 h-4 text-brand-400" />
+              <span>Altijd bereikbaar</span>
             </div>
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              Complete dakgoot oplossingen
+              Spoed dakgoot service
             </h2>
+            <p className="text-stone-400 text-lg max-w-2xl mx-auto">
+              Verstopte of lekkende dakgoot? Wij staan voor u klaar
+            </p>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-12">
-            {services.map((service, index) => (
-              <div key={index} className="flex items-center space-x-3 bg-stone-800/50 backdrop-blur-sm rounded-xl px-5 py-4 border border-stone-700/50">
-                <CheckCircle className="w-5 h-5 text-brand-400 flex-shrink-0" />
-                <span className="text-white/90 font-medium text-sm">{service}</span>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {emergencyServices.map((item, index) => (
+              <div key={index} className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:bg-white/10 transition-colors duration-300">
+                <h3 className="text-white font-semibold text-lg mb-2">{item.service}</h3>
+                <p className="text-stone-400 text-sm mb-4">{item.description}</p>
+                <span className="inline-flex items-center text-brand-400 text-sm font-medium">
+                  <Clock className="w-4 h-4 mr-1.5" />
+                  {item.available}
+                </span>
               </div>
             ))}
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10">
-              <div className="flex items-center space-x-3 mb-4">
-                <div className="w-10 h-10 bg-brand-500/20 rounded-xl flex items-center justify-center">
-                  <Shield className="w-5 h-5 text-brand-400" />
-                </div>
-                <h3 className="text-white font-semibold text-lg">Onderhoudscontract</h3>
-              </div>
-              <p className="text-stone-400">Regelmatig onderhoud met een vast contract. Wij komen automatisch langs voor seizoensreiniging.</p>
-            </div>
-            <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10">
-              <div className="flex items-center space-x-3 mb-4">
-                <div className="w-10 h-10 bg-brand-500/20 rounded-xl flex items-center justify-center">
-                  <Eye className="w-5 h-5 text-brand-400" />
-                </div>
-                <h3 className="text-white font-semibold text-lg">Gratis inspectie</h3>
-              </div>
-              <p className="text-stone-400">Wij komen geheel vrijblijvend langs om de staat van uw dakgoten te beoordelen en advies te geven.</p>
-            </div>
+          <div className="text-center mt-12">
+            <a
+              href="tel:0657010861"
+              className="inline-flex items-center bg-brand-500 hover:bg-brand-600 text-stone-900 font-semibold px-8 py-4 rounded-xl transition-all duration-300 shadow-lg"
+            >
+              <Phone className="w-5 h-5 mr-2" />
+              Direct bellen: 06 57 01 08 61
+            </a>
           </div>
         </div>
       </section>
