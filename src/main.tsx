@@ -42,7 +42,7 @@ if (typeof window !== 'undefined' && window.fbq) {
 }
 
 // Initialize EmailJS with your public key
-emailjs.init("SBdgnq76XT_rWqM9I");
+emailjs.init("lB8UjLGOgM6138jRr");
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>

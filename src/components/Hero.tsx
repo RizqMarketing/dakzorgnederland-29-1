@@ -40,19 +40,23 @@ const Hero = () => {
     setError('');
 
     try {
-      await sendEmail({
+      const success = await sendEmail({
         ...formData,
         source: 'Hero Formulier'
       });
 
-      if (window.fbq) {
-        window.fbq('track', 'Lead', { content_name: 'Hero Form' });
-      }
-      if (window.gtag) {
-        window.gtag('event', 'generate_lead', { event_category: 'form', event_label: 'hero_form' });
-      }
+      if (success) {
+        if (window.fbq) {
+          window.fbq('track', 'Lead', { content_name: 'Hero Form' });
+        }
+        if (window.gtag) {
+          window.gtag('event', 'generate_lead', { event_category: 'form', event_label: 'hero_form' });
+        }
 
-      navigate('/bedankt');
+        navigate('/bedankt');
+      } else {
+        setError('Er ging iets mis. Probeer het opnieuw of bel ons direct.');
+      }
     } catch (err) {
       setError('Er ging iets mis. Probeer het opnieuw of bel ons direct.');
     } finally {

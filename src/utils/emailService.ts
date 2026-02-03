@@ -15,9 +15,9 @@ export interface FormData {
 }
 
 // EmailJS configuration
-const EMAILJS_SERVICE_ID = 'service_t4ncsvd';
-const EMAILJS_TEMPLATE_ID = 'template_ep9ykkp';
-const EMAILJS_PUBLIC_KEY = 'SBdgnq76XT_rWqM9I';
+const EMAILJS_SERVICE_ID = 'service_7yhmy08';
+const EMAILJS_TEMPLATE_ID = 'template_7uvvydk';
+const EMAILJS_PUBLIC_KEY = 'lB8UjLGOgM6138jRr';
 
 // GoHighLevel configuration
 const GOHIGHLEVEL_WEBHOOK_URL = 'YOUR_GOHIGHLEVEL_WEBHOOK_URL_HERE'; // Vervang dit met je echte webhook URL
@@ -154,10 +154,39 @@ const sendToGoHighLevel = async (formData: FormData): Promise<boolean> => {
   }
 };
 
-export const sendEmail = async (formData: FormData): Promise<boolean> => {
-  // EmailJS is tijdelijk uitgeschakeld - wordt later opnieuw geconfigureerd
-  console.log('Form submission disabled - EmailJS not connected', formData);
-  return false;
+export const sendEmail = async (formData: any): Promise<boolean> => {
+  try {
+    const translatedTimeline = timelineTranslations[formData.timeline] || formData.timeline || '';
+
+    const templateParams = {
+      from_name: formData.name,
+      from_email: formData.email,
+      phone: formData.phone || '',
+      stad: formData.stad || '',
+      address: formData.address || '',
+      postcode: formData.postcode || '',
+      provincie: formData.provincie || '',
+      timeline: translatedTimeline,
+      message: formData.message || '',
+      service: formData.service || '',
+      source: formData.source || 'Website',
+    };
+
+    await emailjs.send(
+      EMAILJS_SERVICE_ID,
+      EMAILJS_TEMPLATE_ID,
+      templateParams,
+      EMAILJS_PUBLIC_KEY
+    );
+
+    // Ook naar GoHighLevel sturen indien geconfigureerd
+    await sendToGoHighLevel(formData);
+
+    return true;
+  } catch (error) {
+    console.error('EmailJS Error:', error);
+    return false;
+  }
 };
 
 // Dummy function for compatibility
