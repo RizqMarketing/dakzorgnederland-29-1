@@ -199,7 +199,7 @@ const ChimneyPage = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="relative overflow-hidden rounded-2xl shadow-lg">
               <img
-                src="https://i.imgur.com/H2FKpZ2.jpg"
+                src="https://images.pexels.com/photos/4394224/pexels-photo-4394224.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop"
                 alt="Schoorsteen renovatie"
                 className="w-full h-64 object-cover hover:scale-105 transition-transform duration-500"
               />
@@ -223,7 +223,7 @@ const ChimneyPage = () => {
             </div>
             <div className="relative overflow-hidden rounded-2xl shadow-lg">
               <img
-                src="https://imgur.com/Zcx7Pq6.jpg"
+                src="https://images.pexels.com/photos/15271851/pexels-photo-15271851.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop"
                 alt="Schoorsteen onderhoud"
                 className="w-full h-64 object-cover hover:scale-105 transition-transform duration-500"
               />
@@ -355,7 +355,7 @@ const ChimneyPage = () => {
             <div className="bg-stone-800 rounded-2xl p-8 border border-stone-700">
               <h3 className="text-xl font-bold text-white mb-4">Direct voordeel</h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                {["Nooit meer lekkages", "Lagere energierekening", "Geen onderhoudskosten", "Meer woonruimte", "Hogere woningwaarde"].map((item, index) => (
+                {["Geen lekkages", "Lagere energierekening", "Geen onderhoudskosten", "Meer woonruimte", "Hogere woningwaarde"].map((item, index) => (
                   <div key={index} className="flex items-center space-x-2">
                     <CheckCircle className="w-4 h-4 text-brand-400 flex-shrink-0" />
                     <span className="text-stone-300 text-sm font-medium">{item}</span>
