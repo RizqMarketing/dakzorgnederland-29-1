@@ -14,7 +14,11 @@ const ThankYouPage = () => {
     }
     
     if (typeof window !== 'undefined' && typeof window.gtag === 'function') {
-      window.gtag('event', 'conversion', {'send_to': 'AW-16710991729/6FimCN2d59oZEPH-taA-'});
+      window.gtag('event', 'conversion', {
+        'send_to': 'AW-17928005169/roXICKPEpfQbELHM3uRC',
+        'value': 250.0,
+        'currency': 'EUR'
+      });
     }
   }, []);
 
