@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route, useLocation, useNavigationType,
 import { HelmetProvider } from 'react-helmet-async';
 import Header from './components/Header';
 import Hero from './components/Hero';
+import CookieBanner from './components/CookieBanner';
 import WorkArea from './components/WorkArea';
 import About from './components/About';
 import Coverage from './components/Coverage';
@@ -135,6 +136,7 @@ function App() {
         <Router>
           <ScrollToTop />
           <FacebookPixelPageView />
+          <CookieBanner />
           <ErrorBoundary>
             <Suspense fallback={<LoadingSpinner />}>
               <Routes>
