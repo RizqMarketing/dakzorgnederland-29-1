@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Calculator, Home, Building2, Wrench, Check, ArrowRight, Hammer, HardHat, ShieldCheck, Droplets, Sun } from 'lucide-react';
+import ContactPopup from './ContactPopup';
 
 const CostCalculator = () => {
   const [formData, setFormData] = useState({
@@ -19,6 +20,7 @@ const CostCalculator = () => {
 
   const [estimate, setEstimate] = useState(null);
   const [activeTab, setActiveTab] = useState('dakwerk');
+  const [isContactPopupOpen, setIsContactPopupOpen] = useState(false);
 
   const projectTypes = [
     { id: 'dakrenovatie', label: 'Dakrenovatie', icon: Hammer, desc: 'Renovatie van bestaand dak' },
@@ -139,10 +141,7 @@ const CostCalculator = () => {
   };
 
   const handleRequestQuote = () => {
-    const contactSection = document.getElementById('contact');
-    if (contactSection) {
-      contactSection.scrollIntoView({ behavior: 'smooth' });
-    }
+    setIsContactPopupOpen(true);
   };
 
   const tabs = [
@@ -164,7 +163,7 @@ const CostCalculator = () => {
   const status = getCompletionStatus();
 
   return (
-    <section id="cost-calculator" className="py-20 bg-stone-900 relative overflow-hidden">
+    <section id="cost-calculator" className="py-20 pb-32 lg:pb-20 bg-stone-900 relative overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute inset-0 bg-gradient-to-br from-brand-400/20 to-brand-600/20"></div>
@@ -202,7 +201,7 @@ const CostCalculator = () => {
                 <button
                   key={tab.id}
                   onClick={() => setActiveTab(tab.id)}
-                  className={`px-6 py-3 rounded-xl font-medium transition-all duration-300 ${
+                  className={`px-4 py-2 sm:px-6 sm:py-3 rounded-xl text-sm sm:text-base font-medium transition-all duration-300 ${
                     activeTab === tab.id
                       ? 'bg-brand-500 text-stone-900'
                       : 'text-stone-300 hover:text-white hover:bg-stone-700'
@@ -301,7 +300,7 @@ const CostCalculator = () => {
                           }`}>{type.label}</div>
                           <div className={`text-sm mt-1 ${
                             formData.buildingType === type.id ? 'text-brand-200' : 'text-brand-300'
-                          }`}>€{type.basePrice}/m²</div>
+                          }`}>vanaf €{type.basePrice}/m²</div>
                         </button>
                       ))}
                     </div>
@@ -345,7 +344,7 @@ const CostCalculator = () => {
                       <label className="text-sm font-medium text-stone-300">
                         {specLabels[specKey]}
                       </label>
-                      <div className="grid grid-cols-3 gap-3">
+                      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                         {specifications[specKey].map((option) => (
                           <button
                             key={option.id}
@@ -384,8 +383,8 @@ const CostCalculator = () => {
             </div>
           </div>
 
-          {/* Right Panel - Live Estimate */}
-          <div className="flex justify-center mt-12">
+          {/* Right Panel - Live Estimate (hidden on mobile, sticky bar shows estimate there) */}
+          <div className="hidden lg:flex justify-center mt-12">
             <div className="bg-gradient-to-br from-stone-800 to-stone-900 rounded-2xl p-8 md:p-10 sticky top-8 shadow-xl w-full max-w-md">
               {/* Progress */}
               <div className="mb-10 text-center">
@@ -487,6 +486,12 @@ const CostCalculator = () => {
           </div>
         </div>
       )}
+      <ContactPopup
+        isOpen={isContactPopupOpen}
+        onClose={() => setIsContactPopupOpen(false)}
+        service="Dakwerk Kostencalculator"
+        title="Exacte Offerte Aanvragen"
+      />
     </section>
   );
 };
