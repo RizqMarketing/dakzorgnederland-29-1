@@ -201,7 +201,7 @@ const RoofingPage = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="relative overflow-hidden rounded-2xl shadow-lg">
               <img
-                src="https://images.pexels.com/photos/259588/pexels-photo-259588.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop"
+                src="https://i.imgur.com/ptrJOuC.jpg"
                 alt="Pannendak werkzaamheden"
                 className="w-full h-64 object-cover hover:scale-105 transition-transform duration-500"
               />
@@ -213,7 +213,7 @@ const RoofingPage = () => {
             </div>
             <div className="relative overflow-hidden rounded-2xl shadow-lg">
               <img
-                src="https://images.pexels.com/photos/186077/pexels-photo-186077.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop"
+                src="https://i.imgur.com/L53gU3R.jpg"
                 alt="Bitumen dak aanleg"
                 className="w-full h-64 object-cover hover:scale-105 transition-transform duration-500"
               />
@@ -225,7 +225,7 @@ const RoofingPage = () => {
             </div>
             <div className="relative overflow-hidden rounded-2xl shadow-lg">
               <img
-                src="https://images.pexels.com/photos/1396132/pexels-photo-1396132.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop"
+                src="https://i.imgur.com/sZeclzw.jpg"
                 alt="Dakkapel plaatsing"
                 className="w-full h-64 object-cover hover:scale-105 transition-transform duration-500"
               />
