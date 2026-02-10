@@ -29,12 +29,6 @@ const ChimneyPage = () => {
       details: "Complete verwijdering inclusief afvoer puin, herstel dakbedekking en garantie. Geen verrassingen achteraf!"
     },
     {
-      title: "Schouw Verwijderen",
-      description: "Schouw uit woonkamer tot aan het dak professioneel verwijderen",
-      icon: Home,
-      details: "Vakkundige verwijdering van uw schouw, inclusief afwerking van muren, plafond en dak. Alles netjes afgewerkt!"
-    },
-    {
       title: "Rookkanaal Afsluiten",
       description: "Rookkanaal permanent en veilig afsluiten",
       icon: Shield,

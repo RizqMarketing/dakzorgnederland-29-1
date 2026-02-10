@@ -29,12 +29,6 @@ const ChimneyRenovationPage = () => {
       details: "Volledige renovatie van uw schoorsteen met moderne materialen voor jarenlang probleemloos gebruik."
     },
     {
-      title: "Schouw Renovatie",
-      description: "Moderne, veilige en energiezuinige schouw",
-      icon: Home,
-      details: "Complete renovatie van uw schouw, van woonkamer tot dak. Mooi, veilig en volgens alle normen."
-    },
-    {
       title: "Rookkanaal Herstel",
       description: "Veilig en efficiënt rookkanaal voor optimale trek",
       icon: Shield,
