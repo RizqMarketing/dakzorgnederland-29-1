@@ -12,7 +12,7 @@ const FacebookPixelPageView = () => {
       // Track with explicit URL parameter
       window.fbq('track', 'PageView', {
         page_title: document.title,
-        page_location: 'https://aannemersbedrijf-emt.nl' + location.pathname,
+        page_location: 'https://dakzorgnederland.nl' + location.pathname,
         page_path: location.pathname,
       });
     }
