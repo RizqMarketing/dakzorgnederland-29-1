@@ -217,7 +217,7 @@ const DakkapelPage = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-8">
             {[
-              { label: "Google Rating", value: "4.9/5", icon: Star },
+              { label: "Beoordeling", value: "4.9/5", icon: Star },
               { label: "Ervaring", value: "7+ Jaar", icon: Award },
               { label: "KvK", value: "96885904", icon: Shield },
               { label: "Status", value: "Volledig Verzekerd", icon: CheckCircle }
