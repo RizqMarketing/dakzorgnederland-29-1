@@ -1,95 +1,138 @@
 import React, { useState } from 'react';
 import {
-  Home, CheckCircle, Phone, ArrowRight,
-  Award, Shield, Clock, Wrench, Sun
+  CheckCircle, Phone, ArrowRight,
+  Award, Shield, Clock, Wrench,
+  ChevronDown, Star, Hammer, Flame
 } from 'lucide-react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import Contact from '../components/Contact';
 import ContactPopup from '../components/ContactPopup';
-import Testimonials from '../components/Testimonials';
+import SEOHead from '../components/SEOHead';
 
 const ChimneyPage = () => {
   const [isContactPopupOpen, setIsContactPopupOpen] = useState(false);
+  const [popupService, setPopupService] = useState("Schoorsteen Verwijderen");
+  const [popupTitle, setPopupTitle] = useState("Gratis Inspectie & Offerte Aanvragen");
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
 
-  const chimneyServices = [
-    "Complete schoorsteen verwijdering",
-    "Herstel dakbedekking na verwijdering",
-    "Afvoer van alle puin en materialen",
-    "Waterdicht maken van het dak",
-    "Nokvorsten herstellen",
-    "Loodwerk vervangen of repareren"
-  ];
+  const openPopup = (service: string, title: string) => {
+    setPopupService(service);
+    setPopupTitle(title);
+    setIsContactPopupOpen(true);
+  };
 
-  const chimneyTypes = [
+  const diensten = [
     {
-      title: "Complete Schoorsteen Verwijdering",
-      description: "Van dak tot fundering - wij verwijderen alles veilig",
-      icon: Shield,
-      details: "Complete verwijdering inclusief afvoer puin, herstel dakbedekking en garantie. Geen verrassingen achteraf!"
+      title: "Schoorsteen Verwijderen",
+      icon: Hammer,
+      description: "Complete schoorsteen verwijdering van dak tot fundering. Wij breken de schoorsteen veilig af, slopen het metselwerk, voeren al het puin af en herstellen uw dak volledig. Geen rommel, geen zorgen.",
+      includes: ["Complete afbraak & sloping", "Puin afvoeren & opruimen", "Dakbedekking herstellen", "10 jaar garantie"],
+      popupService: "Schoorsteen Verwijderen"
+    },
+    {
+      title: "Schoorsteen Afhakken",
+      icon: Wrench,
+      description: "Schoorsteen boven het dak verwijderen (afhakken of kappen). Het zichtbare deel wordt vakkundig verwijderd, het dak waterdicht afgewerkt en de schoorsteen onder het dak blijft intact. Ideaal als u de binnenmuren wilt behouden.",
+      includes: ["Schoorsteen boven dak verwijderen", "Inkorten op dakniveau", "Waterdichte dakafwerking", "Nette afwerking binnenzijde"],
+      popupService: "Schoorsteen Afhakken"
     },
     {
       title: "Rookkanaal Afsluiten",
-      description: "Rookkanaal permanent en veilig afsluiten",
+      icon: Flame,
+      description: "Rookkanaal permanent en professioneel dichtmaken. Voorkom tocht, vocht en warmteverlies door een ongebruikt rookkanaal vakkundig af te sluiten. Wij zorgen voor optimale ventilatie en isolatie.",
+      includes: ["Rookkanaal dichtmaken", "Tocht & vocht voorkomen", "Ventilatierooster plaatsen", "Energiebesparing realiseren"],
+      popupService: "Rookkanaal Afsluiten"
+    },
+    {
+      title: "Dak Dichtmaken",
       icon: Shield,
-      details: "Professioneel afsluiten van rookkanalen om tocht, vocht en energieverlies te voorkomen. Met garantie!"
+      description: "Na verwijdering van de schoorsteen maken wij uw dak 100% waterdicht. Nieuwe dakpannen, loodwerk en nokvorsten worden vakkundig aangebracht. Uw dak ziet eruit alsof er nooit een schoorsteen heeft gestaan.",
+      includes: ["Dakpannen herstellen & vervangen", "Loodwerk aanbrengen", "Nokvorsten plaatsen", "Waterdichtheidscontrole"],
+      popupService: "Dak Dichtmaken"
     }
   ];
 
-  const features = [
-    {
-      title: "Gratis Inspectie",
-      description: "Eerst kijken, dan pas beslissen - geheel vrijblijvend",
-      icon: Award
-    },
-    {
-      title: "Vaste Lage Prijs",
-      description: "Geen verrassingen - u weet vooraf wat het kost",
-      icon: Shield
-    },
-    {
-      title: "10 Jaar Garantie",
-      description: "Volledige garantie op alle verwijderingswerkzaamheden",
-      icon: Shield
-    }
-  ];
-
-  const chimneyProcess = [
+  const werkproces = [
     {
       step: "1",
-      title: "Gratis Inspectie",
-      description: "We komen vrijblijvend langs voor een inspectie",
-      details: "Binnen 24 uur bij u thuis. Geen voorrijkosten, geen verplichtingen!"
+      title: "Gratis Inspectie & Advies",
+      description: "Wij komen vrijblijvend langs om uw schoorsteen te inspecteren. U krijgt eerlijk advies over de beste aanpak: verwijderen, afhakken of rookkanaal afsluiten."
     },
     {
       step: "2",
       title: "Vaste Prijs Offerte",
-      description: "U krijgt direct een eerlijke, vaste prijs",
-      details: "Geen verrassingen achteraf. U weet precies waar u aan toe bent!"
+      description: "Binnen 48 uur ontvangt u een gedetailleerde offerte met vaste prijs. Alles inbegrepen — geen verrassingen achteraf, zwart op wit."
     },
     {
       step: "3",
       title: "Professionele Verwijdering",
-      description: "Wij verwijderen uw schoorsteen volledig",
-      details: "Inclusief afvoer puin, herstel dakbedekking en schoonmaak!"
+      description: "Onze vakmensen verwijderen uw schoorsteen veilig en efficiënt. Inclusief complete puin afvoer en opruimen van de werkplek."
     },
     {
       step: "4",
-      title: "10 Jaar Garantie",
-      description: "U krijgt 10 jaar volledige garantie",
-      details: "Waterdicht dak gegarandeerd. Nooit meer zorgen om uw oude schoorsteen!"
+      title: "Dak Dichtmaken & Oplevering",
+      description: "Uw dak wordt volledig waterdicht gemaakt met nieuwe pannen, loodwerk en nokvorsten. Afgerond met een waterdichtheidscontrole en 10 jaar garantie."
     }
   ];
 
-  const emergencyServices = [
-    { service: "Lekkende schoorsteen", description: "Directe hulp", available: "Directe hulp" },
-    { service: "Instabiele schoorsteen", description: "Snelle beoordeling", available: "Snelle beoordeling" },
-    { service: "Rookkanaal problemen", description: "Vakkundige oplossing", available: "Vakkundige oplossing" },
-    { service: "Noodreparaties", description: "Altijd bereikbaar", available: "Altijd bereikbaar" }
+  const faqItems = [
+    {
+      question: "Wat kost een schoorsteen laten verwijderen?",
+      answer: "De kosten voor het verwijderen van een schoorsteen zijn afhankelijk van de grootte, het type (volledig verwijderen of afhakken) en de staat van het dak. Bij DakZorg Nederland ontvangt u altijd een gratis inspectie en een vaste prijsofferte zonder verrassingen. Neem contact op voor een vrijblijvende prijsopgave."
+    },
+    {
+      question: "Heb ik een vergunning nodig voor schoorsteen verwijdering?",
+      answer: "In de meeste gevallen is het verwijderen van een schoorsteen vergunningsvrij. Bij monumentale panden of beschermde stadsgezichten kan een vergunning nodig zijn. Wij adviseren u hier gratis over tijdens de inspectie en helpen bij de aanvraag als een vergunning wél nodig is."
+    },
+    {
+      question: "Hoe lang duurt het verwijderen van een schoorsteen?",
+      answer: "Het afhakken van een schoorsteen boven het dak duurt meestal 1-2 dagen. Een complete verwijdering (inclusief binnenhuis) duurt gemiddeld 2-4 werkdagen. Inclusief dak dichtmaken en opruimen bent u meestal binnen een week klaar."
+    },
+    {
+      question: "Wat is het verschil tussen afhakken en volledig verwijderen?",
+      answer: "Bij afhakken wordt alleen het deel boven het dak verwijderd — de schoorsteen onder het dak en in de woning blijft staan. Bij volledige verwijdering wordt de schoorsteen van dak tot begane grond verwijderd. Afhakken is goedkoper en sneller, volledige verwijdering levert meer ruimte op in de woning."
+    },
+    {
+      question: "Wordt het dak waterdicht gemaakt na verwijdering?",
+      answer: "Ja, altijd. Na het verwijderen van de schoorsteen herstellen wij het dak volledig: nieuwe dakpannen, loodwerk en nokvorsten. Wij voeren een waterdichtheidscontrole uit en geven tot 10 jaar garantie op het resultaat."
+    },
+    {
+      question: "Kan ik ook alleen het rookkanaal laten afsluiten?",
+      answer: "Ja, dat kan. Als u de schoorsteen wilt behouden maar het rookkanaal niet meer gebruikt, kunnen wij het rookkanaal professioneel afsluiten. Dit voorkomt tocht, vocht en warmteverlies. Wij plaatsen een ventilatierooster om condensvorming te voorkomen."
+    },
+    {
+      question: "Mijn schoorsteen lekt — moet ik deze laten verwijderen?",
+      answer: "Niet altijd. Een lekkende schoorsteen kan soms gerepareerd worden met nieuw loodwerk of voegwerk. Wij adviseren u eerlijk of reparatie of verwijdering de beste oplossing is. Bel ons op 06 57 01 08 61 — wij zijn 24/7 bereikbaar voor spoedgevallen."
+    },
+    {
+      question: "Geeft DakZorg garantie op schoorsteen verwijdering?",
+      answer: "Ja, wij geven tot 10 jaar garantie op onze schoorsteen werkzaamheden. Dit geldt voor zowel de verwijdering als het waterdicht maken van het dak. U krijgt de garantievoorwaarden altijd schriftelijk bij de offerte."
+    }
   ];
 
+  const faqStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqItems.map(item => ({
+      "@type": "Question",
+      "name": item.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": item.answer
+      }
+    }))
+  };
+
   return (
-    <div className="min-h-screen bg-stone-50">
+    <div className="min-h-screen bg-stone-50 pb-20 lg:pb-0">
+      <SEOHead
+        title="Schoorsteen Verwijderen | Gratis Inspectie | DakZorg Nederland"
+        description="Schoorsteen laten verwijderen, rookkanaal afsluiten of schoorsteen afhakken? DakZorg Nederland: specialist in schoorsteen verwijdering, dak dichtmaken en rookkanaal afsluiting. Gratis inspectie & vaste prijs offerte."
+        keywords="schoorsteen verwijderen, schoorsteen afhakken, rookkanaal afsluiten, schoorsteen laten verwijderen, schoorsteen slopen, dak dichtmaken, schoorsteen verwijderen kosten, rookkanaal dichtmaken, schoorsteen inkorten"
+        canonicalUrl="https://dakzorgnederland.nl/schoorsteen-verwijderen"
+        structuredData={faqStructuredData}
+      />
       <Header />
 
       {/* Hero Section */}
@@ -97,9 +140,7 @@ const ChimneyPage = () => {
         <div className="absolute inset-0 bg-black/20"></div>
         <div
           className="absolute inset-0 bg-cover bg-center opacity-30"
-          style={{
-            backgroundImage: 'url(/house2-new.jpg)'
-          }}
+          style={{ backgroundImage: 'url(/house2-new.jpg)' }}
         ></div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -110,38 +151,41 @@ const ChimneyPage = () => {
             </div>
 
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 leading-[1.1]">
-              Professionele Schoorsteen
-              <span className="block text-brand-400 mt-2">Verwijdering</span>
+              Schoorsteen Laten
+              <span className="block text-brand-400 mt-2">Verwijderen?</span>
             </h1>
 
-            <p className="text-lg text-stone-300 mb-10 max-w-2xl mx-auto leading-relaxed">
-              Vakkundige schoorsteen verwijdering van A tot Z. DakZorg Nederland staat voor veilig
-              werk met gratis inspectie, vaste prijzen en 10 jaar garantie.
+            <p className="text-lg text-stone-300 mb-4 max-w-2xl mx-auto leading-relaxed">
+              Complete verwijdering | Rookkanaal afsluiten | Dak waterdicht | 10 jaar garantie
+            </p>
+
+            <p className="text-2xl sm:text-3xl font-bold text-brand-400 mb-10">
+              Gratis inspectie & vaste prijs offerte
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-10">
               <button
-                onClick={() => setIsContactPopupOpen(true)}
+                onClick={() => openPopup("Schoorsteen Verwijderen", "Gratis Offerte Binnen 24 Uur")}
                 className="bg-brand-500 hover:bg-brand-400 text-stone-900 font-bold px-8 py-4 rounded-xl transition-all duration-300 flex items-center justify-center space-x-2 shadow-lg shadow-brand-500/20"
               >
                 <ArrowRight className="w-5 h-5" />
-                <span>Gratis Offerte Aanvragen</span>
+                <span>Gratis Offerte Binnen 24 Uur</span>
               </button>
               <a
                 href="tel:0657010861"
                 className="bg-stone-800 hover:bg-stone-700 text-white font-bold px-8 py-4 rounded-xl transition-all duration-300 flex items-center justify-center space-x-2"
               >
                 <Phone className="w-5 h-5" />
-                <span>06 57 01 08 61</span>
+                <span>Bel Direct: 06 57 01 08 61</span>
               </a>
             </div>
 
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-3xl mx-auto">
               {[
-                { icon: CheckCircle, text: "Gratis inspectie & offerte" },
-                { icon: Clock, text: "24/7 bereikbaar" },
-                { icon: Shield, text: "Volledig verzekerd" },
-                { icon: Award, text: "7+ jaar ervaring" }
+                { icon: CheckCircle, text: "310+ tevreden klanten" },
+                { icon: CheckCircle, text: "Gratis inspectie" },
+                { icon: Shield, text: "Tot 10 jaar garantie" },
+                { icon: Clock, text: "Binnen 48 uur reactie" }
               ].map((item, index) => (
                 <div key={index} className="flex items-center justify-center space-x-3 bg-white/5 rounded-xl px-4 py-3">
                   <item.icon className="w-5 h-5 text-brand-400 flex-shrink-0" />
@@ -153,7 +197,84 @@ const ChimneyPage = () => {
         </div>
       </section>
 
-      {/* Features Section */}
+      {/* Social Proof Bar */}
+      <section className="bg-white border-b border-stone-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-8">
+            {[
+              { label: "Google Rating", value: "4.9/5", icon: Star },
+              { label: "Ervaring", value: "7+ Jaar", icon: Award },
+              { label: "KvK", value: "96885904", icon: Shield },
+              { label: "Status", value: "Volledig Verzekerd", icon: CheckCircle }
+            ].map((item, index) => (
+              <div key={index} className="flex items-center space-x-3 justify-center">
+                <item.icon className="w-5 h-5 text-brand-500 flex-shrink-0" />
+                <div>
+                  <div className="text-xs text-stone-500 uppercase tracking-wide">{item.label}</div>
+                  <div className="text-sm font-bold text-stone-900">{item.value}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Diensten */}
+      <section className="py-24 bg-gradient-to-b from-stone-50 to-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center space-x-2 bg-brand-100 text-brand-700 px-5 py-2 rounded-full text-sm font-semibold mb-6">
+              <Wrench className="w-4 h-4" />
+              <span>Onze Specialisaties</span>
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">
+              Onze{' '}
+              <span className="bg-gradient-to-r from-brand-500 to-brand-600 bg-clip-text text-transparent">Schoorsteen Diensten</span>
+            </h2>
+            <p className="text-xl text-stone-600 max-w-3xl mx-auto">
+              Van complete schoorsteen verwijdering tot rookkanaal afsluiting en dak dichtmaken.
+              Altijd met vaste prijs en garantie.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {diensten.map((dienst, index) => (
+              <div key={index} className="bg-white rounded-2xl shadow-lg border border-stone-100 hover:shadow-xl transition-all duration-300 flex flex-col">
+                <div className="p-8 flex-1">
+                  <div className="flex items-center mb-4">
+                    <div className="w-12 h-12 bg-gradient-to-br from-brand-400 to-brand-600 rounded-2xl flex items-center justify-center mr-4 shadow-lg shadow-brand-500/20">
+                      <dienst.icon className="w-6 h-6 text-white" />
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-bold text-slate-900">{dienst.title}</h3>
+                    </div>
+                  </div>
+                  <p className="text-stone-600 mb-6 leading-relaxed text-sm">{dienst.description}</p>
+                  <ul className="space-y-2 mb-6">
+                    {dienst.includes.map((item, i) => (
+                      <li key={i} className="flex items-center space-x-2">
+                        <CheckCircle className="w-4 h-4 text-brand-500 flex-shrink-0" />
+                        <span className="text-stone-700 text-sm">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div className="px-8 pb-8">
+                  <button
+                    onClick={() => openPopup(dienst.popupService, `Offerte ${dienst.title}`)}
+                    className="w-full group bg-stone-900 hover:bg-stone-800 text-white font-bold px-6 py-3.5 rounded-xl transition-all duration-300 inline-flex items-center justify-center space-x-2"
+                  >
+                    <span>Gratis Offerte</span>
+                    <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Waarom DakZorg + Foto's */}
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
@@ -163,23 +284,31 @@ const ChimneyPage = () => {
             </div>
             <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">
               Waarom kiezen voor{' '}
-              <span className="bg-gradient-to-r from-brand-500 to-brand-600 bg-clip-text text-transparent">onze schoorsteen service</span>
+              <span className="bg-gradient-to-r from-brand-500 to-brand-600 bg-clip-text text-transparent">DakZorg Nederland</span>
             </h2>
-            <p className="text-xl text-stone-600 max-w-3xl mx-auto mb-8">
-              Een oude of ongebruikte schoorsteen kan leiden tot lekkages, warmteverlies en hoge onderhoudskosten.
-              Wij verwijderen uw schoorsteen veilig en professioneel met garantie.
+            <p className="text-xl text-stone-600 max-w-3xl mx-auto">
+              Al meer dan 7 jaar de specialist in schoorsteen verwijdering en dakwerk in de regio Rotterdam.
             </p>
-            <button
-              onClick={() => setIsContactPopupOpen(true)}
-              className="group bg-stone-900 hover:bg-stone-800 text-white font-bold px-6 py-4 rounded-xl transition-all duration-300 inline-flex items-center space-x-2"
-            >
-              <span>Neem contact op</span>
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </button>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-            {features.map((feature, index) => (
+            {[
+              {
+                title: "Veilig & Vakkundig",
+                description: "7+ jaar ervaring in schoorsteen verwijdering. Onze vakmensen werken volgens strikte veiligheidsprotocollen met professionele steigers en gereedschap.",
+                icon: Award
+              },
+              {
+                title: "10 Jaar Garantie",
+                description: "Waterdicht dak gegarandeerd na verwijdering. Wij gebruiken uitsluitend A-kwaliteit materialen voor een duurzaam en lekvrij resultaat.",
+                icon: Shield
+              },
+              {
+                title: "Eerlijke Vaste Prijs",
+                description: "Geen verrassingen achteraf. Alles inbegrepen: verwijdering, puin afvoer, dak dichtmaken en oplevering. Wat wij afspreken, is wat u betaalt.",
+                icon: CheckCircle
+              }
+            ].map((feature, index) => (
               <div key={index} className="text-center p-8 bg-white rounded-2xl shadow-lg border border-stone-100 hover:shadow-xl transition-all duration-300">
                 <div className="w-14 h-14 bg-gradient-to-br from-brand-400 to-brand-600 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg shadow-brand-500/20">
                   <feature.icon className="w-7 h-7 text-white" />
@@ -194,175 +323,45 @@ const ChimneyPage = () => {
             <div className="relative overflow-hidden rounded-2xl shadow-lg">
               <img
                 src="https://images.pexels.com/photos/4394224/pexels-photo-4394224.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop"
-                alt="Schoorsteen renovatie"
+                alt="Schoorsteen verwijderen door DakZorg Nederland"
                 className="w-full h-64 object-cover hover:scale-105 transition-transform duration-500"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent"></div>
               <div className="absolute bottom-4 left-4 text-white">
-                <h4 className="font-bold">Renovatie</h4>
-                <p className="text-sm text-white/80">Veilig en duurzaam</p>
+                <h4 className="font-bold">Schoorsteen Verwijderen</h4>
+                <p className="text-sm text-white/80">Veilig en vakkundig</p>
               </div>
             </div>
             <div className="relative overflow-hidden rounded-2xl shadow-lg">
               <img
                 src="https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop"
-                alt="Schoorsteen verwijdering"
+                alt="Schoorsteen afhakken en dak dichtmaken"
                 className="w-full h-64 object-cover hover:scale-105 transition-transform duration-500"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent"></div>
               <div className="absolute bottom-4 left-4 text-white">
-                <h4 className="font-bold">Verwijdering</h4>
-                <p className="text-sm text-white/80">Veilige afbraak</p>
+                <h4 className="font-bold">Dak Dichtmaken</h4>
+                <p className="text-sm text-white/80">Waterdicht resultaat</p>
               </div>
             </div>
             <div className="relative overflow-hidden rounded-2xl shadow-lg">
               <img
                 src="https://images.pexels.com/photos/15271851/pexels-photo-15271851.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop"
-                alt="Schoorsteen onderhoud"
+                alt="Rookkanaal afsluiten en schoorsteen onderhoud"
                 className="w-full h-64 object-cover hover:scale-105 transition-transform duration-500"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent"></div>
               <div className="absolute bottom-4 left-4 text-white">
-                <h4 className="font-bold">Onderhoud</h4>
-                <p className="text-sm text-white/80">Preventief en curatief</p>
+                <h4 className="font-bold">Rookkanaal Afsluiten</h4>
+                <p className="text-sm text-white/80">Tocht & vocht voorkomen</p>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Chimney Types Section */}
+      {/* Werkproces */}
       <section className="py-24 bg-gradient-to-b from-stone-50 to-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <div className="inline-flex items-center space-x-2 bg-brand-100 text-brand-700 px-5 py-2 rounded-full text-sm font-semibold mb-6">
-              <Wrench className="w-4 h-4" />
-              <span>Onze Specialisaties</span>
-            </div>
-            <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">
-              Onze{' '}
-              <span className="bg-gradient-to-r from-brand-500 to-brand-600 bg-clip-text text-transparent">Schoorsteen Specialisaties</span>
-            </h2>
-            <p className="text-xl text-stone-600 max-w-3xl mx-auto">
-              Van complete schoorsteen verwijdering tot rookkanaal afsluiting.
-              Inclusief afvoer, dakdichting en garantie op al ons werk.
-            </p>
-          </div>
-
-          <div className="space-y-12">
-            {chimneyTypes.map((type, index) => (
-              <div key={index} className={`flex flex-col lg:flex-row items-center gap-12 ${index % 2 === 1 ? 'lg:flex-row-reverse' : ''}`}>
-                <div className="lg:w-1/2">
-                  <div className="flex items-center mb-6">
-                    <div className="w-14 h-14 bg-gradient-to-br from-brand-400 to-brand-600 rounded-2xl flex items-center justify-center mr-6 shadow-lg shadow-brand-500/20">
-                      <type.icon className="w-7 h-7 text-white" />
-                    </div>
-                    <div>
-                      <h3 className="text-2xl font-bold text-slate-900">{type.title}</h3>
-                      <p className="text-stone-600 text-lg">{type.description}</p>
-                    </div>
-                  </div>
-                  <p className="text-stone-700 leading-relaxed">{type.details}</p>
-                </div>
-                <div className="lg:w-1/2">
-                  <div className="bg-white rounded-2xl p-8 shadow-lg border border-stone-100">
-                    <h4 className="font-bold text-slate-900 mb-4">Wat is inbegrepen:</h4>
-                    <ul className="space-y-3">
-                      <li className="flex items-center space-x-3">
-                        <div className="w-6 h-6 bg-brand-500 rounded-full flex items-center justify-center flex-shrink-0">
-                          <CheckCircle className="w-4 h-4 text-white" />
-                        </div>
-                        <span className="text-stone-700 font-medium">Veiligheidsinspectie</span>
-                      </li>
-                      <li className="flex items-center space-x-3">
-                        <div className="w-6 h-6 bg-brand-500 rounded-full flex items-center justify-center flex-shrink-0">
-                          <CheckCircle className="w-4 h-4 text-white" />
-                        </div>
-                        <span className="text-stone-700 font-medium">Professioneel advies</span>
-                      </li>
-                      <li className="flex items-center space-x-3">
-                        <div className="w-6 h-6 bg-brand-500 rounded-full flex items-center justify-center flex-shrink-0">
-                          <CheckCircle className="w-4 h-4 text-white" />
-                        </div>
-                        <span className="text-stone-700 font-medium">Vakkundige uitvoering</span>
-                      </li>
-                      <li className="flex items-center space-x-3">
-                        <div className="w-6 h-6 bg-brand-500 rounded-full flex items-center justify-center flex-shrink-0">
-                          <CheckCircle className="w-4 h-4 text-white" />
-                        </div>
-                        <span className="text-stone-700 font-medium">Garantie op het werk</span>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Services Section */}
-      <section className="py-24 bg-stone-900 relative overflow-hidden">
-        <div className="absolute top-0 left-0 w-96 h-96 bg-brand-500/5 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
-        <div className="absolute bottom-0 right-0 w-80 h-80 bg-brand-400/5 rounded-full blur-3xl translate-x-1/2 translate-y-1/2"></div>
-
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <div className="inline-flex items-center space-x-2 bg-brand-500/20 text-brand-300 px-5 py-2.5 rounded-full text-sm font-semibold border border-brand-400/30 mb-6">
-              <Award className="w-4 h-4" />
-              <span>Onze Diensten</span>
-            </div>
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-              Compleet{' '}
-              <span className="bg-gradient-to-r from-brand-400 to-brand-500 bg-clip-text text-transparent">Schoorsteen Aanbod</span>
-            </h2>
-            <p className="text-lg text-stone-300 max-w-3xl mx-auto">
-              Van complete verwijdering tot rookkanaal afsluiting. Altijd met garantie en vakkundige uitvoering.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-12">
-            {chimneyServices.map((service, index) => (
-              <div key={index} className="flex items-center space-x-3 bg-stone-800/50 backdrop-blur-sm rounded-xl px-5 py-4 border border-stone-700/50">
-                <CheckCircle className="w-5 h-5 text-brand-400 flex-shrink-0" />
-                <span className="text-white/90 font-medium text-sm">{service}</span>
-              </div>
-            ))}
-          </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            <div className="bg-stone-800 rounded-2xl p-8 border border-stone-700">
-              <h3 className="text-xl font-bold text-white mb-3">Bespaar op onderhoud</h3>
-              <p className="text-stone-300 mb-6 leading-relaxed">
-                Een oude schoorsteen kost u jaarlijks honderden euro's aan onderhoud en reparaties.
-                Door verwijdering bespaart u structureel op onderhoudskosten en voorkomt u lekkages.
-              </p>
-              <button
-                onClick={() => setIsContactPopupOpen(true)}
-                className="group bg-brand-500 hover:bg-brand-400 text-stone-900 font-bold px-6 py-3.5 rounded-xl transition-all duration-300 inline-flex items-center space-x-2"
-              >
-                <span>Vraag een offerte aan</span>
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </button>
-            </div>
-
-            <div className="bg-stone-800 rounded-2xl p-8 border border-stone-700">
-              <h3 className="text-xl font-bold text-white mb-4">Direct voordeel</h3>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                {["Geen lekkages", "Lagere energierekening", "Geen onderhoudskosten", "Meer woonruimte", "Hogere woningwaarde"].map((item, index) => (
-                  <div key={index} className="flex items-center space-x-2">
-                    <CheckCircle className="w-4 h-4 text-brand-400 flex-shrink-0" />
-                    <span className="text-stone-300 text-sm font-medium">{item}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Process Section */}
-      <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <div className="inline-flex items-center space-x-2 bg-brand-100 text-brand-700 px-5 py-2 rounded-full text-sm font-semibold mb-6">
@@ -370,118 +369,217 @@ const ChimneyPage = () => {
               <span>Ons Werkproces</span>
             </div>
             <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">
-              Hoe wij uw{' '}
-              <span className="bg-gradient-to-r from-brand-500 to-brand-600 bg-clip-text text-transparent">schoorsteen verwijderen</span>
+              In 4 stappen naar een{' '}
+              <span className="bg-gradient-to-r from-brand-500 to-brand-600 bg-clip-text text-transparent">schoorsteenvrij dak</span>
             </h2>
-            <p className="text-xl text-stone-600 max-w-3xl mx-auto mb-8">
-              In 4 stappen naar een schoorsteenvrij dak. Vakkundig en zonder zorgen.
+            <p className="text-xl text-stone-600 max-w-3xl mx-auto">
+              Van inspectie tot oplevering — vakkundig en zonder zorgen.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+            {werkproces.map((item, index) => (
+              <div key={index} className="text-center">
+                <div className="w-16 h-16 bg-gradient-to-br from-brand-400 to-brand-600 text-white rounded-2xl flex items-center justify-center text-2xl font-bold mx-auto mb-4 shadow-lg shadow-brand-500/20">
+                  {item.step}
+                </div>
+                <h3 className="text-xl font-bold text-slate-900 mb-3">{item.title}</h3>
+                <p className="text-stone-600 text-sm leading-relaxed">{item.description}</p>
+              </div>
+            ))}
+          </div>
+
+          {/* Mid-page CTA Banner */}
+          <div className="bg-stone-900 rounded-3xl p-8 md:p-10 text-center">
+            <h3 className="text-2xl md:text-3xl font-bold text-white mb-3">
+              Ontvang een gratis offerte binnen 48 uur
+            </h3>
+            <p className="text-stone-400 mb-6 max-w-lg mx-auto">
+              Vrijblijvend en zonder verplichtingen. Inclusief gratis inspectie bij u thuis.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button
-                onClick={() => setIsContactPopupOpen(true)}
-                className="bg-brand-500 hover:bg-brand-400 text-stone-900 font-bold px-6 py-4 rounded-xl transition-all duration-300 inline-flex items-center space-x-2"
+                onClick={() => openPopup("Schoorsteen Verwijderen", "Gratis Offerte Binnen 48 Uur")}
+                className="bg-brand-500 hover:bg-brand-400 text-stone-900 font-bold px-8 py-4 rounded-xl transition-all duration-300 inline-flex items-center justify-center space-x-2"
               >
                 <ArrowRight className="w-5 h-5" />
-                <span>Start uw project</span>
+                <span>Gratis Offerte Aanvragen</span>
               </button>
               <a
                 href="tel:0657010861"
-                className="bg-stone-900 hover:bg-stone-800 text-white font-bold px-6 py-4 rounded-xl transition-all duration-300 inline-flex items-center space-x-2"
+                className="bg-stone-800 hover:bg-stone-700 text-white font-bold px-8 py-4 rounded-xl transition-all duration-300 inline-flex items-center justify-center space-x-2"
               >
                 <Phone className="w-5 h-5" />
                 <span>06 57 01 08 61</span>
               </a>
             </div>
           </div>
+        </div>
+      </section>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {chimneyProcess.map((item, index) => (
-              <div key={index} className="text-center">
-                <div className="w-16 h-16 bg-gradient-to-br from-brand-400 to-brand-600 text-white rounded-2xl flex items-center justify-center text-2xl font-bold mx-auto mb-4 shadow-lg shadow-brand-500/20">
-                  {item.step}
+      {/* Reviews + Statistieken */}
+      <section className="py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center space-x-2 bg-brand-100 text-brand-700 px-5 py-2 rounded-full text-sm font-semibold mb-6">
+              <Star className="w-4 h-4" />
+              <span>Klantervaringen</span>
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">
+              Wat onze klanten zeggen over{' '}
+              <span className="bg-gradient-to-r from-brand-500 to-brand-600 bg-clip-text text-transparent">ons dakwerk</span>
+            </h2>
+          </div>
+
+          {/* Statistieken */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16 max-w-2xl mx-auto">
+            {[
+              { value: "4.9/5", label: "Google beoordeling", icon: Star },
+              { value: "10 jaar", label: "Garantie op werk", icon: Shield }
+            ].map((stat, index) => (
+              <div key={index} className="text-center p-8 bg-gradient-to-br from-stone-50 to-white rounded-2xl border border-stone-100">
+                <div className="w-12 h-12 bg-gradient-to-br from-brand-400 to-brand-600 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg shadow-brand-500/20">
+                  <stat.icon className="w-6 h-6 text-white" />
                 </div>
-                <h3 className="text-xl font-bold text-slate-900 mb-3">{item.title}</h3>
-                <p className="text-stone-600 mb-4">{item.description}</p>
-                <p className="text-stone-500 text-sm">{item.details}</p>
+                <div className="text-3xl font-bold text-slate-900 mb-1">{stat.value}</div>
+                <div className="text-stone-600">{stat.label}</div>
               </div>
             ))}
+          </div>
+
+          {/* Reviews */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="bg-stone-50 rounded-2xl p-8 border border-stone-100">
+              <div className="flex items-center mb-4">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="w-5 h-5 text-yellow-400 fill-yellow-400" />
+                ))}
+              </div>
+              <p className="text-stone-700 mb-6 leading-relaxed italic">
+                "Ik had een kleine lekkage omdat de sneeuw aan het smelten was. Er kwamen vandaag 2 aardige mannen en ze hebben het meteen gemaakt voor een correcte prijs. Superblij mee. Aanrader."
+              </p>
+              <div className="flex items-center space-x-3">
+                <div className="w-10 h-10 bg-gradient-to-br from-brand-100 to-brand-200 rounded-full flex items-center justify-center text-brand-700 font-bold">LG</div>
+                <div>
+                  <div className="font-semibold text-slate-900">Lucienne Gringhuis</div>
+                  <div className="text-sm text-stone-500">Recente klant</div>
+                </div>
+              </div>
+            </div>
+            <div className="bg-stone-50 rounded-2xl p-8 border border-stone-100">
+              <div className="flex items-center mb-4">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="w-5 h-5 text-yellow-400 fill-yellow-400" />
+                ))}
+              </div>
+              <p className="text-stone-700 mb-6 leading-relaxed italic">
+                "Lang opzoek geweest naar een betrouwbare dakdekker. Toen hebben ze mij Dakzorg Nederland aanbevolen. Heb een contact moment ingepland, reageerde snel en dachten echt met mij mee! Alles netjes afgewerkt tot in de details. Vakmannen zijn het!"
+              </p>
+              <div className="flex items-center space-x-3">
+                <div className="w-10 h-10 bg-gradient-to-br from-brand-100 to-brand-200 rounded-full flex items-center justify-center text-brand-700 font-bold">JV</div>
+                <div>
+                  <div className="font-semibold text-slate-900">Jennety Vangulik</div>
+                  <div className="text-sm text-stone-500">Recente klant</div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Availability & Emergency Section */}
-      <section className="py-24 bg-stone-900 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-5">
-          <div className="absolute inset-0 bg-gradient-to-br from-brand-400/20 to-brand-600/20"></div>
-        </div>
-        <div className="absolute top-10 right-10 w-32 h-32 bg-brand-500/10 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-10 left-10 w-40 h-40 bg-brand-400/10 rounded-full blur-3xl"></div>
-
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <div className="inline-flex items-center space-x-2 bg-brand-500/20 text-brand-300 px-5 py-2.5 rounded-full text-sm font-semibold border border-brand-400/30 mb-6">
-              <Clock className="w-4 h-4" />
-              <span>24/7 Beschikbaar</span>
+      {/* Spoedbanner */}
+      <section className="bg-stone-900">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+            <div className="flex items-center space-x-4">
+              <div className="w-12 h-12 bg-brand-500/20 rounded-2xl flex items-center justify-center flex-shrink-0">
+                <Phone className="w-6 h-6 text-brand-400" />
+              </div>
+              <div>
+                <h3 className="text-xl font-bold text-white">
+                  Lekkende of instabiele schoorsteen?
+                </h3>
+                <p className="text-stone-400">
+                  24/7 bereikbaar voor spoedgevallen. Direct hulp van onze specialisten.
+                </p>
+              </div>
             </div>
+            <a
+              href="tel:0657010861"
+              className="group flex items-center gap-3 bg-gradient-to-r from-brand-500 to-brand-600 hover:from-brand-400 hover:to-brand-500 text-stone-900 font-bold px-8 py-4 rounded-xl transition-all duration-300 flex-shrink-0"
+            >
+              <Phone className="w-5 h-5" />
+              <span>Bel Direct: 06 57 01 08 61</span>
+            </a>
+          </div>
+        </div>
+      </section>
 
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-              Altijd bereikbaar voor uw{' '}
-              <span className="bg-gradient-to-r from-brand-400 to-brand-500 bg-clip-text text-transparent">schoorsteenproblemen</span>
+      {/* FAQ Sectie */}
+      <section className="py-24 bg-gradient-to-b from-stone-50 to-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center space-x-2 bg-brand-100 text-brand-700 px-5 py-2 rounded-full text-sm font-semibold mb-6">
+              <Hammer className="w-4 h-4" />
+              <span>Veelgestelde Vragen</span>
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">
+              Alles over{' '}
+              <span className="bg-gradient-to-r from-brand-500 to-brand-600 bg-clip-text text-transparent">schoorsteen verwijderen</span>
             </h2>
-            <p className="text-lg text-stone-300 max-w-3xl mx-auto leading-relaxed">
-              Lekkage of instabiele schoorsteen? Onze specialisten staan dag en nacht voor u klaar.
-              Preventief onderhoud voorkomt kostbare reparaties.
+            <p className="text-xl text-stone-600 max-w-3xl mx-auto">
+              Antwoord op de meest gestelde vragen over onze schoorsteen diensten.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-            {emergencyServices.map((emergency, index) => (
-              <div key={index} className="bg-stone-800/50 backdrop-blur-sm rounded-2xl p-6 border border-stone-700/50 hover:border-brand-500/30 transition-all duration-300 text-center">
-                <div className="text-white font-semibold mb-2">{emergency.service}</div>
-                <div className="text-stone-300 text-sm mb-2">{emergency.description}</div>
-                <div className="text-brand-400 font-medium text-sm">{emergency.available}</div>
+          <div className="space-y-4">
+            {faqItems.map((faq, index) => (
+              <div key={index} className="bg-white rounded-2xl border border-stone-200 overflow-hidden">
+                <button
+                  onClick={() => setOpenFaq(openFaq === index ? null : index)}
+                  className="w-full flex items-center justify-between p-6 text-left hover:bg-stone-50 transition-colors duration-200"
+                >
+                  <span className="text-lg font-semibold text-slate-900 pr-4">{faq.question}</span>
+                  <ChevronDown className={`w-5 h-5 text-stone-500 flex-shrink-0 transition-transform duration-300 ${openFaq === index ? 'rotate-180' : ''}`} />
+                </button>
+                {openFaq === index && (
+                  <div className="px-6 pb-6">
+                    <p className="text-stone-600 leading-relaxed">{faq.answer}</p>
+                  </div>
+                )}
               </div>
             ))}
           </div>
-
-          <div className="relative bg-stone-800 rounded-3xl p-8 md:p-10 overflow-hidden border border-stone-700">
-            <div className="absolute top-0 right-0 w-64 h-64 bg-brand-500/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
-            <div className="relative flex flex-col md:flex-row items-center justify-between gap-6">
-              <div className="text-center md:text-left">
-                <h3 className="text-2xl md:text-3xl font-bold text-white mb-2">
-                  Direct hulp nodig?
-                </h3>
-                <p className="text-stone-400 max-w-lg">
-                  Onze schoorsteen specialisten staan voor u klaar bij spoedeisende situaties.
-                </p>
-              </div>
-              <a
-                href="tel:0657010861"
-                className="group flex items-center gap-4 bg-gradient-to-r from-brand-500 to-brand-600 hover:from-brand-400 hover:to-brand-500 text-slate-900 font-bold px-8 py-5 rounded-2xl transition-all duration-300 shadow-xl shadow-brand-500/20"
-              >
-                <Phone className="w-6 h-6" />
-                <div className="text-left">
-                  <div className="text-xs font-semibold opacity-80">Bel direct</div>
-                  <div className="text-xl">06 57 01 08 61</div>
-                </div>
-              </a>
-            </div>
-          </div>
         </div>
       </section>
-
-      {/* Testimonials */}
-      <Testimonials />
 
       <Footer>
         <Contact standalone={false} />
       </Footer>
 
+      {/* Sticky Mobiele CTA Bar */}
+      <div className="fixed bottom-0 left-0 right-0 bg-stone-900 border-t border-stone-700 p-3 flex items-center justify-between gap-3 z-50 lg:hidden">
+        <a
+          href="tel:0657010861"
+          className="flex-1 flex items-center justify-center space-x-2 bg-stone-800 text-white font-bold py-3 rounded-xl transition-all duration-300"
+        >
+          <Phone className="w-5 h-5" />
+          <span className="text-sm">Bel Direct</span>
+        </a>
+        <button
+          onClick={() => openPopup("Schoorsteen Verwijderen", "Gratis Offerte Aanvragen")}
+          className="flex-1 flex items-center justify-center space-x-2 bg-brand-500 hover:bg-brand-400 text-stone-900 font-bold py-3 rounded-xl transition-all duration-300"
+        >
+          <ArrowRight className="w-5 h-5" />
+          <span className="text-sm">Gratis Offerte</span>
+        </button>
+      </div>
+
       <ContactPopup
         isOpen={isContactPopupOpen}
         onClose={() => setIsContactPopupOpen(false)}
-        service="Schoorsteenwerk"
-        title="Gratis Schoorsteen Inspectie"
+        service={popupService}
+        title={popupTitle}
       />
     </div>
   );
