@@ -87,8 +87,8 @@ const NicoContact = () => {
               {/* Image */}
               <div className="relative">
                 <img
-                  src="https://imgur.com/LCf2zCM.png"
-                  alt="DakZorg Nederland - Professioneel dakwerk"
+                  src="/bitumen-branden.png"
+                  alt="DakZorg Nederland - Bitumen branden op plat dak"
                   className="w-full h-auto rounded-3xl shadow-2xl object-cover"
                 />
 
