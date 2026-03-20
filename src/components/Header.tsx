@@ -42,6 +42,7 @@ const Header = () => {
     { name: 'Dakinspectie', href: '/dakinspectie' },
     { name: 'Vogel & Ongedierte Wering', href: '/vogel-ongedierte-wering' },
     { name: 'Spoed Service', href: '/spoed' },
+    { name: 'Pannendak', href: '/pannendak' },
   ];
 
   const handleNavClick = (href) => {

@@ -5,7 +5,7 @@ import { sendEmail } from '../utils/emailService';
 
 const backgroundImages = [
   'https://images.pexels.com/photos/7031607/pexels-photo-7031607.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop',
-  '/house3-new.jpg',
+  '/about-dakzorg.jpg',
   'https://images.pexels.com/photos/206172/pexels-photo-206172.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop'
 ];
 

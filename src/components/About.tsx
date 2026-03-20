@@ -43,25 +43,11 @@ const About = () => {
                 {/* Left - Image */}
                 <div className="relative h-80 lg:h-auto">
                   <img
-                    src="/house3-new.jpg"
+                    src="/about-dakzorg.jpg"
                     alt="Professioneel dakwerk"
                     className="w-full h-full object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-r from-stone-900/60 to-transparent lg:bg-gradient-to-t lg:from-stone-900/40 lg:to-transparent"></div>
-
-                  {/* Image overlay badge */}
-                  <div className="absolute bottom-6 left-6">
-                    <div className="bg-white/20 backdrop-blur-md rounded-xl px-4 py-2 border border-white/30">
-                      <div className="flex items-center space-x-2">
-                        <div className="flex -space-x-1">
-                          {[...Array(5)].map((_, i) => (
-                            <Star key={i} className="w-4 h-4 text-yellow-400 fill-yellow-400" />
-                          ))}
-                        </div>
-                        <span className="text-white text-sm font-medium">Uitstekend</span>
-                      </div>
-                    </div>
-                  </div>
                 </div>
 
                 {/* Right - Content */}

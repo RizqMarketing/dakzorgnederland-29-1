@@ -104,7 +104,7 @@ const BitumenEpdmPage = () => {
         <div
           className="absolute inset-0 bg-cover bg-center opacity-30"
           style={{
-            backgroundImage: 'url(/house2-new.jpg)'
+            backgroundImage: 'url(/about-dakzorg.jpg)'
           }}
         ></div>
 

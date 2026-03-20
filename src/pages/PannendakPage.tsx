@@ -102,9 +102,9 @@ const PannendakPage = () => {
       <section className="relative bg-gradient-to-br from-stone-900 via-stone-800 to-stone-900 text-white py-20 pt-32 lg:pt-48">
         <div className="absolute inset-0 bg-black/20"></div>
         <div
-          className="absolute inset-0 bg-cover bg-center opacity-30"
+          className="absolute inset-0 bg-cover bg-center opacity-50"
           style={{
-            backgroundImage: 'url(/house2-new.jpg)'
+            backgroundImage: 'url(/pannendak-hero.jpg)'
           }}
         ></div>
 
