@@ -22,6 +22,7 @@ const RoofingPage = React.lazy(() => import('./pages/RoofingPage'));
 const ChimneyPage = React.lazy(() => import('./pages/ChimneyPage'));
 const ChimneyRenovationPage = React.lazy(() => import('./pages/ChimneyRenovationPage'));
 const BitumenEpdmPage = React.lazy(() => import('./pages/BitumenEpdmPage'));
+const PannendakPage = React.lazy(() => import('./pages/PannendakPage'));
 const DakkapelPage = React.lazy(() => import('./pages/DakkapelPage'));
 const VogelWeringPage = React.lazy(() => import('./pages/VogelWeringPage'));
 
@@ -146,6 +147,7 @@ function App() {
                 <Route path="/schoorsteen-verwijderen" element={<ChimneyPage />} />
                 <Route path="/schoorsteen-renovatie" element={<ChimneyRenovationPage />} />
                 <Route path="/bitumen-epdm" element={<BitumenEpdmPage />} />
+                <Route path="/pannendak" element={<PannendakPage />} />
                 <Route path="/dakkapel" element={<DakkapelPage />} />
                 <Route path="/vogel-ongedierte-wering" element={<VogelWeringPage />} />
 
